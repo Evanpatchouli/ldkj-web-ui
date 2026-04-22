@@ -13,8 +13,15 @@ const config: UserConfig = {
     sidebar: [
       {
         text: "Components",
-        items: [{ text: "Button", link: "/components/button" }],
+        items: [
+          { text: "Button", link: "/components/button" },
+          { text: "Chip", link: "/components/chip" },
+        ],
       },
+      {
+        text: "Lib",
+        items: [],
+      }
     ],
     socialLinks: [{ icon: "github", link: "https://github.com/ldkj/web-ui" }],
   },

@@ -1,4 +1,4 @@
-import { Button } from "../../../../src";
+import { Button } from "@/index";
 
 export default function ButtonVariantsDemo() {
   return (
