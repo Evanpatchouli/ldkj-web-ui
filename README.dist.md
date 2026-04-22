@@ -5,18 +5,22 @@
 ## 立即开始
 
 ```bash
-npm install --save @ldkj/web-ui
+pnpm add @ldkj/web-ui
 ```
 
 ## 使用示例
 
 ```tsx
-import { Button } from "@ldkj/web-ui";
+import "@ldkj/web-ui/style.css";
+import { Button, Chip } from "@ldkj/web-ui";
 
 export default function App() {
   return (
     <div className="p-4">
       <Button variant="primary">Hello World</Button>
+      <Chip variant="success" size="sm">
+        Ready
+      </Chip>
     </div>
   );
 }
