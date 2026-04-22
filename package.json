@@ -4,6 +4,13 @@
   "private": false,
   "author": "xfwang <wangxiaofeng@xjldkj.com>",
   "description": "React component library built with shadcn-ui patterns and VitePress docs.",
+  "keywords": [
+    "react",
+    "web-ui",
+    "component-library",
+    "shadcn-ui",
+    "vitepress"
+  ],
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.cjs",

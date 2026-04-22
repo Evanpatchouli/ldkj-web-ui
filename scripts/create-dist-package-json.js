@@ -26,6 +26,7 @@ const distPackageJson = {
   private: false,
   author: rootPackageJson.author,
   description: rootPackageJson.description,
+  keywords: rootPackageJson.keywords,
   type: rootPackageJson.type,
   main: "./index.cjs",
   module: "./index.js",
