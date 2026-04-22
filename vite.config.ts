@@ -13,17 +13,17 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
       name: "ldkjWebUi",
-      fileName: (format) => (format === "es" ? "index.js" : "index.umd.cjs"),
-      formats: ["es", "umd"],
+      fileName: (format) => (format === "es" ? "index.js" : "index.cjs"),
+      cssFileName: "style",
+      formats: ["es", "cjs"],
     },
     rollupOptions: {
-      external: ["react", "react-dom"],
-      output: {
-        globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
-        },
-      },
+      external: [
+        "react",
+        "react-dom",
+        "react/jsx-runtime",
+        "react/jsx-dev-runtime",
+      ],
     },
   },
 });

@@ -1,24 +1,24 @@
 # @ldkj/web-ui
 
-A React component library with shadcn-ui style conventions and VitePress docs.
+由 shadcn-ui, Tailwind CSS 和 VitePress 构建的 React 组件库.
+
+## 开发
+
+```bash
+pnpm install
+pnpm dev
+```
 
 ## Scripts
 
-- `npm run dev`: start VitePress development server for docs and demos.
-- `npm run build:lib`: build component library bundle to `dist/`.
-- `npm run build:docs`: build VitePress static docs.
-- `npm run build`: run both library and docs builds.
-- `npm run typecheck`: run TypeScript checks.
+- `pnpm dev`: start VitePress development server for docs and demos.
+- `pnpm build:lib`: build component library bundle to `dist/`.
+- `pnpm build:docs`: build VitePress static docs.
+- `pnpm build`: run both library and docs builds.
+- `pnpm typecheck`: run TypeScript checks.
 
-## Install and run
-
-```bash
-npm install
-npm run dev
-```
-
-## Build release artifacts
+## 构建
 
 ```bash
-npm run build
+pnpm build
 ```
