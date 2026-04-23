@@ -7,16 +7,23 @@ const config: UserConfig = {
   description: "shadcn-ui style component library based on React + VitePress",
   themeConfig: {
     nav: [
-      { text: "Guide", link: "/" },
-      { text: "Components", link: "/components/button" },
+      { text: "指南", link: "/" },
+      { text: "组件", link: "/components/button" },
     ],
     sidebar: [
       {
-        text: "Components",
+        text: "组件",
         items: [
           { text: "Button", link: "/components/button" },
           { text: "Chip", link: "/components/chip" },
           { text: "Divider", link: "/components/divider" },
+        ],
+      },
+      {
+        text: "Lib",
+        items: [
+          // { text: "Utils", link: "/lib/utils" },
+          // { text: "Theme", link: "/lib/theme" },
         ],
       },
       {
