@@ -20,6 +20,15 @@ import DividerTypeColorDemo from "./components/Divider/DividerTypeColorDemo";
 import FlexDirectionDemo from "./components/Flex/FlexDirectionDemo";
 import FlexGapWrapDemo from "./components/Flex/FlexGapWrapDemo";
 import FlexSizeDemo from "./components/Flex/FlexSizeDemo";
+import GridBasicDemo from "./components/Grid/GridBasicDemo";
+import GridSpacingDemo from "./components/Grid/GridSpacingDemo";
+import GridOffsetDemo from "./components/Grid/GridOffsetDemo";
+import GridGrowDemo from "./components/Grid/GridGrowDemo";
+import GridColumnsDemo from "./components/Grid/GridColumnsDemo";
+import GridDirectionWrapDemo from "./components/Grid/GridDirectionWrapDemo";
+import GridNestedDemo from "./components/Grid/GridNestedDemo";
+import GridDashboardDemo from "./components/Grid/GridDashboardDemo";
+import GridFormDetailDemo from "./components/Grid/GridFormDetailDemo";
 
 function createReactDemoHost(name: string, DemoComponent: ComponentType) {
   return defineComponent({
@@ -109,6 +118,42 @@ const theme: Theme = {
     app.component(
       "FlexSizeDemo",
       createReactDemoHost("FlexSizeDemoHost", FlexSizeDemo),
+    );
+    app.component(
+      "GridBasicDemo",
+      createReactDemoHost("GridBasicDemoHost", GridBasicDemo),
+    );
+    app.component(
+      "GridSpacingDemo",
+      createReactDemoHost("GridSpacingDemoHost", GridSpacingDemo),
+    );
+    app.component(
+      "GridOffsetDemo",
+      createReactDemoHost("GridOffsetDemoHost", GridOffsetDemo),
+    );
+    app.component(
+      "GridGrowDemo",
+      createReactDemoHost("GridGrowDemoHost", GridGrowDemo),
+    );
+    app.component(
+      "GridColumnsDemo",
+      createReactDemoHost("GridColumnsDemoHost", GridColumnsDemo),
+    );
+    app.component(
+      "GridDirectionWrapDemo",
+      createReactDemoHost("GridDirectionWrapDemoHost", GridDirectionWrapDemo),
+    );
+    app.component(
+      "GridNestedDemo",
+      createReactDemoHost("GridNestedDemoHost", GridNestedDemo),
+    );
+    app.component(
+      "GridDashboardDemo",
+      createReactDemoHost("GridDashboardDemoHost", GridDashboardDemo),
+    );
+    app.component(
+      "GridFormDetailDemo",
+      createReactDemoHost("GridFormDetailDemoHost", GridFormDetailDemo),
     );
   },
 };

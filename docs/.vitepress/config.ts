@@ -18,6 +18,7 @@ const config: UserConfig = {
           { text: "Chip", link: "/components/chip" },
           { text: "Divider", link: "/components/divider" },
           { text: "Flex", link: "/components/flex" },
+          { text: "Grid", link: "/components/grid" },
         ],
       },
       {

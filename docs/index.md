@@ -39,7 +39,7 @@ pnpm install
 pnpm dev
 ```
 
-然后访问 <http://localhost:5173>.
+然后访问 `http://localhost:5173`。
 
 ### 构建
 
