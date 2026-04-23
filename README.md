@@ -33,11 +33,11 @@ export default function App() {
 
 ## Scripts
 
-- `pnpm dev`: start VitePress development server for docs and demos.
-- `pnpm build:lib`: build component library bundle to `dist/`.
-- `pnpm build:docs`: build VitePress static docs.
-- `pnpm build`: run both library and docs builds.
-- `pnpm typecheck`: run TypeScript checks.
+- `pnpm dev`: 启动 VitePress 开发服务器查看文档和 Demo.
+- `pnpm build:lib`: 构建生产包到 `dist/`.
+- `pnpm build:docs`: 构建 VitePress 静态文档到 `docs/.vitepress/dist/`.
+- `pnpm build`: 构建生产包和文档.
+- `pnpm typecheck`: 运行 TypeScript 类型检查.
 
 ## Build
 

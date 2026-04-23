@@ -68,7 +68,7 @@ function resolveGridItemOffset(offset: GridOffset): React.CSSProperties {
 }
 
 /**
- * Grid is a flexbox-based 12-column layout container.
+ * Grid 是基于 Flexbox 的 12 列布局容器。
  */
 export function Grid(props: GridProps) {
   const {

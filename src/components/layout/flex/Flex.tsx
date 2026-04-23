@@ -8,7 +8,7 @@ export type FlexGap = FlexGapPreset | number | string;
 export type FlexSize = number | string;
 
 /**
- * Props for the Flex container.
+ * Flex 容器属性。
  */
 export type FlexProps = React.ComponentPropsWithoutRef<"div"> & {
   direction?: FlexDirection;
@@ -59,7 +59,7 @@ function resolveGap(gap: FlexGap): {
 }
 
 /**
- * Flex is a layout container for alignment based on CSS flexbox.
+ * Flex 是基于 CSS Flexbox 的对齐布局容器。
  */
 export function Flex(props: FlexProps) {
   const {

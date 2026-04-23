@@ -19,6 +19,7 @@ const config: UserConfig = {
           { text: "Divider", link: "/components/divider" },
           { text: "Flex", link: "/components/flex" },
           { text: "Grid", link: "/components/grid" },
+          { text: "SafeArea", link: "/components/safe-area" },
         ],
       },
       {

@@ -4,3 +4,6 @@ dist/
 /docs/.vitepress/cache
 /docs/.vitepress/dist
 .codex
+temp
+.temp
+.idea
