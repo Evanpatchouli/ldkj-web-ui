@@ -1,4 +1,4 @@
-import type { UserConfig } from "vitepress";
+﻿import type { UserConfig } from "vitepress";
 import react from "@vitejs/plugin-react";
 import { fileURLToPath } from "node:url";
 
@@ -20,9 +20,16 @@ const config: UserConfig = {
         ],
       },
       {
-        text: "Lib",
-        items: [],
-      }
+        text: "版本日志",
+        items: [
+          { text: "日志索引", link: "/devlog/" },
+          { text: "v0.3.0", link: "/devlog/v0.3.0" },
+          { text: "v0.2.2", link: "/devlog/v0.2.2" },
+          { text: "v0.2.1", link: "/devlog/v0.2.1" },
+          { text: "v0.2.0", link: "/devlog/v0.2.0" },
+          { text: "v0.1.0", link: "/devlog/v0.1.0" },
+        ],
+      },
     ],
     socialLinks: [{ icon: "github", link: "https://github.com/ldkj/web-ui" }],
   },
