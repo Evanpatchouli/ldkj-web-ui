@@ -29,6 +29,11 @@ import GridDirectionWrapDemo from "./components/Grid/GridDirectionWrapDemo";
 import GridNestedDemo from "./components/Grid/GridNestedDemo";
 import GridDashboardDemo from "./components/Grid/GridDashboardDemo";
 import GridFormDetailDemo from "./components/Grid/GridFormDetailDemo";
+import QRCodeBasicDemo from "./components/QRCode/QRCodeBasicDemo";
+import QRCodeCanvasDemo from "./components/QRCode/QRCodeCanvasDemo";
+import QRCodeStatusDemo from "./components/QRCode/QRCodeStatusDemo";
+import QRCodeStyleDemo from "./components/QRCode/QRCodeStyleDemo";
+import QRCodeSizeDemo from "./components/QRCode/QRCodeSizeDemo";
 
 function createReactDemoHost(name: string, DemoComponent: ComponentType) {
   return defineComponent({
@@ -154,6 +159,26 @@ const theme: Theme = {
     app.component(
       "GridFormDetailDemo",
       createReactDemoHost("GridFormDetailDemoHost", GridFormDetailDemo),
+    );
+    app.component(
+      "QRCodeBasicDemo",
+      createReactDemoHost("QRCodeBasicDemoHost", QRCodeBasicDemo),
+    );
+    app.component(
+      "QRCodeCanvasDemo",
+      createReactDemoHost("QRCodeCanvasDemoHost", QRCodeCanvasDemo),
+    );
+    app.component(
+      "QRCodeStatusDemo",
+      createReactDemoHost("QRCodeStatusDemoHost", QRCodeStatusDemo),
+    );
+    app.component(
+      "QRCodeStyleDemo",
+      createReactDemoHost("QRCodeStyleDemoHost", QRCodeStyleDemo),
+    );
+    app.component(
+      "QRCodeSizeDemo",
+      createReactDemoHost("QRCodeSizeDemoHost", QRCodeSizeDemo),
     );
   },
 };

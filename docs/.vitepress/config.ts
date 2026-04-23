@@ -16,6 +16,7 @@ const config: UserConfig = {
         items: [
           { text: "Button", link: "/components/button" },
           { text: "Chip", link: "/components/chip" },
+          { text: "QRCode", link: "/components/qrcode" },
           { text: "Divider", link: "/components/divider" },
           { text: "Flex", link: "/components/flex" },
           { text: "Grid", link: "/components/grid" },
