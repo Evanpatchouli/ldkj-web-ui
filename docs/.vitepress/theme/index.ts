@@ -17,6 +17,9 @@ import DividerVariantsDemo from "./components/Divider/DividerVariantsDemo";
 import DividerContentDemo from "./components/Divider/DividerContentDemo";
 import DividerVerticalDemo from "./components/Divider/DividerVerticalDemo";
 import DividerTypeColorDemo from "./components/Divider/DividerTypeColorDemo";
+import FlexDirectionDemo from "./components/Flex/FlexDirectionDemo";
+import FlexGapWrapDemo from "./components/Flex/FlexGapWrapDemo";
+import FlexSizeDemo from "./components/Flex/FlexSizeDemo";
 
 function createReactDemoHost(name: string, DemoComponent: ComponentType) {
   return defineComponent({
@@ -94,6 +97,18 @@ const theme: Theme = {
     app.component(
       "DividerTypeColorDemo",
       createReactDemoHost("DividerTypeColorDemoHost", DividerTypeColorDemo),
+    );
+    app.component(
+      "FlexDirectionDemo",
+      createReactDemoHost("FlexDirectionDemoHost", FlexDirectionDemo),
+    );
+    app.component(
+      "FlexGapWrapDemo",
+      createReactDemoHost("FlexGapWrapDemoHost", FlexGapWrapDemo),
+    );
+    app.component(
+      "FlexSizeDemo",
+      createReactDemoHost("FlexSizeDemoHost", FlexSizeDemo),
     );
   },
 };
