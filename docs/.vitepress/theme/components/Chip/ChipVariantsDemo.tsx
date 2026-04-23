@@ -1,4 +1,5 @@
-import { Chip } from "@/components/ui/chip";
+﻿import { Chip } from "@/components/ui/chip";
+import CodeView from "../CodeView";
 
 const variants = [
   "primary",
@@ -11,15 +12,29 @@ const variants = [
   "text",
 ] as const;
 
-export default function ChipVariantsDemo() {
+const code = `import { Chip } from "@ldkj/web-ui";
+
+export function Example() {
   return (
     <div className="flex flex-wrap items-center gap-3">
-      {variants.map((variant) => (
-        <Chip key={variant} variant={variant}>
-          {variant}
-        </Chip>
-      ))}
+      <Chip variant="primary">primary</Chip>
+      <Chip variant="success">success</Chip>
+      <Chip variant="warning">warning</Chip>
+      <Chip variant="danger">danger</Chip>
     </div>
   );
-}
+}`;
 
+export default function ChipVariantsDemo() {
+  return (
+    <CodeView code={code}>
+      <div className="flex flex-wrap items-center gap-3">
+        {variants.map((variant) => (
+          <Chip key={variant} variant={variant}>
+            {variant}
+          </Chip>
+        ))}
+      </div>
+    </CodeView>
+  );
+}

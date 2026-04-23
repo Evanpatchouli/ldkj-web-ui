@@ -1,15 +1,32 @@
-import { Chip } from "@/components/ui/chip";
+﻿import { Chip } from "@/components/ui/chip";
+import CodeView from "../CodeView";
 
 const sizes = ["xs", "sm", "md", "lg", "xl"] as const;
 
-export default function ChipSizesDemo() {
+const code = `import { Chip } from "@ldkj/web-ui";
+
+export function Example() {
   return (
     <div className="flex flex-wrap items-center gap-3">
-      {sizes.map((size) => (
-        <Chip key={size} size={size} variant="primary">
-          {size}
-        </Chip>
-      ))}
+      <Chip size="xs">xs</Chip>
+      <Chip size="sm">sm</Chip>
+      <Chip size="md">md</Chip>
+      <Chip size="lg">lg</Chip>
+      <Chip size="xl">xl</Chip>
     </div>
+  );
+}`;
+
+export default function ChipSizesDemo() {
+  return (
+    <CodeView code={code}>
+      <div className="flex flex-wrap items-center gap-3">
+        {sizes.map((size) => (
+          <Chip key={size} size={size} variant="primary">
+            {size}
+          </Chip>
+        ))}
+      </div>
+    </CodeView>
   );
 }
