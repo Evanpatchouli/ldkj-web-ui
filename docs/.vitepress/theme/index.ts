@@ -13,6 +13,10 @@ import ChipVariantsDemo from "./components/Chip/ChipVariantsDemo";
 import ChipOutlineDemo from "./components/Chip/ChipOutlineDemo";
 import ChipSizesDemo from "./components/Chip/ChipSizesDemo";
 import ChipRoundedDemo from "./components/Chip/ChipRoundedDemo";
+import DividerVariantsDemo from "./components/Divider/DividerVariantsDemo";
+import DividerContentDemo from "./components/Divider/DividerContentDemo";
+import DividerVerticalDemo from "./components/Divider/DividerVerticalDemo";
+import DividerTypeColorDemo from "./components/Divider/DividerTypeColorDemo";
 
 function createReactDemoHost(name: string, DemoComponent: ComponentType) {
   return defineComponent({
@@ -74,6 +78,22 @@ const theme: Theme = {
     app.component(
       "ChipRoundedDemo",
       createReactDemoHost("ChipRoundedDemoHost", ChipRoundedDemo),
+    );
+    app.component(
+      "DividerVariantsDemo",
+      createReactDemoHost("DividerVariantsDemoHost", DividerVariantsDemo),
+    );
+    app.component(
+      "DividerContentDemo",
+      createReactDemoHost("DividerContentDemoHost", DividerContentDemo),
+    );
+    app.component(
+      "DividerVerticalDemo",
+      createReactDemoHost("DividerVerticalDemoHost", DividerVerticalDemo),
+    );
+    app.component(
+      "DividerTypeColorDemo",
+      createReactDemoHost("DividerTypeColorDemoHost", DividerTypeColorDemo),
     );
   },
 };

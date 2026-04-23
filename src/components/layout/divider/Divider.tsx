@@ -1,0 +1,117 @@
+import * as React from "react";
+import { cn } from "@/lib/utils";
+
+export type DividerVariant = "full" | "middle" | "inset";
+export type DividerAlign = "center" | "left" | "right";
+
+export type DividerProps = React.ComponentPropsWithoutRef<"div"> & {
+  vertical?: boolean;
+  variant?: DividerVariant;
+  align?: DividerAlign;
+  type?: React.CSSProperties["borderStyle"];
+  color?: string;
+};
+
+const horizontalVariantClass: Record<DividerVariant, string> = {
+  full: "",
+  middle: "px-4",
+  inset: "pl-4",
+};
+
+const verticalVariantClass: Record<DividerVariant, string> = {
+  full: "",
+  middle: "py-4",
+  inset: "pt-4",
+};
+
+export function Divider(props: DividerProps) {
+  const {
+    vertical = false,
+    variant = "full",
+    align = "center",
+    type = "solid",
+    color = "text-gray-200",
+    children,
+    className,
+    style,
+    ...restProps
+  } = props;
+
+  if (vertical) {
+    return (
+      <div
+        role="separator"
+        aria-orientation="vertical"
+        className={cn(
+          "inline-flex min-h-6 self-stretch items-stretch text-gray-200",
+          verticalVariantClass[variant],
+          className,
+        )}
+        style={style}
+        {...restProps}
+      >
+        <span
+          aria-hidden
+          className={cn("border-l border-current", color)}
+          style={{ borderStyle: type }}
+        />
+      </div>
+    );
+  }
+
+  const hasChildren = children !== undefined && children !== null;
+  const beforeLineClass =
+    align === "left" ? "w-8 flex-none" : align === "right" ? "flex-1" : "flex-1";
+  const afterLineClass =
+    align === "right" ? "w-8 flex-none" : align === "left" ? "flex-1" : "flex-1";
+
+  if (!hasChildren) {
+    return (
+      <div
+        role="separator"
+        aria-orientation="horizontal"
+        className={cn(
+          "w-full text-gray-200",
+          horizontalVariantClass[variant],
+          className,
+        )}
+        style={style}
+        {...restProps}
+      >
+        <span
+          aria-hidden
+          className={cn("block w-full border-t border-current", color)}
+          style={{ borderStyle: type }}
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div
+      role="separator"
+      aria-orientation="horizontal"
+      className={cn(
+        "flex w-full items-center text-gray-200",
+        horizontalVariantClass[variant],
+        className,
+      )}
+      style={style}
+      {...restProps}
+    >
+      <span
+        aria-hidden
+        className={cn(beforeLineClass, "border-t border-current", color)}
+        style={{ borderStyle: type }}
+      />
+      <span className="shrink-0 px-3 text-gray-500">{children}</span>
+      <span
+        aria-hidden
+        className={cn(afterLineClass, "border-t border-current", color)}
+        style={{ borderStyle: type }}
+      />
+    </div>
+  );
+}
+
+Divider.displayName = "Divider";
