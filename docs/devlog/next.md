@@ -1,10 +1,12 @@
-# v0.3.0
+# next
 
-- 发布日期: 2026-04-24
-- 版本: `0.3.0`
+- 状态: 未发行
+- 目标版本: `next`
 
 ## 新增
 
+- 新增 V2 `sx` 样式能力（CSS-in-JS），支持对象/数组/函数写法
+- 新增 `SxProvider` 与主题上下文能力，支持 `sx={(theme) => ({ ... })}` 语法
 - 新增 `Chip` 的 `rounded` 属性，支持预设值与自由值
 - 新增 `Button` 的 `rounded` 属性，支持预设值与自由值
 - 新增 `Divider` 组件，支持水平/垂直模式、变体、对齐与线型配置
@@ -27,3 +29,10 @@
 
 - `QRCodeSizable` 与 `QRCodeCanvas` 行为对齐，新增 `fullWidth` 参数
 - 二维码宽度计算优先级调整为：`fullWidth` 优先，其次沿用原有 `width -> size` 逻辑
+- 首批组件统一接入 `sx`：`Button`、`Chip`、`Flex`、`Grid`、`Divider`、`SafeArea`、`QRCodeCanvas`、`QRCodeSizable`
+
+## 发布约定
+
+- 所有未发行变更持续记录在本文件（`next.md`）
+- 发版时将本文件内容迁移到对应 `vX.Y.Z.md`
+- 迁移后清空本文件，仅保留下一版本的未发行变更

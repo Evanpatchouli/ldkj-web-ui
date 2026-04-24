@@ -1,5 +1,7 @@
 import React, { useRef, useEffect, useCallback } from "react";
 import qrcode from "qrcode";
+import { cn } from "@/lib/utils";
+import { mergeSxStyle, resolveSx, useSxTheme, type SxProps } from "@/styling";
 
 export interface QRCodeCanvasProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   value: string;
@@ -35,6 +37,7 @@ export interface QRCodeCanvasProps extends React.HtmlHTMLAttributes<HTMLDivEleme
    */
   size?: number | string;
   fullWidth?: boolean; // 是否全屏宽度
+  sx?: SxProps;
 }
 
 export const QRCodeCanvas: React.FC<QRCodeCanvasProps> = ({
@@ -48,11 +51,15 @@ export const QRCodeCanvas: React.FC<QRCodeCanvasProps> = ({
   errorCorrectionLevel = "medium",
   size = 200,
   fullWidth,
+  sx,
+  className,
   style,
   ...rest
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const theme = useSxTheme();
+  const { sxClassName, sxInlineStyle } = resolveSx(sx, theme);
 
   const renderQR = useCallback(
     (size: number) => {
@@ -122,14 +129,18 @@ export const QRCodeCanvas: React.FC<QRCodeCanvasProps> = ({
   return (
     <div
       ref={containerRef}
-      style={{
-        width: fullWidth ? "100%" : size,
-        height: fullWidth ? "100%" : size,
-        display: "flex",
-        aspectRatio: "1",
-        position: "relative",
-        ...style,
-      }}
+      className={cn(sxClassName, className)}
+      style={mergeSxStyle(
+        style,
+        {
+          width: fullWidth ? "100%" : size,
+          height: fullWidth ? "100%" : size,
+          display: "flex",
+          aspectRatio: "1",
+          position: "relative",
+        },
+        sxInlineStyle,
+      )}
       {...rest}
     >
       <canvas ref={canvasRef} />

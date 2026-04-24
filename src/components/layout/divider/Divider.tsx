@@ -1,5 +1,6 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
+import { mergeSxStyle, resolveSx, useSxTheme, type SxProps } from "@/styling";
 
 export type DividerVariant = "full" | "middle" | "inset";
 export type DividerAlign = "center" | "left" | "right";
@@ -10,6 +11,7 @@ export type DividerProps = React.ComponentPropsWithoutRef<"div"> & {
   align?: DividerAlign;
   type?: React.CSSProperties["borderStyle"];
   color?: string;
+  sx?: SxProps;
 };
 
 const horizontalVariantClass: Record<DividerVariant, string> = {
@@ -31,11 +33,15 @@ export function Divider(props: DividerProps) {
     align = "center",
     type = "solid",
     color = "text-gray-200",
+    sx,
     children,
     className,
     style,
     ...restProps
   } = props;
+  const theme = useSxTheme();
+  const { sxClassName, sxInlineStyle } = resolveSx(sx, theme);
+  const mergedStyle = mergeSxStyle(style, sxInlineStyle);
 
   if (vertical) {
     return (
@@ -45,9 +51,10 @@ export function Divider(props: DividerProps) {
         className={cn(
           "inline-flex min-h-6 self-stretch items-stretch text-gray-200",
           verticalVariantClass[variant],
+          sxClassName,
           className,
         )}
-        style={style}
+        style={mergedStyle}
         {...restProps}
       >
         <span
@@ -73,9 +80,10 @@ export function Divider(props: DividerProps) {
         className={cn(
           "w-full text-gray-200",
           horizontalVariantClass[variant],
+          sxClassName,
           className,
         )}
-        style={style}
+        style={mergedStyle}
         {...restProps}
       >
         <span
@@ -94,9 +102,10 @@ export function Divider(props: DividerProps) {
       className={cn(
         "flex w-full items-center text-gray-200",
         horizontalVariantClass[variant],
+        sxClassName,
         className,
       )}
-      style={style}
+      style={mergedStyle}
       {...restProps}
     >
       <span

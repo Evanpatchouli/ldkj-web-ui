@@ -31,6 +31,35 @@ export default function App() {
 }
 ```
 
+## Sx (CSS-in-JS)
+
+```tsx
+import "@ldkj/web-ui/style.css";
+import { Button, SxProvider, createTheme } from "@ldkj/web-ui";
+
+const theme = createTheme({
+  palette: {
+    primary: "#2563eb",
+  },
+});
+
+export default function App() {
+  return (
+    <SxProvider theme={theme}>
+      <Button
+        sx={(t) => ({
+          backgroundColor: (t.palette as { primary: string }).primary,
+          "&:hover": { opacity: 0.9 },
+          "@media (max-width: 768px)": { width: "100%" },
+        })}
+      >
+        Styled By SX
+      </Button>
+    </SxProvider>
+  );
+}
+```
+
 ## Scripts
 
 - `pnpm dev`: 启动 VitePress 开发服务器查看文档和 Demo.

@@ -1,6 +1,7 @@
 import * as React from "react";
 import type { ElementType } from "react";
 import { cn } from "@/lib/utils";
+import { mergeSxStyle, resolveSx, useSxTheme, type SxProps } from "@/styling";
 
 export type SafeAreaPosition = "top" | "bottom" | "both" | "none";
 
@@ -12,6 +13,7 @@ type PolymorphicProps<T extends ElementType> = {
 type SafeAreaOwnProps = {
   position?: SafeAreaPosition;
   horizontal?: boolean;
+  sx?: SxProps;
 };
 
 export type SafeAreaProps<T extends ElementType = "div"> = PolymorphicProps<T> &
@@ -44,17 +46,21 @@ export function SafeArea<T extends ElementType = "div">(
     component,
     position = "both",
     horizontal = false,
+    sx,
     className,
     style,
     children,
     ...restProps
   } = props;
   const Comp = (component ?? "div") as ElementType;
+  const theme = useSxTheme();
+  const { sxClassName, sxInlineStyle } = resolveSx(sx, theme);
+  const safeAreaStyle = resolveSafeAreaStyle(position, horizontal);
 
   return (
     <Comp
-      className={cn("box-border", className)}
-      style={{ ...style, ...resolveSafeAreaStyle(position, horizontal) }}
+      className={cn("box-border", sxClassName, className)}
+      style={mergeSxStyle(style, safeAreaStyle, sxInlineStyle)}
       {...restProps}
     >
       {children}

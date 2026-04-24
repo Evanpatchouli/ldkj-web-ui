@@ -1,5 +1,6 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
+import { mergeSxStyle, resolveSx, useSxTheme, type SxProps } from "@/styling";
 
 export type GridSize = number | "grow";
 export type GridOffset = number | "auto";
@@ -21,6 +22,7 @@ export type GridProps = React.ComponentPropsWithoutRef<"div"> & {
   columnSpacing?: GridSpacing;
   wrap?: GridWrap;
   direction?: GridDirection;
+  sx?: SxProps;
 };
 
 function resolveSpacing(value?: GridSpacing): string | undefined {
@@ -81,6 +83,7 @@ export function Grid(props: GridProps) {
     columnSpacing,
     wrap = "wrap",
     direction = "row",
+    sx,
     className,
     style,
     ...restProps
@@ -89,8 +92,10 @@ export function Grid(props: GridProps) {
   const resolvedColumns = normalizeColumns(columns);
   const resolvedRowSpacing = resolveSpacing(rowSpacing ?? spacing);
   const resolvedColumnSpacing = resolveSpacing(columnSpacing ?? spacing);
+  const theme = useSxTheme();
+  const { sxClassName, sxInlineStyle } = resolveSx(sx, theme);
   const nextStyle: GridStyleVars = {
-    ...style,
+    ...(style as GridStyleVars),
   };
 
   if (container) {
@@ -114,8 +119,8 @@ export function Grid(props: GridProps) {
 
   return (
     <div
-      className={cn("min-w-0", className)}
-      style={nextStyle}
+      className={cn("min-w-0", sxClassName, className)}
+      style={mergeSxStyle(nextStyle, sxInlineStyle)}
       {...restProps}
     />
   );

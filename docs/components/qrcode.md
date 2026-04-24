@@ -72,6 +72,7 @@ export function Example() {
 | `margin`               | 二维码留白（px）           | `number`                                    | `4`         |
 | `errorCorrectionLevel` | 容错等级                   | `'low' \| 'medium' \| 'quartile' \| 'high'` | `'medium'`  |
 | `fullWidth`            | 是否撑满宽度               | `boolean`                                   | -           |
+| `sx`                   | CSS-in-JS 样式入口（容器/图像根节点） | `SxProps`（支持对象/数组/函数，支持伪类、选择器、媒体查询） | - |
 | `unload`               | 加载中占位内容（图片模式） | `React.ReactNode`                           | -           |
 
 ### `QRCodeCanvas`

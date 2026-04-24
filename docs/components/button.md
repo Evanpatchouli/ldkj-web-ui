@@ -38,7 +38,17 @@
 import { Button } from "@ldkj/web-ui";
 
 export function Example() {
-  return <Button rounded="full">Click me</Button>;
+  return (
+    <Button
+      rounded="full"
+      sx={{
+        "&:hover": { transform: "translateY(-1px)" },
+        "@media (max-width: 768px)": { width: "100%" },
+      }}
+    >
+      Click me
+    </Button>
+  );
 }
 ```
 
@@ -52,4 +62,5 @@ export function Example() {
 | `disabled` | 禁用按钮             | `boolean`                                                                                                                         | `false`      |
 | `bounce`   | 点击时是否弹起       | `boolean`                                                                                                                         | `false`      |
 | `splash`   | 点击时是否闪烁       | `boolean`                                                                                                                         | `false`      |
+| `sx`       | CSS-in-JS 样式入口   | `SxProps`（支持对象/数组/函数，支持伪类、选择器、媒体查询）                                                                       | -            |
 | `onClick`  | 点击按钮时的回调函数 | `() => void`                                                                                                                      | -            |

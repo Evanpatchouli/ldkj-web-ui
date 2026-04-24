@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import qrcode from "qrcode";
-import { CSSUnitConverter } from "@/lib/utils";
+import { CSSUnitConverter, cn } from "@/lib/utils";
+import { mergeSxStyle, resolveSx, useSxTheme, type SxProps } from "@/styling";
 
 export interface QRCodeSizableProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   /**
@@ -37,6 +38,7 @@ export interface QRCodeSizableProps extends React.ImgHTMLAttributes<HTMLImageEle
   errorCorrectionLevel?: "low" | "medium" | "quartile" | "high";
   unload?: React.ReactNode;
   fullWidth?: boolean;
+  sx?: SxProps;
 }
 
 const ifSize = (size: QRCodeSizableProps["size"]) =>
@@ -45,12 +47,14 @@ const ifSize = (size: QRCodeSizableProps["size"]) =>
 export const QRCodeSizable: React.FC<QRCodeSizableProps> = ({
   size = 200,
   fullWidth,
+  sx,
   value,
   useful = true,
   uselessElem,
   uselessProps: { style: uselessStyle = {}, ...uselessProps } = {},
   alt,
   style,
+  className,
   foregroundColor,
   backgroundColor,
   margin = 4,
@@ -63,6 +67,8 @@ export const QRCodeSizable: React.FC<QRCodeSizableProps> = ({
   const [src, setSrc] = useState("");
   const [containerSize, setContainerSize] = useState<number>();
   const containerRef = useRef<HTMLDivElement>(null);
+  const theme = useSxTheme();
+  const { sxClassName, sxInlineStyle } = resolveSx(sx, theme);
 
   useEffect(() => {
     if (!fullWidth) return;
@@ -127,13 +133,17 @@ export const QRCodeSizable: React.FC<QRCodeSizableProps> = ({
       <img
         src={src}
         alt={alt ?? "QR Code"}
-        style={{
-          filter: useful ? "none" : "grayscale(100%) opacity(0.5)",
-          transition: "filter 0.2s ease",
-          position: "relative",
-          ...(fullWidth ? { width: "100%", height: "100%" } : ifSize(size)),
-          ...style,
-        }}
+        className={cn(sxClassName, className)}
+        style={mergeSxStyle(
+          {
+            filter: useful ? "none" : "grayscale(100%) opacity(0.5)",
+            transition: "filter 0.2s ease",
+            position: "relative",
+            ...(fullWidth ? { width: "100%", height: "100%" } : ifSize(size)),
+          },
+          style,
+          sxInlineStyle,
+        )}
         {...(!fullWidth && { width, height })}
         {...rest}
       />

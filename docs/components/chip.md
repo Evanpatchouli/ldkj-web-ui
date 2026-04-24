@@ -33,7 +33,15 @@ import { Chip } from "@ldkj/web-ui";
 
 export function Example() {
   return (
-    <Chip variant="success" size="sm" rounded={12}>
+    <Chip
+      variant="success"
+      size="sm"
+      rounded={12}
+      sx={{
+        "&:hover": { opacity: 0.9 },
+        "@media (max-width: 768px)": { fontSize: "12px" },
+      }}
+    >
       Online
     </Chip>
   );
@@ -67,4 +75,5 @@ export function Example() {
 | `component` | 指定渲染的元素或组件 | `React.ElementType`                                                                         | `'span'`     |
 | `className` | 追加类名             | `string`                                                                                    | -            |
 | `class`     | 兼容旧写法的类名字段 | `string`                                                                                    | -            |
+| `sx`        | CSS-in-JS 样式入口   | `SxProps`（支持对象/数组/函数，支持伪类、选择器、媒体查询）                                | -            |
 | `children`  | 内容                 | `React.ReactNode`                                                                           | -            |

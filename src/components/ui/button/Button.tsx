@@ -7,6 +7,7 @@ import {
 } from "./variants";
 import { resolveRounded } from "../shared/rounded";
 import { cn } from "@/lib/utils";
+import { mergeSxStyle, resolveSx, useSxTheme, type SxProps } from "@/styling";
 
 type PolymorphicProps<T extends ElementType> = {
   component?: T;
@@ -16,6 +17,7 @@ type PolymorphicProps<T extends ElementType> = {
 
 type ButtonOwnProps = Omit<ButtonVariants, "rounded"> & {
   rounded?: ButtonRounded;
+  sx?: SxProps;
 };
 
 export type ButtonProps<T extends ElementType = "button"> =
@@ -31,6 +33,7 @@ export function Button<T extends ElementType = "button">(
     rounded,
     bounce,
     splash,
+    sx,
     style,
     className,
     class: legacyClass,
@@ -38,15 +41,18 @@ export function Button<T extends ElementType = "button">(
   } = props;
   const Comp = (component ?? "button") as ElementType;
   const { roundedPreset, roundedStyle } = resolveRounded(rounded);
+  const theme = useSxTheme();
+  const { sxClassName, sxInlineStyle } = resolveSx(sx, theme);
 
   return (
     <Comp
       className={cn(
         buttonVariants({ variant, size, rounded: roundedPreset, bounce, splash }),
+        sxClassName,
         className,
         legacyClass,
       )}
-      style={{ ...style, ...roundedStyle }}
+      style={mergeSxStyle(style, roundedStyle, sxInlineStyle)}
       {...restProps}
     />
   );

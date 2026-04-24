@@ -1,5 +1,6 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
+import { mergeSxStyle, resolveSx, useSxTheme, type SxProps } from "@/styling";
 
 export type FlexDirection = "row" | "row-reverse" | "col" | "col-reverse";
 export type FlexWrap = boolean | React.CSSProperties["flexWrap"];
@@ -19,6 +20,7 @@ export type FlexProps = React.ComponentPropsWithoutRef<"div"> & {
   gap?: FlexGap;
   width?: FlexSize;
   height?: FlexSize;
+  sx?: SxProps;
 };
 
 const gapPresetClass: Record<FlexGapPreset, string> = {
@@ -71,26 +73,29 @@ export function Flex(props: FlexProps) {
     gap = "md",
     width,
     height,
+    sx,
     className,
     style,
     ...restProps
   } = props;
   const { gapClass, gapStyle } = resolveGap(gap);
+  const theme = useSxTheme();
+  const { sxClassName, sxInlineStyle } = resolveSx(sx, theme);
+  const computedStyle: React.CSSProperties = {
+    flexDirection: resolveDirection(direction),
+    justifyContent: justify,
+    alignItems: items,
+    flexWrap: resolveWrap(wrap),
+    flex,
+    gap: gapStyle,
+    width: resolveSize(width),
+    height: resolveSize(height),
+  };
 
   return (
     <div
-      className={cn("flex", gapClass, className)}
-      style={{
-        ...style,
-        flexDirection: resolveDirection(direction),
-        justifyContent: justify,
-        alignItems: items,
-        flexWrap: resolveWrap(wrap),
-        flex,
-        gap: gapStyle,
-        width: resolveSize(width),
-        height: resolveSize(height),
-      }}
+      className={cn("flex", gapClass, sxClassName, className)}
+      style={mergeSxStyle(style, computedStyle, sxInlineStyle)}
       {...restProps}
     />
   );

@@ -86,4 +86,5 @@ export function Example() {
 | `direction`     | 主轴方向（容器）         | `'row' \| 'row-reverse'`                     | `'row'`  |
 | `className`     | 追加类名                 | `string`                                     | -        |
 | `style`         | 内联样式                 | `React.CSSProperties`                        | -        |
+| `sx`            | CSS-in-JS 样式入口       | `SxProps`（支持对象/数组/函数，支持伪类、选择器、媒体查询） | - |
 | `children`      | 内容                     | `React.ReactNode`                            | -        |
