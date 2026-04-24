@@ -44,12 +44,12 @@ export function Example() {
 
 ## API
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| `variant` | 按钮样式 | `'dark' \| 'primary' \| 'secondary' \| 'minor' \| 'success' \| 'warning' \| 'danger' \| 'outline' \| 'ghost' \| 'link' \| 'text'` | `'primary'` |
-| `size` | 按钮大小 | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'icon'` | `'md'` |
-| `rounded` | 按钮圆角 | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full' \| number \| string` | 默认样式圆角 |
-| `disabled` | 禁用按钮 | `boolean` | `false` |
-| `bounce` | 点击时是否弹起 | `boolean` | `false` |
-| `splash` | 点击时是否闪烁 | `boolean` | `false` |
-| `onClick` | 点击按钮时的回调函数 | `() => void` | - |
+| 属性       | 说明                 | 类型                                                                                                                              | 默认值       |
+| ---------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| `variant`  | 按钮样式             | `'dark' \| 'primary' \| 'secondary' \| 'minor' \| 'success' \| 'warning' \| 'danger' \| 'outline' \| 'ghost' \| 'link' \| 'text'` | `'primary'`  |
+| `size`     | 按钮大小             | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'icon'`                                                                                  | `'md'`       |
+| `rounded`  | 按钮圆角             | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full' \| number \| string`                                                              | 默认样式圆角 |
+| `disabled` | 禁用按钮             | `boolean`                                                                                                                         | `false`      |
+| `bounce`   | 点击时是否弹起       | `boolean`                                                                                                                         | `false`      |
+| `splash`   | 点击时是否闪烁       | `boolean`                                                                                                                         | `false`      |
+| `onClick`  | 点击按钮时的回调函数 | `() => void`                                                                                                                      | -            |

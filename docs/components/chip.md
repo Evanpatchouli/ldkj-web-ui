@@ -58,13 +58,13 @@ export function Example() {
 
 ## API
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| `variant` | 颜色变体 | `'primary' \| 'success' \| 'warning' \| 'danger' \| 'minor' \| 'dark' \| 'light' \| 'text'` | `'primary'` |
-| `outline` | 是否使用描边样式 | `boolean` | `false` |
-| `size` | 尺寸 | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` |
-| `rounded` | 圆角 | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full' \| number \| string` | 默认样式圆角 |
-| `component` | 指定渲染的元素或组件 | `React.ElementType` | `'span'` |
-| `className` | 追加类名 | `string` | - |
-| `class` | 兼容旧写法的类名字段 | `string` | - |
-| `children` | 内容 | `React.ReactNode` | - |
+| 属性        | 说明                 | 类型                                                                                        | 默认值       |
+| ----------- | -------------------- | ------------------------------------------------------------------------------------------- | ------------ |
+| `variant`   | 颜色变体             | `'primary' \| 'success' \| 'warning' \| 'danger' \| 'minor' \| 'dark' \| 'light' \| 'text'` | `'primary'`  |
+| `outline`   | 是否使用描边样式     | `boolean`                                                                                   | `false`      |
+| `size`      | 尺寸                 | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'`                                                      | `'md'`       |
+| `rounded`   | 圆角                 | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full' \| number \| string`                        | 默认样式圆角 |
+| `component` | 指定渲染的元素或组件 | `React.ElementType`                                                                         | `'span'`     |
+| `className` | 追加类名             | `string`                                                                                    | -            |
+| `class`     | 兼容旧写法的类名字段 | `string`                                                                                    | -            |
+| `children`  | 内容                 | `React.ReactNode`                                                                           | -            |

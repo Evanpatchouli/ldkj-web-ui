@@ -37,16 +37,16 @@ export function Example() {
 
 ## API
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| `direction` | 主轴方向（`flex-direction`） | `'row' \| 'row-reverse' \| 'col' \| 'col-reverse'` | `'row'` |
-| `justify` | 主轴对齐（`justify-content`） | `React.CSSProperties['justifyContent']` | - |
-| `items` | 交叉轴对齐（`align-items`） | `React.CSSProperties['alignItems']` | - |
-| `flex` | `flex` 简写属性 | `React.CSSProperties['flex']` | - |
-| `wrap` | 是否换行（`flex-wrap`） | `boolean \| React.CSSProperties['flexWrap']` | `'nowrap'` |
-| `gap` | 间距 | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| number \| string` | `'md'` |
-| `width` | 宽度 | `number \| string` | - |
-| `height` | 高度 | `number \| string` | - |
-| `className` | 追加类名 | `string` | - |
-| `style` | 内联样式 | `React.CSSProperties` | - |
-| `children` | 内容 | `React.ReactNode` | - |
+| 属性        | 说明                          | 类型                                                       | 默认值     |
+| ----------- | ----------------------------- | ---------------------------------------------------------- | ---------- |
+| `direction` | 主轴方向（`flex-direction`）  | `'row' \| 'row-reverse' \| 'col' \| 'col-reverse'`         | `'row'`    |
+| `justify`   | 主轴对齐（`justify-content`） | `React.CSSProperties['justifyContent']`                    | -          |
+| `items`     | 交叉轴对齐（`align-items`）   | `React.CSSProperties['alignItems']`                        | -          |
+| `flex`      | `flex` 简写属性               | `React.CSSProperties['flex']`                              | -          |
+| `wrap`      | 是否换行（`flex-wrap`）       | `boolean \| React.CSSProperties['flexWrap']`               | `'nowrap'` |
+| `gap`       | 间距                          | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| number \| string` | `'md'`     |
+| `width`     | 宽度                          | `number \| string`                                         | -          |
+| `height`    | 高度                          | `number \| string`                                         | -          |
+| `className` | 追加类名                      | `string`                                                   | -          |
+| `style`     | 内联样式                      | `React.CSSProperties`                                      | -          |
+| `children`  | 内容                          | `React.ReactNode`                                          | -          |

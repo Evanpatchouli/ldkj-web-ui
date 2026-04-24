@@ -52,13 +52,13 @@ export function Example() {
 
 ## API
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| `vertical` | 是否为垂直分割线 | `boolean` | `false` |
-| `variant` | 分割线变体 | `'full' \| 'middle' \| 'inset'` | `'full'` |
-| `align` | `children` 位置（水平模式） | `'left' \| 'center' \| 'right'` | `'center'` |
-| `type` | 分割线类型 | `React.CSSProperties['borderStyle']` | `'solid'` |
-| `color` | 分割线颜色类名 | `string` | `'text-gray-200'` |
-| `children` | 中间内容 | `React.ReactNode` | - |
-| `className` | 追加类名 | `string` | - |
-| `style` | 内联样式 | `React.CSSProperties` | - |
+| 属性        | 说明                        | 类型                                 | 默认值            |
+| ----------- | --------------------------- | ------------------------------------ | ----------------- |
+| `vertical`  | 是否为垂直分割线            | `boolean`                            | `false`           |
+| `variant`   | 分割线变体                  | `'full' \| 'middle' \| 'inset'`      | `'full'`          |
+| `align`     | `children` 位置（水平模式） | `'left' \| 'center' \| 'right'`      | `'center'`        |
+| `type`      | 分割线类型                  | `React.CSSProperties['borderStyle']` | `'solid'`         |
+| `color`     | 分割线颜色类名              | `string`                             | `'text-gray-200'` |
+| `children`  | 中间内容                    | `React.ReactNode`                    | -                 |
+| `className` | 追加类名                    | `string`                             | -                 |
+| `style`     | 内联样式                    | `React.CSSProperties`                | -                 |

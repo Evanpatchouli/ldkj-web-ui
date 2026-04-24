@@ -49,24 +49,30 @@ export function Example() {
 }
 ```
 
+## Q & A
+
+**Q: 我是否应该启用 canvas 模式？**
+
+**A**: 更推荐启用 **canvas** 模式，因为支持高清重绘
+
 ## API
 
 ### `QRCode`
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| `canvas` | 是否使用 Canvas 模式 | `boolean` | `false` |
-| `value` | 二维码内容 | `string` | - |
-| `size` | 二维码尺寸 | `number \| string` | - |
-| `useful` | 是否可用态 | `boolean` | `true` |
-| `uselessElem` | 不可用态遮罩内容 | `React.ReactNode` | - |
-| `uselessProps` | 不可用态遮罩属性 | `React.HTMLAttributes<HTMLDivElement>` | - |
-| `foregroundColor` | 前景色 | `string` | `'#000000'` |
-| `backgroundColor` | 背景色 | `string` | `'#ffffff'` |
-| `margin` | 二维码留白（px） | `number` | `4` |
-| `errorCorrectionLevel` | 容错等级 | `'low' \| 'medium' \| 'quartile' \| 'high'` | `'medium'` |
-| `fullWidth` | 是否填充父容器（Canvas 模式） | `boolean` | - |
-| `unload` | 加载中占位内容（图片模式） | `React.ReactNode` | - |
+| 属性                   | 说明                       | 类型                                        | 默认值      |
+| ---------------------- | -------------------------- | ------------------------------------------- | ----------- |
+| `canvas`               | 是否使用 Canvas 模式       | `boolean`                                   | `false`     |
+| `value`                | 二维码内容                 | `string`                                    | -           |
+| `size`                 | 二维码尺寸                 | `number \| string`                          | 200         |
+| `useful`               | 是否可用态                 | `boolean`                                   | `true`      |
+| `uselessElem`          | 不可用态遮罩内容           | `React.ReactNode`                           | -           |
+| `uselessProps`         | 不可用态遮罩属性           | `React.HTMLAttributes<HTMLDivElement>`      | -           |
+| `foregroundColor`      | 前景色                     | `string`                                    | `'#000000'` |
+| `backgroundColor`      | 背景色                     | `string`                                    | `'#ffffff'` |
+| `margin`               | 二维码留白（px）           | `number`                                    | `4`         |
+| `errorCorrectionLevel` | 容错等级                   | `'low' \| 'medium' \| 'quartile' \| 'high'` | `'medium'`  |
+| `fullWidth`            | 是否撑满宽度               | `boolean`                                   | -           |
+| `unload`               | 加载中占位内容（图片模式） | `React.ReactNode`                           | -           |
 
 ### `QRCodeCanvas`
 
@@ -74,4 +80,4 @@ export function Example() {
 
 ### `QRCodeSizable`
 
-默认图片渲染组件，支持 `size` 的 `number \| string` 输入。
+默认图片渲染组件，支持 `size` 的 `number | string` 输入。

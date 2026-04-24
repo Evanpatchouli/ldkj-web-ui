@@ -73,17 +73,17 @@ export function Example() {
 
 ## API
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| `container` | 是否作为栅格容器 | `boolean` | `false` |
-| `size` | 栅格项占列数或自适应增长 | `number \| 'grow'` | - |
-| `offset` | 栅格项偏移列数或自动偏移 | `number \| 'auto'` | - |
-| `columns` | 列总数（容器/上下文） | `number` | `12` |
-| `spacing` | 行列统一间距 | `number \| string` | - |
-| `rowSpacing` | 行间距 | `number \| string` | - |
-| `columnSpacing` | 列间距 | `number \| string` | - |
-| `wrap` | 换行模式 | `boolean \| React.CSSProperties['flexWrap']` | `'wrap'` |
-| `direction` | 主轴方向（容器） | `'row' \| 'row-reverse'` | `'row'` |
-| `className` | 追加类名 | `string` | - |
-| `style` | 内联样式 | `React.CSSProperties` | - |
-| `children` | 内容 | `React.ReactNode` | - |
+| 属性            | 说明                     | 类型                                         | 默认值   |
+| --------------- | ------------------------ | -------------------------------------------- | -------- |
+| `container`     | 是否作为栅格容器         | `boolean`                                    | `false`  |
+| `size`          | 栅格项占列数或自适应增长 | `number \| 'grow'`                           | -        |
+| `offset`        | 栅格项偏移列数或自动偏移 | `number \| 'auto'`                           | -        |
+| `columns`       | 列总数（容器/上下文）    | `number`                                     | `12`     |
+| `spacing`       | 行列统一间距             | `number \| string`                           | -        |
+| `rowSpacing`    | 行间距                   | `number \| string`                           | -        |
+| `columnSpacing` | 列间距                   | `number \| string`                           | -        |
+| `wrap`          | 换行模式                 | `boolean \| React.CSSProperties['flexWrap']` | `'wrap'` |
+| `direction`     | 主轴方向（容器）         | `'row' \| 'row-reverse'`                     | `'row'`  |
+| `className`     | 追加类名                 | `string`                                     | -        |
+| `style`         | 内联样式                 | `React.CSSProperties`                        | -        |
+| `children`      | 内容                     | `React.ReactNode`                            | -        |

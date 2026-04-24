@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import qrcode from "qrcode";
 import { CSSUnitConverter } from "@/lib/utils";
 
 export interface QRCodeSizableProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+  /**
+   * - 二维码尺寸
+   * - 默认：`200`
+   */
   size?: number | string;
   value: string;
   useful?: boolean;
@@ -32,13 +36,15 @@ export interface QRCodeSizableProps extends React.ImgHTMLAttributes<HTMLImageEle
    */
   errorCorrectionLevel?: "low" | "medium" | "quartile" | "high";
   unload?: React.ReactNode;
+  fullWidth?: boolean;
 }
 
 const ifSize = (size: QRCodeSizableProps["size"]) =>
   size ? { width: size, height: size } : {};
 
 export const QRCodeSizable: React.FC<QRCodeSizableProps> = ({
-  size,
+  size = 200,
+  fullWidth,
   value,
   useful = true,
   uselessElem,
@@ -50,22 +56,46 @@ export const QRCodeSizable: React.FC<QRCodeSizableProps> = ({
   margin = 4,
   errorCorrectionLevel,
   unload,
+  width,
+  height,
   ...rest
 }) => {
   const [src, setSrc] = useState("");
+  const [containerSize, setContainerSize] = useState<number>();
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!fullWidth) return;
+    const container = containerRef.current;
+    if (!container) return;
+
+    const updateSize = () => {
+      setContainerSize(Math.min(container.clientWidth, container.clientHeight));
+    };
+
+    updateSize();
+    const resizeObserver = new ResizeObserver(updateSize);
+    resizeObserver.observe(container);
+
+    return () => resizeObserver.disconnect();
+  }, [fullWidth]);
+
+  useEffect(() => {
+    const qrWidth = fullWidth
+      ? containerSize
+      : width
+        ? CSSUnitConverter.getInstance().convertToPx(width)
+        : size
+          ? CSSUnitConverter.getInstance().convertToPx(size)
+          : void 0;
+
     qrcode
       .toDataURL(value, {
         color: {
           dark: foregroundColor,
           light: backgroundColor,
         },
-        width: rest.width
-          ? CSSUnitConverter.getInstance().convertToPx(rest.width)
-          : size
-            ? CSSUnitConverter.getInstance().convertToPx(size)
-            : void 0,
+        width: qrWidth,
         margin,
         errorCorrectionLevel,
       })
@@ -76,14 +106,21 @@ export const QRCodeSizable: React.FC<QRCodeSizableProps> = ({
     errorCorrectionLevel,
     foregroundColor,
     margin,
-    rest.width,
+    fullWidth,
+    containerSize,
+    width,
     size,
     value,
   ]);
 
   return src ? (
     <div
+      ref={containerRef}
       style={{
+        width: fullWidth ? "100%" : size,
+        height: fullWidth ? "100%" : size,
+        display: "flex",
+        aspectRatio: "1",
         position: "relative",
       }}
     >
@@ -94,9 +131,10 @@ export const QRCodeSizable: React.FC<QRCodeSizableProps> = ({
           filter: useful ? "none" : "grayscale(100%) opacity(0.5)",
           transition: "filter 0.2s ease",
           position: "relative",
-          ...ifSize(size),
+          ...(fullWidth ? { width: "100%", height: "100%" } : ifSize(size)),
           ...style,
         }}
+        {...(!fullWidth && { width, height })}
         {...rest}
       />
       {!useful && uselessElem && (
