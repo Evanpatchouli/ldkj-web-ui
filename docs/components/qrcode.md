@@ -77,7 +77,7 @@ export function Example() {
 
 ### `QRCodeCanvas`
 
-当 `canvas=true` 时使用的底层组件，额外支持 `fullWidth` 与 `div` 容器属性。
+当 `canvas=true` 时使用的底层组件，使用 canvas 渲染，支持动态高清重绘。
 
 ### `QRCodeSizable`
 

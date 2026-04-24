@@ -12,6 +12,10 @@ const config: UserConfig = {
     ],
     sidebar: [
       {
+        text: "通用",
+        items: [{ text: "SX 样式系统", link: "/general/sx" }],
+      },
+      {
         text: "组件",
         items: [
           { text: "Button", link: "/components/button" },
