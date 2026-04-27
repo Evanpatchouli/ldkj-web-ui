@@ -14,6 +14,12 @@ import BoxBasicDemo from "./components/layout/Box/BoxBasicDemo";
 import BoxPolymorphicDemo from "./components/layout/Box/BoxPolymorphicDemo";
 import BoxOverlayDemo from "./components/layout/Box/BoxOverlayDemo";
 import BoxRoundedShadowDemo from "./components/layout/Box/BoxRoundedShadowDemo";
+import CardBasicDemo from "./components/data-display/Card/CardBasicDemo";
+import CardSlotsDemo from "./components/data-display/Card/CardSlotsDemo";
+import CardLoadingDemo from "./components/data-display/Card/CardLoadingDemo";
+import CardVariantDemo from "./components/data-display/Card/CardVariantDemo";
+import CardStateDemo from "./components/data-display/Card/CardStateDemo";
+import CardCompoundDemo from "./components/data-display/Card/CardCompoundDemo";
 import ChipVariantsDemo from "./components/data-display/Chip/ChipVariantsDemo";
 import ChipOutlineDemo from "./components/data-display/Chip/ChipOutlineDemo";
 import ChipSizesDemo from "./components/data-display/Chip/ChipSizesDemo";
@@ -105,6 +111,30 @@ const theme: Theme = {
     app.component(
       "BoxRoundedShadowDemo",
       createReactDemoHost("BoxRoundedShadowDemoHost", BoxRoundedShadowDemo),
+    );
+    app.component(
+      "CardBasicDemo",
+      createReactDemoHost("CardBasicDemoHost", CardBasicDemo),
+    );
+    app.component(
+      "CardVariantDemo",
+      createReactDemoHost("CardVariantDemoHost", CardVariantDemo),
+    );
+    app.component(
+      "CardSlotsDemo",
+      createReactDemoHost("CardSlotsDemoHost", CardSlotsDemo),
+    );
+    app.component(
+      "CardStateDemo",
+      createReactDemoHost("CardStateDemoHost", CardStateDemo),
+    );
+    app.component(
+      "CardLoadingDemo",
+      createReactDemoHost("CardLoadingDemoHost", CardLoadingDemo),
+    );
+    app.component(
+      "CardCompoundDemo",
+      createReactDemoHost("CardCompoundDemoHost", CardCompoundDemo),
     );
     app.component(
       "ChipVariantsDemo",

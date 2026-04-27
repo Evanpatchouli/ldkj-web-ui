@@ -10,6 +10,7 @@
 - `Box` 新增元素范围内的 `modal` 遮罩能力，支持 `modalContent` 与 `onModalMaskClick`。
 - 新增 `Box` 文档页，包含基础用法、多态渲染、`loading/modal` 示例。
 - 新增 `shadow` 预设能力，支持 `none`、`xs`、`sm`、`md`、`lg`、`xl`、`inner` 与自由 `box-shadow` 字符串。
+- 新增 `Card` 组件，支持 `variant`、`padding`、`divided`、`hoverable`、`selected`、`disabled`、`start/end` 别名与 compound API，并基于 `Box` 继承 `rounded`、`shadow`、`loading`、`sx` 等能力。
 
 ## 优化
 
@@ -27,6 +28,7 @@
 - 新增 `next.md` 作为未发行变更日志入口。
 - 文档目录与侧边栏按源码分包调整为 `layout`、`interact`、`data-display`。
 - `Box`、`Button`、`Chip` 文档补充 `shadow` 示例与 API 说明。
+- 新增 `Card` 文档页与基础、视觉变体、区域组合、状态、内容加载、compound API 示例。
 
 ## 验证
 

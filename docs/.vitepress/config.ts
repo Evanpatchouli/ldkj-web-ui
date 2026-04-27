@@ -35,6 +35,7 @@ const config: UserConfig = {
           {
             text: "数据展示",
             items: [
+              { text: "Card", link: "/components/data-display/card" },
               { text: "Chip", link: "/components/data-display/chip" },
               { text: "QRCode", link: "/components/data-display/qrcode" },
             ],

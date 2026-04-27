@@ -1,4 +1,5 @@
 export * from "./components/interact/button";
+export * from "./components/data-display/card";
 export * from "./components/data-display/chip";
 export * from "./components/data-display/qrcodes";
 export * from "./components/layout/box";
