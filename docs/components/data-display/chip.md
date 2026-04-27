@@ -26,6 +26,12 @@
 
 <ChipRoundedDemo />
 
+## Shadow
+
+`Chip` 支持 `shadow` 阴影控制，支持 `none`、`xs`、`sm`、`md`、`lg`、`xl`、`inner`，也支持任意 `box-shadow` 字符串。
+
+<ChipShadowDemo />
+
 ## Usage
 
 ```tsx
@@ -37,6 +43,7 @@ export function Example() {
       variant="success"
       size="sm"
       rounded={12}
+      shadow="sm"
       sx={{
         "&:hover": { opacity: 0.9 },
         "@media (max-width: 768px)": { fontSize: "12px" },
@@ -66,14 +73,15 @@ export function Example() {
 
 ## API
 
-| 属性        | 说明                 | 类型                                                                                        | 默认值       |
-| ----------- | -------------------- | ------------------------------------------------------------------------------------------- | ------------ |
-| `variant`   | 颜色变体             | `'primary' \| 'success' \| 'warning' \| 'danger' \| 'minor' \| 'dark' \| 'light' \| 'text'` | `'primary'`  |
-| `outline`   | 是否使用描边样式     | `boolean`                                                                                   | `false`      |
-| `size`      | 尺寸                 | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'`                                                      | `'md'`       |
-| `rounded`   | 圆角                 | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full' \| number \| string`                        | 默认样式圆角 |
-| `component` | 指定渲染的元素或组件 | `React.ElementType`                                                                         | `'span'`     |
-| `className` | 追加类名             | `string`                                                                                    | -            |
-| `class`     | 兼容旧写法的类名字段 | `string`                                                                                    | -            |
-| `sx`        | CSS-in-JS 样式入口   | `SxProps`（支持对象/数组/函数，支持伪类、选择器、媒体查询）                                | -            |
-| `children`  | 内容                 | `React.ReactNode`                                                                           | -            |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `variant` | 颜色变体 | `'primary' \| 'success' \| 'warning' \| 'danger' \| 'minor' \| 'dark' \| 'light' \| 'text'` | `'primary'` |
+| `outline` | 是否使用描边样式 | `boolean` | `false` |
+| `size` | 尺寸 | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` |
+| `rounded` | 圆角 | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full' \| number \| string` | 默认样式圆角 |
+| `shadow` | 阴影 | `'none' \| 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'inner' \| string` | - |
+| `component` | 指定渲染的元素或组件 | `React.ElementType` | `'span'` |
+| `className` | 追加类名 | `string` | - |
+| `class` | 兼容旧写法的类名字段 | `string` | - |
+| `sx` | CSS-in-JS 样式入口 | `SxProps` | - |
+| `children` | 内容 | `React.ReactNode` | - |

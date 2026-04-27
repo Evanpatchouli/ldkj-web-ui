@@ -1,6 +1,6 @@
 # Box
 
-`Box` 是基础容器组件，支持多态 `component`、`sx`、以及元素范围内的 `loading/modal` 遮罩层。
+`Box` 是基础容器组件，支持多态 `component`、`sx`、`rounded`、`shadow`，以及元素范围内的 `loading/modal` 遮罩层。
 
 ## Basic
 
@@ -11,6 +11,12 @@
 通过 `component` 可以让 `Box` 渲染为不同语义标签（例如 `section`、`button`）。
 
 <BoxPolymorphicDemo />
+
+## Rounded + Shadow
+
+`Box` 支持 `rounded` 与 `shadow` 预设，也支持自由 CSS 值。
+
+<BoxRoundedShadowDemo />
 
 ## Loading + Modal
 
@@ -27,7 +33,9 @@ export function Example() {
   return (
     <Box
       component="section"
-      className="rounded-lg border p-4"
+      rounded="xl"
+      shadow="lg"
+      className="border p-4"
       loading={false}
       modal={false}
       sx={{ "&:hover": { backgroundColor: "#f8fafc" } }}
@@ -47,6 +55,8 @@ export function Example() {
 | `class` | 历史类名别名 | `string` | - |
 | `style` | 内联样式 | `React.CSSProperties` | - |
 | `sx` | CSS-in-JS 样式入口 | `SxProps` | - |
+| `rounded` | 圆角 | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full' \| number \| string` | - |
+| `shadow` | 阴影 | `'none' \| 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'inner' \| string` | - |
 | `loading` | 是否显示 loading 遮罩 | `boolean` | `false` |
 | `loadingContent` | 自定义 loading 内容 | `React.ReactNode` | 内置 spinner |
 | `modal` | 是否显示元素级 modal | `boolean` | `false` |

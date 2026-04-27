@@ -4,6 +4,11 @@ import {
   type Rounded,
   type RoundedPreset,
 } from "../../shared/rounded";
+import {
+  shadowPresetClasses,
+  type Shadow,
+  type ShadowPreset,
+} from "../../shared/shadow";
 
 export const chipVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded border border-transparent font-medium transition-colors duration-150",
@@ -31,6 +36,7 @@ export const chipVariants = cva(
         xl: "px-3.5 py-1.5 text-sm",
       },
       rounded: roundedPresetClasses,
+      shadow: shadowPresetClasses,
     },
     compoundVariants: [
       {
@@ -125,3 +131,5 @@ export const chipVariants = cva(
 export type ChipVariants = VariantProps<typeof chipVariants>;
 export type ChipRoundedPreset = RoundedPreset;
 export type ChipRounded = Rounded;
+export type ChipShadowPreset = ShadowPreset;
+export type ChipShadow = Shadow;

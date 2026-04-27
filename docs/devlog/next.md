@@ -9,6 +9,7 @@
 - `Box` 新增元素范围内的 `loading` 遮罩能力，支持 `loadingContent` 自定义 loading 内容。
 - `Box` 新增元素范围内的 `modal` 遮罩能力，支持 `modalContent` 与 `onModalMaskClick`。
 - 新增 `Box` 文档页，包含基础用法、多态渲染、`loading/modal` 示例。
+- 新增 `shadow` 预设能力，支持 `none`、`xs`、`sm`、`md`、`lg`、`xl`、`inner` 与自由 `box-shadow` 字符串。
 
 ## 优化
 
@@ -16,6 +17,7 @@
 - `Grid` 底层容器升级为 `Box`，保持原有栅格 API，并继承 `Box` 的 `component`、`loading`、`modal` 等能力。
 - `SafeArea`、`SafeAreaTop`、`SafeAreaBottom` 底层容器升级为 `Box`，保持原有安全区 API，并继承 `Box` 的通用能力。
 - 容器类组件的样式优先级继续保持 `style -> 组件计算样式 -> sx`。
+- `Box` 接入 `rounded` 与 `shadow`，`Button`、`Chip` 接入 `shadow`，并保持 `sx` 的最终覆盖优先级。
 
 ## 文档
 
@@ -24,6 +26,7 @@
 - `Flex`、`Grid`、`SafeArea` 文档中的 `Box` 说明链接支持新页面打开。
 - 新增 `next.md` 作为未发行变更日志入口。
 - 文档目录与侧边栏按源码分包调整为 `layout`、`interact`、`data-display`。
+- `Box`、`Button`、`Chip` 文档补充 `shadow` 示例与 API 说明。
 
 ## 验证
 

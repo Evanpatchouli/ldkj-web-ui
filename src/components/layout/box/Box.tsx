@@ -1,5 +1,15 @@
 import * as React from "react";
 import type { ElementType } from "react";
+import {
+  resolveRounded,
+  roundedPresetClasses,
+  type Rounded,
+} from "@/components/shared/rounded";
+import {
+  resolveShadow,
+  shadowPresetClasses,
+  type Shadow,
+} from "@/components/shared/shadow";
 import { cn } from "@/lib/utils";
 import { mergeSxStyle, resolveSx, useSxTheme, type SxProps } from "@/styling";
 
@@ -11,6 +21,8 @@ type PolymorphicProps<T extends ElementType> = {
 
 type BoxOwnProps = {
   sx?: SxProps;
+  rounded?: Rounded;
+  shadow?: Shadow;
   loading?: boolean;
   loadingContent?: React.ReactNode;
   modal?: boolean;
@@ -37,6 +49,8 @@ export function Box<T extends ElementType = "div">(props: BoxProps<T>) {
   const {
     component,
     sx,
+    rounded,
+    shadow,
     style,
     className,
     class: legacyClass,
@@ -50,6 +64,8 @@ export function Box<T extends ElementType = "div">(props: BoxProps<T>) {
   } = props;
   const Comp = (component ?? "div") as ElementType;
   const theme = useSxTheme();
+  const { roundedPreset, roundedStyle } = resolveRounded(rounded);
+  const { shadowPreset, shadowStyle } = resolveShadow(shadow);
   const { sxClassName, sxInlineStyle } = resolveSx(sx, theme);
   const shouldContainOverlay = loading || modal;
   const computedStyle: React.CSSProperties | undefined =
@@ -59,8 +75,20 @@ export function Box<T extends ElementType = "div">(props: BoxProps<T>) {
 
   return (
     <Comp
-      className={cn(sxClassName, className, legacyClass)}
-      style={mergeSxStyle(style, computedStyle, sxInlineStyle)}
+      className={cn(
+        roundedPreset && roundedPresetClasses[roundedPreset],
+        shadowPreset && shadowPresetClasses[shadowPreset],
+        sxClassName,
+        className,
+        legacyClass,
+      )}
+      style={mergeSxStyle(
+        style,
+        roundedStyle,
+        shadowStyle,
+        computedStyle,
+        sxInlineStyle,
+      )}
       aria-busy={loading || undefined}
       {...restProps}
     >

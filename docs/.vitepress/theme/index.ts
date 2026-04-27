@@ -9,13 +9,16 @@ import ButtonSizesDemo from "./components/interact/Button/ButtonSizesDemo";
 import ButtonBounceDemo from "./components/interact/Button/ButtonBounce";
 import ButtonSplashDemo from "./components/interact/Button/ButtonSplash";
 import ButtonRoundedDemo from "./components/interact/Button/ButtonRoundedDemo";
+import ButtonShadowDemo from "./components/interact/Button/ButtonShadowDemo";
 import BoxBasicDemo from "./components/layout/Box/BoxBasicDemo";
 import BoxPolymorphicDemo from "./components/layout/Box/BoxPolymorphicDemo";
 import BoxOverlayDemo from "./components/layout/Box/BoxOverlayDemo";
+import BoxRoundedShadowDemo from "./components/layout/Box/BoxRoundedShadowDemo";
 import ChipVariantsDemo from "./components/data-display/Chip/ChipVariantsDemo";
 import ChipOutlineDemo from "./components/data-display/Chip/ChipOutlineDemo";
 import ChipSizesDemo from "./components/data-display/Chip/ChipSizesDemo";
 import ChipRoundedDemo from "./components/data-display/Chip/ChipRoundedDemo";
+import ChipShadowDemo from "./components/data-display/Chip/ChipShadowDemo";
 import DividerVariantsDemo from "./components/layout/Divider/DividerVariantsDemo";
 import DividerContentDemo from "./components/layout/Divider/DividerContentDemo";
 import DividerVerticalDemo from "./components/layout/Divider/DividerVerticalDemo";
@@ -84,6 +87,10 @@ const theme: Theme = {
       createReactDemoHost("ButtonRoundedDemoHost", ButtonRoundedDemo),
     );
     app.component(
+      "ButtonShadowDemo",
+      createReactDemoHost("ButtonShadowDemoHost", ButtonShadowDemo),
+    );
+    app.component(
       "BoxBasicDemo",
       createReactDemoHost("BoxBasicDemoHost", BoxBasicDemo),
     );
@@ -94,6 +101,10 @@ const theme: Theme = {
     app.component(
       "BoxOverlayDemo",
       createReactDemoHost("BoxOverlayDemoHost", BoxOverlayDemo),
+    );
+    app.component(
+      "BoxRoundedShadowDemo",
+      createReactDemoHost("BoxRoundedShadowDemoHost", BoxRoundedShadowDemo),
     );
     app.component(
       "ChipVariantsDemo",
@@ -110,6 +121,10 @@ const theme: Theme = {
     app.component(
       "ChipRoundedDemo",
       createReactDemoHost("ChipRoundedDemoHost", ChipRoundedDemo),
+    );
+    app.component(
+      "ChipShadowDemo",
+      createReactDemoHost("ChipShadowDemoHost", ChipShadowDemo),
     );
     app.component(
       "DividerVariantsDemo",
