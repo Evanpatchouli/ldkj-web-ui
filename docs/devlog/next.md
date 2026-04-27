@@ -1,29 +1,31 @@
 # Next
 
-- 状态: 未发行
-- 记录范围: 下一版本发布前的所有未发行变更
+- 状态: 未发布
+- 记录范围: 下一版本发布前的所有未发版变更
 
 ## 新增
 
-- 记录新增组件、能力、API、文档栏目等。
-- 示例: 新增 `ComponentName` 组件，支持 `propName` 配置。
+- 新增 `GhostButton` 组件，默认 `position="fixed"`、`right={16}`、`bottom={16}`，默认在右下角悬浮显示为圆形按钮。
+- `GhostButton` 支持 5 档预设尺寸 `xs | sm | md | lg | xl`，同时支持 `number` 和任意 CSS 尺寸字符串。
+- `GhostButton` 底层复用 `Button`，同步 `variant`、`rounded`、`shadow`、`bounce`、`splash`、`sx`、`component` 以及原生按钮属性。
 
 ## 优化
 
-- 记录已有能力的体验优化、内部重构、API 增强等。
-- 示例: `ComponentName` 底层复用 `Box`，保持原 API 并继承通用容器能力。
+- `GhostButton` 的定位 API 调整为直接支持 `position`，同时移除单独的 `display`。
+- `GhostButton` 的默认定位方式从写死 `className` 收口到 `style` 层，使 `position="absolute" | "static" | "sticky"` 等覆盖更直观。
 
 ## 修复
 
-- 记录 bug 修复、行为纠正、边界情况补齐等。
-- 示例: 修复 `ComponentName` 在 `condition` 场景下的渲染异常。
+- 修复 `GhostButton` 在文档示例与局部容器场景下仍然受到写死 `fixed` 类名影响的行为。
 
 ## 文档
 
-- 记录文档页、示例、侧边栏、开发日志等说明性变更。
-- 示例: 补充 `ComponentName` API 表格与基础示例。
+- 新增 `GhostButton` 文档页，包含基础用法、尺寸、定位、Button API 对齐、局部容器使用示例。
+- 为 `GhostButton` 补充 3 个 React demo：基础用法、尺寸展示与定位示例。
+- 组件侧边栏新增 `GhostButton` 入口，并同步文档页中的 API 表格与示例代码。
 
 ## 验证
 
-- `npx tsc --noEmit --ignoreDeprecations 5.0` 通过。
-- `pnpm build:docs` 通过。
+- `npm run typecheck` 通过。
+- `npm run build:types` 通过。
+- `npm run build:docs` 通过。

@@ -30,7 +30,10 @@ const config: UserConfig = {
           },
           {
             text: "交互",
-            items: [{ text: "Button", link: "/components/interact/button" }],
+            items: [
+              { text: "Button", link: "/components/interact/button" },
+              { text: "GhostButton", link: "/components/interact/ghost-button" },
+            ],
           },
           {
             text: "数据展示",
