@@ -76,7 +76,7 @@ export function Example() {
 | `top` | 顶部定位 | `React.CSSProperties['top']` | - |
 | `right` | 右侧定位 | `React.CSSProperties['right']` | `16` |
 | `bottom` | 底部定位 | `React.CSSProperties['bottom']` | `16` |
-| `zIndex` | 层级 | `React.CSSProperties['zIndex']` | - |
+| `zIndex` | 层级 | `React.CSSProperties['zIndex']` | `10` |
 | `rounded` | 圆角，默认是圆形按钮 | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full' \| number \| string` | `'full'` |
 | `variant` | 按钮风格，同 `Button` | `'dark' \| 'primary' \| 'secondary' \| 'minor' \| 'success' \| 'warning' \| 'danger' \| 'outline' \| 'ghost' \| 'link' \| 'text'` | `'primary'` |
 | `shadow` | 阴影，同 `Button` | `'none' \| 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'inner' \| string` | - |

@@ -13,6 +13,9 @@ import ButtonShadowDemo from "./components/interact/Button/ButtonShadowDemo";
 import GhostButtonBasicDemo from "./components/interact/GhostButton/GhostButtonBasicDemo";
 import GhostButtonSizeDemo from "./components/interact/GhostButton/GhostButtonSizeDemo";
 import GhostButtonPositionDemo from "./components/interact/GhostButton/GhostButtonPositionDemo";
+import GhostButtonGroupBasicDemo from "./components/interact/GhostButton/GhostButtonGroupBasicDemo";
+import GhostButtonGroupTriggerDemo from "./components/interact/GhostButton/GhostButtonGroupTriggerDemo";
+import GhostButtonGroupComposeDemo from "./components/interact/GhostButton/GhostButtonGroupComposeDemo";
 import BoxBasicDemo from "./components/layout/Box/BoxBasicDemo";
 import BoxPolymorphicDemo from "./components/layout/Box/BoxPolymorphicDemo";
 import BoxOverlayDemo from "./components/layout/Box/BoxOverlayDemo";
@@ -110,6 +113,18 @@ const theme: Theme = {
     app.component(
       "GhostButtonPositionDemo",
       createReactDemoHost("GhostButtonPositionDemoHost", GhostButtonPositionDemo),
+    );
+    app.component(
+      "GhostButtonGroupBasicDemo",
+      createReactDemoHost("GhostButtonGroupBasicDemoHost", GhostButtonGroupBasicDemo),
+    );
+    app.component(
+      "GhostButtonGroupTriggerDemo",
+      createReactDemoHost("GhostButtonGroupTriggerDemoHost", GhostButtonGroupTriggerDemo),
+    );
+    app.component(
+      "GhostButtonGroupComposeDemo",
+      createReactDemoHost("GhostButtonGroupComposeDemoHost", GhostButtonGroupComposeDemo),
     );
     app.component(
       "BoxBasicDemo",

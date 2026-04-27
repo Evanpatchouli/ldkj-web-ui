@@ -8,6 +8,9 @@
 - 新增 `GhostButton` 组件，默认 `position="fixed"`、`right={16}`、`bottom={16}`，默认在右下角悬浮显示为圆形按钮。
 - `GhostButton` 支持 5 档预设尺寸 `xs | sm | md | lg | xl`，同时支持 `number` 和任意 CSS 尺寸字符串。
 - `GhostButton` 底层复用 `Button`，同步 `variant`、`rounded`、`shadow`、`bounce`、`splash`、`sx`、`component` 以及原生按钮属性。
+- 新增 `GhostButtonGroup` 组件，支持用一个主悬浮按钮唤起一组快捷操作按钮。
+- `GhostButtonGroup` 支持 `trigger="click" | "hover"` 和触发数组组合，支持 `direction` 控制展开方向、`gap` 控制展开间距。
+- `GhostButtonGroup` 同时支持 `items` 数据式配置和 `GhostButtonGroup.Item` 组合式声明。
 
 ## 优化
 
@@ -22,7 +25,9 @@
 
 - 新增 `GhostButton` 文档页，包含基础用法、尺寸、定位、Button API 对齐、局部容器使用示例。
 - 为 `GhostButton` 补充 3 个 React demo：基础用法、尺寸展示与定位示例。
-- 组件侧边栏新增 `GhostButton` 入口，并同步文档页中的 API 表格与示例代码。
+- 新增 `GhostButtonGroup` 文档页，包含基础展开、触发方式、展开方向、间距和 compose 写法示例。
+- 为 `GhostButtonGroup` 补充 3 个 React demo：基础 `items` 用法、不同 `trigger`/`direction` 组合、`GhostButtonGroup.Item` 组合式写法。
+- 组件侧边栏新增 `GhostButton` 与 `GhostButtonGroup` 入口，并同步文档页中的 API 表格与示例代码。
 
 ## 验证
 

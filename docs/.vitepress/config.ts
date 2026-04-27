@@ -33,6 +33,10 @@ const config: UserConfig = {
             items: [
               { text: "Button", link: "/components/interact/button" },
               { text: "GhostButton", link: "/components/interact/ghost-button" },
+              {
+                text: "GhostButtonGroup",
+                link: "/components/interact/ghost-button-group",
+              },
             ],
           },
           {

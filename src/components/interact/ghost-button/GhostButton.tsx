@@ -66,7 +66,7 @@ export function GhostButton<T extends ElementType = "button">(
     top,
     right = 16,
     bottom = 16,
-    zIndex,
+    zIndex = 10,
     rounded = "full",
     className,
     style,
