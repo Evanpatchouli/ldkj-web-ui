@@ -24,6 +24,8 @@ export function Example() {
 
 ## API
 
+`SafeArea`、`SafeAreaTop`、`SafeAreaBottom` 继承 <a href="/components/box" target="_blank" rel="noreferrer">Box</a> 的基础能力，支持 `class`、`loading`、`loadingContent`、`modal`、`modalContent`、`onModalMaskClick` 以及原生属性透传。
+
 ### `SafeArea`
 
 | 属性 | 说明 | 类型 | 默认值 |

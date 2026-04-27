@@ -37,6 +37,8 @@ export function Example() {
 
 ## API
 
+`Flex` 继承 <a href="/components/box" target="_blank" rel="noreferrer">Box</a> 的基础能力，支持 `component`、`class`、`loading`、`loadingContent`、`modal`、`modalContent`、`onModalMaskClick` 以及原生属性透传。
+
 | 属性        | 说明                          | 类型                                                       | 默认值     |
 | ----------- | ----------------------------- | ---------------------------------------------------------- | ---------- |
 | `direction` | 主轴方向（`flex-direction`）  | `'row' \| 'row-reverse' \| 'col' \| 'col-reverse'`         | `'row'`    |

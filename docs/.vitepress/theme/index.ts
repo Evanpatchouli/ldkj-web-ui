@@ -9,6 +9,9 @@ import ButtonSizesDemo from "./components/Button/ButtonSizesDemo";
 import ButtonBounceDemo from "./components/Button/ButtonBounce";
 import ButtonSplashDemo from "./components/Button/ButtonSplash";
 import ButtonRoundedDemo from "./components/Button/ButtonRoundedDemo";
+import BoxBasicDemo from "./components/Box/BoxBasicDemo";
+import BoxPolymorphicDemo from "./components/Box/BoxPolymorphicDemo";
+import BoxOverlayDemo from "./components/Box/BoxOverlayDemo";
 import ChipVariantsDemo from "./components/Chip/ChipVariantsDemo";
 import ChipOutlineDemo from "./components/Chip/ChipOutlineDemo";
 import ChipSizesDemo from "./components/Chip/ChipSizesDemo";
@@ -79,6 +82,18 @@ const theme: Theme = {
     app.component(
       "ButtonRoundedDemo",
       createReactDemoHost("ButtonRoundedDemoHost", ButtonRoundedDemo),
+    );
+    app.component(
+      "BoxBasicDemo",
+      createReactDemoHost("BoxBasicDemoHost", BoxBasicDemo),
+    );
+    app.component(
+      "BoxPolymorphicDemo",
+      createReactDemoHost("BoxPolymorphicDemoHost", BoxPolymorphicDemo),
+    );
+    app.component(
+      "BoxOverlayDemo",
+      createReactDemoHost("BoxOverlayDemoHost", BoxOverlayDemo),
     );
     app.component(
       "ChipVariantsDemo",

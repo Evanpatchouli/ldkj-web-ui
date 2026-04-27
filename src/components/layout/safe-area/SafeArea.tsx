@@ -1,23 +1,17 @@
 import * as React from "react";
 import type { ElementType } from "react";
 import { cn } from "@/lib/utils";
-import { mergeSxStyle, resolveSx, useSxTheme, type SxProps } from "@/styling";
+import { mergeSxStyle } from "@/styling";
+import { Box, type BoxProps } from "../box";
 
 export type SafeAreaPosition = "top" | "bottom" | "both" | "none";
-
-type PolymorphicProps<T extends ElementType> = {
-  component?: T;
-  className?: string;
-} & Omit<React.ComponentPropsWithoutRef<T>, "as" | "className">;
 
 type SafeAreaOwnProps = {
   position?: SafeAreaPosition;
   horizontal?: boolean;
-  sx?: SxProps;
 };
 
-export type SafeAreaProps<T extends ElementType = "div"> = PolymorphicProps<T> &
-  SafeAreaOwnProps;
+export type SafeAreaProps = BoxProps<ElementType> & SafeAreaOwnProps;
 
 function resolveSafeAreaStyle(
   position: SafeAreaPosition,
@@ -39,9 +33,7 @@ function resolveSafeAreaStyle(
 /**
  * SafeArea 用于适配移动端刘海屏，灵动岛和手势区域等的安全区容器。
  */
-export function SafeArea<T extends ElementType = "div">(
-  props: SafeAreaProps<T>,
-) {
+export function SafeArea(props: SafeAreaProps) {
   const {
     component,
     position = "both",
@@ -52,24 +44,23 @@ export function SafeArea<T extends ElementType = "div">(
     children,
     ...restProps
   } = props;
-  const Comp = (component ?? "div") as ElementType;
-  const theme = useSxTheme();
-  const { sxClassName, sxInlineStyle } = resolveSx(sx, theme);
   const safeAreaStyle = resolveSafeAreaStyle(position, horizontal);
 
   return (
-    <Comp
-      className={cn("box-border", sxClassName, className)}
-      style={mergeSxStyle(style, safeAreaStyle, sxInlineStyle)}
+    <Box
+      component={component}
+      className={cn("box-border", className)}
+      style={mergeSxStyle(style, safeAreaStyle)}
+      sx={sx}
       {...restProps}
     >
       {children}
-    </Comp>
+    </Box>
   );
 }
 
-export type SafeAreaTopProps = Omit<SafeAreaProps<ElementType>, "position">;
-export type SafeAreaBottomProps = Omit<SafeAreaProps<ElementType>, "position">;
+export type SafeAreaTopProps = Omit<SafeAreaProps, "position">;
+export type SafeAreaBottomProps = Omit<SafeAreaProps, "position">;
 
 /**
  * SafeAreaTop 仅应用顶部安全区内边距。

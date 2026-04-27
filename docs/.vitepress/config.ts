@@ -18,6 +18,7 @@ const config: UserConfig = {
       {
         text: "组件",
         items: [
+          { text: "Box", link: "/components/box" },
           { text: "Button", link: "/components/button" },
           { text: "Chip", link: "/components/chip" },
           { text: "QRCode", link: "/components/qrcode" },

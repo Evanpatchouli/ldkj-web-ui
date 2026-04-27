@@ -73,6 +73,8 @@ export function Example() {
 
 ## API
 
+`Grid` 继承 <a href="/components/box" target="_blank" rel="noreferrer">Box</a> 的基础能力，支持 `component`、`class`、`loading`、`loadingContent`、`modal`、`modalContent`、`onModalMaskClick` 以及原生属性透传。
+
 | 属性            | 说明                     | 类型                                         | 默认值   |
 | --------------- | ------------------------ | -------------------------------------------- | -------- |
 | `container`     | 是否作为栅格容器         | `boolean`                                    | `false`  |

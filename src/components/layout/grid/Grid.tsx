@@ -1,6 +1,7 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
-import { mergeSxStyle, resolveSx, useSxTheme, type SxProps } from "@/styling";
+import { mergeSxStyle } from "@/styling";
+import { Box, type BoxProps } from "../box";
 
 export type GridSize = number | "grow";
 export type GridOffset = number | "auto";
@@ -12,7 +13,7 @@ type GridStyleVars = React.CSSProperties & {
   "--ldkj-grid-columns"?: string;
 };
 
-export type GridProps = React.ComponentPropsWithoutRef<"div"> & {
+export type GridProps = BoxProps<React.ElementType> & {
   container?: boolean;
   size?: GridSize;
   offset?: GridOffset;
@@ -22,7 +23,6 @@ export type GridProps = React.ComponentPropsWithoutRef<"div"> & {
   columnSpacing?: GridSpacing;
   wrap?: GridWrap;
   direction?: GridDirection;
-  sx?: SxProps;
 };
 
 function resolveSpacing(value?: GridSpacing): string | undefined {
@@ -92,35 +92,32 @@ export function Grid(props: GridProps) {
   const resolvedColumns = normalizeColumns(columns);
   const resolvedRowSpacing = resolveSpacing(rowSpacing ?? spacing);
   const resolvedColumnSpacing = resolveSpacing(columnSpacing ?? spacing);
-  const theme = useSxTheme();
-  const { sxClassName, sxInlineStyle } = resolveSx(sx, theme);
-  const nextStyle: GridStyleVars = {
-    ...(style as GridStyleVars),
-  };
+  const computedStyle: GridStyleVars = {};
 
   if (container) {
-    nextStyle.display = "flex";
-    nextStyle.flexWrap = resolveWrap(wrap);
-    nextStyle.flexDirection = direction;
-    nextStyle.rowGap = resolvedRowSpacing;
-    nextStyle.columnGap = resolvedColumnSpacing;
-    nextStyle["--ldkj-grid-columns"] = String(resolvedColumns);
+    computedStyle.display = "flex";
+    computedStyle.flexWrap = resolveWrap(wrap);
+    computedStyle.flexDirection = direction;
+    computedStyle.rowGap = resolvedRowSpacing;
+    computedStyle.columnGap = resolvedColumnSpacing;
+    computedStyle["--ldkj-grid-columns"] = String(resolvedColumns);
   } else if (columns !== undefined) {
-    nextStyle["--ldkj-grid-columns"] = String(resolvedColumns);
+    computedStyle["--ldkj-grid-columns"] = String(resolvedColumns);
   }
 
   if (size !== undefined) {
-    Object.assign(nextStyle, resolveGridItemSize(size));
+    Object.assign(computedStyle, resolveGridItemSize(size));
   }
 
   if (offset !== undefined) {
-    Object.assign(nextStyle, resolveGridItemOffset(offset));
+    Object.assign(computedStyle, resolveGridItemOffset(offset));
   }
 
   return (
-    <div
-      className={cn("min-w-0", sxClassName, className)}
-      style={mergeSxStyle(nextStyle, sxInlineStyle)}
+    <Box
+      className={cn("min-w-0", className)}
+      style={mergeSxStyle(style as GridStyleVars, computedStyle)}
+      sx={sx}
       {...restProps}
     />
   );
