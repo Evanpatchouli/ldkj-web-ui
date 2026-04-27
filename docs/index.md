@@ -1,4 +1,4 @@
-﻿# @ldkj/web-ui
+# @ldkj/web-ui
 
 由 shadcn-ui, Tailwind CSS 和 VitePress 构建的 React 组件库.
 

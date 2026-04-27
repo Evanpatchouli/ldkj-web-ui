@@ -23,6 +23,7 @@
 - `Flex`、`Grid`、`SafeArea` 文档补充“继承 Box 能力”的 API 说明。
 - `Flex`、`Grid`、`SafeArea` 文档中的 `Box` 说明链接支持新页面打开。
 - 新增 `next.md` 作为未发行变更日志入口。
+- 文档目录与侧边栏按源码分包调整为 `layout`、`interact`、`data-display`。
 
 ## 验证
 

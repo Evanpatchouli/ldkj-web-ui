@@ -1,4 +1,4 @@
-﻿import type { UserConfig } from "vitepress";
+import type { UserConfig } from "vitepress";
 import react from "@vitejs/plugin-react";
 import { fileURLToPath } from "node:url";
 
@@ -8,7 +8,7 @@ const config: UserConfig = {
   themeConfig: {
     nav: [
       { text: "指南", link: "/" },
-      { text: "组件", link: "/components/button" },
+      { text: "组件", link: "/components/layout/box" },
     ],
     sidebar: [
       {
@@ -18,18 +18,31 @@ const config: UserConfig = {
       {
         text: "组件",
         items: [
-          { text: "Box", link: "/components/box" },
-          { text: "Button", link: "/components/button" },
-          { text: "Chip", link: "/components/chip" },
-          { text: "QRCode", link: "/components/qrcode" },
-          { text: "Divider", link: "/components/divider" },
-          { text: "Flex", link: "/components/flex" },
-          { text: "Grid", link: "/components/grid" },
-          { text: "SafeArea", link: "/components/safe-area" },
+          {
+            text: "布局",
+            items: [
+              { text: "Box", link: "/components/layout/box" },
+              { text: "Divider", link: "/components/layout/divider" },
+              { text: "Flex", link: "/components/layout/flex" },
+              { text: "Grid", link: "/components/layout/grid" },
+              { text: "SafeArea", link: "/components/layout/safe-area" },
+            ],
+          },
+          {
+            text: "交互",
+            items: [{ text: "Button", link: "/components/interact/button" }],
+          },
+          {
+            text: "数据展示",
+            items: [
+              { text: "Chip", link: "/components/data-display/chip" },
+              { text: "QRCode", link: "/components/data-display/qrcode" },
+            ],
+          },
         ],
       },
       {
-        text: "Lib",
+        text: "工具",
         items: [
           // { text: "Utils", link: "/lib/utils" },
           // { text: "Theme", link: "/lib/theme" },
