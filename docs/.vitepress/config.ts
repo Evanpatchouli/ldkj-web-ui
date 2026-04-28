@@ -1,5 +1,6 @@
 import type { UserConfig } from "vitepress";
 import react from "@vitejs/plugin-react";
+import svgr from "vite-plugin-svgr";
 import { fileURLToPath } from "node:url";
 
 const config: UserConfig = {
@@ -37,6 +38,7 @@ const config: UserConfig = {
                 text: "GhostButtonGroup",
                 link: "/components/interact/ghost-button-group",
               },
+              { text: "Toast", link: "/components/interact/toast" },
             ],
           },
           {
@@ -44,6 +46,7 @@ const config: UserConfig = {
             items: [
               { text: "Card", link: "/components/data-display/card" },
               { text: "Chip", link: "/components/data-display/chip" },
+              { text: "Icon", link: "/components/data-display/icon" },
               { text: "QRCode", link: "/components/data-display/qrcode" },
             ],
           },
@@ -74,7 +77,7 @@ const config: UserConfig = {
     socialLinks: [{ icon: "github", link: "https://github.com/ldkj/web-ui" }],
   },
   vite: {
-    plugins: [react() as any],
+    plugins: [react() as any, svgr() as any],
     resolve: {
       alias: {
         "@": fileURLToPath(new URL("../../src", import.meta.url)),

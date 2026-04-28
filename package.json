@@ -32,6 +32,7 @@
   ],
   "scripts": {
     "dev": "vitepress dev docs",
+    "icons:gen": "node ./scripts/generate-material-symbol-loaders.mjs",
     "build": "npm run build:lib && npm run build:types && npm run prepare:package && npm run build:docs",
     "build:lib": "vite build",
     "build:types": "tsc -p tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist",
@@ -49,6 +50,7 @@
   "dependencies": {
     "@emotion/css": "^11.13.5",
     "@emotion/serialize": "^1.3.3",
+    "@material-symbols/svg-400": "^0.44.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "qrcode": "^1.5.4",
@@ -70,6 +72,7 @@
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.9.2",
     "vite": "^7.0.0",
+    "vite-plugin-svgr": "^5.2.0",
     "vitepress": "^1.6.3",
     "vue": "^3.3.4"
   }

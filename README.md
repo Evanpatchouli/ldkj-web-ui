@@ -17,16 +17,21 @@ pnpm add @ldkj/web-ui
 
 ```tsx
 import "@ldkj/web-ui/style.css";
-import { Button, Chip } from "@ldkj/web-ui";
+import { Button, Chip, Icon, ToastProvider, toast } from "@ldkj/web-ui";
 
 export default function App() {
   return (
-    <div className="p-4">
-      <Button variant="primary">Hello World</Button>
-      <Chip variant="success" size="sm">
-        Ready
-      </Chip>
-    </div>
+    <ToastProvider>
+      <div className="p-4">
+        <Button variant="primary" onClick={() => toast.success("保存成功")}>
+          Hello World
+        </Button>
+        <Chip variant="success" size="sm">
+          Ready
+        </Chip>
+        <Icon name="check_circle" color="#16a34a" />
+      </div>
+    </ToastProvider>
   );
 }
 ```
@@ -63,6 +68,7 @@ export default function App() {
 ## Scripts
 
 - `pnpm dev`: 启动 VitePress 开发服务器查看文档和 Demo.
+- `pnpm icons:gen`: 扫描 `@material-symbols/svg-400` 并生成全量 Icon loaders.
 - `pnpm build:lib`: 构建生产包到 `dist/`.
 - `pnpm build:docs`: 构建 VitePress 静态文档到 `docs/.vitepress/dist/`.
 - `pnpm build`: 构建生产包和文档.

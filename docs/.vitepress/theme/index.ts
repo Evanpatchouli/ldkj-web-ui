@@ -31,10 +31,16 @@ import ChipOutlineDemo from "./components/data-display/Chip/ChipOutlineDemo";
 import ChipSizesDemo from "./components/data-display/Chip/ChipSizesDemo";
 import ChipRoundedDemo from "./components/data-display/Chip/ChipRoundedDemo";
 import ChipShadowDemo from "./components/data-display/Chip/ChipShadowDemo";
+import IconBasicDemo from "./components/data-display/Icon/IconBasicDemo";
 import DividerVariantsDemo from "./components/layout/Divider/DividerVariantsDemo";
 import DividerContentDemo from "./components/layout/Divider/DividerContentDemo";
 import DividerVerticalDemo from "./components/layout/Divider/DividerVerticalDemo";
 import DividerTypeColorDemo from "./components/layout/Divider/DividerTypeColorDemo";
+import ToastBasicDemo from "./components/interact/Toast/ToastBasicDemo";
+import ToastClosableDemo from "./components/interact/Toast/ToastClosableDemo";
+import ToastCustomIconDemo from "./components/interact/Toast/ToastCustomIconDemo";
+import ToastUseToastDemo from "./components/interact/Toast/ToastUseToastDemo";
+import ToastStaticDemo from "./components/interact/Toast/ToastStaticDemo";
 import FlexDirectionDemo from "./components/layout/Flex/FlexDirectionDemo";
 import FlexGapWrapDemo from "./components/layout/Flex/FlexGapWrapDemo";
 import FlexSizeDemo from "./components/layout/Flex/FlexSizeDemo";
@@ -185,6 +191,30 @@ const theme: Theme = {
     app.component(
       "ChipShadowDemo",
       createReactDemoHost("ChipShadowDemoHost", ChipShadowDemo),
+    );
+    app.component(
+      "IconBasicDemo",
+      createReactDemoHost("IconBasicDemoHost", IconBasicDemo),
+    );
+    app.component(
+      "ToastBasicDemo",
+      createReactDemoHost("ToastBasicDemoHost", ToastBasicDemo),
+    );
+    app.component(
+      "ToastClosableDemo",
+      createReactDemoHost("ToastClosableDemoHost", ToastClosableDemo),
+    );
+    app.component(
+      "ToastCustomIconDemo",
+      createReactDemoHost("ToastCustomIconDemoHost", ToastCustomIconDemo),
+    );
+    app.component(
+      "ToastUseToastDemo",
+      createReactDemoHost("ToastUseToastDemoHost", ToastUseToastDemo),
+    );
+    app.component(
+      "ToastStaticDemo",
+      createReactDemoHost("ToastStaticDemoHost", ToastStaticDemo),
     );
     app.component(
       "DividerVariantsDemo",

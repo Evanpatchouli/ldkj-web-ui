@@ -5,25 +5,24 @@
 
 ## 新增
 
-- 记录新增组件、能力、API、文档栏目等。
-- 示例: 新增 `ComponentName` 组件，支持 `propName` 配置。
+- 新增 `Icon` 组件，基于 `@material-symbols/svg-400` 提供按名称与变体的动态加载能力。
+- 新增 `Toast` 体系：`ToastProvider`、`useToast` 与静态 `toast` facade。
 
 ## 优化
 
-- 记录已有能力的体验优化、内部重构、API 增强等。
-- 示例: `ComponentName` 底层复用 `Box`，保持原 API 并继承通用容器能力。
+- Toast 动画风格对齐轻量入场/离场反馈，支持 `placement`、`duration`、`queueLimit`、`reverse`。
+- 静态 `toast` 提供 `config/resetConfig`，可统一默认位置与时长。
 
 ## 修复
 
-- 记录 bug 修复、行为纠正、边界情况补齐等。
-- 示例: 修复 `ComponentName` 在 `condition` 场景下的渲染异常。
+- Toast 补齐 A11y：按消息类型自动设置 `role` 与 `aria-live`，并提供可键盘访问的关闭按钮。
 
 ## 文档
 
-- 记录文档页、示例、侧边栏、开发日志等说明性变更。
-- 示例: 补充 `ComponentName` API 表格与基础示例。
+- 新增 `Icon` 文档页与示例。
+- 新增 `Toast` 文档页与示例。
+- 更新侧边栏组件目录与主题 Demo 注册。
 
 ## 验证
 
-- `npx tsc --noEmit --ignoreDeprecations 5.0` 通过。
-- `pnpm build:docs` 通过。
+- 待执行。
