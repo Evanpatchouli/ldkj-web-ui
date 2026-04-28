@@ -17,6 +17,7 @@ import GhostButtonGroupBasicDemo from "./components/interact/GhostButton/GhostBu
 import GhostButtonGroupTriggerDemo from "./components/interact/GhostButton/GhostButtonGroupTriggerDemo";
 import GhostButtonGroupComposeDemo from "./components/interact/GhostButton/GhostButtonGroupComposeDemo";
 import BoxBasicDemo from "./components/layout/Box/BoxBasicDemo";
+import BoxLongPressDemo from "./components/layout/Box/BoxLongPressDemo";
 import BoxPolymorphicDemo from "./components/layout/Box/BoxPolymorphicDemo";
 import BoxOverlayDemo from "./components/layout/Box/BoxOverlayDemo";
 import BoxRoundedShadowDemo from "./components/layout/Box/BoxRoundedShadowDemo";
@@ -141,6 +142,10 @@ const theme: Theme = {
     app.component(
       "BoxBasicDemo",
       createReactDemoHost("BoxBasicDemoHost", BoxBasicDemo),
+    );
+    app.component(
+      "BoxLongPressDemo",
+      createReactDemoHost("BoxLongPressDemoHost", BoxLongPressDemo),
     );
     app.component(
       "BoxPolymorphicDemo",

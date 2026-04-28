@@ -10,6 +10,7 @@ import {
   shadowPresetClasses,
   type Shadow,
 } from "@/components/shared/shadow";
+import { useLongPress } from "@/lib/hooks";
 import { cn } from "@/lib/utils";
 import { mergeSxStyle, resolveSx, useSxTheme, type SxProps } from "@/styling";
 
@@ -23,6 +24,8 @@ type BoxOwnProps = {
   sx?: SxProps;
   rounded?: Rounded;
   shadow?: Shadow;
+  onLongPress?: () => void;
+  longPressDelay?: number;
   loading?: boolean;
   loadingContent?: React.ReactNode;
   modal?: boolean;
@@ -51,6 +54,8 @@ export function Box<T extends ElementType = "div">(props: BoxProps<T>) {
     sx,
     rounded,
     shadow,
+    onLongPress,
+    longPressDelay = 500,
     style,
     className,
     class: legacyClass,
@@ -66,6 +71,9 @@ export function Box<T extends ElementType = "div">(props: BoxProps<T>) {
   const theme = useSxTheme();
   const { roundedPreset, roundedStyle } = resolveRounded(rounded);
   const { shadowPreset, shadowStyle } = resolveShadow(shadow);
+  const longPressHandlers = useLongPress(() => {
+    onLongPress?.();
+  }, longPressDelay);
   const { sxClassName, sxInlineStyle } = resolveSx(sx, theme);
   const shouldContainOverlay = loading || modal;
   const computedStyle: React.CSSProperties | undefined =
@@ -90,6 +98,7 @@ export function Box<T extends ElementType = "div">(props: BoxProps<T>) {
         sxInlineStyle,
       )}
       aria-busy={loading || undefined}
+      {...(onLongPress ? longPressHandlers : undefined)}
       {...restProps}
     >
       {children}

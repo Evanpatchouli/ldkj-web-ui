@@ -1,7 +1,7 @@
-import { ToastProvider, toast, useToast } from "@/components/interact/toast";
+import { ToastProvider, useToast } from "@/components/interact/toast";
 import CodeView from "../../CodeView";
 
-const code = `import { ToastProvider, toast, useToast } from "@ldkj/web-ui";
+const code = `import { ToastProvider, useToast } from "@ldkj/web-ui";
 
 function ToastActions() {
   const api = useToast();
@@ -10,8 +10,8 @@ function ToastActions() {
     <div className="flex flex-wrap gap-2">
       <button onClick={() => api.info("保存草稿成功")}>useToast.info</button>
       <button onClick={() => api.warn("请先补充必填项")}>useToast.warn</button>
-      <button onClick={() => toast.success("发布成功")}>toast.success</button>
-      <button onClick={() => toast.error("网络异常，请稍后重试")}>toast.error</button>
+      <button onClick={() => api.success("发布成功")}>toast.success</button>
+      <button onClick={() => api.error("网络异常，请稍后重试")}>toast.error</button>
     </div>
   );
 }
@@ -60,13 +60,13 @@ function ToastActions() {
       </ActionButton>
       <ActionButton
         className="border-green-300 text-green-700"
-        onClick={() => toast.success("发布成功")}
+        onClick={() => api.success("发布成功")}
       >
         toast.success
       </ActionButton>
       <ActionButton
         className="border-red-300 text-red-700"
-        onClick={() => toast.error("网络异常，请稍后重试")}
+        onClick={() => api.error("网络异常，请稍后重试")}
       >
         toast.error
       </ActionButton>

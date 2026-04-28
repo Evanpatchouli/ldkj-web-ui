@@ -24,6 +24,12 @@
 
 <BoxOverlayDemo />
 
+## Long Press
+
+`onLongPress` 与 `longPressDelay` 可用于长按交互（鼠标按住或触摸按住）：
+
+<BoxLongPressDemo />
+
 ## Usage
 
 ```tsx
@@ -57,6 +63,8 @@ export function Example() {
 | `sx` | CSS-in-JS 样式入口 | `SxProps` | - |
 | `rounded` | 圆角 | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full' \| number \| string` | - |
 | `shadow` | 阴影 | `'none' \| 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'inner' \| string` | - |
+| `onLongPress` | 长按触发回调 | `() => void` | - |
+| `longPressDelay` | 长按触发延时（毫秒） | `number` | `500` |
 | `loading` | 是否显示 loading 遮罩 | `boolean` | `false` |
 | `loadingContent` | 自定义 loading 内容 | `React.ReactNode` | 内置 spinner |
 | `modal` | 是否显示元素级 modal | `boolean` | `false` |
@@ -64,3 +72,5 @@ export function Example() {
 | `onModalMaskClick` | 点击 modal 遮罩回调 | `MouseEventHandler<HTMLDivElement>` | - |
 | `children` | 内容 | `React.ReactNode` | - |
 | `...rest` | 原生属性透传（含 `aria-*`/`data-*`/事件） | `React.ComponentPropsWithoutRef<T>` | - |
+
+> 事件优先级：当你显式传入 `onMouseDown`、`onMouseUp`、`onMouseLeave`、`onTouchStart`、`onTouchEnd` 时，会覆盖 `onLongPress` 自动注入的对应处理器。
