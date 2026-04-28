@@ -1,6 +1,6 @@
 {
   "name": "@ldkj/web-ui",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "private": false,
   "author": "xfwang <wangxiaofeng@xjldkj.com>",
   "description": "React component library built with shadcn-ui patterns and VitePress docs.",
@@ -37,7 +37,7 @@
     "build:lib": "vite build",
     "build:types": "tsc -p tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist",
     "build:docs": "vitepress build docs",
-    "prepare:package": "node ./scripts/create-dist-package-json.js",
+    "prepare:package": "node ./scripts/prepare-package.js",
     "preview": "vitepress preview docs",
     "typecheck": "tsc --noEmit",
     "clean": "rimraf dist docs/.vitepress/dist",
