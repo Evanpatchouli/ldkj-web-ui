@@ -32,6 +32,12 @@ import ChipSizesDemo from "./components/data-display/Chip/ChipSizesDemo";
 import ChipRoundedDemo from "./components/data-display/Chip/ChipRoundedDemo";
 import ChipShadowDemo from "./components/data-display/Chip/ChipShadowDemo";
 import IconBasicDemo from "./components/data-display/Icon/IconBasicDemo";
+import IconRegisterDemo from "./components/data-display/Icon/IconRegisterDemo";
+import IconVariantFillDemo from "./components/data-display/Icon/IconVariantFillDemo";
+import IconSizeDemo from "./components/data-display/Icon/IconSizeDemo";
+import IconColorDemo from "./components/data-display/Icon/IconColorDemo";
+import IconTitleDemo from "./components/data-display/Icon/IconTitleDemo";
+import IconRegistryApiDemo from "./components/data-display/Icon/IconRegistryApiDemo";
 import DividerVariantsDemo from "./components/layout/Divider/DividerVariantsDemo";
 import DividerContentDemo from "./components/layout/Divider/DividerContentDemo";
 import DividerVerticalDemo from "./components/layout/Divider/DividerVerticalDemo";
@@ -195,6 +201,30 @@ const theme: Theme = {
     app.component(
       "IconBasicDemo",
       createReactDemoHost("IconBasicDemoHost", IconBasicDemo),
+    );
+    app.component(
+      "IconRegisterDemo",
+      createReactDemoHost("IconRegisterDemoHost", IconRegisterDemo),
+    );
+    app.component(
+      "IconVariantFillDemo",
+      createReactDemoHost("IconVariantFillDemoHost", IconVariantFillDemo),
+    );
+    app.component(
+      "IconSizeDemo",
+      createReactDemoHost("IconSizeDemoHost", IconSizeDemo),
+    );
+    app.component(
+      "IconColorDemo",
+      createReactDemoHost("IconColorDemoHost", IconColorDemo),
+    );
+    app.component(
+      "IconTitleDemo",
+      createReactDemoHost("IconTitleDemoHost", IconTitleDemo),
+    );
+    app.component(
+      "IconRegistryApiDemo",
+      createReactDemoHost("IconRegistryApiDemoHost", IconRegistryApiDemo),
     );
     app.component(
       "ToastBasicDemo",

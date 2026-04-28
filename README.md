@@ -17,7 +17,20 @@ pnpm add @ldkj/web-ui
 
 ```tsx
 import "@ldkj/web-ui/style.css";
-import { Button, Chip, Icon, ToastProvider, toast } from "@ldkj/web-ui";
+import {
+  Button,
+  Chip,
+  Icon,
+  ToastProvider,
+  toast,
+  registerIconLoaders,
+} from "@ldkj/web-ui";
+
+registerIconLoaders({
+  brand_logo: {
+    outlined: () => import("./icons/brand-logo.svg?react"),
+  },
+});
 
 export default function App() {
   return (
@@ -29,6 +42,7 @@ export default function App() {
         <Chip variant="success" size="sm">
           Ready
         </Chip>
+        <Icon name="brand_logo" />
         <Icon name="check_circle" color="#16a34a" />
       </div>
     </ToastProvider>

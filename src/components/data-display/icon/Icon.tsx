@@ -12,7 +12,7 @@ export interface IconProps {
   svg?: SvgComponent;
   src?: string;
   variant?: IconVariant;
-  fill?: boolean;
+  useColorAsFill?: boolean;
   size?: number | string;
   color?: string;
   className?: string;
@@ -20,6 +20,56 @@ export interface IconProps {
 }
 
 export type MaterialSymbolName = keyof typeof materialSymbolLoaders;
+
+export type IconVariantLoaders = {
+  outlined: IconLoader;
+  rounded?: IconLoader;
+  sharp?: IconLoader;
+};
+
+export type IconLoaderRegistry = Record<string, IconVariantLoaders>;
+
+const userIconLoaders: IconLoaderRegistry = {};
+
+function toIconLoaderRegistry(loaders: IconLoaderRegistry): IconLoaderRegistry {
+  return { ...loaders };
+}
+
+/**
+ * 合并注册图标加载器。已存在同名图标会被覆盖。
+ */
+export function registerIconLoaders(loaders: IconLoaderRegistry) {
+  Object.assign(userIconLoaders, toIconLoaderRegistry(loaders));
+}
+
+/**
+ * 全量替换已注册图标加载器。
+ */
+export function setIconLoaders(loaders: IconLoaderRegistry) {
+  const next = toIconLoaderRegistry(loaders);
+  Object.keys(userIconLoaders).forEach((key) => {
+    delete userIconLoaders[key];
+  });
+  Object.assign(userIconLoaders, next);
+}
+
+/**
+ * 清空运行时注册的图标加载器。
+ */
+export function resetIconLoaders() {
+  Object.keys(userIconLoaders).forEach((key) => {
+    delete userIconLoaders[key];
+  });
+}
+
+/**
+ * 获取当前可用图标名（用户注册 + 内置）。
+ */
+export function getRegisteredIconNames() {
+  const userNames = Object.keys(userIconLoaders);
+  const builtInNames = Object.keys(materialSymbolLoaders);
+  return Array.from(new Set([...userNames, ...builtInNames]));
+}
 
 function EmptyIcon(props: React.SVGProps<SVGSVGElement> & { title?: string }) {
   const { title, ...restProps } = props;
@@ -36,7 +86,10 @@ function EmptyIcon(props: React.SVGProps<SVGSVGElement> & { title?: string }) {
 }
 
 function resolveLoader(name: string, variant: IconVariant): IconLoader | null {
-  const loaders = materialSymbolLoaders[name as MaterialSymbolName];
+  const loaders =
+    userIconLoaders[name] ??
+    materialSymbolLoaders[name as MaterialSymbolName] ??
+    null;
   if (!loaders) {
     return null;
   }
@@ -73,7 +126,7 @@ export function Icon(props: IconProps) {
     svg: CustomSvg,
     src,
     variant = "outlined",
-    fill = false,
+    useColorAsFill = false,
     size = 24,
     color = "currentColor",
     className,
@@ -83,7 +136,7 @@ export function Icon(props: IconProps) {
     () => createLazyIcon(name ?? "", variant),
     [name, variant],
   );
-  const resolvedFill = fill ? color : "currentColor";
+  const resolvedFill = useColorAsFill ? color : "currentColor";
 
   if (CustomSvg) {
     return (
