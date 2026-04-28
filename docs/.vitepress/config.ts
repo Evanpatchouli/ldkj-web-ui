@@ -50,6 +50,15 @@ const config: UserConfig = {
               { text: "QRCode", link: "/components/data-display/qrcode" },
             ],
           },
+          {
+            text: "导航",
+            items: [
+              {
+                text: "Breadcrumb",
+                link: "/components/navigation/breadcrumb",
+              },
+            ],
+          },
         ],
       },
       {

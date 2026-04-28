@@ -17,6 +17,10 @@ import GhostButtonGroupBasicDemo from "./components/interact/GhostButton/GhostBu
 import GhostButtonGroupTriggerDemo from "./components/interact/GhostButton/GhostButtonGroupTriggerDemo";
 import GhostButtonGroupComposeDemo from "./components/interact/GhostButton/GhostButtonGroupComposeDemo";
 import BoxBasicDemo from "./components/layout/Box/BoxBasicDemo";
+import BreadcrumbBasicDemo from "./components/navigation/Breadcrumb/BreadcrumbBasicDemo";
+import BreadcrumbItemsDemo from "./components/navigation/Breadcrumb/BreadcrumbItemsDemo";
+import BreadcrumbSeparatorDemo from "./components/navigation/Breadcrumb/BreadcrumbSeparatorDemo";
+import BreadcrumbSxDemo from "./components/navigation/Breadcrumb/BreadcrumbSxDemo";
 import BoxLongPressDemo from "./components/layout/Box/BoxLongPressDemo";
 import BoxPolymorphicDemo from "./components/layout/Box/BoxPolymorphicDemo";
 import BoxOverlayDemo from "./components/layout/Box/BoxOverlayDemo";
@@ -138,6 +142,25 @@ const theme: Theme = {
     app.component(
       "GhostButtonGroupComposeDemo",
       createReactDemoHost("GhostButtonGroupComposeDemoHost", GhostButtonGroupComposeDemo),
+    );
+    app.component(
+      "BreadcrumbBasicDemo",
+      createReactDemoHost("BreadcrumbBasicDemoHost", BreadcrumbBasicDemo),
+    );
+    app.component(
+      "BreadcrumbItemsDemo",
+      createReactDemoHost("BreadcrumbItemsDemoHost", BreadcrumbItemsDemo),
+    );
+    app.component(
+      "BreadcrumbSeparatorDemo",
+      createReactDemoHost(
+        "BreadcrumbSeparatorDemoHost",
+        BreadcrumbSeparatorDemo,
+      ),
+    );
+    app.component(
+      "BreadcrumbSxDemo",
+      createReactDemoHost("BreadcrumbSxDemoHost", BreadcrumbSxDemo),
     );
     app.component(
       "BoxBasicDemo",

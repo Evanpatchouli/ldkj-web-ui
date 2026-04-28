@@ -80,3 +80,5 @@ if (fs.existsSync(licensePath)) {
 }
 
 console.log(`Created ${path.relative(rootDir, distPackageJsonPath)}`);
+// 再复制一份  .npmrc
+fs.copyFileSync(path.join(rootDir, ".npmrc"), path.join(distDir, ".npmrc"));
