@@ -21,6 +21,8 @@ import BreadcrumbBasicDemo from "./components/navigation/Breadcrumb/BreadcrumbBa
 import BreadcrumbItemsDemo from "./components/navigation/Breadcrumb/BreadcrumbItemsDemo";
 import BreadcrumbSeparatorDemo from "./components/navigation/Breadcrumb/BreadcrumbSeparatorDemo";
 import BreadcrumbSxDemo from "./components/navigation/Breadcrumb/BreadcrumbSxDemo";
+import AnchorBasicDemo from "./components/navigation/Anchor/AnchorBasicDemo";
+import AnchorOffsetDemo from "./components/navigation/Anchor/AnchorOffsetDemo";
 import BoxLongPressDemo from "./components/layout/Box/BoxLongPressDemo";
 import BoxPolymorphicDemo from "./components/layout/Box/BoxPolymorphicDemo";
 import BoxOverlayDemo from "./components/layout/Box/BoxOverlayDemo";
@@ -55,6 +57,13 @@ import ToastStaticDemo from "./components/interact/Toast/ToastStaticDemo";
 import FlexDirectionDemo from "./components/layout/Flex/FlexDirectionDemo";
 import FlexGapWrapDemo from "./components/layout/Flex/FlexGapWrapDemo";
 import FlexSizeDemo from "./components/layout/Flex/FlexSizeDemo";
+import SpaceBasicDemo from "./components/layout/Space/SpaceBasicDemo";
+import SpaceResponsiveDemo from "./components/layout/Space/SpaceResponsiveDemo";
+import SpaceItemDemo from "./components/layout/Space/SpaceItemDemo";
+import SpaceSplitDemo from "./components/layout/Space/SpaceSplitDemo";
+import RowColBasicDemo from "./components/layout/RowCol/RowColBasicDemo";
+import RowColGutterDemo from "./components/layout/RowCol/RowColGutterDemo";
+import RowColAlignDemo from "./components/layout/RowCol/RowColAlignDemo";
 import GridBasicDemo from "./components/layout/Grid/GridBasicDemo";
 import GridSpacingDemo from "./components/layout/Grid/GridSpacingDemo";
 import GridOffsetDemo from "./components/layout/Grid/GridOffsetDemo";
@@ -161,6 +170,14 @@ const theme: Theme = {
     app.component(
       "BreadcrumbSxDemo",
       createReactDemoHost("BreadcrumbSxDemoHost", BreadcrumbSxDemo),
+    );
+    app.component(
+      "AnchorBasicDemo",
+      createReactDemoHost("AnchorBasicDemoHost", AnchorBasicDemo),
+    );
+    app.component(
+      "AnchorOffsetDemo",
+      createReactDemoHost("AnchorOffsetDemoHost", AnchorOffsetDemo),
     );
     app.component(
       "BoxBasicDemo",
@@ -301,6 +318,34 @@ const theme: Theme = {
     app.component(
       "FlexSizeDemo",
       createReactDemoHost("FlexSizeDemoHost", FlexSizeDemo),
+    );
+    app.component(
+      "SpaceBasicDemo",
+      createReactDemoHost("SpaceBasicDemoHost", SpaceBasicDemo),
+    );
+    app.component(
+      "SpaceResponsiveDemo",
+      createReactDemoHost("SpaceResponsiveDemoHost", SpaceResponsiveDemo),
+    );
+    app.component(
+      "SpaceItemDemo",
+      createReactDemoHost("SpaceItemDemoHost", SpaceItemDemo),
+    );
+    app.component(
+      "SpaceSplitDemo",
+      createReactDemoHost("SpaceSplitDemoHost", SpaceSplitDemo),
+    );
+    app.component(
+      "RowColBasicDemo",
+      createReactDemoHost("RowColBasicDemoHost", RowColBasicDemo),
+    );
+    app.component(
+      "RowColGutterDemo",
+      createReactDemoHost("RowColGutterDemoHost", RowColGutterDemo),
+    );
+    app.component(
+      "RowColAlignDemo",
+      createReactDemoHost("RowColAlignDemoHost", RowColAlignDemo),
     );
     app.component(
       "GridBasicDemo",

@@ -18,6 +18,7 @@ pnpm add @ldkj/web-ui
 ```tsx
 import "@ldkj/web-ui/style.css";
 import {
+  Anchor,
   Button,
   Chip,
   Icon,
@@ -39,11 +40,15 @@ export default function App() {
         <Button variant="primary" onClick={() => toast.success("保存成功")}>
           Hello World
         </Button>
+        <Anchor id="target" className="text-blue-600">
+          跳转到目标区块
+        </Anchor>
         <Chip variant="success" size="sm">
           Ready
         </Chip>
         <Icon name="brand_logo" />
         <Icon name="check_circle" color="#16a34a" />
+        <div id="target">目标区块</div>
       </div>
     </ToastProvider>
   );

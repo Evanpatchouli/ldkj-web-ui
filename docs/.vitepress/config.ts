@@ -26,6 +26,8 @@ const config: UserConfig = {
               { text: "Divider", link: "/components/layout/divider" },
               { text: "Flex", link: "/components/layout/flex" },
               { text: "Grid", link: "/components/layout/grid" },
+              { text: "Space", link: "/components/layout/space" },
+              { text: "Row / Col", link: "/components/layout/row-col" },
               { text: "SafeArea", link: "/components/layout/safe-area" },
             ],
           },
@@ -53,6 +55,10 @@ const config: UserConfig = {
           {
             text: "导航",
             items: [
+              {
+                text: "Anchor",
+                link: "/components/navigation/anchor",
+              },
               {
                 text: "Breadcrumb",
                 link: "/components/navigation/breadcrumb",
