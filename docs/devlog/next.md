@@ -5,34 +5,25 @@
 
 ## 新增
 
-- 新增 `Anchor` 导航组件，支持锚点模式与脚本滚动模式。
-- 新增 `offset`、`onNavigate`、`behavior/block/inline` 等滚动控制能力。
-- `Anchor` 接入 `className/class` 与 `sx` 体系，并提供 SSR 安全保护。
-- 新增 `Space` 布局组件，支持响应式方向/对齐/换行、双轴间距、`Space.Item` 子项能力与 `split` 分隔符。
-- 新增 `Row` / `Col` 布局语法糖组件（基于 `Grid`），支持 `gutter`、`align`、`justify`、`span`、`offset`、`flex`。
+- 记录新增组件、能力、API、文档栏目等。
+- 示例: 新增 `ComponentName` 组件，支持 `propName` 配置。
 
 ## 优化
 
-- 统一 `hash=true` 场景为脚本滚动链路，保证 `offset` 与滚动参数行为一致。
-- 补齐非 `button` 元素键盘可达性（Enter/Space）与语义属性。
-- `Space` 响应式实现统一走 `sx` 媒体查询覆盖，基础值与断点值行为一致。
+- 记录已有能力的体验优化、内部重构、API 增强等。
+- 示例: `ComponentName` 底层复用 `Box`，保持原 API 并继承通用容器能力。
 
 ## 修复
 
-- 本周期无单独修复项。
+- 记录 bug 修复、行为纠正、边界情况补齐等。
+- 示例: 修复 `ComponentName` 在 `condition` 场景下的渲染异常。
 
 ## 文档
 
-- 新增 `docs/components/navigation/anchor.md` 文档页（Basic、Offset + SX、Usage、API、Notes）。
-- 新增 `AnchorBasicDemo` 与 `AnchorOffsetDemo`，并完成主题注册。
-- 组件侧边栏“导航”分组新增 `Anchor` 入口。
-- README 使用示例补充 `Anchor` 基础用法。
-- 新增 `docs/components/layout/space.md` 文档页与 `SpaceBasic/Responsive/Item/Split` 四个 Demo。
-- 组件侧边栏“布局”分组新增 `Space` 入口。
-- 新增 `docs/components/layout/row-col.md` 文档页与 `RowColBasic/Gutter/Align` 三个 Demo。
-- 组件侧边栏“布局”分组新增 `Row / Col` 入口。
+- 记录文档页、示例、侧边栏、开发日志等说明性变更。
+- 示例: 补充 `ComponentName` API 表格与基础示例。
 
 ## 验证
 
-- `pnpm -s tsc --noEmit --ignoreDeprecations 5.0` 通过。
-- `pnpm -s build:docs` 通过。
+- `npx tsc --noEmit --ignoreDeprecations 5.0` 通过。
+- `pnpm build:docs` 通过。
