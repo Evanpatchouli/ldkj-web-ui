@@ -23,6 +23,14 @@ import BreadcrumbSeparatorDemo from "./components/navigation/Breadcrumb/Breadcru
 import BreadcrumbSxDemo from "./components/navigation/Breadcrumb/BreadcrumbSxDemo";
 import AnchorBasicDemo from "./components/navigation/Anchor/AnchorBasicDemo";
 import AnchorOffsetDemo from "./components/navigation/Anchor/AnchorOffsetDemo";
+import MenuBasicDemo from "./components/navigation/Menu/MenuBasicDemo";
+import MenuItemsDemo from "./components/navigation/Menu/MenuItemsDemo";
+import MenuControlledDemo from "./components/navigation/Menu/MenuControlledDemo";
+import MenuSxDemo from "./components/navigation/Menu/MenuSxDemo";
+import MenuMultipleDemo from "./components/navigation/Menu/MenuMultipleDemo";
+import MenuAccordionDemo from "./components/navigation/Menu/MenuAccordionDemo";
+import MenuIndentDemo from "./components/navigation/Menu/MenuIndentDemo";
+import MenuItemGapDemo from "./components/navigation/Menu/MenuItemGapDemo";
 import BoxLongPressDemo from "./components/layout/Box/BoxLongPressDemo";
 import BoxPolymorphicDemo from "./components/layout/Box/BoxPolymorphicDemo";
 import BoxOverlayDemo from "./components/layout/Box/BoxOverlayDemo";
@@ -178,6 +186,38 @@ const theme: Theme = {
     app.component(
       "AnchorOffsetDemo",
       createReactDemoHost("AnchorOffsetDemoHost", AnchorOffsetDemo),
+    );
+    app.component(
+      "MenuBasicDemo",
+      createReactDemoHost("MenuBasicDemoHost", MenuBasicDemo),
+    );
+    app.component(
+      "MenuItemsDemo",
+      createReactDemoHost("MenuItemsDemoHost", MenuItemsDemo),
+    );
+    app.component(
+      "MenuControlledDemo",
+      createReactDemoHost("MenuControlledDemoHost", MenuControlledDemo),
+    );
+    app.component(
+      "MenuSxDemo",
+      createReactDemoHost("MenuSxDemoHost", MenuSxDemo),
+    );
+    app.component(
+      "MenuMultipleDemo",
+      createReactDemoHost("MenuMultipleDemoHost", MenuMultipleDemo),
+    );
+    app.component(
+      "MenuAccordionDemo",
+      createReactDemoHost("MenuAccordionDemoHost", MenuAccordionDemo),
+    );
+    app.component(
+      "MenuIndentDemo",
+      createReactDemoHost("MenuIndentDemoHost", MenuIndentDemo),
+    );
+    app.component(
+      "MenuItemGapDemo",
+      createReactDemoHost("MenuItemGapDemoHost", MenuItemGapDemo),
     );
     app.component(
       "BoxBasicDemo",

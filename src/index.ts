@@ -15,5 +15,6 @@ export * from "./components/layout/row";
 export * from "./components/layout/col";
 export * from "./components/navigation/breadcrumb";
 export * from "./components/navigation/anchor";
+export * from "./components/navigation/menu";
 export * from "./styling";
 import "./style.css";

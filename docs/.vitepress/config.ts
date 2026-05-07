@@ -63,6 +63,10 @@ const config: UserConfig = {
                 text: "Breadcrumb",
                 link: "/components/navigation/breadcrumb",
               },
+              {
+                text: "Menu",
+                link: "/components/navigation/menu",
+              },
             ],
           },
         ],
@@ -79,6 +83,8 @@ const config: UserConfig = {
         items: [
           { text: "日志索引", link: "/devlog/" },
           { text: "Next", link: "/devlog/next" },
+          { text: "v0.9.0", link: "/devlog/v0.9.0" },
+          { text: "v0.8.0", link: "/devlog/v0.8.0" },
           { text: "v0.7.0", link: "/devlog/v0.7.0" },
           { text: "v0.6.0", link: "/devlog/v0.6.0" },
           { text: "v0.5.0", link: "/devlog/v0.5.0" },

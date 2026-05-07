@@ -11,19 +11,19 @@
 - [x] Flex
 - [x] Grid
 - [x] SafeArea
-- [x] Anchor
 - [x] Space（与 Flex 组件的区别
       Space 为内联元素提供间距，其本身会为每一个子元素添加包裹元素用于内联对齐。适用于行、列中多个子元素的等距排列。
       Flex 为块级元素提供间距，其本身不会添加包裹元素。适用于垂直或水平方向上的子元素布局，并提供了更多的灵活性和控制能力。）
-- [ ] Col
-- [ ] Row
+- [x] Col
+- [x] Row
 
 ## 通用与导航
 
-- [ ] Menu
-- [ ] MenuItem（作为 Menu 子组件导出，组合式 API）
+- [x] Anchor
+- [x] Menu
+- [x] MenuItem（作为 Menu 子组件导出，组合式 API）
 - [ ] Tabs
-- [ ] Breadcrumb
+- [x] Breadcrumb
 - [ ] Pagination
 
 ## 数据展示
@@ -35,7 +35,6 @@
 - [ ] Badge
 - [ ] List
 - [ ] Table
-- [ ] Tag
 - [ ] Skeleton
 - [ ] Empty
 - [x] QRCode
@@ -44,6 +43,7 @@
 
 - [ ] Input
 - [ ] InputNumber
+- [ ] InputOPT
 - [ ] AutoComplete
 - [ ] Select
 - [ ] Checkbox
