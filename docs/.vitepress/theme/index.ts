@@ -31,6 +31,11 @@ import MenuMultipleDemo from "./components/navigation/Menu/MenuMultipleDemo";
 import MenuAccordionDemo from "./components/navigation/Menu/MenuAccordionDemo";
 import MenuIndentDemo from "./components/navigation/Menu/MenuIndentDemo";
 import MenuItemGapDemo from "./components/navigation/Menu/MenuItemGapDemo";
+import TabsBasicDemo from "./components/navigation/Tabs/TabsBasicDemo";
+import TabsItemsDemo from "./components/navigation/Tabs/TabsItemsDemo";
+import TabsSxDemo from "./components/navigation/Tabs/TabsSxDemo";
+import TabsBorderlessDemo from "./components/navigation/Tabs/TabsBorderlessDemo";
+import TabsCustomContentDemo from "./components/navigation/Tabs/TabsCustomContentDemo";
 import BoxLongPressDemo from "./components/layout/Box/BoxLongPressDemo";
 import BoxPolymorphicDemo from "./components/layout/Box/BoxPolymorphicDemo";
 import BoxOverlayDemo from "./components/layout/Box/BoxOverlayDemo";
@@ -218,6 +223,26 @@ const theme: Theme = {
     app.component(
       "MenuItemGapDemo",
       createReactDemoHost("MenuItemGapDemoHost", MenuItemGapDemo),
+    );
+    app.component(
+      "TabsBasicDemo",
+      createReactDemoHost("TabsBasicDemoHost", TabsBasicDemo),
+    );
+    app.component(
+      "TabsItemsDemo",
+      createReactDemoHost("TabsItemsDemoHost", TabsItemsDemo),
+    );
+    app.component(
+      "TabsSxDemo",
+      createReactDemoHost("TabsSxDemoHost", TabsSxDemo),
+    );
+    app.component(
+      "TabsBorderlessDemo",
+      createReactDemoHost("TabsBorderlessDemoHost", TabsBorderlessDemo),
+    );
+    app.component(
+      "TabsCustomContentDemo",
+      createReactDemoHost("TabsCustomContentDemoHost", TabsCustomContentDemo),
     );
     app.component(
       "BoxBasicDemo",

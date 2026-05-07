@@ -22,7 +22,7 @@
 - [x] Anchor
 - [x] Menu
 - [x] MenuItem（作为 Menu 子组件导出，组合式 API）
-- [ ] Tabs
+- [x] Tabs
 - [x] Breadcrumb
 - [ ] Pagination
 
