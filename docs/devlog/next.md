@@ -7,13 +7,11 @@
 
 - 记录新增组件、能力、API、文档栏目等。
 - 示例: 新增 `ComponentName` 组件，支持 `propName` 配置。
-- 新增 `Tabs` 导航组件，基于 Radix Tabs 并对齐本库 `sx`、`className/class` 与配置式 `items` API。
 
 ## 优化
 
 - 记录已有能力的体验优化、内部重构、API 增强等。
 - 示例: `ComponentName` 底层复用 `Box`，保持原 API 并继承通用容器能力。
-- `TabsContent` 新增 `borderless`，用于关闭默认内容面板边框和内边距。
 
 ## 修复
 
@@ -24,10 +22,6 @@
 
 - 记录文档页、示例、侧边栏、开发日志等说明性变更。
 - 示例: 补充 `ComponentName` API 表格与基础示例。
-- 新增 `docs/components/navigation/tabs.md` 文档页与 Basic、Items、SX Styling 示例。
-- `Tabs` 文档补充 Borderless 独立示例。
-- `Tabs` 文档补充 Custom Content 示例，展示不使用库内 `TabsContent` 的受控渲染方式。
-- 组件侧边栏“导航”分组新增 `Tabs` 入口。
 
 ## 验证
 
