@@ -16,6 +16,10 @@ import GhostButtonPositionDemo from "./components/interact/GhostButton/GhostButt
 import GhostButtonGroupBasicDemo from "./components/interact/GhostButton/GhostButtonGroupBasicDemo";
 import GhostButtonGroupTriggerDemo from "./components/interact/GhostButton/GhostButtonGroupTriggerDemo";
 import GhostButtonGroupComposeDemo from "./components/interact/GhostButton/GhostButtonGroupComposeDemo";
+import CheckboxBasicDemo from "./components/form/Checkbox/CheckboxBasicDemo";
+import CheckboxControlledDemo from "./components/form/Checkbox/CheckboxControlledDemo";
+import CheckboxStatesDemo from "./components/form/Checkbox/CheckboxStatesDemo";
+import CheckboxSxDemo from "./components/form/Checkbox/CheckboxSxDemo";
 import BoxBasicDemo from "./components/layout/Box/BoxBasicDemo";
 import BreadcrumbBasicDemo from "./components/navigation/Breadcrumb/BreadcrumbBasicDemo";
 import BreadcrumbItemsDemo from "./components/navigation/Breadcrumb/BreadcrumbItemsDemo";
@@ -56,6 +60,13 @@ import CardLoadingDemo from "./components/data-display/Card/CardLoadingDemo";
 import CardVariantDemo from "./components/data-display/Card/CardVariantDemo";
 import CardStateDemo from "./components/data-display/Card/CardStateDemo";
 import CardCompoundDemo from "./components/data-display/Card/CardCompoundDemo";
+import TableBasicDemo from "./components/data-display/Table/TableBasicDemo";
+import TableColumnDemo from "./components/data-display/Table/TableColumnDemo";
+import TableRenderDemo from "./components/data-display/Table/TableRenderDemo";
+import TableSelectionDemo from "./components/data-display/Table/TableSelectionDemo";
+import TablePaginationDemo from "./components/data-display/Table/TablePaginationDemo";
+import TableStateDemo from "./components/data-display/Table/TableStateDemo";
+import TableSxDemo from "./components/data-display/Table/TableSxDemo";
 import ChipVariantsDemo from "./components/data-display/Chip/ChipVariantsDemo";
 import ChipOutlineDemo from "./components/data-display/Chip/ChipOutlineDemo";
 import ChipSizesDemo from "./components/data-display/Chip/ChipSizesDemo";
@@ -174,6 +185,22 @@ const theme: Theme = {
     app.component(
       "GhostButtonGroupComposeDemo",
       createReactDemoHost("GhostButtonGroupComposeDemoHost", GhostButtonGroupComposeDemo),
+    );
+    app.component(
+      "CheckboxBasicDemo",
+      createReactDemoHost("CheckboxBasicDemoHost", CheckboxBasicDemo),
+    );
+    app.component(
+      "CheckboxControlledDemo",
+      createReactDemoHost("CheckboxControlledDemoHost", CheckboxControlledDemo),
+    );
+    app.component(
+      "CheckboxStatesDemo",
+      createReactDemoHost("CheckboxStatesDemoHost", CheckboxStatesDemo),
+    );
+    app.component(
+      "CheckboxSxDemo",
+      createReactDemoHost("CheckboxSxDemoHost", CheckboxSxDemo),
     );
     app.component(
       "BreadcrumbBasicDemo",
@@ -349,6 +376,34 @@ const theme: Theme = {
     app.component(
       "CardCompoundDemo",
       createReactDemoHost("CardCompoundDemoHost", CardCompoundDemo),
+    );
+    app.component(
+      "TableBasicDemo",
+      createReactDemoHost("TableBasicDemoHost", TableBasicDemo),
+    );
+    app.component(
+      "TableColumnDemo",
+      createReactDemoHost("TableColumnDemoHost", TableColumnDemo),
+    );
+    app.component(
+      "TableRenderDemo",
+      createReactDemoHost("TableRenderDemoHost", TableRenderDemo),
+    );
+    app.component(
+      "TableSelectionDemo",
+      createReactDemoHost("TableSelectionDemoHost", TableSelectionDemo),
+    );
+    app.component(
+      "TablePaginationDemo",
+      createReactDemoHost("TablePaginationDemoHost", TablePaginationDemo),
+    );
+    app.component(
+      "TableStateDemo",
+      createReactDemoHost("TableStateDemoHost", TableStateDemo),
+    );
+    app.component(
+      "TableSxDemo",
+      createReactDemoHost("TableSxDemoHost", TableSxDemo),
     );
     app.component(
       "ChipVariantsDemo",

@@ -35,7 +35,10 @@ const config: UserConfig = {
             text: "交互",
             items: [
               { text: "Button", link: "/components/interact/button" },
-              { text: "GhostButton", link: "/components/interact/ghost-button" },
+              {
+                text: "GhostButton",
+                link: "/components/interact/ghost-button",
+              },
               {
                 text: "GhostButtonGroup",
                 link: "/components/interact/ghost-button-group",
@@ -44,12 +47,17 @@ const config: UserConfig = {
             ],
           },
           {
+            text: "表单与输入",
+            items: [{ text: "Checkbox", link: "/components/form/checkbox" }],
+          },
+          {
             text: "数据展示",
             items: [
               { text: "Card", link: "/components/data-display/card" },
               { text: "Chip", link: "/components/data-display/chip" },
               { text: "Icon", link: "/components/data-display/icon" },
               { text: "QRCode", link: "/components/data-display/qrcode" },
+              { text: "Table", link: "/components/data-display/table" },
             ],
           },
           {

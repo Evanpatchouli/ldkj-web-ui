@@ -24,7 +24,7 @@
 - [x] MenuItem（作为 Menu 子组件导出，组合式 API）
 - [x] Tabs
 - [x] Breadcrumb
-- [ ] Pagination
+- [x] Pagination
 
 ## 数据展示
 
@@ -34,10 +34,11 @@
 - [ ] Avatar
 - [ ] Badge
 - [ ] List
-- [ ] Table
+- [x] Table
 - [ ] Skeleton
 - [ ] Empty
 - [x] QRCode
+- [ ] Image
 
 ## 表单与输入
 
@@ -46,7 +47,7 @@
 - [ ] InputOPT
 - [ ] AutoComplete
 - [ ] Select
-- [ ] Checkbox
+- [x] Checkbox
 - [ ] CheckboxGroup
 - [ ] Radio
 - [ ] RadioGroup
@@ -86,9 +87,9 @@
 
 ## 数据展示
 
+- [ ] DataGrid
 - [ ] Title
 - [ ] Label
-- [ ] Image
 - [ ] Gallery
 - [ ] Carousel（与 Gallery 职责区分：Carousel 负责切换容器，Gallery 负责图片浏览体验）
 - [ ] Tree

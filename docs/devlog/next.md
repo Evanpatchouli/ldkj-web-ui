@@ -7,12 +7,17 @@
 
 - 新增 `Pagination` 导航组件，支持配置式分页与组合式子组件用法。
 - `Pagination` 支持 `sx/className/class/style`，并接入本库 `Button` 与 `Icon` 体系。
+- 新增 `Table` 数据展示组件，基于 `Box` 实现，支持列配置、自动列、行选择、前端分页、空态、loading 与 `sx`。
+- `Table` 新增 `Table.Column` 组合式列声明写法。
+- 新增 `Checkbox` 表单组件，支持受控/非受控、半选、禁用状态和 `sx`。
 
 ## 优化
 
 - `Pagination` 新增配置式分页能力，支持 `count/page/defaultPage/onPageChange`、省略号生成和上一页/下一页边界禁用。
 - `Pagination` 新增 `variant`，支持 `outline` 与 `filled` 两种当前页样式。
 - `Pagination` 支持 `siblingCount/boundaryCount/showPreviousNext/disabled/getItemHref/renderItem/contentProps`，覆盖受控分页、路由链接、自定义渲染和禁用态等常见场景。
+- `Table` 行选择与表头全选改为复用本库 `Checkbox`，统一选择控件视觉与状态语义。
+- `Checkbox` 内部勾选与半选指示改为 CSS 形状，不再依赖 `Icon`。
 
 ## 修复
 
@@ -24,6 +29,9 @@
 - 新增 `Pagination` 文档页，并接入导航侧边栏。
 - 新增 `Pagination` Demo：Basic、Controlled、Ellipsis、Boundary、Previous / Next、Disabled、Custom Href、Render Item、Variant、SX Styling。
 - 更新 `Pagination` API 文档，补充配置式分页、组合式用法、`variant`、自定义链接与自定义渲染说明。
+- 新增 `Table` 文档页与 Basic、Render、Selection、Pagination、States、SX Styling 示例，并接入数据展示侧边栏。
+- `Table` 文档新增 Column 示例，展示组合式列声明。
+- 新增 `Checkbox` 文档页与 Basic、Controlled、States、SX Styling 示例，并接入表单侧边栏。
 
 ## 验证
 
