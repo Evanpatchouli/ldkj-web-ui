@@ -36,6 +36,16 @@ import TabsItemsDemo from "./components/navigation/Tabs/TabsItemsDemo";
 import TabsSxDemo from "./components/navigation/Tabs/TabsSxDemo";
 import TabsBorderlessDemo from "./components/navigation/Tabs/TabsBorderlessDemo";
 import TabsCustomContentDemo from "./components/navigation/Tabs/TabsCustomContentDemo";
+import PaginationBasicDemo from "./components/navigation/Pagination/PaginationBasicDemo";
+import PaginationEllipsisDemo from "./components/navigation/Pagination/PaginationEllipsisDemo";
+import PaginationSxDemo from "./components/navigation/Pagination/PaginationSxDemo";
+import PaginationVariantDemo from "./components/navigation/Pagination/PaginationVariantDemo";
+import PaginationControlledDemo from "./components/navigation/Pagination/PaginationControlledDemo";
+import PaginationPreviousNextDemo from "./components/navigation/Pagination/PaginationPreviousNextDemo";
+import PaginationBoundaryDemo from "./components/navigation/Pagination/PaginationBoundaryDemo";
+import PaginationHrefDemo from "./components/navigation/Pagination/PaginationHrefDemo";
+import PaginationRenderItemDemo from "./components/navigation/Pagination/PaginationRenderItemDemo";
+import PaginationDisabledDemo from "./components/navigation/Pagination/PaginationDisabledDemo";
 import BoxLongPressDemo from "./components/layout/Box/BoxLongPressDemo";
 import BoxPolymorphicDemo from "./components/layout/Box/BoxPolymorphicDemo";
 import BoxOverlayDemo from "./components/layout/Box/BoxOverlayDemo";
@@ -243,6 +253,58 @@ const theme: Theme = {
     app.component(
       "TabsCustomContentDemo",
       createReactDemoHost("TabsCustomContentDemoHost", TabsCustomContentDemo),
+    );
+    app.component(
+      "PaginationBasicDemo",
+      createReactDemoHost("PaginationBasicDemoHost", PaginationBasicDemo),
+    );
+    app.component(
+      "PaginationEllipsisDemo",
+      createReactDemoHost(
+        "PaginationEllipsisDemoHost",
+        PaginationEllipsisDemo,
+      ),
+    );
+    app.component(
+      "PaginationSxDemo",
+      createReactDemoHost("PaginationSxDemoHost", PaginationSxDemo),
+    );
+    app.component(
+      "PaginationVariantDemo",
+      createReactDemoHost("PaginationVariantDemoHost", PaginationVariantDemo),
+    );
+    app.component(
+      "PaginationControlledDemo",
+      createReactDemoHost(
+        "PaginationControlledDemoHost",
+        PaginationControlledDemo,
+      ),
+    );
+    app.component(
+      "PaginationPreviousNextDemo",
+      createReactDemoHost(
+        "PaginationPreviousNextDemoHost",
+        PaginationPreviousNextDemo,
+      ),
+    );
+    app.component(
+      "PaginationBoundaryDemo",
+      createReactDemoHost("PaginationBoundaryDemoHost", PaginationBoundaryDemo),
+    );
+    app.component(
+      "PaginationHrefDemo",
+      createReactDemoHost("PaginationHrefDemoHost", PaginationHrefDemo),
+    );
+    app.component(
+      "PaginationRenderItemDemo",
+      createReactDemoHost(
+        "PaginationRenderItemDemoHost",
+        PaginationRenderItemDemo,
+      ),
+    );
+    app.component(
+      "PaginationDisabledDemo",
+      createReactDemoHost("PaginationDisabledDemoHost", PaginationDisabledDemo),
     );
     app.component(
       "BoxBasicDemo",

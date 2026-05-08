@@ -68,6 +68,10 @@ const config: UserConfig = {
                 link: "/components/navigation/menu",
               },
               {
+                text: "Pagination",
+                link: "/components/navigation/pagination",
+              },
+              {
                 text: "Tabs",
                 link: "/components/navigation/tabs",
               },
