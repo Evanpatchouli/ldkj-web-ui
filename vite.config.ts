@@ -11,7 +11,7 @@ function isMaterialSymbolChunk(chunkInfo: PreRenderedChunk) {
   ].filter(Boolean);
 
   return moduleIds.some((moduleId) =>
-    moduleId.includes("@material-symbols/svg-400") && moduleId.includes(".svg"),
+    moduleId?.includes("@material-symbols/svg-400") && moduleId.includes(".svg"),
   );
 }
 
