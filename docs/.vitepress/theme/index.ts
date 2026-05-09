@@ -20,6 +20,13 @@ import CheckboxBasicDemo from "./components/form/Checkbox/CheckboxBasicDemo";
 import CheckboxControlledDemo from "./components/form/Checkbox/CheckboxControlledDemo";
 import CheckboxStatesDemo from "./components/form/Checkbox/CheckboxStatesDemo";
 import CheckboxSxDemo from "./components/form/Checkbox/CheckboxSxDemo";
+import CheckboxGroupMultipleDemo from "./components/form/CheckboxGroup/CheckboxGroupMultipleDemo";
+import CheckboxGroupSingleDemo from "./components/form/CheckboxGroup/CheckboxGroupSingleDemo";
+import CheckboxGroupFormDemo from "./components/form/CheckboxGroup/CheckboxGroupFormDemo";
+import CheckboxGroupSxDemo from "./components/form/CheckboxGroup/CheckboxGroupSxDemo";
+import InputBasicDemo from "./components/form/Input/InputBasicDemo";
+import InputStatesDemo from "./components/form/Input/InputStatesDemo";
+import InputSxDemo from "./components/form/Input/InputSxDemo";
 import BoxBasicDemo from "./components/layout/Box/BoxBasicDemo";
 import BreadcrumbBasicDemo from "./components/navigation/Breadcrumb/BreadcrumbBasicDemo";
 import BreadcrumbItemsDemo from "./components/navigation/Breadcrumb/BreadcrumbItemsDemo";
@@ -201,6 +208,37 @@ const theme: Theme = {
     app.component(
       "CheckboxSxDemo",
       createReactDemoHost("CheckboxSxDemoHost", CheckboxSxDemo),
+    );
+    app.component(
+      "CheckboxGroupMultipleDemo",
+      createReactDemoHost(
+        "CheckboxGroupMultipleDemoHost",
+        CheckboxGroupMultipleDemo,
+      ),
+    );
+    app.component(
+      "CheckboxGroupSingleDemo",
+      createReactDemoHost("CheckboxGroupSingleDemoHost", CheckboxGroupSingleDemo),
+    );
+    app.component(
+      "CheckboxGroupFormDemo",
+      createReactDemoHost("CheckboxGroupFormDemoHost", CheckboxGroupFormDemo),
+    );
+    app.component(
+      "CheckboxGroupSxDemo",
+      createReactDemoHost("CheckboxGroupSxDemoHost", CheckboxGroupSxDemo),
+    );
+    app.component(
+      "InputBasicDemo",
+      createReactDemoHost("InputBasicDemoHost", InputBasicDemo),
+    );
+    app.component(
+      "InputStatesDemo",
+      createReactDemoHost("InputStatesDemoHost", InputStatesDemo),
+    );
+    app.component(
+      "InputSxDemo",
+      createReactDemoHost("InputSxDemoHost", InputSxDemo),
     );
     app.component(
       "BreadcrumbBasicDemo",

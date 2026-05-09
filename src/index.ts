@@ -2,6 +2,7 @@ export * from "./components/interact/button";
 export * from "./components/interact/ghost-button";
 export * from "./components/interact/toast";
 export * from "./components/form/checkbox";
+export * from "./components/form/input";
 export * from "./components/data-display/card";
 export * from "./components/data-display/icon";
 export * from "./components/data-display/chip";

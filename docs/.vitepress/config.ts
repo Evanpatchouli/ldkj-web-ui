@@ -48,7 +48,14 @@ const config: UserConfig = {
           },
           {
             text: "表单与输入",
-            items: [{ text: "Checkbox", link: "/components/form/checkbox" }],
+            items: [
+              { text: "Checkbox", link: "/components/form/checkbox" },
+              {
+                text: "CheckboxGroup",
+                link: "/components/form/checkbox-group",
+              },
+              { text: "Input", link: "/components/form/input" },
+            ],
           },
           {
             text: "数据展示",
@@ -99,6 +106,7 @@ const config: UserConfig = {
         items: [
           { text: "日志索引", link: "/devlog/" },
           { text: "Next", link: "/devlog/next" },
+          { text: "v0.12.0", link: "/devlog/v0.12.0" },
           { text: "v0.11.0", link: "/devlog/v0.11.0" },
           { text: "v0.10.0", link: "/devlog/v0.10.0" },
           { text: "v0.9.0", link: "/devlog/v0.9.0" },

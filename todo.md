@@ -42,13 +42,13 @@
 
 ## 表单与输入
 
-- [ ] Input
+- [x] Input
 - [ ] InputNumber
 - [ ] InputOPT
 - [ ] AutoComplete
 - [ ] Select
 - [x] Checkbox
-- [ ] CheckboxGroup
+- [x] CheckboxGroup
 - [ ] Radio
 - [ ] RadioGroup
 - [ ] Switch
