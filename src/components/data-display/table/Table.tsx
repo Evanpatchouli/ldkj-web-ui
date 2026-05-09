@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Box } from "@/components/layout/box";
 import { cn } from "@/lib/utils";
+import { mergeSxStyle } from "@/styling";
 import { variantRootClass } from "./constants";
 import {
   TableBody,
@@ -18,7 +19,9 @@ import {
 import type { TableComponent, TableProps } from "./types";
 import {
   getAutoColumns,
+  getColumnKey,
   getRowKey,
+  normalizeCssSize,
   resolveChildrenColumns,
   useControllableKeys,
 } from "./utils";
@@ -113,6 +116,9 @@ function TableRoot<RecordType extends object = Record<string, unknown>>(
         : "justify-end";
   const tableColumnCount =
     visibleColumns.length + (selectionEnabled ? 1 : 0) + (indexColumn ? 1 : 0);
+  const indexColumnWidth = normalizeCssSize(
+    typeof indexColumn === "object" ? indexColumn.width : 64,
+  );
 
   function emitSelection(nextKeys: React.Key[]) {
     if (!isControlled) {
@@ -164,7 +170,7 @@ function TableRoot<RecordType extends object = Record<string, unknown>>(
       rounded={rounded}
       loading={loading}
       className={cn(
-        "table-root overflow-hidden",
+        "table-root w-full overflow-hidden",
         variantRootClass[variant],
         className,
       )}
@@ -175,12 +181,34 @@ function TableRoot<RecordType extends object = Record<string, unknown>>(
           component="table"
           {...tableProps}
           className={cn(
-            "w-full border-collapse text-left",
+            "table w-full table-fixed border-collapse text-left",
             bordered &&
               "[&_td]:border-r [&_td]:border-slate-100 [&_td:last-child]:border-r-0 [&_th]:border-r [&_th]:border-slate-100 [&_th:last-child]:border-r-0",
             tableProps?.className,
           )}
+          style={mergeSxStyle(
+            {
+              borderCollapse: "collapse",
+              display: "table",
+              tableLayout: "fixed",
+              width: "100%",
+            },
+            tableProps?.style,
+          )}
         >
+          {tableColumnCount > 0 ? (
+            <colgroup>
+              {selectionEnabled ? <col style={{ width: 48 }} /> : null}
+              {indexColumn ? <col style={{ width: indexColumnWidth }} /> : null}
+              {visibleColumns.map((column, columnIndex) => (
+                <col
+                  key={getColumnKey(column, columnIndex)}
+                  style={{ width: normalizeCssSize(column.width) }}
+                />
+              ))}
+            </colgroup>
+          ) : null}
+
           {caption ? (
             <caption className="px-4 py-3 text-left text-sm text-slate-600">
               {caption}
