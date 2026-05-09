@@ -49,8 +49,8 @@
 - [ ] Select
 - [x] Checkbox
 - [x] CheckboxGroup
-- [ ] Radio
-- [ ] RadioGroup
+- [x] Radio
+- [x] RadioGroup
 - [ ] Switch
 - [ ] Rate
 - [ ] Cascader
