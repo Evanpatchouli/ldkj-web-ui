@@ -14,6 +14,7 @@
 
 - 记录已有能力的体验优化、内部重构、API 增强等。
 - 示例: `ComponentName` 底层复用 `Box`，保持原 API 并继承通用容器能力。
+- `CheckboxGroup` 支持组合式用法，子级 `Checkbox value="..."` 可自动接入组状态、`name` 和禁用态。
 - `CheckboxGroup` 与 `RadioGroup` 内部选项改用本库 `Label`，保留点击文本切换控件的原生语义。
 
 ## 修复
@@ -25,6 +26,7 @@
 
 - 记录文档页、示例、侧边栏、开发日志等说明性变更。
 - 示例: 补充 `ComponentName` API 表格与基础示例。
+- `CheckboxGroup` 文档新增 Compose 示例。
 - 新增 `Label` 文档页与 Basic、Required / Colon、Layout、SX Styling 示例，并接入表单与输入侧边栏。
 - 新增 `Radio` 文档页与 Basic、Controlled、Form Submit、SX Styling 示例，并接入表单与输入侧边栏。
 

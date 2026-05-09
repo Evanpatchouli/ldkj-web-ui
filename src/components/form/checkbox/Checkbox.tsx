@@ -2,6 +2,7 @@ import * as React from "react";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { cn } from "@/lib/utils";
 import { mergeSxStyle, resolveSx, useSxTheme, type SxProps } from "@/styling";
+import { useCheckboxGroupContext } from "./context";
 
 export type CheckboxProps = React.ComponentPropsWithoutRef<
   typeof CheckboxPrimitive.Root
@@ -56,14 +57,37 @@ const Checkbox = React.forwardRef<
     sx,
     style,
     children,
+    checked,
+    disabled,
+    name,
+    onCheckedChange,
+    value,
     ...restProps
   } = props;
   const theme = useSxTheme();
   const { sxClassName, sxInlineStyle } = resolveSx(sx, theme);
+  const groupContext = useCheckboxGroupContext();
+  const groupValue = typeof value === "string" ? value : undefined;
+  const isGroupItem = Boolean(groupContext && groupValue !== undefined);
+  const mergedChecked =
+    checked ??
+    (isGroupItem ? groupContext?.selectedValues.has(groupValue as string) : undefined);
+  const mergedDisabled = disabled || (isGroupItem ? groupContext?.disabled : false);
+  const mergedName = name ?? (isGroupItem ? groupContext?.name : undefined);
 
   return (
     <CheckboxPrimitive.Root
       ref={ref}
+      checked={mergedChecked}
+      disabled={mergedDisabled}
+      name={mergedName}
+      onCheckedChange={(nextChecked) => {
+        onCheckedChange?.(nextChecked);
+        if (isGroupItem && checked === undefined) {
+          groupContext?.toggleValue(groupValue as string, nextChecked === true);
+        }
+      }}
+      value={value}
       className={cn(
         "peer inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-[4px] border border-solid border-slate-300 bg-white text-white transition-colors",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",

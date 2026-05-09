@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { mergeSxStyle, resolveSx, useSxTheme, type SxProps } from "@/styling";
 import { Label } from "@/components/form/label";
 import { Checkbox, type CheckboxProps } from "./Checkbox";
+import { CheckboxGroupProvider } from "./context";
 
 type CheckboxGroupGapPreset = "xs" | "sm" | "md" | "lg";
 type CheckboxGroupGap = CheckboxGroupGapPreset | number | string;
@@ -28,14 +29,14 @@ export type CheckboxGroupOption = {
 
 type CheckboxGroupBaseProps = Omit<
   React.ComponentPropsWithoutRef<"div">,
-  "children" | "defaultValue" | "onChange"
+  "defaultValue" | "onChange"
 > & {
   class?: string;
   disabled?: boolean;
   direction?: "horizontal" | "vertical";
   gap?: CheckboxGroupGap;
   name?: string;
-  options: CheckboxGroupOption[];
+  options?: CheckboxGroupOption[];
   sx?: SxProps;
 };
 
@@ -91,6 +92,7 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
   const {
     className,
     class: legacyClass,
+    children,
     direction = "vertical",
     disabled = false,
     gap = "md",
@@ -139,6 +141,16 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
     emitChange(Array.from(nextSet));
   }
 
+  const contextValue = React.useMemo(
+    () => ({
+      disabled,
+      name,
+      selectedValues: selectedSet,
+      toggleValue,
+    }),
+    [disabled, name, selectedSet],
+  );
+
   return (
     <div
       role="group"
@@ -153,41 +165,44 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
       style={mergeSxStyle(style, resolvedGap.style, sxInlineStyle)}
       {...rootProps}
     >
-      {options.map((option) => {
-        const optionDisabled = disabled || option.disabled;
-        const checked = selectedSet.has(option.value);
+      <CheckboxGroupProvider value={contextValue}>
+        {options?.map((option) => {
+          const optionDisabled = disabled || option.disabled;
+          const checked = selectedSet.has(option.value);
 
-        return (
-          <Label
-            key={option.value}
-            className={cn(
-              "inline-flex items-start gap-2 text-sm leading-5 text-slate-700",
-              optionDisabled && "cursor-not-allowed text-slate-400",
-              !optionDisabled && "cursor-pointer",
-              option.className,
-            )}
-          >
-            <Checkbox
-              {...option.checkboxProps}
-              name={name}
-              value={option.value}
-              checked={checked}
-              disabled={optionDisabled}
-              onCheckedChange={(nextChecked) =>
-                toggleValue(option.value, nextChecked === true)
-              }
-            />
-            <span className="grid gap-0.5">
-              <span>{option.label}</span>
-              {option.description ? (
-                <span className="text-xs text-slate-500">
-                  {option.description}
-                </span>
-              ) : null}
-            </span>
-          </Label>
-        );
-      })}
+          return (
+            <Label
+              key={option.value}
+              className={cn(
+                "inline-flex items-start gap-2 text-sm leading-5 text-slate-700",
+                optionDisabled && "cursor-not-allowed text-slate-400",
+                !optionDisabled && "cursor-pointer",
+                option.className,
+              )}
+            >
+              <Checkbox
+                {...option.checkboxProps}
+                name={name}
+                value={option.value}
+                checked={checked}
+                disabled={optionDisabled}
+                onCheckedChange={(nextChecked) =>
+                  toggleValue(option.value, nextChecked === true)
+                }
+              />
+              <span className="grid gap-0.5">
+                <span>{option.label}</span>
+                {option.description ? (
+                  <span className="text-xs text-slate-500">
+                    {option.description}
+                  </span>
+                ) : null}
+              </span>
+            </Label>
+          );
+        })}
+        {children}
+      </CheckboxGroupProvider>
     </div>
   );
 }

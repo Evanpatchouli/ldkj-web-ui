@@ -20,6 +20,12 @@
 
 <CheckboxGroupFormDemo />
 
+## Compose
+
+`CheckboxGroup` 也支持组合式用法。放在组内且带有 `value` 的 `Checkbox` 会自动接入组的选中状态、`name` 和禁用态。
+
+<CheckboxGroupComposeDemo />
+
 ## SX Styling
 
 可以通过 `sx` 定制分组容器，也可以通过 `options.checkboxProps` 定制单个 Checkbox。
@@ -76,6 +82,30 @@ export function SingleExample() {
 }
 ```
 
+组合式用法：
+
+```tsx
+import * as React from "react";
+import { Checkbox, CheckboxGroup, Label } from "@ldkj/web-ui";
+
+export function ComposeExample() {
+  const [value, setValue] = React.useState<string[]>(["orders"]);
+
+  return (
+    <CheckboxGroup name="modules" value={value} onChange={setValue}>
+      <Label>
+        <Checkbox value="orders" />
+        订单管理
+      </Label>
+      <Label>
+        <Checkbox value="inventory" />
+        库存管理
+      </Label>
+    </CheckboxGroup>
+  );
+}
+```
+
 ## API
 
 ### CheckboxGroup
@@ -83,7 +113,8 @@ export function SingleExample() {
 | 属性           | 说明               | 类型                                      | 默认值       |
 | -------------- | ------------------ | ----------------------------------------- | ------------ |
 | `type`         | 选择模式           | `"multiple" \| "single"`                  | `"multiple"` |
-| `options`      | 选项列表           | `CheckboxGroupOption[]`                   | -            |
+| `options`      | 配置式选项列表     | `CheckboxGroupOption[]`                   | -            |
+| `children`     | 组合式选项内容     | `React.ReactNode`                         | -            |
 | `name`         | 表单字段名         | `string`                                  | -            |
 | `value`        | 受控值             | `string[] \| string \| undefined`         | -            |
 | `defaultValue` | 默认值             | `string[] \| string`                      | -            |
@@ -110,5 +141,7 @@ export function SingleExample() {
 ## Notes
 
 - `CheckboxGroup` 使用 `label` 包裹每个选项，点击文本也会切换选择状态。
+- 组合式用法中，子级 `Checkbox` 必须传入字符串 `value` 才会自动接入 Group 状态。
+- `options` 与 `children` 可以同时渲染，但常规用法建议二选一，避免选项来源混杂。
 - 多选模式放入表单时，会按 HTML 语义提交多个同名字段。
 - 单选模式仍保持 Checkbox 语义，点击已选中的选项会取消选择；如果需要不可取消的单选，请使用 RadioGroup。

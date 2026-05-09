@@ -23,6 +23,7 @@ import CheckboxSxDemo from "./components/form/Checkbox/CheckboxSxDemo";
 import CheckboxGroupMultipleDemo from "./components/form/CheckboxGroup/CheckboxGroupMultipleDemo";
 import CheckboxGroupSingleDemo from "./components/form/CheckboxGroup/CheckboxGroupSingleDemo";
 import CheckboxGroupFormDemo from "./components/form/CheckboxGroup/CheckboxGroupFormDemo";
+import CheckboxGroupComposeDemo from "./components/form/CheckboxGroup/CheckboxGroupComposeDemo";
 import CheckboxGroupSxDemo from "./components/form/CheckboxGroup/CheckboxGroupSxDemo";
 import InputBasicDemo from "./components/form/Input/InputBasicDemo";
 import InputStatesDemo from "./components/form/Input/InputStatesDemo";
@@ -231,6 +232,13 @@ const theme: Theme = {
     app.component(
       "CheckboxGroupFormDemo",
       createReactDemoHost("CheckboxGroupFormDemoHost", CheckboxGroupFormDemo),
+    );
+    app.component(
+      "CheckboxGroupComposeDemo",
+      createReactDemoHost(
+        "CheckboxGroupComposeDemoHost",
+        CheckboxGroupComposeDemo,
+      ),
     );
     app.component(
       "CheckboxGroupSxDemo",
