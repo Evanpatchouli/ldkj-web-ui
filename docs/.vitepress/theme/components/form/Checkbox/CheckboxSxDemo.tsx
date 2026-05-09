@@ -11,7 +11,7 @@ export function Example() {
         sx={{
           width: 22,
           height: 22,
-          borderRadius: 6,
+          borderRadius: "100%",
           borderColor: "#10b981",
           "&[data-state=checked]": {
             backgroundColor: "#10b981",
@@ -32,7 +32,7 @@ function Example() {
         sx={{
           width: 22,
           height: 22,
-          borderRadius: 6,
+          borderRadius: "100%",
           borderColor: "#10b981",
           "&[data-state=checked]": {
             backgroundColor: "#10b981",
