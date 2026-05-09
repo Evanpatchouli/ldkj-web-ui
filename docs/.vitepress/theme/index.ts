@@ -27,6 +27,10 @@ import CheckboxGroupSxDemo from "./components/form/CheckboxGroup/CheckboxGroupSx
 import InputBasicDemo from "./components/form/Input/InputBasicDemo";
 import InputStatesDemo from "./components/form/Input/InputStatesDemo";
 import InputSxDemo from "./components/form/Input/InputSxDemo";
+import LabelBasicDemo from "./components/form/Label/LabelBasicDemo";
+import LabelRequiredDemo from "./components/form/Label/LabelRequiredDemo";
+import LabelLayoutDemo from "./components/form/Label/LabelLayoutDemo";
+import LabelSxDemo from "./components/form/Label/LabelSxDemo";
 import RadioBasicDemo from "./components/form/Radio/RadioBasicDemo";
 import RadioControlledDemo from "./components/form/Radio/RadioControlledDemo";
 import RadioFormDemo from "./components/form/Radio/RadioFormDemo";
@@ -243,6 +247,22 @@ const theme: Theme = {
     app.component(
       "InputSxDemo",
       createReactDemoHost("InputSxDemoHost", InputSxDemo),
+    );
+    app.component(
+      "LabelBasicDemo",
+      createReactDemoHost("LabelBasicDemoHost", LabelBasicDemo),
+    );
+    app.component(
+      "LabelRequiredDemo",
+      createReactDemoHost("LabelRequiredDemoHost", LabelRequiredDemo),
+    );
+    app.component(
+      "LabelLayoutDemo",
+      createReactDemoHost("LabelLayoutDemoHost", LabelLayoutDemo),
+    );
+    app.component(
+      "LabelSxDemo",
+      createReactDemoHost("LabelSxDemoHost", LabelSxDemo),
     );
     app.component(
       "RadioBasicDemo",

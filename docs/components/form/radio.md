@@ -55,19 +55,19 @@ export function Example() {
 组合式用法：
 
 ```tsx
-import { Radio, RadioGroup } from "@ldkj/web-ui";
+import { Label, Radio, RadioGroup } from "@ldkj/web-ui";
 
 export function ComposeExample() {
   return (
     <RadioGroup name="size" defaultValue="md">
-      <label>
+      <Label>
         <Radio value="sm" />
         小号
-      </label>
-      <label>
+      </Label>
+      <Label>
         <Radio value="md" />
         中号
-      </label>
+      </Label>
     </RadioGroup>
   );
 }

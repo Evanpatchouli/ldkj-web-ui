@@ -2,6 +2,7 @@ import * as React from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { cn } from "@/lib/utils";
 import { mergeSxStyle, resolveSx, useSxTheme, type SxProps } from "@/styling";
+import { Label } from "@/components/form/label";
 import { Radio, type RadioProps } from "./Radio";
 
 type RadioGroupGapPreset = "xs" | "sm" | "md" | "lg";
@@ -94,7 +95,7 @@ const RadioGroup = React.forwardRef<
         const optionDisabled = disabled || option.disabled;
 
         return (
-          <label
+          <Label
             key={option.value}
             className={cn(
               "inline-flex items-start gap-2 text-sm leading-5 text-slate-700",
@@ -116,7 +117,7 @@ const RadioGroup = React.forwardRef<
                 </span>
               ) : null}
             </span>
-          </label>
+          </Label>
         );
       })}
       {children}

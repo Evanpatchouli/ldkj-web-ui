@@ -55,6 +55,7 @@ const config: UserConfig = {
                 link: "/components/form/checkbox-group",
               },
               { text: "Input", link: "/components/form/input" },
+              { text: "Label", link: "/components/form/label" },
               { text: "Radio", link: "/components/form/radio" },
             ],
           },

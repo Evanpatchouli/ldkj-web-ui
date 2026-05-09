@@ -1,6 +1,7 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { mergeSxStyle, resolveSx, useSxTheme, type SxProps } from "@/styling";
+import { Label } from "@/components/form/label";
 import { Checkbox, type CheckboxProps } from "./Checkbox";
 
 type CheckboxGroupGapPreset = "xs" | "sm" | "md" | "lg";
@@ -157,7 +158,7 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
         const checked = selectedSet.has(option.value);
 
         return (
-          <label
+          <Label
             key={option.value}
             className={cn(
               "inline-flex items-start gap-2 text-sm leading-5 text-slate-700",
@@ -184,7 +185,7 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
                 </span>
               ) : null}
             </span>
-          </label>
+          </Label>
         );
       })}
     </div>

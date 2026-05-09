@@ -4,7 +4,7 @@
 
 ## Basic
 
-基础复选框通常与 `label` 一起使用，扩大可点击区域并提供文本语义。
+基础复选框通常与 `Label` 一起使用，扩大可点击区域并提供文本语义。
 
 <CheckboxBasicDemo />
 
@@ -29,14 +29,14 @@ Checkbox 支持默认、选中、半选和禁用状态。半选状态使用 Radi
 ## Usage
 
 ```tsx
-import { Checkbox } from "@ldkj/web-ui";
+import { Checkbox, Label } from "@ldkj/web-ui";
 
 export function Example() {
   return (
-    <label className="flex items-center gap-2">
+    <Label className="flex items-center gap-2">
       <Checkbox defaultChecked />
       接收系统通知
-    </label>
+    </Label>
   );
 }
 ```
@@ -80,6 +80,6 @@ export function ControlledExample() {
 
 ## Notes
 
-- 建议与 `label` 搭配使用，或通过 `aria-label` / `aria-labelledby` 提供可访问名称。
+- 建议与本库 `Label` 搭配使用，或通过 `aria-label` / `aria-labelledby` 提供可访问名称。
 - 半选状态不会自动参与业务逻辑，需要在受控状态中显式传入 `"indeterminate"`。
 - 传入 `children` 时会覆盖默认的勾选与半选指示器。
