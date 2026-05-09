@@ -7,6 +7,7 @@
 
 - 记录新增组件、能力、API、文档栏目等。
 - 示例: 新增 `ComponentName` 组件，支持 `propName` 配置。
+- 新增 `Radio` 与 `RadioGroup` 表单组件，支持组合式用法、配置式选项、原生表单提交与 `sx` 样式入口。
 
 ## 优化
 
@@ -22,6 +23,7 @@
 
 - 记录文档页、示例、侧边栏、开发日志等说明性变更。
 - 示例: 补充 `ComponentName` API 表格与基础示例。
+- 新增 `Radio` 文档页与 Basic、Controlled、Form Submit、SX Styling 示例，并接入表单与输入侧边栏。
 
 ## 验证
 

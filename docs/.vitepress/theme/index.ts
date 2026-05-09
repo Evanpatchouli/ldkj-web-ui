@@ -27,6 +27,10 @@ import CheckboxGroupSxDemo from "./components/form/CheckboxGroup/CheckboxGroupSx
 import InputBasicDemo from "./components/form/Input/InputBasicDemo";
 import InputStatesDemo from "./components/form/Input/InputStatesDemo";
 import InputSxDemo from "./components/form/Input/InputSxDemo";
+import RadioBasicDemo from "./components/form/Radio/RadioBasicDemo";
+import RadioControlledDemo from "./components/form/Radio/RadioControlledDemo";
+import RadioFormDemo from "./components/form/Radio/RadioFormDemo";
+import RadioSxDemo from "./components/form/Radio/RadioSxDemo";
 import BoxBasicDemo from "./components/layout/Box/BoxBasicDemo";
 import BreadcrumbBasicDemo from "./components/navigation/Breadcrumb/BreadcrumbBasicDemo";
 import BreadcrumbItemsDemo from "./components/navigation/Breadcrumb/BreadcrumbItemsDemo";
@@ -239,6 +243,22 @@ const theme: Theme = {
     app.component(
       "InputSxDemo",
       createReactDemoHost("InputSxDemoHost", InputSxDemo),
+    );
+    app.component(
+      "RadioBasicDemo",
+      createReactDemoHost("RadioBasicDemoHost", RadioBasicDemo),
+    );
+    app.component(
+      "RadioControlledDemo",
+      createReactDemoHost("RadioControlledDemoHost", RadioControlledDemo),
+    );
+    app.component(
+      "RadioFormDemo",
+      createReactDemoHost("RadioFormDemoHost", RadioFormDemo),
+    );
+    app.component(
+      "RadioSxDemo",
+      createReactDemoHost("RadioSxDemoHost", RadioSxDemo),
     );
     app.component(
       "BreadcrumbBasicDemo",
