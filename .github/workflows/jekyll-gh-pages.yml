@@ -39,7 +39,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build docs
-        run: pnpm build:docs
+        run: VITEPRESS_BASE=/ldkj-web-ui/ pnpm build:docs
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

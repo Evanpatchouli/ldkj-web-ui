@@ -3,7 +3,10 @@ import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
 import { fileURLToPath } from "node:url";
 
+const base = process.env.VITEPRESS_BASE ?? "/";
+
 const config: UserConfig = {
+  base: base,
   title: "@ldkj/web-ui",
   description: "shadcn-ui style component library based on React + VitePress",
   themeConfig: {
@@ -126,7 +129,7 @@ const config: UserConfig = {
         ],
       },
     ],
-    socialLinks: [{ icon: "github", link: "https://github.com/ldkj/web-ui" }],
+    socialLinks: [{ icon: "github", link: "https://github.com/Evanpatchouli/ldkj-web-ui" }],
   },
   vite: {
     plugins: [react() as any, svgr() as any],

@@ -11,6 +11,14 @@
     "shadcn-ui",
     "vitepress"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Evanpatchouli/ldkj-web-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Evanpatchouli/ldkj-web-ui/issues"
+  },
+  "homepage": "https://evanpatchouli.github.io/ldkj-web-ui",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.cjs",
