@@ -65,6 +65,7 @@ const config: UserConfig = {
           {
             text: "数据展示",
             items: [
+              { text: "Avatar", link: "/components/data-display/avatar" },
               { text: "Card", link: "/components/data-display/card" },
               { text: "Chip", link: "/components/data-display/chip" },
               { text: "Icon", link: "/components/data-display/icon" },

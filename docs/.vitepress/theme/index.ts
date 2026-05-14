@@ -76,6 +76,14 @@ import CardLoadingDemo from "./components/data-display/Card/CardLoadingDemo";
 import CardVariantDemo from "./components/data-display/Card/CardVariantDemo";
 import CardStateDemo from "./components/data-display/Card/CardStateDemo";
 import CardCompoundDemo from "./components/data-display/Card/CardCompoundDemo";
+import AvatarBasicDemo from "./components/data-display/Avatar/AvatarBasicDemo";
+import AvatarSizeDemo from "./components/data-display/Avatar/AvatarSizeDemo";
+import AvatarRoundedDemo from "./components/data-display/Avatar/AvatarRoundedDemo";
+import AvatarShadowDemo from "./components/data-display/Avatar/AvatarShadowDemo";
+import AvatarImageFallbackDemo from "./components/data-display/Avatar/AvatarImageFallbackDemo";
+import AvatarGroupDemo from "./components/data-display/Avatar/AvatarGroupDemo";
+import AvatarSxDemo from "./components/data-display/Avatar/AvatarSxDemo";
+import AvatarExportDemo from "./components/data-display/Avatar/AvatarExportDemo";
 import TableBasicDemo from "./components/data-display/Table/TableBasicDemo";
 import TableColumnDemo from "./components/data-display/Table/TableColumnDemo";
 import TableRenderDemo from "./components/data-display/Table/TableRenderDemo";
@@ -462,6 +470,38 @@ const theme: Theme = {
     app.component(
       "CardCompoundDemo",
       createReactDemoHost("CardCompoundDemoHost", CardCompoundDemo),
+    );
+    app.component(
+      "AvatarBasicDemo",
+      createReactDemoHost("AvatarBasicDemoHost", AvatarBasicDemo),
+    );
+    app.component(
+      "AvatarSizeDemo",
+      createReactDemoHost("AvatarSizeDemoHost", AvatarSizeDemo),
+    );
+    app.component(
+      "AvatarRoundedDemo",
+      createReactDemoHost("AvatarRoundedDemoHost", AvatarRoundedDemo),
+    );
+    app.component(
+      "AvatarShadowDemo",
+      createReactDemoHost("AvatarShadowDemoHost", AvatarShadowDemo),
+    );
+    app.component(
+      "AvatarImageFallbackDemo",
+      createReactDemoHost("AvatarImageFallbackDemoHost", AvatarImageFallbackDemo),
+    );
+    app.component(
+      "AvatarGroupDemo",
+      createReactDemoHost("AvatarGroupDemoHost", AvatarGroupDemo),
+    );
+    app.component(
+      "AvatarSxDemo",
+      createReactDemoHost("AvatarSxDemoHost", AvatarSxDemo),
+    );
+    app.component(
+      "AvatarExportDemo",
+      createReactDemoHost("AvatarExportDemoHost", AvatarExportDemo),
     );
     app.component(
       "TableBasicDemo",

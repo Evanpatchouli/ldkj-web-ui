@@ -5,25 +5,25 @@
 
 ## 新增
 
-- 记录新增组件、能力、API、文档栏目等。
-- 示例: 新增 `ComponentName` 组件，支持 `propName` 配置。
+- 新增 `Avatar` 组件到数据展示分组，目录为 `src/components/data-display/avatar`。
+- `Avatar` 支持 `size`、`rounded`、`shadow`、`sx`，并支持 `Avatar.Image` / `Avatar.Fallback` 组合式 API。
 
 ## 优化
 
-- 记录已有能力的体验优化、内部重构、API 增强等。
-- 示例: `ComponentName` 底层复用 `Box`，保持原 API 并继承通用容器能力。
+- 删除旧路径 `src/components/ui/avatar.tsx`，统一到语义化分层目录，减少历史路径混用。
+- 顶层导出新增 `data-display/avatar`，与现有 `Card/Chip/Icon/Table` 导出结构对齐。
 
 ## 修复
 
-- 记录 bug 修复、行为纠正、边界情况补齐等。
-- 示例: 修复 `ComponentName` 在 `condition` 场景下的渲染异常。
+- 修复 Avatar 初版迁移时的构建异常，重新落盘组件文件并通过类型与文档构建校验。
 
 ## 文档
 
-- 记录文档页、示例、侧边栏、开发日志等说明性变更。
-- 示例: 补充 `ComponentName` API 表格与基础示例。
+- 新增 `docs/components/data-display/avatar.md`，补齐 Usage、Accessibility、API、Compound API。
+- 新增 8 个 Avatar Demo（Basic、Size、Rounded、Shadow、Image/Fallback、Group、SX、Compound API）。
+- VitePress 主题注册与侧边栏新增 Avatar 入口。
 
 ## 验证
 
-- `npx tsc --noEmit --ignoreDeprecations 5.0` 通过。
-- `pnpm build:docs` 通过。
+- `pnpm -s tsc --noEmit --ignoreDeprecations 5.0` 通过。
+- `pnpm -s build:docs` 通过。

@@ -6,6 +6,7 @@ export * from "./components/form/input";
 export * from "./components/form/label";
 export * from "./components/form/radio";
 export * from "./components/data-display/card";
+export * from "./components/data-display/avatar";
 export * from "./components/data-display/icon";
 export * from "./components/data-display/chip";
 export * from "./components/data-display/qrcodes";
