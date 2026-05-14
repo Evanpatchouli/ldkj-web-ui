@@ -21,7 +21,11 @@ import {
   Anchor,
   Button,
   Chip,
+  Dialog,
   Icon,
+  Select,
+  SkeletonText,
+  Switch,
   ToastProvider,
   toast,
   registerIconLoaders,
@@ -48,6 +52,17 @@ export default function App() {
         </Chip>
         <Icon name="brand_logo" />
         <Icon name="check_circle" color="#16a34a" />
+        <Select defaultValue="pro">
+          <Select.Trigger className="mt-3 w-40">
+            <Select.Value placeholder="选择版本" />
+          </Select.Trigger>
+          <Select.Content>
+            <Select.Item value="standard">标准版</Select.Item>
+            <Select.Item value="pro">专业版</Select.Item>
+          </Select.Content>
+        </Select>
+        <Switch className="mt-3" label="启用通知" defaultChecked />
+        <SkeletonText className="mt-3 w-64" rows={2} />
         <div id="target">目标区块</div>
       </div>
     </ToastProvider>

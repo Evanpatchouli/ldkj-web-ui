@@ -16,6 +16,7 @@
       Flex 为块级元素提供间距，其本身不会添加包裹元素。适用于垂直或水平方向上的子元素布局，并提供了更多的灵活性和控制能力。）
 - [x] Col
 - [x] Row
+- [ ] Typography
 
 ## 通用与导航
 
@@ -31,11 +32,11 @@
 - [x] Card
 - [x] Icon
 - [x] Chip
-- [ ] Avatar
+- [x] Avatar
 - [ ] Badge
 - [ ] List
 - [x] Table
-- [ ] Skeleton
+- [x] Skeleton
 - [ ] Empty
 - [x] QRCode
 - [ ] Image
@@ -46,12 +47,12 @@
 - [ ] InputNumber
 - [ ] InputOPT
 - [ ] AutoComplete
-- [ ] Select
+- [x] Select
 - [x] Checkbox
 - [x] CheckboxGroup
 - [x] Radio
 - [x] RadioGroup
-- [ ] Switch
+- [x] Switch
 - [ ] Rate
 - [ ] Cascader
 - [ ] SliderV2
@@ -66,9 +67,9 @@
 - [ ] Notification
 - [ ] Spin
 - [ ] Loading（与 Spin 职责边界待定）
-- [ ] Tooltip
-- [ ] Popover
-- [ ] Modal
+- [x] Tooltip
+- [x] Popover
+- [x] Modal
 - [ ] Dialog
 - [ ] Drawer
 - [ ] Alert

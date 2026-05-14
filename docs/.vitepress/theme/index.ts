@@ -112,6 +112,20 @@ import ToastClosableDemo from "./components/interact/Toast/ToastClosableDemo";
 import ToastCustomIconDemo from "./components/interact/Toast/ToastCustomIconDemo";
 import ToastUseToastDemo from "./components/interact/Toast/ToastUseToastDemo";
 import ToastStaticDemo from "./components/interact/Toast/ToastStaticDemo";
+import DialogBasicDemo from "./components/interact/Dialog/DialogBasicDemo";
+import DialogControlledDemo from "./components/interact/Dialog/DialogControlledDemo";
+import DialogCustomLayoutDemo from "./components/interact/Dialog/DialogCustomLayoutDemo";
+import ModalBasicDemo from "./components/interact/Modal/ModalBasicDemo";
+import ModalPositionBlurDemo from "./components/interact/Modal/ModalPositionBlurDemo";
+import ModalMaskDestroyDemo from "./components/interact/Modal/ModalMaskDestroyDemo";
+import PopoverBasicDemo from "./components/interact/Popover/PopoverBasicDemo";
+import PopoverControlledDemo from "./components/interact/Popover/PopoverControlledDemo";
+import PopoverPlacementDemo from "./components/interact/Popover/PopoverPlacementDemo";
+import PopoverCustomContentDemo from "./components/interact/Popover/PopoverCustomContentDemo";
+import TooltipBasicDemo from "./components/interact/Tooltip/TooltipBasicDemo";
+import TooltipPlacementDemo from "./components/interact/Tooltip/TooltipPlacementDemo";
+import TooltipProviderDelayDemo from "./components/interact/Tooltip/TooltipProviderDelayDemo";
+import TooltipToneSxDemo from "./components/interact/Tooltip/TooltipToneSxDemo";
 import FlexDirectionDemo from "./components/layout/Flex/FlexDirectionDemo";
 import FlexGapWrapDemo from "./components/layout/Flex/FlexGapWrapDemo";
 import FlexSizeDemo from "./components/layout/Flex/FlexSizeDemo";
@@ -136,6 +150,18 @@ import QRCodeCanvasDemo from "./components/data-display/QRCode/QRCodeCanvasDemo"
 import QRCodeStatusDemo from "./components/data-display/QRCode/QRCodeStatusDemo";
 import QRCodeStyleDemo from "./components/data-display/QRCode/QRCodeStyleDemo";
 import QRCodeSizeDemo from "./components/data-display/QRCode/QRCodeSizeDemo";
+import SelectBasicDemo from "./components/form/Select/SelectBasicDemo";
+import SelectControlledDemo from "./components/form/Select/SelectControlledDemo";
+import SelectGroupedDemo from "./components/form/Select/SelectGroupedDemo";
+import SelectDisabledSxDemo from "./components/form/Select/SelectDisabledSxDemo";
+import SwitchBasicDemo from "./components/form/Switch/SwitchBasicDemo";
+import SwitchControlledDemo from "./components/form/Switch/SwitchControlledDemo";
+import SwitchLabelDescriptionDemo from "./components/form/Switch/SwitchLabelDescriptionDemo";
+import SwitchSizesSxDemo from "./components/form/Switch/SwitchSizesSxDemo";
+import SkeletonBasicDemo from "./components/data-display/Skeleton/SkeletonBasicDemo";
+import SkeletonVariantsDemo from "./components/data-display/Skeleton/SkeletonVariantsDemo";
+import SkeletonTextRowsDemo from "./components/data-display/Skeleton/SkeletonTextRowsDemo";
+import SkeletonCardSxDemo from "./components/data-display/Skeleton/SkeletonCardSxDemo";
 
 function createReactDemoHost(name: string, DemoComponent: ComponentType) {
   return defineComponent({
@@ -295,6 +321,41 @@ const theme: Theme = {
     app.component(
       "RadioSxDemo",
       createReactDemoHost("RadioSxDemoHost", RadioSxDemo),
+    );
+    app.component(
+      "SelectBasicDemo",
+      createReactDemoHost("SelectBasicDemoHost", SelectBasicDemo),
+    );
+    app.component(
+      "SelectControlledDemo",
+      createReactDemoHost("SelectControlledDemoHost", SelectControlledDemo),
+    );
+    app.component(
+      "SelectGroupedDemo",
+      createReactDemoHost("SelectGroupedDemoHost", SelectGroupedDemo),
+    );
+    app.component(
+      "SelectDisabledSxDemo",
+      createReactDemoHost("SelectDisabledSxDemoHost", SelectDisabledSxDemo),
+    );
+    app.component(
+      "SwitchBasicDemo",
+      createReactDemoHost("SwitchBasicDemoHost", SwitchBasicDemo),
+    );
+    app.component(
+      "SwitchControlledDemo",
+      createReactDemoHost("SwitchControlledDemoHost", SwitchControlledDemo),
+    );
+    app.component(
+      "SwitchLabelDescriptionDemo",
+      createReactDemoHost(
+        "SwitchLabelDescriptionDemoHost",
+        SwitchLabelDescriptionDemo,
+      ),
+    );
+    app.component(
+      "SwitchSizesSxDemo",
+      createReactDemoHost("SwitchSizesSxDemoHost", SwitchSizesSxDemo),
     );
     app.component(
       "BreadcrumbBasicDemo",
@@ -600,6 +661,68 @@ const theme: Theme = {
       createReactDemoHost("ToastStaticDemoHost", ToastStaticDemo),
     );
     app.component(
+      "DialogBasicDemo",
+      createReactDemoHost("DialogBasicDemoHost", DialogBasicDemo),
+    );
+    app.component(
+      "DialogControlledDemo",
+      createReactDemoHost("DialogControlledDemoHost", DialogControlledDemo),
+    );
+    app.component(
+      "DialogCustomLayoutDemo",
+      createReactDemoHost("DialogCustomLayoutDemoHost", DialogCustomLayoutDemo),
+    );
+    app.component(
+      "ModalBasicDemo",
+      createReactDemoHost("ModalBasicDemoHost", ModalBasicDemo),
+    );
+    app.component(
+      "ModalPositionBlurDemo",
+      createReactDemoHost("ModalPositionBlurDemoHost", ModalPositionBlurDemo),
+    );
+    app.component(
+      "ModalMaskDestroyDemo",
+      createReactDemoHost("ModalMaskDestroyDemoHost", ModalMaskDestroyDemo),
+    );
+    app.component(
+      "PopoverBasicDemo",
+      createReactDemoHost("PopoverBasicDemoHost", PopoverBasicDemo),
+    );
+    app.component(
+      "PopoverControlledDemo",
+      createReactDemoHost("PopoverControlledDemoHost", PopoverControlledDemo),
+    );
+    app.component(
+      "PopoverPlacementDemo",
+      createReactDemoHost("PopoverPlacementDemoHost", PopoverPlacementDemo),
+    );
+    app.component(
+      "PopoverCustomContentDemo",
+      createReactDemoHost(
+        "PopoverCustomContentDemoHost",
+        PopoverCustomContentDemo,
+      ),
+    );
+    app.component(
+      "TooltipBasicDemo",
+      createReactDemoHost("TooltipBasicDemoHost", TooltipBasicDemo),
+    );
+    app.component(
+      "TooltipPlacementDemo",
+      createReactDemoHost("TooltipPlacementDemoHost", TooltipPlacementDemo),
+    );
+    app.component(
+      "TooltipProviderDelayDemo",
+      createReactDemoHost(
+        "TooltipProviderDelayDemoHost",
+        TooltipProviderDelayDemo,
+      ),
+    );
+    app.component(
+      "TooltipToneSxDemo",
+      createReactDemoHost("TooltipToneSxDemoHost", TooltipToneSxDemo),
+    );
+    app.component(
       "DividerVariantsDemo",
       createReactDemoHost("DividerVariantsDemoHost", DividerVariantsDemo),
     );
@@ -710,6 +833,22 @@ const theme: Theme = {
     app.component(
       "QRCodeSizeDemo",
       createReactDemoHost("QRCodeSizeDemoHost", QRCodeSizeDemo),
+    );
+    app.component(
+      "SkeletonBasicDemo",
+      createReactDemoHost("SkeletonBasicDemoHost", SkeletonBasicDemo),
+    );
+    app.component(
+      "SkeletonVariantsDemo",
+      createReactDemoHost("SkeletonVariantsDemoHost", SkeletonVariantsDemo),
+    );
+    app.component(
+      "SkeletonTextRowsDemo",
+      createReactDemoHost("SkeletonTextRowsDemoHost", SkeletonTextRowsDemo),
+    );
+    app.component(
+      "SkeletonCardSxDemo",
+      createReactDemoHost("SkeletonCardSxDemoHost", SkeletonCardSxDemo),
     );
   },
 };

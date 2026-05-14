@@ -26,9 +26,7 @@ type ButtonOwnProps = Omit<ButtonVariants, "rounded" | "shadow"> & {
 export type ButtonProps<T extends ElementType = "button"> =
   PolymorphicProps<T> & ButtonOwnProps;
 
-export function Button<T extends ElementType = "button">(
-  props: ButtonProps<T>,
-) {
+function Button<T extends ElementType = "button">(props: ButtonProps<T>) {
   const {
     component,
     variant,
@@ -71,3 +69,5 @@ export function Button<T extends ElementType = "button">(
 }
 
 Button.displayName = "Button";
+
+export { Button };
