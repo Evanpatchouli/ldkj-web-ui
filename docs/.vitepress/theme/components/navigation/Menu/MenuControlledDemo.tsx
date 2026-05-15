@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Button, Menu, useMenuRef } from "@/index";
+import { Box, Button, Menu, useMenuRef } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import * as React from "react";
@@ -68,3 +68,4 @@ export default function MenuControlledDemo() {
     </CodeView>
   );
 }
+

@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Button } from "@/components/interact/button";
-import { RadioGroup } from "@/components/form/radio";
+import { Button } from "@ldkj/web-ui";
+import { RadioGroup } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import * as React from "react";
@@ -68,3 +68,4 @@ export default function RadioFormDemo() {
     </CodeView>
   );
 }
+

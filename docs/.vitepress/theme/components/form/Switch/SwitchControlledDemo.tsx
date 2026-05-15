@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Switch } from "@/components/form/switch";
+import { Switch } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import * as React from "react";
@@ -46,3 +46,4 @@ export default function SwitchControlledDemo() {
     </CodeView>
   );
 }
+

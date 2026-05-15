@@ -1,4 +1,4 @@
-import { ToastProvider, toast } from "@/components/interact/toast";
+import { ToastProvider, toast } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const brandIconSrc =
@@ -101,3 +101,4 @@ export default function ToastCustomIconDemo() {
     </CodeView>
   );
 }
+

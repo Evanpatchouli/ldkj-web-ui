@@ -1,4 +1,4 @@
-import { Chip } from "@/components/data-display/chip";
+import { Chip } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const variants = [
@@ -38,3 +38,4 @@ export default function ChipVariantsDemo() {
     </CodeView>
   );
 }
+

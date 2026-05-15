@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box } from "@/index";
+import { Box } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import * as React from "react";
@@ -34,3 +34,4 @@ export default function BoxLongPressDemo() {
     </CodeView>
   );
 }
+

@@ -1,4 +1,4 @@
-import { Switch } from "@/components/form/switch";
+import { Switch } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Switch } from "@ldkj/web-ui";
@@ -60,3 +60,4 @@ export default function SwitchSizesSxDemo() {
     </CodeView>
   );
 }
+

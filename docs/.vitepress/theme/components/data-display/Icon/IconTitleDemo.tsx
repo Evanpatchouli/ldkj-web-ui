@@ -1,4 +1,4 @@
-import { Icon } from "@/components/data-display/icon";
+import { Icon } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Icon } from "@ldkj/web-ui";
@@ -22,3 +22,4 @@ export default function IconTitleDemo() {
     </CodeView>
   );
 }
+

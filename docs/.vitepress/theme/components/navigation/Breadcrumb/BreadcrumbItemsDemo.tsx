@@ -1,4 +1,4 @@
-import { Breadcrumb, Box } from "@/index";
+import { Breadcrumb, Box } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Breadcrumb } from "@ldkj/web-ui";
@@ -30,3 +30,4 @@ export default function BreadcrumbItemsDemo() {
     </CodeView>
   );
 }
+

@@ -1,4 +1,4 @@
-import { Avatar } from "@/components/data-display/avatar";
+import { Avatar } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const sizes = ["xs", "sm", "md", "lg", "xl"] as const;
@@ -30,3 +30,4 @@ export default function AvatarSizeDemo() {
     </CodeView>
   );
 }
+

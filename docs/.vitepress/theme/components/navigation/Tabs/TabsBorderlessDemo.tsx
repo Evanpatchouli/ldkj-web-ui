@@ -1,4 +1,4 @@
-import { Box, Tabs, TabsContent, TabsList, TabsTrigger } from "@/index";
+import { Box, Tabs, TabsContent, TabsList, TabsTrigger } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ldkj/web-ui";
@@ -40,3 +40,4 @@ export default function TabsBorderlessDemo() {
     </CodeView>
   );
 }
+

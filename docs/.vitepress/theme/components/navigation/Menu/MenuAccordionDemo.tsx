@@ -1,4 +1,4 @@
-import { Box, Menu } from "@/index";
+import { Box, Menu } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Menu } from "@ldkj/web-ui";
@@ -44,3 +44,4 @@ export default function MenuAccordionDemo() {
     </CodeView>
   );
 }
+

@@ -1,4 +1,4 @@
-import { RadioGroup } from "@/components/form/radio";
+import { RadioGroup } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const options = [
@@ -36,3 +36,4 @@ export default function RadioBasicDemo() {
     </CodeView>
   );
 }
+

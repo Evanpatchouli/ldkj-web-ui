@@ -1,4 +1,4 @@
-# @ldkj/web-ui
+﻿# @ldkj/web-ui
 
 由 shadcn-ui, Tailwind CSS 和 VitePress 构建的 React 组件库.
 
@@ -30,6 +30,9 @@ import {
   toast,
   registerIconLoaders,
 } from "@ldkj/web-ui";
+
+// 可选：如需启用设计系统基础重置（全局样式），再额外引入
+// import "@ldkj/web-ui/reset.css";
 
 registerIconLoaders({
   brand_logo: {
@@ -113,3 +116,4 @@ export default function App() {
 ```bash
 pnpm build
 ```
+

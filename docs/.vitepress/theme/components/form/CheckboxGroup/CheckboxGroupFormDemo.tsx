@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button, CheckboxGroup } from "@/index";
+import { Button, CheckboxGroup } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const options = [
@@ -59,3 +59,4 @@ export default function CheckboxGroupFormDemo() {
     </CodeView>
   );
 }
+

@@ -1,4 +1,4 @@
-import { SkeletonText } from "@/components/data-display/skeleton";
+import { SkeletonText } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { SkeletonText } from "@ldkj/web-ui";
@@ -28,3 +28,4 @@ export default function SkeletonTextRowsDemo() {
     </CodeView>
   );
 }
+

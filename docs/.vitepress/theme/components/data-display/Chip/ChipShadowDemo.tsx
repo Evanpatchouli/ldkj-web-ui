@@ -1,4 +1,4 @@
-import { Chip } from "@/components/data-display/chip";
+import { Chip } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const shadowPresets = ["none", "xs", "sm", "md", "lg", "xl"] as const;
@@ -31,3 +31,4 @@ export default function ChipShadowDemo() {
     </CodeView>
   );
 }
+

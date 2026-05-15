@@ -1,4 +1,4 @@
-import { Row, Col, Box } from "@/index";
+import { Row, Col, Box } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Row, Col, Box } from "@ldkj/web-ui";
@@ -32,3 +32,4 @@ export default function RowColAlignDemo() {
     </CodeView>
   );
 }
+

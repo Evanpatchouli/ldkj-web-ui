@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Icon, registerIconLoaders } from "@/components/data-display/icon";
+import { Icon, registerIconLoaders } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 function DemoOrderDone(
@@ -104,3 +104,4 @@ export default function IconRegisterDemo() {
     </CodeView>
   );
 }
+

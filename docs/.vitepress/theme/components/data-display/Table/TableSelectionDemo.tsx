@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Table, type TableColumn } from "@/index";
+import { Box, Table, type TableColumn } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 type User = {
@@ -62,3 +62,4 @@ export default function TableSelectionDemo() {
     </CodeView>
   );
 }
+

@@ -1,4 +1,4 @@
-import { Chip, Table } from "@/index";
+import { Chip, Table } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const data = [
@@ -49,3 +49,4 @@ export default function TableColumnDemo() {
     </CodeView>
   );
 }
+

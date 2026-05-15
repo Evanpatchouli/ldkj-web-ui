@@ -1,4 +1,4 @@
-import { Checkbox } from "@/components/form/checkbox";
+import { Checkbox } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Checkbox } from "@ldkj/web-ui";
@@ -52,3 +52,4 @@ export default function CheckboxSxDemo() {
     </CodeView>
   );
 }
+

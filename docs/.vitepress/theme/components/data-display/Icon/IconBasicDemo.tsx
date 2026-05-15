@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Icon } from "@/components/data-display/icon";
+import { Icon } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 function BrandMarkSvg(props: React.SVGProps<SVGSVGElement> & { title?: string }) {
@@ -59,3 +59,4 @@ export default function IconBasicDemo() {
     </CodeView>
   );
 }
+

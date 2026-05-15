@@ -5,7 +5,7 @@ import {
   registerIconLoaders,
   resetIconLoaders,
   setIconLoaders,
-} from "@/components/data-display/icon";
+} from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 function DemoOutline(props: React.SVGProps<SVGSVGElement> & { title?: string }) {
@@ -124,3 +124,4 @@ export default function IconRegistryApiDemo() {
     </CodeView>
   );
 }
+

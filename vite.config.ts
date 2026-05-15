@@ -25,6 +25,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
+      '@ldkj/web-ui': path.resolve(__dirname, "src/index.ts"),
     },
   },
   build: {

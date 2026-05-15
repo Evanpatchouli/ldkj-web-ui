@@ -7,7 +7,7 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from "@/components/form/select";
+} from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import {
@@ -74,3 +74,4 @@ export default function SelectGroupedDemo() {
     </CodeView>
   );
 }
+

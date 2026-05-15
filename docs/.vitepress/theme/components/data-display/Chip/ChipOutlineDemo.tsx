@@ -1,4 +1,4 @@
-import { Chip } from "@/components/data-display/chip";
+import { Chip } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const variants = ["primary", "success", "warning", "danger"] as const;
@@ -29,3 +29,4 @@ export default function ChipOutlineDemo() {
     </CodeView>
   );
 }
+

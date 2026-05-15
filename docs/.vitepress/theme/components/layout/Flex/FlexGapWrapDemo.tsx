@@ -1,4 +1,4 @@
-import { Flex } from "@/index";
+import { Flex } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Flex } from "@ldkj/web-ui";
@@ -45,3 +45,4 @@ export default function FlexGapWrapDemo() {
     </CodeView>
   );
 }
+

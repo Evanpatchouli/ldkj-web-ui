@@ -1,4 +1,4 @@
-import { Box, Table } from "@/index";
+import { Box, Table } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Table } from "@ldkj/web-ui";
@@ -26,3 +26,4 @@ export default function TableStateDemo() {
     </CodeView>
   );
 }
+

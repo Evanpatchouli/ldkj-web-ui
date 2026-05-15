@@ -1,4 +1,4 @@
-import { Table, type TableColumn } from "@/index";
+import { Table, type TableColumn } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 type Log = {
@@ -43,3 +43,4 @@ export default function TablePaginationDemo() {
     </CodeView>
   );
 }
+

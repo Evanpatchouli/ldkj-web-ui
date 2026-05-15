@@ -8,7 +8,7 @@ import {
   BreadcrumbSeparator,
   Box,
   Icon,
-} from "@/index";
+} from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import {
@@ -80,3 +80,4 @@ export default function BreadcrumbSeparatorDemo() {
     </CodeView>
   );
 }
+

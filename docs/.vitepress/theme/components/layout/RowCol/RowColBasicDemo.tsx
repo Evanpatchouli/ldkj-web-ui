@@ -1,4 +1,4 @@
-import { Row, Col, Card, Box } from "@/index";
+import { Row, Col, Card, Box } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Row, Col, Card } from "@ldkj/web-ui";
@@ -44,3 +44,4 @@ export default function RowColBasicDemo() {
     </CodeView>
   );
 }
+

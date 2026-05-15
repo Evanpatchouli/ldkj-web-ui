@@ -1,4 +1,4 @@
-import { Button } from "@/index";
+import { Button } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const shadowPresets = ["none", "xs", "sm", "md", "lg", "xl"] as const;
@@ -29,3 +29,4 @@ export default function ButtonShadowDemo() {
     </CodeView>
   );
 }
+

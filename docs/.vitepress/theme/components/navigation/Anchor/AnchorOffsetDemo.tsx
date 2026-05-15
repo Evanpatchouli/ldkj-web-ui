@@ -1,4 +1,4 @@
-import { Anchor, Box } from "@/index";
+import { Anchor, Box } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Anchor } from "@ldkj/web-ui";
@@ -44,3 +44,4 @@ export default function AnchorOffsetDemo() {
     </CodeView>
   );
 }
+

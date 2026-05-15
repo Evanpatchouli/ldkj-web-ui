@@ -1,4 +1,4 @@
-import { Grid } from "@/index";
+import { Grid } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Grid } from "@ldkj/web-ui";
@@ -48,3 +48,4 @@ export default function GridOffsetDemo() {
     </CodeView>
   );
 }
+

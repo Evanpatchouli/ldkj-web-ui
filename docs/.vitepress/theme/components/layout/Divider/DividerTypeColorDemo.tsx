@@ -1,4 +1,4 @@
-import { Divider } from "@/index";
+import { Divider } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Divider } from "@ldkj/web-ui";
@@ -24,3 +24,4 @@ export default function DividerTypeColorDemo() {
     </CodeView>
   );
 }
+

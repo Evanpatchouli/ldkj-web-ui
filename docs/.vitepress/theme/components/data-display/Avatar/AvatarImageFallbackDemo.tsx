@@ -1,4 +1,4 @@
-import { Avatar } from "@/components/data-display/avatar";
+import { Avatar } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const src = "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80";
@@ -36,3 +36,4 @@ export default function AvatarImageFallbackDemo() {
     </CodeView>
   );
 }
+

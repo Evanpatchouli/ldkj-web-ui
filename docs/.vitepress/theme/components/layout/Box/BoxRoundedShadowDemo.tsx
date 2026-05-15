@@ -1,4 +1,4 @@
-import { Box } from "@/index";
+import { Box } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Box } from "@ldkj/web-ui";
@@ -58,3 +58,4 @@ export default function BoxRoundedShadowDemo() {
     </CodeView>
   );
 }
+

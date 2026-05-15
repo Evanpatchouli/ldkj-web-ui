@@ -1,4 +1,4 @@
-# @ldkj/web-ui
+﻿# @ldkj/web-ui
 
 由 shadcn-ui, Tailwind CSS 和 VitePress 构建的 React 组件库.
 
@@ -14,6 +14,9 @@ pnpm add @ldkj/web-ui
 import "@ldkj/web-ui/style.css";
 import { Button, Chip } from "@ldkj/web-ui";
 
+// 可选：如需启用设计系统基础重置（全局样式），再额外引入
+// import "@ldkj/web-ui/reset.css";
+
 export default function App() {
   return (
     <div className="p-4">
@@ -25,3 +28,4 @@ export default function App() {
   );
 }
 ```
+

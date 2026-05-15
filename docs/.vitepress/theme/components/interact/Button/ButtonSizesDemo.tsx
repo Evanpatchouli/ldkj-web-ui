@@ -1,4 +1,4 @@
-import { Button } from "@/index";
+import { Button } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Button } from "@ldkj/web-ui";
@@ -35,3 +35,4 @@ export default function ButtonSizesDemo() {
     </CodeView>
   );
 }
+

@@ -1,4 +1,4 @@
-import { Card } from "@/index";
+import { Card } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Card } from "@ldkj/web-ui";
@@ -30,3 +30,4 @@ export default function CardStateDemo() {
     </CodeView>
   );
 }
+

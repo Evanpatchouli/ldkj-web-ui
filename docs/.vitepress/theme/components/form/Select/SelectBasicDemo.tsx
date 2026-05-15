@@ -4,7 +4,7 @@ import {
   SelectItems,
   SelectTrigger,
   SelectValue,
-} from "@/components/form/select";
+} from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const options = [
@@ -60,3 +60,4 @@ export default function SelectBasicDemo() {
     </CodeView>
   );
 }
+

@@ -1,4 +1,4 @@
-import { Chip } from "@/components/data-display/chip";
+import { Chip } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const roundedPresets = ["xs", "sm", "md", "lg", "xl", "full"] as const;
@@ -39,3 +39,4 @@ export default function ChipRoundedDemo() {
     </CodeView>
   );
 }
+

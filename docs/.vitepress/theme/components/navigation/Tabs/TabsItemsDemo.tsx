@@ -1,4 +1,4 @@
-import { Box, Tabs } from "@/index";
+import { Box, Tabs } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Tabs } from "@ldkj/web-ui";
@@ -56,3 +56,4 @@ export default function TabsItemsDemo() {
     </CodeView>
   );
 }
+

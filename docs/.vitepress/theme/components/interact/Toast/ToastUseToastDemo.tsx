@@ -1,4 +1,4 @@
-import { ToastProvider, useToast } from "@/components/interact/toast";
+import { ToastProvider, useToast } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { ToastProvider, useToast } from "@ldkj/web-ui";
@@ -87,3 +87,4 @@ export default function ToastUseToastDemo() {
     </CodeView>
   );
 }
+

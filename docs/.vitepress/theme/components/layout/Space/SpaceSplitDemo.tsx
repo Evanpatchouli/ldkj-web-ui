@@ -1,4 +1,4 @@
-import { Space, Anchor, Box } from "@/index";
+import { Space, Anchor, Box } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Space, Anchor } from "@ldkj/web-ui";
@@ -26,3 +26,4 @@ export default function SpaceSplitDemo() {
     </CodeView>
   );
 }
+

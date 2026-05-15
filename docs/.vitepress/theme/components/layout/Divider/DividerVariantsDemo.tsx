@@ -1,4 +1,4 @@
-import { Divider } from "@/index";
+import { Divider } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const variants = ["full", "middle", "inset"] as const;
@@ -29,3 +29,4 @@ export default function DividerVariantsDemo() {
     </CodeView>
   );
 }
+

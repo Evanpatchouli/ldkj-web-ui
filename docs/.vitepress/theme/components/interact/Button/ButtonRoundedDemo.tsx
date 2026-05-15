@@ -1,4 +1,4 @@
-import { Button } from "@/index";
+import { Button } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const roundedPresets = ["xs", "sm", "md", "lg", "xl", "full"] as const;
@@ -36,3 +36,4 @@ export default function ButtonRoundedDemo() {
     </CodeView>
   );
 }
+

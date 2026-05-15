@@ -7,7 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
   DialogClose,
-} from "@/components/interact/dialog";
+} from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import {
@@ -83,3 +83,4 @@ export default function DialogBasicDemo() {
     </CodeView>
   );
 }
+

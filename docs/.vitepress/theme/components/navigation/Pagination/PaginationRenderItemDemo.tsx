@@ -4,7 +4,7 @@ import {
   Pagination,
   PaginationEllipsis,
   PaginationLink,
-} from "@/index";
+} from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import * as React from "react";
@@ -89,3 +89,4 @@ export default function PaginationRenderItemDemo() {
     </CodeView>
   );
 }
+

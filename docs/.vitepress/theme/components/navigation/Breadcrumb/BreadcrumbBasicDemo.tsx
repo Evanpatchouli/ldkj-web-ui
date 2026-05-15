@@ -6,7 +6,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
   Box,
-} from "@/index";
+} from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import {
@@ -61,3 +61,4 @@ export default function BreadcrumbBasicDemo() {
     </CodeView>
   );
 }
+

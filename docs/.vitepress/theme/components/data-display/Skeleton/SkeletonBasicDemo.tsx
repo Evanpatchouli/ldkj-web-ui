@@ -3,7 +3,7 @@ import {
   SkeletonAvatar,
   SkeletonButton,
   SkeletonText,
-} from "@/components/data-display/skeleton";
+} from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Skeleton, SkeletonAvatar, SkeletonButton, SkeletonText } from "@ldkj/web-ui";
@@ -39,3 +39,4 @@ export default function SkeletonBasicDemo() {
     </CodeView>
   );
 }
+

@@ -2,7 +2,7 @@ import {
   Skeleton,
   SkeletonButton,
   SkeletonCard,
-} from "@/components/data-display/skeleton";
+} from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Skeleton, SkeletonButton, SkeletonCard } from "@ldkj/web-ui";
@@ -60,3 +60,4 @@ export default function SkeletonCardSxDemo() {
     </CodeView>
   );
 }
+

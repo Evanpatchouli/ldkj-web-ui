@@ -1,4 +1,4 @@
-import { Input } from "@/components/form/input";
+import { Input } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Input } from "@ldkj/web-ui";
@@ -28,3 +28,4 @@ export default function InputBasicDemo() {
     </CodeView>
   );
 }
+

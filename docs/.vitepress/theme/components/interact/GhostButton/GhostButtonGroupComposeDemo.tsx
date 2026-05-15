@@ -1,4 +1,4 @@
-import { GhostButtonGroup } from "@/index";
+import { GhostButtonGroup } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { GhostButtonGroup } from "@ldkj/web-ui";
@@ -59,3 +59,4 @@ export default function GhostButtonGroupComposeDemo() {
     </CodeView>
   );
 }
+

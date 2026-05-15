@@ -1,4 +1,4 @@
-import { Space, Chip, Box } from "@/index";
+import { Space, Chip, Box } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Space, Chip } from "@ldkj/web-ui";
@@ -37,3 +37,4 @@ export default function SpaceResponsiveDemo() {
     </CodeView>
   );
 }
+

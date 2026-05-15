@@ -7,6 +7,8 @@ const distDir = path.join(rootDir, "dist");
 const distPackageJsonPath = path.join(distDir, "package.json");
 const readmePath = path.join(rootDir, "README.dist.md");
 const licensePath = path.join(rootDir, "LICENSE");
+const srcResetPath = path.join(rootDir, "src", "reset.css");
+const distResetPath = path.join(distDir, "reset.css");
 
 if (!fs.existsSync(rootPackageJsonPath)) {
   throw new Error("Cannot find root package.json");
@@ -38,6 +40,7 @@ const distPackageJson = {
       require: "./index.cjs",
     },
     "./style.css": "./style.css",
+    "./reset.css": "./reset.css",
   },
   peerDependencies: rootPackageJson.peerDependencies,
 };
@@ -85,3 +88,7 @@ console.log(`Created ${path.relative(rootDir, distPackageJsonPath)}`);
 fs.copyFileSync(path.join(rootDir, ".npmrc"), path.join(distDir, ".npmrc"));
 // 再复制一份  .npmignore
 fs.copyFileSync(path.join(rootDir, ".npmignore"), path.join(distDir, ".npmignore"));
+
+if (fs.existsSync(srcResetPath)) {
+  fs.copyFileSync(srcResetPath, distResetPath);
+}

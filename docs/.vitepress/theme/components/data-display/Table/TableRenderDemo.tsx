@@ -1,4 +1,4 @@
-import { Chip, Table, type TableColumn } from "@/index";
+import { Chip, Table, type TableColumn } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 type Service = {
@@ -67,3 +67,4 @@ export default function TableRenderDemo() {
     </CodeView>
   );
 }
+

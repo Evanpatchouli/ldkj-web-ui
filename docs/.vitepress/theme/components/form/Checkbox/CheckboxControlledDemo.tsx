@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Checkbox } from "@/components/form/checkbox";
+import { Checkbox } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import * as React from "react";
@@ -44,3 +44,4 @@ export default function CheckboxControlledDemo() {
     </CodeView>
   );
 }
+

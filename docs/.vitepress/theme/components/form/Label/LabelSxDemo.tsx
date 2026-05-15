@@ -1,5 +1,5 @@
-import { Input } from "@/components/form/input";
-import { Label } from "@/components/form/label";
+import { Input } from "@ldkj/web-ui";
+import { Label } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Input, Label } from "@ldkj/web-ui";
@@ -57,3 +57,4 @@ export default function LabelSxDemo() {
     </CodeView>
   );
 }
+

@@ -1,4 +1,4 @@
-import { QRCode } from "@/index";
+import { QRCode } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { QRCode } from "@ldkj/web-ui";
@@ -33,3 +33,4 @@ export default function QRCodeSizeDemo() {
     </CodeView>
   );
 }
+

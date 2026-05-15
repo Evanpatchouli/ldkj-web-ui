@@ -1,4 +1,4 @@
-import { Skeleton } from "@/components/data-display/skeleton";
+import { Skeleton } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Skeleton } from "@ldkj/web-ui";
@@ -48,3 +48,4 @@ export default function SkeletonVariantsDemo() {
     </CodeView>
   );
 }
+

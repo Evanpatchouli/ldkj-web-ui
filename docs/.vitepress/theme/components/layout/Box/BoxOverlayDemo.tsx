@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box } from "@/index";
+import { Box } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { useState } from "react";
@@ -84,3 +84,4 @@ export default function BoxOverlayDemo() {
     </CodeView>
   );
 }
+

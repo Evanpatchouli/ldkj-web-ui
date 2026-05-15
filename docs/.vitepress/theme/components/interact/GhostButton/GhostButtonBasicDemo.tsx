@@ -1,4 +1,4 @@
-import { GhostButton } from "@/index";
+import { GhostButton } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { GhostButton } from "@ldkj/web-ui";
@@ -26,3 +26,4 @@ export default function GhostButtonBasicDemo() {
     </CodeView>
   );
 }
+

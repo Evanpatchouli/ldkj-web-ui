@@ -1,4 +1,4 @@
-import { Space, Button, Box } from "@/index";
+import { Space, Button, Box } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Space, Button } from "@ldkj/web-ui";
@@ -30,3 +30,4 @@ export default function SpaceBasicDemo() {
     </CodeView>
   );
 }
+

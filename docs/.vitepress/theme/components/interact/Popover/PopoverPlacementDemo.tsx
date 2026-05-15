@@ -1,9 +1,9 @@
-import { Button } from "@/components/interact/button";
+import { Button } from "@ldkj/web-ui";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/interact/popover";
+} from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Button, Popover, PopoverContent, PopoverTrigger } from "@ldkj/web-ui";
@@ -51,3 +51,4 @@ export default function PopoverPlacementDemo() {
     </CodeView>
   );
 }
+

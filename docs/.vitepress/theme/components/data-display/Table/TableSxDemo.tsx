@@ -1,4 +1,4 @@
-import { Table, type TableColumn } from "@/index";
+import { Table, type TableColumn } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 type Service = {
@@ -51,3 +51,4 @@ export default function TableSxDemo() {
     </CodeView>
   );
 }
+

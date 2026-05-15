@@ -1,4 +1,4 @@
-import { Space, Card, Box } from "@/index";
+import { Space, Card, Box } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import { Space, Card } from "@ldkj/web-ui";
@@ -44,3 +44,4 @@ export default function SpaceItemDemo() {
     </CodeView>
   );
 }
+

@@ -3,7 +3,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/interact/tooltip";
+} from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import {
@@ -75,3 +75,4 @@ export default function TooltipProviderDelayDemo() {
     </CodeView>
   );
 }
+

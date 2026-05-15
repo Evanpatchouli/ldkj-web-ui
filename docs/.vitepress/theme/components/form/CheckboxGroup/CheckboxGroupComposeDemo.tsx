@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Checkbox, CheckboxGroup } from "@/components/form/checkbox";
-import { Label } from "@/components/form/label";
+import { Checkbox, CheckboxGroup } from "@ldkj/web-ui";
+import { Label } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const code = `import * as React from "react";
@@ -60,3 +60,4 @@ export default function CheckboxGroupComposeDemo() {
     </CodeView>
   );
 }
+
