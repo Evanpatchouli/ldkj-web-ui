@@ -119,6 +119,7 @@ const config: UserConfig = {
         items: [
           { text: "日志索引", link: "/devlog/" },
           { text: "Next", link: "/devlog/next" },
+          { text: "v0.14.1", link: "/devlog/v0.14.1" },
           { text: "v0.14.0", link: "/devlog/v0.14.0" },
           { text: "v0.13.0", link: "/devlog/v0.13.0" },
           { text: "v0.12.0", link: "/devlog/v0.12.0" },

@@ -1,36 +1,29 @@
-﻿# Next
+# Next
 
 - 状态: 未发行
 - 记录范围: 下一版本发布前的所有未发行变更
 
 ## 新增
 
-- 新增可选基础样式入口 `@ldkj/web-ui/reset.css`（对应 `src/reset.css`），用于按需引入 Tailwind base 与全局基础层样式。
+- 记录新增组件、能力、API、文档栏目等。
+- 示例: 新增 `ComponentName` 组件，支持 `propName` 配置。
 
 ## 优化
 
-- 统一 VitePress Demo 对组件库的导入来源：从源码别名 `@/index` / `@/components/*` 切换为 `@ldkj/web-ui`。
-- 整理 `docs/.vitepress/theme/index.ts`：
-  - `app.component` 注册顺序与 import 顺序严格一致
-  - 增加分区注释（`data-display` / `form` / `interact` / `layout` / `navigation`）
-  - 补齐遗漏注册项，确保导入与注册一一对应
+- 记录已有能力的体验优化、内部重构、API 增强等。
+- 示例: `ComponentName` 底层复用 `Box`，保持原 API 并继承通用容器能力。
 
 ## 修复
 
-- 修复 VitePress Demo 使用 `@ldkj/web-ui` 导入后样式异常（如 Toast Demo 中 `flex` 不生效）：
-  - 根因：仅配置了根目录 Vite alias，未配置 VitePress 侧 alias。
-  - 修复：在 `docs/.vitepress/config.ts` 增加 `@ldkj/web-ui -> ../../src/index.ts`。
-- 修复 demo 注册遗漏：`docs/.vitepress/theme/index.ts` 中补回 10 个漏注册 Demo。
+- 记录 bug 修复、行为纠正、边界情况补齐等。
+- 示例: 修复 `ComponentName` 在 `condition` 场景下的渲染异常。
 
 ## 文档
 
-- 更新 README 使用方式：
-  - 默认推荐 `import "@ldkj/web-ui/style.css";`
-  - 可选按需引入 `import "@ldkj/web-ui/reset.css";`
-- 保留 `@ldkj/web-ui/style.css` 兼容入口，并新增 `./reset.css` 导出说明对应实现。
+- 记录文档页、示例、侧边栏、开发日志等说明性变更。
+- 示例: 补充 `ComponentName` API 表格与基础示例。
 
 ## 验证
 
-- `pnpm.cmd -s tsc --noEmit --ignoreDeprecations 5.0` 通过。
-- 已校验 `docs/.vitepress/theme/index.ts` 中 demo import 数与 `app.component` 注册数一致（158/158）。
-
+- `npx tsc --noEmit --ignoreDeprecations 5.0` 通过。
+- `pnpm build:docs` 通过。
