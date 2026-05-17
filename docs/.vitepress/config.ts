@@ -32,6 +32,7 @@ const config: UserConfig = {
               { text: "Space", link: "/components/layout/space" },
               { text: "Row / Col", link: "/components/layout/row-col" },
               { text: "SafeArea", link: "/components/layout/safe-area" },
+              { text: "Typography", link: "/components/layout/typography" },
             ],
           },
           {
@@ -51,6 +52,12 @@ const config: UserConfig = {
               { text: "Popover", link: "/components/interact/popover" },
               { text: "Tooltip", link: "/components/interact/tooltip" },
               { text: "Toast", link: "/components/interact/toast" },
+              { text: "Notification", link: "/components/interact/notification" },
+              { text: "Spin", link: "/components/interact/spin" },
+              { text: "Loading", link: "/components/interact/loading" },
+              { text: "Drawer", link: "/components/interact/drawer" },
+              { text: "Alert", link: "/components/interact/alert" },
+              { text: "Progress", link: "/components/interact/progress" },
             ],
           },
           {
@@ -62,8 +69,17 @@ const config: UserConfig = {
                 link: "/components/form/checkbox-group",
               },
               { text: "Input", link: "/components/form/input" },
+              { text: "InputNumber", link: "/components/form/input-number" },
+              { text: "InputOPT", link: "/components/form/input-opt" },
+              { text: "AutoComplete", link: "/components/form/auto-complete" },
               { text: "Label", link: "/components/form/label" },
               { text: "Radio", link: "/components/form/radio" },
+              { text: "Rate", link: "/components/form/rate" },
+              { text: "Cascader", link: "/components/form/cascader" },
+              { text: "SliderV2", link: "/components/form/slider-v2" },
+              { text: "Required", link: "/components/form/required" },
+              { text: "FormV2", link: "/components/form/form-v2" },
+              { text: "Uploader", link: "/components/form/uploader" },
               { text: "Select", link: "/components/form/select" },
               { text: "Switch", link: "/components/form/switch" },
             ],
@@ -75,6 +91,10 @@ const config: UserConfig = {
               { text: "Card", link: "/components/data-display/card" },
               { text: "Chip", link: "/components/data-display/chip" },
               { text: "Icon", link: "/components/data-display/icon" },
+              { text: "Badge", link: "/components/data-display/badge" },
+              { text: "List", link: "/components/data-display/list" },
+              { text: "Empty", link: "/components/data-display/empty" },
+              { text: "Image", link: "/components/data-display/image" },
               { text: "QRCode", link: "/components/data-display/qrcode" },
               { text: "Skeleton", link: "/components/data-display/skeleton" },
               { text: "Table", link: "/components/data-display/table" },
@@ -119,6 +139,7 @@ const config: UserConfig = {
         items: [
           { text: "日志索引", link: "/devlog/" },
           { text: "Next", link: "/devlog/next" },
+          { text: "v0.15.0", link: "/devlog/next" },
           { text: "v0.14.1", link: "/devlog/v0.14.1" },
           { text: "v0.14.0", link: "/devlog/v0.14.0" },
           { text: "v0.13.0", link: "/devlog/v0.13.0" },
@@ -155,3 +176,5 @@ const config: UserConfig = {
 };
 
 export default config;
+
+

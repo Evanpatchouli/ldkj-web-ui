@@ -1,37 +1,34 @@
-## 代码规范
+# 文档贡献指南
 
-### 文档规范
+本指南用于统一组件文档与 Demo 的编写方式，确保内容可用、可维护、可验证。
 
-编写组件文档时，必须分小节解释常用 API 或用法，并给出 DEMO。  
-文档应覆盖“能直接落地使用”所需信息，避免只罗列属性而缺少行为说明。
+## 文档结构要求
 
-组件文档建议至少包含以下章节：
+每个组件文档建议至少包含以下章节：
 
 1. `Basic`：最小可用示例
 2. `常见场景`：2~4 个业务高频场景
 3. `Usage`：可复制的完整示例
 4. `API`：属性表
-5. `行为规则 / 优先级`：如状态流、冲突处理顺序
+5. `行为规则 / 优先级`：状态流、冲突处理顺序
 6. `Notes`：边界情况、限制、最佳实践
 
-对于复杂组件（如 Image / Table / Form / Modal），额外要求：
+复杂组件（如 Image / Table / Form / Modal）必须补充：
 
-- 明确“组合能力”之间的关系与优先级
-- 明确默认值和覆盖规则
-- 明确可访问性（A11Y）约束与建议
-- 明确性能建议（如懒加载、响应式资源策略）
+- 组合能力之间的关系与优先级
+- 默认值与覆盖规则
+- 可访问性（A11Y）约束
+- 性能建议
 
-### DEMO 规范
+## Demo 规范
 
-DEMO 必须对其演示的 API 或用法尽可能展示全面，并且在视觉上尽可能接近真实使用场景，避免过于简化的展示。
+每个 Demo 文件统一为三段结构：
 
-每个 Demo 文件必须采用统一结构：
+1. `Example`：真实渲染内容
+2. `code`：与 Example 完全一致（含 import）
+3. `export default Demo`：通过 `CodeView` 包裹
 
-- `Example`：真实渲染内容
-- `code`：与 Example 完全一致（含 import）
-- `export default Demo`：使用 `CodeView` 包裹
-
-示例模板：
+统一模板：
 
 ```tsx
 import CodeView from "../../CodeView";
@@ -97,30 +94,29 @@ export default function BadgeBasicDemo() {
 }
 ```
 
-### Image 类组件文档专项要求
+## Image 类组件专项
 
-涉及图片组件时，文档除通用章节外，必须补齐：
+Image 文档除通用章节外，必须明确：
 
 1. 失败链路优先级：`retry -> fallbackSrc -> fallback`
-2. 资源协商规则：`sources / formats / responsiveWidths / loader / sizes`
-3. 预览交互说明：打开、关闭、缩放、拖拽、键盘操作
-4. A11Y 说明：`alt` 约束、dialog 语义、焦点行为
-5. 性能建议：`loading="lazy"`、`decoding="async"`、比例占位防 CLS
+2. 资源协商：`sources / formats / responsiveWidths / loader / sizes`
+3. 预览交互：打开、关闭、缩放、拖拽、键盘
+4. A11Y：`alt` 规则、dialog 语义、焦点行为
+5. 性能建议：懒加载、异步解码、比例占位防 CLS
 
-### 文档变更验收清单
+## 文档变更验收
 
-每次文档/DEMO 修改后，至少完成：
+每次文档或 Demo 修改后至少执行：
 
 1. `pnpm -s tsc --noEmit --ignoreDeprecations 5.0`
 2. `pnpm -s build:docs`
 3. 本地页面可视化检查（Demo 正常渲染，无未注册标签残留）
-4. 复杂交互组件需补一条自动化断言（如 Playwright）
+4. 复杂交互组件补自动化断言（如 Playwright）
 
-### 文件编码规则
+## 编码要求
 
-所有文本文件必须使用 **UTF-8 无 BOM** 编码保存。
+所有文本文件必须使用 **UTF-8 无 BOM**：
 
 - 禁止写入 UTF-8 BOM（`EF BB BF`）
 - 禁止依赖系统默认编码
-- 修改后需抽查触碰文件是否含 BOM
-- `无 BOM 写入`属于修改流程本身，不要先产生再修复
+- 修改后抽查触碰文件是否含 BOM

@@ -1,29 +1,32 @@
-# Next
+# v0.15.0
 
-- 状态: 未发行
-- 记录范围: 下一版本发布前的所有未发行变更
+- 发布日期: 2026-05-17
+- 版本: `0.15.0`
 
 ## 新增
 
-- 记录新增组件、能力、API、文档栏目等。
-- 示例: 新增 `ComponentName` 组件，支持 `propName` 配置。
+- 新增 `Typography` 排版组件文档与示例，补齐布局组件展示入口。
+- 新增 `Badge`、`List`、`Empty`、`Image` 等数据展示组件与对应文档 Demo。
+- 新增 `InputNumber`、`InputOPT`、`AutoComplete`、`Rate`、`Cascader`、`SliderV2`、`Required`、`FormV2`、`Uploader` 等表单组件。
+- 新增 `Notification`、`Spin`、`Loading`、`Drawer`、`Alert`、`Progress` 等反馈与弹层组件。
+- `Image` 增强加载占位、失败回退、重试、响应式资源协商、OSS 裁剪、状态渲染与预览交互能力。
 
 ## 优化
 
-- 记录已有能力的体验优化、内部重构、API 增强等。
-- 示例: `ComponentName` 底层复用 `Box`，保持原 API 并继承通用容器能力。
+- 更新组件库统一导出入口，新增组件可直接从 `@ldkj/web-ui` 引入。
+- 扩展 VitePress 侧边栏与 Demo 注册，确保新增组件文档可访问、可渲染。
+- 同步组件建设待办状态，标记本轮已完成组件。
 
 ## 修复
 
-- 记录 bug 修复、行为纠正、边界情况补齐等。
-- 示例: 修复 `ComponentName` 在 `condition` 场景下的渲染异常。
+- 暂无。
 
 ## 文档
 
-- 记录文档页、示例、侧边栏、开发日志等说明性变更。
-- 示例: 补充 `ComponentName` API 表格与基础示例。
+- 补充项目组件文档与 Demo 编写规范。
+- 为新增组件补充 API 表格、使用说明、注意事项与真实使用场景 Demo。
 
 ## 验证
 
-- `npx tsc --noEmit --ignoreDeprecations 5.0` 通过。
-- `pnpm build:docs` 通过。
+- `pnpm.cmd -s tsc --noEmit --ignoreDeprecations 5.0` 通过。
+- `pnpm.cmd -s build:docs` 通过。

@@ -1,4 +1,4 @@
-# 组件建设待办（按大版本迭代）
+﻿# 组件建设待办（按大版本迭代）
 
 说明：采用本库 `PascalCase` 命名，`[x]` 表示已实现，`[ ]` 表示待实现。
 
@@ -16,7 +16,7 @@
       Flex 为块级元素提供间距，其本身不会添加包裹元素。适用于垂直或水平方向上的子元素布局，并提供了更多的灵活性和控制能力。）
 - [x] Col
 - [x] Row
-- [ ] Typography
+- [x] Typography
 
 ## 通用与导航
 
@@ -33,47 +33,46 @@
 - [x] Icon
 - [x] Chip
 - [x] Avatar
-- [ ] Badge
-- [ ] List
+- [x] Badge
+- [x] List
 - [x] Table
 - [x] Skeleton
-- [ ] Empty
+- [x] Empty
 - [x] QRCode
-- [ ] Image
+- [x] Image
 
 ## 表单与输入
 
 - [x] Input
-- [ ] InputNumber
-- [ ] InputOPT
-- [ ] AutoComplete
+- [x] InputNumber
+- [x] InputOPT
+- [x] AutoComplete
 - [x] Select
 - [x] Checkbox
 - [x] CheckboxGroup
 - [x] Radio
 - [x] RadioGroup
 - [x] Switch
-- [ ] Rate
-- [ ] Cascader
-- [ ] SliderV2
-- [ ] Required
-- [ ] FormV2
-- [ ] Uploader
+- [x] Rate
+- [x] Cascader
+- [x] SliderV2
+- [x] Required
+- [x] FormV2
+- [x] Uploader
 
 ## 反馈与弹层
 
 - [x] Toast
-- [ ] Message
-- [ ] Notification
-- [ ] Spin
-- [ ] Loading（与 Spin 职责边界待定）
+- [x] Notification
+- [x] Spin
+- [x] Loading（与 Spin 职责边界待定）
 - [x] Tooltip
 - [x] Popover
 - [x] Modal
-- [ ] Dialog
-- [ ] Drawer
-- [ ] Alert
-- [ ] Progress
+- [x] Dialog
+- [x] Drawer
+- [x] Alert
+- [x] Progress
 
 ## V2（增强能力）
 
@@ -130,3 +129,11 @@
 
 - [ ] Loading / Spin 职责边界（容器态 vs 局部态）
 - [ ] Message / Toast / Notification 职责边界
+
+## V4 企业级能力
+
+- [ ] 全面功能打磨
+- [ ] 主题定制
+- [ ] 国际化
+- [ ] 适配器
+- [ ] 设计工具插件

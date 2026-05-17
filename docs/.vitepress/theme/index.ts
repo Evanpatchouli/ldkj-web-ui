@@ -25,6 +25,26 @@ import ChipRoundedDemo from "./components/data-display/Chip/ChipRoundedDemo";
 import ChipShadowDemo from "./components/data-display/Chip/ChipShadowDemo";
 import ChipSizesDemo from "./components/data-display/Chip/ChipSizesDemo";
 import ChipVariantsDemo from "./components/data-display/Chip/ChipVariantsDemo";
+import BadgeBasicDemo from "./components/data-display/Badge/BadgeBasicDemo";
+import BadgeCountDemo from "./components/data-display/Badge/BadgeCountDemo";
+import BadgeDotVariantDemo from "./components/data-display/Badge/BadgeDotVariantDemo";
+import BadgeLayoutDemo from "./components/data-display/Badge/BadgeLayoutDemo";
+import ListBasicDemo from "./components/data-display/List/ListBasicDemo";
+import ListBorderedDemo from "./components/data-display/List/ListBorderedDemo";
+import ListRichItemDemo from "./components/data-display/List/ListRichItemDemo";
+import ListSxDemo from "./components/data-display/List/ListSxDemo";
+import EmptyBasicDemo from "./components/data-display/Empty/EmptyBasicDemo";
+import EmptyActionDemo from "./components/data-display/Empty/EmptyActionDemo";
+import EmptyBoxDemo from "./components/data-display/Empty/EmptyBoxDemo";
+import EmptyImageDemo from "./components/data-display/Empty/EmptyImageDemo";
+import ImageBasicDemo from "./components/data-display/Image/ImageBasicDemo";
+import ImageCropDemo from "./components/data-display/Image/ImageCropDemo";
+import ImageFallbackDemo from "./components/data-display/Image/ImageFallbackDemo";
+import ImageFitDemo from "./components/data-display/Image/ImageFitDemo";
+import ImagePictureDemo from "./components/data-display/Image/ImagePictureDemo";
+import ImagePreviewDemo from "./components/data-display/Image/ImagePreviewDemo";
+import ImageStateDemo from "./components/data-display/Image/ImageStateDemo";
+import ImageSxDemo from "./components/data-display/Image/ImageSxDemo";
 import IconBasicDemo from "./components/data-display/Icon/IconBasicDemo";
 import IconColorDemo from "./components/data-display/Icon/IconColorDemo";
 import IconRegisterDemo from "./components/data-display/Icon/IconRegisterDemo";
@@ -61,6 +81,9 @@ import CheckboxGroupSxDemo from "./components/form/CheckboxGroup/CheckboxGroupSx
 import InputBasicDemo from "./components/form/Input/InputBasicDemo";
 import InputStatesDemo from "./components/form/Input/InputStatesDemo";
 import InputSxDemo from "./components/form/Input/InputSxDemo";
+import InputNumberDemo from "./components/form/InputNumber/InputNumberDemo";
+import InputOPTDemo from "./components/form/InputOPT/InputOPTDemo";
+import AutoCompleteDemo from "./components/form/AutoComplete/AutoCompleteDemo";
 import LabelBasicDemo from "./components/form/Label/LabelBasicDemo";
 import LabelLayoutDemo from "./components/form/Label/LabelLayoutDemo";
 import LabelRequiredDemo from "./components/form/Label/LabelRequiredDemo";
@@ -69,6 +92,12 @@ import RadioBasicDemo from "./components/form/Radio/RadioBasicDemo";
 import RadioControlledDemo from "./components/form/Radio/RadioControlledDemo";
 import RadioFormDemo from "./components/form/Radio/RadioFormDemo";
 import RadioSxDemo from "./components/form/Radio/RadioSxDemo";
+import RateDemo from "./components/form/Rate/RateDemo";
+import CascaderDemo from "./components/form/Cascader/CascaderDemo";
+import SliderV2Demo from "./components/form/SliderV2/SliderV2Demo";
+import RequiredDemo from "./components/form/Required/RequiredDemo";
+import FormV2Demo from "./components/form/FormV2/FormV2Demo";
+import UploaderDemo from "./components/form/Uploader/UploaderDemo";
 import SelectBasicDemo from "./components/form/Select/SelectBasicDemo";
 import SelectControlledDemo from "./components/form/Select/SelectControlledDemo";
 import SelectDisabledSxDemo from "./components/form/Select/SelectDisabledSxDemo";
@@ -109,6 +138,12 @@ import TooltipBasicDemo from "./components/interact/Tooltip/TooltipBasicDemo";
 import TooltipPlacementDemo from "./components/interact/Tooltip/TooltipPlacementDemo";
 import TooltipProviderDelayDemo from "./components/interact/Tooltip/TooltipProviderDelayDemo";
 import TooltipToneSxDemo from "./components/interact/Tooltip/TooltipToneSxDemo";
+import NotificationDemo from "./components/interact/Notification/NotificationDemo";
+import SpinDemo from "./components/interact/Spin/SpinDemo";
+import LoadingDemo from "./components/interact/Loading/LoadingDemo";
+import DrawerDemo from "./components/interact/Drawer/DrawerDemo";
+import AlertDemo from "./components/interact/Alert/AlertDemo";
+import ProgressDemo from "./components/interact/Progress/ProgressDemo";
 // layout
 import BoxBasicDemo from "./components/layout/Box/BoxBasicDemo";
 import BoxLongPressDemo from "./components/layout/Box/BoxLongPressDemo";
@@ -138,6 +173,10 @@ import SpaceBasicDemo from "./components/layout/Space/SpaceBasicDemo";
 import SpaceItemDemo from "./components/layout/Space/SpaceItemDemo";
 import SpaceResponsiveDemo from "./components/layout/Space/SpaceResponsiveDemo";
 import SpaceSplitDemo from "./components/layout/Space/SpaceSplitDemo";
+import TypographyBasicDemo from "./components/layout/Typography/TypographyBasicDemo";
+import TypographySemanticDemo from "./components/layout/Typography/TypographySemanticDemo";
+import TypographySxDemo from "./components/layout/Typography/TypographySxDemo";
+import TypographyVariantsDemo from "./components/layout/Typography/TypographyVariantsDemo";
 // navigation
 import AnchorBasicDemo from "./components/navigation/Anchor/AnchorBasicDemo";
 import AnchorOffsetDemo from "./components/navigation/Anchor/AnchorOffsetDemo";
@@ -270,6 +309,86 @@ const theme: Theme = {
     app.component(
       "ChipVariantsDemo",
       createReactDemoHost("ChipVariantsDemoHost", ChipVariantsDemo),
+    );
+    app.component(
+      "BadgeBasicDemo",
+      createReactDemoHost("BadgeBasicDemoHost", BadgeBasicDemo),
+    );
+    app.component(
+      "BadgeCountDemo",
+      createReactDemoHost("BadgeCountDemoHost", BadgeCountDemo),
+    );
+    app.component(
+      "BadgeDotVariantDemo",
+      createReactDemoHost("BadgeDotVariantDemoHost", BadgeDotVariantDemo),
+    );
+    app.component(
+      "BadgeLayoutDemo",
+      createReactDemoHost("BadgeLayoutDemoHost", BadgeLayoutDemo),
+    );
+    app.component(
+      "ListBasicDemo",
+      createReactDemoHost("ListBasicDemoHost", ListBasicDemo),
+    );
+    app.component(
+      "ListBorderedDemo",
+      createReactDemoHost("ListBorderedDemoHost", ListBorderedDemo),
+    );
+    app.component(
+      "ListRichItemDemo",
+      createReactDemoHost("ListRichItemDemoHost", ListRichItemDemo),
+    );
+    app.component(
+      "ListSxDemo",
+      createReactDemoHost("ListSxDemoHost", ListSxDemo),
+    );
+    app.component(
+      "EmptyBasicDemo",
+      createReactDemoHost("EmptyBasicDemoHost", EmptyBasicDemo),
+    );
+    app.component(
+      "EmptyImageDemo",
+      createReactDemoHost("EmptyImageDemoHost", EmptyImageDemo),
+    );
+    app.component(
+      "EmptyActionDemo",
+      createReactDemoHost("EmptyActionDemoHost", EmptyActionDemo),
+    );
+    app.component(
+      "EmptyBoxDemo",
+      createReactDemoHost("EmptyBoxDemoHost", EmptyBoxDemo),
+    );
+    app.component(
+      "ImageBasicDemo",
+      createReactDemoHost("ImageBasicDemoHost", ImageBasicDemo),
+    );
+    app.component(
+      "ImageCropDemo",
+      createReactDemoHost("ImageCropDemoHost", ImageCropDemo),
+    );
+    app.component(
+      "ImageFitDemo",
+      createReactDemoHost("ImageFitDemoHost", ImageFitDemo),
+    );
+    app.component(
+      "ImageFallbackDemo",
+      createReactDemoHost("ImageFallbackDemoHost", ImageFallbackDemo),
+    );
+    app.component(
+      "ImageSxDemo",
+      createReactDemoHost("ImageSxDemoHost", ImageSxDemo),
+    );
+    app.component(
+      "ImagePreviewDemo",
+      createReactDemoHost("ImagePreviewDemoHost", ImagePreviewDemo),
+    );
+    app.component(
+      "ImageStateDemo",
+      createReactDemoHost("ImageStateDemoHost", ImageStateDemo),
+    );
+    app.component(
+      "ImagePictureDemo",
+      createReactDemoHost("ImagePictureDemoHost", ImagePictureDemo),
     );
     app.component(
       "IconBasicDemo",
@@ -413,6 +532,18 @@ const theme: Theme = {
       createReactDemoHost("InputSxDemoHost", InputSxDemo),
     );
     app.component(
+      "InputNumberDemo",
+      createReactDemoHost("InputNumberDemoHost", InputNumberDemo),
+    );
+    app.component(
+      "InputOPTDemo",
+      createReactDemoHost("InputOPTDemoHost", InputOPTDemo),
+    );
+    app.component(
+      "AutoCompleteDemo",
+      createReactDemoHost("AutoCompleteDemoHost", AutoCompleteDemo),
+    );
+    app.component(
       "LabelBasicDemo",
       createReactDemoHost("LabelBasicDemoHost", LabelBasicDemo),
     );
@@ -443,6 +574,30 @@ const theme: Theme = {
     app.component(
       "RadioSxDemo",
       createReactDemoHost("RadioSxDemoHost", RadioSxDemo),
+    );
+    app.component(
+      "RateDemo",
+      createReactDemoHost("RateDemoHost", RateDemo),
+    );
+    app.component(
+      "CascaderDemo",
+      createReactDemoHost("CascaderDemoHost", CascaderDemo),
+    );
+    app.component(
+      "SliderV2Demo",
+      createReactDemoHost("SliderV2DemoHost", SliderV2Demo),
+    );
+    app.component(
+      "RequiredDemo",
+      createReactDemoHost("RequiredDemoHost", RequiredDemo),
+    );
+    app.component(
+      "FormV2Demo",
+      createReactDemoHost("FormV2DemoHost", FormV2Demo),
+    );
+    app.component(
+      "UploaderDemo",
+      createReactDemoHost("UploaderDemoHost", UploaderDemo),
     );
     app.component(
       "SelectBasicDemo",
@@ -601,6 +756,30 @@ const theme: Theme = {
       "TooltipToneSxDemo",
       createReactDemoHost("TooltipToneSxDemoHost", TooltipToneSxDemo),
     );
+    app.component(
+      "NotificationDemo",
+      createReactDemoHost("NotificationDemoHost", NotificationDemo),
+    );
+    app.component(
+      "SpinDemo",
+      createReactDemoHost("SpinDemoHost", SpinDemo),
+    );
+    app.component(
+      "LoadingDemo",
+      createReactDemoHost("LoadingDemoHost", LoadingDemo),
+    );
+    app.component(
+      "DrawerDemo",
+      createReactDemoHost("DrawerDemoHost", DrawerDemo),
+    );
+    app.component(
+      "AlertDemo",
+      createReactDemoHost("AlertDemoHost", AlertDemo),
+    );
+    app.component(
+      "ProgressDemo",
+      createReactDemoHost("ProgressDemoHost", ProgressDemo),
+    );
     // layout
     app.component(
       "BoxBasicDemo",
@@ -713,6 +892,22 @@ const theme: Theme = {
     app.component(
       "SpaceSplitDemo",
       createReactDemoHost("SpaceSplitDemoHost", SpaceSplitDemo),
+    );
+    app.component(
+      "TypographyBasicDemo",
+      createReactDemoHost("TypographyBasicDemoHost", TypographyBasicDemo),
+    );
+    app.component(
+      "TypographyVariantsDemo",
+      createReactDemoHost("TypographyVariantsDemoHost", TypographyVariantsDemo),
+    );
+    app.component(
+      "TypographySemanticDemo",
+      createReactDemoHost("TypographySemanticDemoHost", TypographySemanticDemo),
+    );
+    app.component(
+      "TypographySxDemo",
+      createReactDemoHost("TypographySxDemoHost", TypographySxDemo),
     );
     // navigation
     app.component(
@@ -835,3 +1030,5 @@ const theme: Theme = {
 };
 
 export default theme;
+
+
