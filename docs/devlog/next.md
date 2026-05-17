@@ -7,6 +7,9 @@
 
 - 新增 `Typography` 排版组件文档与示例，补齐布局组件展示入口。
 - 新增 `Badge`、`List`、`Empty`、`Image` 等数据展示组件与对应文档 Demo。
+
+## 新增草稿
+
 - 新增 `InputNumber`、`InputOPT`、`AutoComplete`、`Rate`、`Cascader`、`SliderV2`、`Required`、`FormV2`、`Uploader` 等表单组件。
 - 新增 `Notification`、`Spin`、`Loading`、`Drawer`、`Alert`、`Progress` 等反馈与弹层组件。
 - `Image` 增强加载占位、失败回退、重试、响应式资源协商、OSS 裁剪、状态渲染与预览交互能力。
