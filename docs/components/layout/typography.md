@@ -1,6 +1,7 @@
 # Typography
 
-`Typography` 用于统一页面中的文本层级，适合标题、正文、辅助说明、链接文本等基础排版场景。
+`Typography` 用于统一文本层级，覆盖标题、正文、说明和辅助文字场景。  
+它将视觉层级（`variant`）与语义标签（`component`）解耦，便于在不破坏语义的前提下控制样式。
 
 ## Basic
 
@@ -8,20 +9,17 @@
 
 ## Variants
 
-`variant` 控制视觉层级，不直接决定最终渲染标签。
-
+`variant` 只控制视觉表现，不直接决定 DOM 标签。
 <TypographyVariantsDemo />
 
 ## Semantic Component
 
-通过 `component` 可以指定语义标签或自定义组件。例如页面主标题可渲染为 `h1`，正文仍可渲染为 `p`，链接文本可渲染为 `a`。
-
+通过 `component` 指定最终渲染标签或组件。
 <TypographySemanticDemo />
 
 ## SX Custom
 
-通过 `sx` 覆盖局部样式，适合一次性颜色、间距、边框或伪类状态。
-
+通过 `sx` 覆盖局部样式，适合临时色彩、间距和状态样式调整。
 <TypographySxDemo />
 
 ## Usage
@@ -55,12 +53,23 @@ export function Example() {
 | `className` | 追加类名 | `string` | - |
 | `class` | 历史类名别名 | `string` | - |
 | `style` | 内联样式 | `React.CSSProperties` | - |
-| `sx` | CSS-in-JS 样式入口，支持对象、数组、函数与嵌套选择器 | `SxProps` | - |
+| `sx` | CSS-in-JS 样式入口 | `SxProps` | - |
 | `children` | 文本或节点内容 | `React.ReactNode` | - |
-| `...rest` | 原生属性透传，类型随 `component` 变化 | `React.ComponentPropsWithoutRef<T>` | - |
+| `...rest` | 原生属性透传（随 `component` 变化） | `React.ComponentPropsWithoutRef<T>` | - |
+
+## 行为规则
+
+1. `variant` 决定视觉，不决定语义。  
+2. `component` 决定最终渲染标签。  
+3. `variant` 与 `component` 不一致时，以 `component` 语义为准。
+
+## 推荐实践
+
+- 语义敏感内容优先先定 `component`，再定 `variant`。  
+- 紧凑布局中可使用 `component="span"` 避免块级换行。  
+- `caption` 用于辅助信息，避免承载主业务文案。
 
 ## Notes
 
-- `variant` 只表示视觉层级；需要正确文档结构时，请同时传入合适的 `component`。
-- 默认渲染为 `p`。如果在按钮、表格单元格或紧凑布局中使用，可按语义改为 `span`。
-- 样式合并顺序与其他接入 `sx` 的组件一致：基础变体类名先应用，`className/class` 追加，`sx` 生成的样式可覆盖局部视觉。
+- 样式合并顺序：变体基础样式 -> `className/class` -> `sx/style`。  
+- 出现样式冲突时优先在 `sx` 显式覆盖字号、行高、颜色、字重。
