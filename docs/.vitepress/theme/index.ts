@@ -82,7 +82,16 @@ import InputBasicDemo from "./components/form/Input/InputBasicDemo";
 import InputStatesDemo from "./components/form/Input/InputStatesDemo";
 import InputSxDemo from "./components/form/Input/InputSxDemo";
 import InputNumberDemo from "./components/form/InputNumber/InputNumberDemo";
+import InputNumberBusinessDemo from "./components/form/InputNumber/InputNumberBusinessDemo";
+import InputNumberRangeStepDemo from "./components/form/InputNumber/InputNumberRangeStepDemo";
+import InputNumberStatesDemo from "./components/form/InputNumber/InputNumberStatesDemo";
+import InputNumberSxDemo from "./components/form/InputNumber/InputNumberSxDemo";
 import InputOPTDemo from "./components/form/InputOPT/InputOPTDemo";
+import InputOPTFormDemo from "./components/form/InputOPT/InputOPTFormDemo";
+import InputOPTMaskDemo from "./components/form/InputOPT/InputOPTMaskDemo";
+import InputOPTPasteDemo from "./components/form/InputOPT/InputOPTPasteDemo";
+import InputOPTStatesDemo from "./components/form/InputOPT/InputOPTStatesDemo";
+import InputOPTSxDemo from "./components/form/InputOPT/InputOPTSxDemo";
 import AutoCompleteDemo from "./components/form/AutoComplete/AutoCompleteDemo";
 import LabelBasicDemo from "./components/form/Label/LabelBasicDemo";
 import LabelLayoutDemo from "./components/form/Label/LabelLayoutDemo";
@@ -536,8 +545,44 @@ const theme: Theme = {
       createReactDemoHost("InputNumberDemoHost", InputNumberDemo),
     );
     app.component(
+      "InputNumberRangeStepDemo",
+      createReactDemoHost("InputNumberRangeStepDemoHost", InputNumberRangeStepDemo),
+    );
+    app.component(
+      "InputNumberBusinessDemo",
+      createReactDemoHost("InputNumberBusinessDemoHost", InputNumberBusinessDemo),
+    );
+    app.component(
+      "InputNumberStatesDemo",
+      createReactDemoHost("InputNumberStatesDemoHost", InputNumberStatesDemo),
+    );
+    app.component(
+      "InputNumberSxDemo",
+      createReactDemoHost("InputNumberSxDemoHost", InputNumberSxDemo),
+    );
+    app.component(
       "InputOPTDemo",
       createReactDemoHost("InputOPTDemoHost", InputOPTDemo),
+    );
+    app.component(
+      "InputOPTPasteDemo",
+      createReactDemoHost("InputOPTPasteDemoHost", InputOPTPasteDemo),
+    );
+    app.component(
+      "InputOPTMaskDemo",
+      createReactDemoHost("InputOPTMaskDemoHost", InputOPTMaskDemo),
+    );
+    app.component(
+      "InputOPTFormDemo",
+      createReactDemoHost("InputOPTFormDemoHost", InputOPTFormDemo),
+    );
+    app.component(
+      "InputOPTStatesDemo",
+      createReactDemoHost("InputOPTStatesDemoHost", InputOPTStatesDemo),
+    );
+    app.component(
+      "InputOPTSxDemo",
+      createReactDemoHost("InputOPTSxDemoHost", InputOPTSxDemo),
     );
     app.component(
       "AutoCompleteDemo",

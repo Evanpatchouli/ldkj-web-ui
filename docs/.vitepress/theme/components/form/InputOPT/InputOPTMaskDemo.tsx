@@ -3,21 +3,21 @@ import { InputOPT } from "@ldkj/web-ui";
 import CodeView from "../../CodeView";
 
 const Example = () => {
-  const [code, setCode] = React.useState("");
-  const [completedCode, setCompletedCode] = React.useState("");
+  const [code, setCode] = React.useState("A7");
 
   return (
     <div style={{ display: "grid", gap: 12 }}>
       <InputOPT
         value={code}
-        length={6}
+        length={4}
+        type="alphanumeric"
+        mask
+        size="lg"
         onChange={setCode}
-        onComplete={setCompletedCode}
-        aria-label="短信验证码"
+        aria-label="安全校验码"
       />
       <div style={{ color: "#64748b", fontSize: 13 }}>
-        当前验证码：{code || "等待输入"}
-        {completedCode ? `，已完成：${completedCode}` : ""}
+        字母数字混合验证码可以使用 `type="alphanumeric"`，敏感场景可开启 `mask`。
       </div>
     </div>
   );
@@ -28,27 +28,27 @@ import * as React from "react";
 import { InputOPT } from "@ldkj/web-ui";
 
 const Example = () => {
-  const [code, setCode] = React.useState("");
-  const [completedCode, setCompletedCode] = React.useState("");
+  const [code, setCode] = React.useState("A7");
 
   return (
     <div style={{ display: "grid", gap: 12 }}>
       <InputOPT
         value={code}
-        length={6}
+        length={4}
+        type="alphanumeric"
+        mask
+        size="lg"
         onChange={setCode}
-        onComplete={setCompletedCode}
-        aria-label="短信验证码"
+        aria-label="安全校验码"
       />
       <div style={{ color: "#64748b", fontSize: 13 }}>
-        当前验证码：{code || "等待输入"}
-        {completedCode ? \`，已完成：\${completedCode}\` : ""}
+        字母数字混合验证码可以使用 \`type="alphanumeric"\`，敏感场景可开启 \`mask\`。
       </div>
     </div>
   );
 };`;
 
-export default function InputOPTDemo() {
+export default function InputOPTMaskDemo() {
   return (
     <CodeView code={code}>
       <Example />

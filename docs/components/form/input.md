@@ -20,6 +20,23 @@ Input 支持只读、禁用、密码和文件输入等原生状态。
 
 <InputSxDemo />
 
+## Format Hook
+
+`useInputValue` 用于管理文本输入的字符串状态，并可在失焦时统一格式化。常见场景包括去除首尾空格、转大写、账号规范化等。
+
+```tsx
+import { Input, useInputValue } from "@ldkj/web-ui";
+
+export function FormatExample() {
+  const account = useInputValue({
+    defaultValue: " admin ",
+    formatOnBlur: (value) => value.trim().toLowerCase(),
+  });
+
+  return <Input {...account.inputProps} placeholder="请输入账号" />;
+}
+```
+
 ## Usage
 
 ```tsx
@@ -67,6 +84,23 @@ export function ControlledExample() {
 | `class`     | 类名别名           | `string`              | -        |
 | `style`     | 原生样式           | `React.CSSProperties` | -        |
 | `sx`        | CSS-in-JS 样式入口 | `SxProps`             | -        |
+
+### useInputValue
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `value` | 受控字符串值 | `string` | - |
+| `defaultValue` | 非受控默认字符串值 | `string` | `""` |
+| `onValueChange` | 输入值变化回调 | `(value: string, meta: InputValueChangeMeta) => void` | - |
+| `formatOnBlur` | 失焦时格式化字符串 | `(value: string) => string` | - |
+
+返回值：
+
+| 字段 | 说明 | 类型 |
+| --- | --- | --- |
+| `value` | 当前字符串值 | `string` |
+| `setValue` | 主动设置字符串值 | `(value: string) => void` |
+| `inputProps` | 可直接展开到 `Input` 上的 `value/onChange/onBlur` | `object` |
 
 ## Notes
 

@@ -4,20 +4,20 @@ import CodeView from "../../CodeView";
 
 const Example = () => {
   const [code, setCode] = React.useState("");
-  const [completedCode, setCompletedCode] = React.useState("");
 
   return (
     <div style={{ display: "grid", gap: 12 }}>
       <InputOPT
         value={code}
         length={6}
+        placeholder="-"
+        separator={(index) => (index === 2 ? "-" : null)}
+        pasteTransformer={(value) => value.replace(/\s|-/g, "")}
         onChange={setCode}
-        onComplete={setCompletedCode}
-        aria-label="短信验证码"
+        aria-label="带分隔符的验证码"
       />
       <div style={{ color: "#64748b", fontSize: 13 }}>
-        当前验证码：{code || "等待输入"}
-        {completedCode ? `，已完成：${completedCode}` : ""}
+        可以粘贴 `123-456` 或 `123 456`，组件会过滤后顺序填入。
       </div>
     </div>
   );
@@ -29,26 +29,26 @@ import { InputOPT } from "@ldkj/web-ui";
 
 const Example = () => {
   const [code, setCode] = React.useState("");
-  const [completedCode, setCompletedCode] = React.useState("");
 
   return (
     <div style={{ display: "grid", gap: 12 }}>
       <InputOPT
         value={code}
         length={6}
+        placeholder="-"
+        separator={(index) => (index === 2 ? "-" : null)}
+        pasteTransformer={(value) => value.replace(/\\s|-/g, "")}
         onChange={setCode}
-        onComplete={setCompletedCode}
-        aria-label="短信验证码"
+        aria-label="带分隔符的验证码"
       />
       <div style={{ color: "#64748b", fontSize: 13 }}>
-        当前验证码：{code || "等待输入"}
-        {completedCode ? \`，已完成：\${completedCode}\` : ""}
+        可以粘贴 \`123-456\` 或 \`123 456\`，组件会过滤后顺序填入。
       </div>
     </div>
   );
 };`;
 
-export default function InputOPTDemo() {
+export default function InputOPTPasteDemo() {
   return (
     <CodeView code={code}>
       <Example />
