@@ -71,6 +71,46 @@ export function ControlledExample() {
 }
 ```
 
+如果业务更希望把数字约束留在组件层，也可以只让 `useInputNumberState` 管理 `clampOnBlur` 和初始值，再把 `min`、`max`、`step` 直接传给 `InputNumber`。这种写法同样会在失焦时生效，因为最终执行归一化的是 `InputNumber` 本身：
+
+```tsx
+import { InputNumber, useInputNumberState } from "@ldkj/web-ui";
+
+export function ControlledByComponentExample() {
+  const amount = useInputNumberState({
+    clampOnBlur: true,
+    defaultValue: 25,
+  });
+
+  return (
+    <InputNumber
+      {...amount.inputProps}
+      min={0}
+      max={100}
+      step={5}
+    />
+  );
+}
+```
+
+如果你希望 hook 自己就携带完整的数字约束，也可以把 `min`、`max`、`step` 一并传给 `useInputNumberState`，再直接展开到组件：
+
+```tsx
+import { InputNumber, useInputNumberState } from "@ldkj/web-ui";
+
+export function ControlledByHookExample() {
+  const amount = useInputNumberState({
+    clampOnBlur: true,
+    defaultValue: 25,
+    max: 100,
+    min: 0,
+    step: 5,
+  });
+
+  return <InputNumber {...amount.inputProps} />;
+}
+```
+
 如果只需要监听解析后的数字值，也可以直接使用 `onValueChange`：
 
 ```tsx
@@ -120,6 +160,7 @@ export function ValueChangeExample() {
 - `inputMode` 固定为 `decimal`，用于优化移动端键盘；如果需要整数校验，请配合 `step={1}` 和业务校验。
 - 默认情况下，`min`、`max`、`step` 只使用浏览器原生校验语义，不会主动阻止临时输入非法值。
 - 开启 `clampOnBlur` 后，失焦时先按 `min/max` 裁剪，再按 `step` 对齐，最后再次裁剪到边界内。
+- `min`、`max`、`step`、`precision` 只要最终传到同一个 `InputNumber` 实例上，就会参与 `clampOnBlur` 的失焦归一化；`useInputNumberState` 本身不负责执行归一化，只负责接收并同步 `commit` 结果。
 - `useInputNumberState` 会自动处理受控展示值与 `commit` 同步，推荐在需要 `clampOnBlur` 的场景中使用。
 - `onValueChange` 在输入时以 `reason="input"` 触发，在 `clampOnBlur` 提交归一化后以 `reason="commit"` 触发。
 - `onChange` 返回的是原生事件，`event.target.value` 仍然是字符串；需要数字时由业务按提交时机转换。
@@ -128,7 +169,7 @@ export function ValueChangeExample() {
 
 ### useInputNumberState
 
-`useInputNumberState` 用于管理数字输入的字符串展示值和解析后的数值。它会自动接住 `clampOnBlur` 的提交结果，因此业务不需要手写 `meta.reason === "commit"` 分支。
+`useInputNumberState` 用于管理数字输入的字符串展示值和解析后的数值。它会自动接住 `clampOnBlur` 的提交结果，因此业务不需要手写 `meta.reason === "commit"` 分支。数字约束可以由 hook 统一提供，也可以只在最终渲染的 `InputNumber` 上提供。
 
 | 字段 | 说明 | 类型 |
 | --- | --- | --- |
