@@ -1,4 +1,4 @@
-﻿# 组件建设待办（按大版本迭代）
+# 组件建设待办（按大版本迭代）
 
 说明：采用本库 `PascalCase` 命名，`[x]` 表示已实现，`[ ]` 表示待实现。
 
@@ -57,7 +57,7 @@
 - [x] Cascader
 - [x] SliderV2
 - [x] Required
-- [x] FormV2
+- [x] Form
 - [x] Uploader
 
 ## 反馈与弹层

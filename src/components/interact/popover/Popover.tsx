@@ -61,32 +61,26 @@ const Popover = PopoverPrimitive.Root;
  */
 const PopoverTrigger = React.forwardRef<HTMLElement, PopoverTriggerProps>(
   (props, ref) => {
-    const {
-      asChild,
-      children,
-      className,
-      class: legacyClass,
+  const {
+    asChild,
+    children,
+    className,
+    class: legacyClass,
       sx,
       style,
       ...restProps
     } = props;
-    const { sxClassName, sxInlineStyle } = useResolvedSx(sx);
-    const mergedClassName = cn(sxClassName, className, legacyClass);
-    const mergedStyle = mergeSxStyle(style, sxInlineStyle);
+  const { sxClassName, sxInlineStyle } = useResolvedSx(sx);
+  const mergedClassName = cn(sxClassName, className, legacyClass);
+  const mergedStyle = mergeSxStyle(style, sxInlineStyle);
 
-    if (asChild) {
-      return (
-        <PopoverPrimitive.Trigger asChild {...restProps}>
-          <span
-            ref={ref}
-            className={cn("inline-flex w-fit", mergedClassName)}
-            style={mergedStyle}
-          >
-            {children}
-          </span>
-        </PopoverPrimitive.Trigger>
-      );
-    }
+  if (asChild) {
+    return (
+      <PopoverPrimitive.Trigger asChild {...restProps}>
+        {children}
+      </PopoverPrimitive.Trigger>
+    );
+  }
 
     return (
       <PopoverPrimitive.Trigger

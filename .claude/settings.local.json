@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($bytes = [System.IO.File]::ReadAllBytes\\(\"d:\\\\Work\\\\ldkj\\\\ldkj-web-ui\\\\docs\\\\components\\\\form\\\\form.md\"\\); $bytes[0..3] | ForEach-Object { $_.ToString\\(\"X2\"\\) })"
+    ]
+  }
+}

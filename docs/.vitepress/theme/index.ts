@@ -93,6 +93,9 @@ import InputOPTPasteDemo from "./components/form/InputOPT/InputOPTPasteDemo";
 import InputOPTStatesDemo from "./components/form/InputOPT/InputOPTStatesDemo";
 import InputOPTSxDemo from "./components/form/InputOPT/InputOPTSxDemo";
 import AutoCompleteDemo from "./components/form/AutoComplete/AutoCompleteDemo";
+import AutoCompleteControlledDemo from "./components/form/AutoComplete/AutoCompleteControlledDemo";
+import AutoCompleteRenderDemo from "./components/form/AutoComplete/AutoCompleteRenderDemo";
+import AutoCompleteStateSxDemo from "./components/form/AutoComplete/AutoCompleteStateSxDemo";
 import LabelBasicDemo from "./components/form/Label/LabelBasicDemo";
 import LabelLayoutDemo from "./components/form/Label/LabelLayoutDemo";
 import LabelRequiredDemo from "./components/form/Label/LabelRequiredDemo";
@@ -101,11 +104,22 @@ import RadioBasicDemo from "./components/form/Radio/RadioBasicDemo";
 import RadioControlledDemo from "./components/form/Radio/RadioControlledDemo";
 import RadioFormDemo from "./components/form/Radio/RadioFormDemo";
 import RadioSxDemo from "./components/form/Radio/RadioSxDemo";
-import RateDemo from "./components/form/Rate/RateDemo";
+import RateBasicDemo from "./components/form/Rate/RateBasicDemo";
+import RateBorderlessDemo from "./components/form/Rate/RateBorderlessDemo";
+import RateClearableDemo from "./components/form/Rate/RateClearableDemo";
+import RateFormDemo from "./components/form/Rate/RateFormDemo";
+import RateStatesDemo from "./components/form/Rate/RateStatesDemo";
 import CascaderDemo from "./components/form/Cascader/CascaderDemo";
-import SliderV2Demo from "./components/form/SliderV2/SliderV2Demo";
+import CascaderControlledDemo from "./components/form/Cascader/CascaderControlledDemo";
+import CascaderAdvancedDemo from "./components/form/Cascader/CascaderAdvancedDemo";
+import SliderBasicDemo from "./components/form/Slider/SliderBasicDemo";
+import SliderControlledDemo from "./components/form/Slider/SliderControlledDemo";
+import SliderStateDemo from "./components/form/Slider/SliderStateDemo";
+import SliderStepDemo from "./components/form/Slider/SliderStepDemo";
 import RequiredDemo from "./components/form/Required/RequiredDemo";
-import FormV2Demo from "./components/form/FormV2/FormV2Demo";
+import FormBasicDemo from "./components/form/Form/FormBasicDemo";
+import FormLoginDemo from "./components/form/Form/FormLoginDemo";
+import FormInlineDemo from "./components/form/Form/FormInlineDemo";
 import UploaderDemo from "./components/form/Uploader/UploaderDemo";
 import SelectBasicDemo from "./components/form/Select/SelectBasicDemo";
 import SelectControlledDemo from "./components/form/Select/SelectControlledDemo";
@@ -115,6 +129,11 @@ import SwitchBasicDemo from "./components/form/Switch/SwitchBasicDemo";
 import SwitchControlledDemo from "./components/form/Switch/SwitchControlledDemo";
 import SwitchLabelDescriptionDemo from "./components/form/Switch/SwitchLabelDescriptionDemo";
 import SwitchSizesSxDemo from "./components/form/Switch/SwitchSizesSxDemo";
+// mobile
+import MobileSelectBasicDemo from "./components/mobile/MobileSelect/MobileSelectBasicDemo";
+import MobileSelectAlignDemo from "./components/mobile/MobileSelect/MobileSelectAlignDemo";
+import MobileCascaderBasicDemo from "./components/mobile/MobileCascader/MobileCascaderBasicDemo";
+import MobileCascaderControlledDemo from "./components/mobile/MobileCascader/MobileCascaderControlledDemo";
 // interact
 import ButtonBounceDemo from "./components/interact/Button/ButtonBounce";
 import ButtonRoundedDemo from "./components/interact/Button/ButtonRoundedDemo";
@@ -589,6 +608,24 @@ const theme: Theme = {
       createReactDemoHost("AutoCompleteDemoHost", AutoCompleteDemo),
     );
     app.component(
+      "AutoCompleteControlledDemo",
+      createReactDemoHost(
+        "AutoCompleteControlledDemoHost",
+        AutoCompleteControlledDemo,
+      ),
+    );
+    app.component(
+      "AutoCompleteRenderDemo",
+      createReactDemoHost("AutoCompleteRenderDemoHost", AutoCompleteRenderDemo),
+    );
+    app.component(
+      "AutoCompleteStateSxDemo",
+      createReactDemoHost(
+        "AutoCompleteStateSxDemoHost",
+        AutoCompleteStateSxDemo,
+      ),
+    );
+    app.component(
       "LabelBasicDemo",
       createReactDemoHost("LabelBasicDemoHost", LabelBasicDemo),
     );
@@ -621,24 +658,71 @@ const theme: Theme = {
       createReactDemoHost("RadioSxDemoHost", RadioSxDemo),
     );
     app.component(
-      "RateDemo",
-      createReactDemoHost("RateDemoHost", RateDemo),
+      "RateBasicDemo",
+      createReactDemoHost("RateBasicDemoHost", RateBasicDemo),
+    );
+    app.component(
+      "RateBorderlessDemo",
+      createReactDemoHost("RateBorderlessDemoHost", RateBorderlessDemo),
+    );
+    app.component(
+      "RateClearableDemo",
+      createReactDemoHost("RateClearableDemoHost", RateClearableDemo),
+    );
+    app.component(
+      "RateFormDemo",
+      createReactDemoHost("RateFormDemoHost", RateFormDemo),
+    );
+    app.component(
+      "RateStatesDemo",
+      createReactDemoHost("RateStatesDemoHost", RateStatesDemo),
     );
     app.component(
       "CascaderDemo",
       createReactDemoHost("CascaderDemoHost", CascaderDemo),
     );
     app.component(
-      "SliderV2Demo",
-      createReactDemoHost("SliderV2DemoHost", SliderV2Demo),
+      "CascaderControlledDemo",
+      createReactDemoHost(
+        "CascaderControlledDemoHost",
+        CascaderControlledDemo,
+      ),
+    );
+    app.component(
+      "CascaderAdvancedDemo",
+      createReactDemoHost("CascaderAdvancedDemoHost", CascaderAdvancedDemo),
+    );
+    app.component(
+      "SliderBasicDemo",
+      createReactDemoHost("SliderBasicDemoHost", SliderBasicDemo),
+    );
+    app.component(
+      "SliderControlledDemo",
+      createReactDemoHost("SliderControlledDemoHost", SliderControlledDemo),
+    );
+    app.component(
+      "SliderStepDemo",
+      createReactDemoHost("SliderStepDemoHost", SliderStepDemo),
+    );
+    app.component(
+      "SliderStateDemo",
+      createReactDemoHost("SliderStateDemoHost", SliderStateDemo),
     );
     app.component(
       "RequiredDemo",
       createReactDemoHost("RequiredDemoHost", RequiredDemo),
     );
     app.component(
-      "FormV2Demo",
-      createReactDemoHost("FormV2DemoHost", FormV2Demo),
+      "FormBasicDemo",
+      createReactDemoHost("FormBasicDemoHost", FormBasicDemo),
+    );
+    app.component(
+      "FormLoginDemo",
+      createReactDemoHost("FormLoginDemoHost", FormLoginDemo),
+    );
+    app.component(
+      "FormInlineDemo",
+      createReactDemoHost("FormInlineDemoHost", FormInlineDemo),
     );
     app.component(
       "UploaderDemo",
@@ -675,6 +759,29 @@ const theme: Theme = {
     app.component(
       "SwitchSizesSxDemo",
       createReactDemoHost("SwitchSizesSxDemoHost", SwitchSizesSxDemo),
+    );
+    // mobile
+    app.component(
+      "MobileSelectBasicDemo",
+      createReactDemoHost("MobileSelectBasicDemoHost", MobileSelectBasicDemo),
+    );
+    app.component(
+      "MobileSelectAlignDemo",
+      createReactDemoHost("MobileSelectAlignDemoHost", MobileSelectAlignDemo),
+    );
+    app.component(
+      "MobileCascaderBasicDemo",
+      createReactDemoHost(
+        "MobileCascaderBasicDemoHost",
+        MobileCascaderBasicDemo,
+      ),
+    );
+    app.component(
+      "MobileCascaderControlledDemo",
+      createReactDemoHost(
+        "MobileCascaderControlledDemoHost",
+        MobileCascaderControlledDemo,
+      ),
     );
     // interact
     app.component(

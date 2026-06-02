@@ -76,12 +76,22 @@ const config: UserConfig = {
               { text: "Radio", link: "/components/form/radio" },
               { text: "Rate", link: "/components/form/rate" },
               { text: "Cascader", link: "/components/form/cascader" },
-              { text: "SliderV2", link: "/components/form/slider-v2" },
+              { text: "Slider", link: "/components/form/slider" },
               { text: "Required", link: "/components/form/required" },
-              { text: "FormV2", link: "/components/form/form-v2" },
+              { text: "Form", link: "/components/form/form" },
               { text: "Uploader", link: "/components/form/uploader" },
               { text: "Select", link: "/components/form/select" },
               { text: "Switch", link: "/components/form/switch" },
+            ],
+          },
+          {
+            text: "移动端",
+            items: [
+              { text: "MobileSelect", link: "/components/mobile/mobile-select" },
+              {
+                text: "MobileCascader",
+                link: "/components/mobile/mobile-cascader",
+              },
             ],
           },
           {
