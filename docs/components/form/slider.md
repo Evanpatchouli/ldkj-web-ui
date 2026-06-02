@@ -1,10 +1,10 @@
 # Slider
 
-`Slider` 是对原生 `input[type="range"]` 的轻量封装，用于连续数值、比例、音量、进度、预算上限等需要拖拽调整的场景。组件保留浏览器原生拖拽、键盘和表单语义，同时补齐本库统一的视觉样式、`trackSize`、`thumbSize`、`class` 兼容字段和 `sx` 样式入口。
+`Slider` 是对原生 `input[type="range"]` 的轻量封装，用于连续数值、比例、音量、进度、预算上限等需要拖拽调整的场景。组件保留浏览器原生拖拽、键盘和表单语义，同时补齐本库统一的视觉样式、`trackSize`、`thumbSize`、`class` 兼容字段、`variant` 变体和 `sx` 样式入口。
 
 ## Basic
 
-最小可用示例只需要提供范围、默认值和可访问名称。`min`、`max`、`step` 都沿用原生 range 属性。
+最小可用示例只需要提供范围、默认值和可访问名称。`min`、`max`、`step` 都沿用原生 range 属性。默认使用 `variant="solid"` 纯色风格，与组件库整体视觉统一。
 
 <SliderBasicDemo />
 
@@ -24,9 +24,23 @@
 
 ### 尺寸、状态与样式
 
-`trackSize` 控制轨道粗细，`thumbSize` 控制滑块头尺寸。它们适合做常规尺寸调整；如果要统一主题色，再通过 `sx` 覆盖 CSS 变量和 thumb 伪元素。
+`trackSize` 控制轨道粗细，`thumbSize` 控制滑块头尺寸。它们适合做常规尺寸调整；如果要统一主题色，再通过 `sx` 覆盖填充、thumb 与焦点环相关 CSS 变量。
 
 <SliderStateDemo />
+
+## 变体
+
+通过 `variant` 属性切换滑块的视觉风格。
+
+- **`solid`**（默认）：纯色风格，与组件库整体风格统一。
+- **`gradient`**（渐变）：填充和滑块头使用渐变色过渡，视觉效果更丰富。
+
+```tsx
+import { Slider } from "@ldkj/web-ui";
+
+<Slider variant="solid" defaultValue={50} aria-label="纯色" />
+<Slider variant="gradient" defaultValue={50} aria-label="渐变" />
+```
 
 ## Usage
 
@@ -95,14 +109,13 @@ export function StyledExample() {
       trackSize={10}
       thumbSize={22}
       sx={{
-        "--ldkj-slider-fill": "#16a34a",
-        "--ldkj-slider-track": "#dcfce7",
-        "&::-webkit-slider-thumb": {
-          backgroundColor: "#16a34a",
-        },
-        "&::-moz-range-thumb": {
-          backgroundColor: "#16a34a",
-        },
+        "--ldkj-slider-fill": "#fb923c",
+        "--ldkj-slider-fill-end": "#e11d48",
+        "--ldkj-slider-focus-ring": "rgb(251 146 60 / 0.24)",
+        "--ldkj-slider-thumb":
+          "linear-gradient(145deg, #fed7aa 0%, #fb923c 46%, #e11d48 100%)",
+        "--ldkj-slider-thumb-ring": "rgb(251 146 60 / 0.18)",
+        "--ldkj-slider-track": "#ffedd5",
       }}
       aria-label="完成度"
     />
@@ -121,8 +134,9 @@ export function StyledExample() {
 | `min` | 最小值 | `string \| number` | - |
 | `max` | 最大值 | `string \| number` | - |
 | `step` | 步进值 | `string \| number` | - |
-| `trackSize` | 轨道粗细。数字自动转换为 `px`，字符串按 CSS 长度值透传 | `number \| string` | `8px` |
-| `thumbSize` | 滑块头尺寸。数字自动转换为 `px`，字符串按 CSS 长度值透传 | `number \| string` | `16px` |
+| `variant` | 视觉变体：`"solid"` 纯色 / `"gradient"` 渐变 | `"solid" \| "gradient"` | `"solid"` |
+| `trackSize` | 轨道粗细。数字自动转换为 `px`，字符串按 CSS 长度值透传 | `number \| string` | `0.4rem` |
+| `thumbSize` | 滑块头尺寸。数字自动转换为 `px`，字符串按 CSS 长度值透传 | `number \| string` | `1.15rem` |
 | `onValueChange` | 数值变化回调，返回解析后的数字 | `(value: number) => void` | - |
 | `className` | 自定义类名 | `string` | - |
 | `class` | 兼容旧写法的类名 | `string` | - |
@@ -144,4 +158,5 @@ export function StyledExample() {
 - `Slider` 适合连续或近似连续的数值调整，不建议替代单选、分段按钮或枚举选择。
 - 没有可见标签时，请提供 `aria-label` 或 `aria-labelledby`，避免只留下无名称的滑块。
 - 如果需要双滑块区间、刻度标记、拖拽气泡或 tooltip，建议扩展专用组件，不要把复杂交互继续堆在基础 `Slider` 上。
-- 通过 `sx` 覆盖 thumb 颜色时需要同时处理 `::-webkit-slider-thumb` 和 `::-moz-range-thumb`，以兼顾 Chromium/Safari 与 Firefox。
+- 默认主题变量包括 `--ldkj-slider-fill`、`--ldkj-slider-fill-end`、`--ldkj-slider-track`、`--ldkj-slider-thumb`、`--ldkj-slider-thumb-ring`、`--ldkj-slider-thumb-shadow` 和 `--ldkj-slider-focus-ring`，通过 `sx` 覆盖即可统一整条滑块的视觉。
+- `variant` 只影响上述 CSS 变量的默认值，通过 `sx` 覆盖对应变量后 `variant` 的差异会被覆盖。

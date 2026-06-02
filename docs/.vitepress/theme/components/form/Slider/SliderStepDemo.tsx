@@ -10,10 +10,10 @@ const Example = () => {
   const [budget, setBudget] = React.useState(450);
 
   return (
-    <div style={{ display: "grid", gap: 12, maxWidth: 460 }}>
+    <div style={{ display: "grid", gap: 14, maxWidth: 480 }}>
       <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14 }}>
-        <span>预算上限</span>
-        <strong>{budget} 元</strong>
+        <span style={{ color: "#334155", fontWeight: 600 }}>预算上限</span>
+        <strong style={{ color: "#0f172a" }}>{budget} 元</strong>
       </div>
       <Slider
         min={0}
@@ -36,10 +36,10 @@ const Example = () => {
   const [budget, setBudget] = React.useState(450);
 
   return (
-    <div style={{ display: "grid", gap: 12, maxWidth: 460 }}>
+    <div style={{ display: "grid", gap: 14, maxWidth: 480 }}>
       <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14 }}>
-        <span>预算上限</span>
-        <strong>{budget} 元</strong>
+        <span style={{ color: "#334155", fontWeight: 600 }}>预算上限</span>
+        <strong style={{ color: "#0f172a" }}>{budget} 元</strong>
       </div>
       <Slider
         min={0}

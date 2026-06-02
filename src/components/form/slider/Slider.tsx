@@ -9,6 +9,12 @@ export type SliderProps = Omit<
   value?: number;
   class?: string;
   /**
+   * 视觉变体。
+   * - `"solid"`：纯色风格，与组件库整体风格统一（默认）
+   * - `"gradient"`：渐变色风格，提供更丰富的视觉效果
+   */
+  variant?: "solid" | "gradient";
+  /**
    * 轨道粗细。数字会自动转换为 px，字符串会作为 CSS 长度值透传。
    */
   trackSize?: number | string;
@@ -42,6 +48,37 @@ function toCssSize(value: number | string | undefined, fallback: string) {
   return typeof value === "number" ? `${value}px` : value;
 }
 
+/** 各 variant 对应的 CSS 变量值 */
+const variantStyles = {
+  solid: {
+    "--ldkj-slider-fill": "rgb(37 99 235)",
+    "--ldkj-slider-fill-end": "rgb(37 99 235)",
+    "--ldkj-slider-focus-ring": "rgb(37 99 235 / 0.2)",
+    "--ldkj-slider-thumb": "rgb(37 99 235)",
+    "--ldkj-slider-thumb-ring": "rgb(37 99 235 / 0.18)",
+    "--ldkj-slider-track": "rgb(226 232 240)",
+    "--ldkj-slider-track-shadow": "inset 0 1px 2px rgba(15,23,42,0.1)",
+    "--ldkj-slider-thumb-shadow":
+      "0 0 0 3px var(--ldkj-slider-thumb-ring), 0 4px 12px -2px rgba(0,0,0,0.12)",
+    "--ldkj-slider-thumb-shadow-hover":
+      "0 0 0 5px var(--ldkj-slider-thumb-ring), 0 6px 20px -4px rgba(0,0,0,0.16)",
+  },
+  gradient: {
+    "--ldkj-slider-fill": "rgb(6 182 212)",
+    "--ldkj-slider-fill-end": "rgb(37 99 235)",
+    "--ldkj-slider-focus-ring": "rgb(14 165 233 / 0.22)",
+    "--ldkj-slider-thumb":
+      "linear-gradient(145deg, rgb(34 211 238) 0%, rgb(37 99 235) 72%, rgb(30 64 175) 100%)",
+    "--ldkj-slider-thumb-ring": "rgb(14 165 233 / 0.16)",
+    "--ldkj-slider-track": "rgb(226 232 240)",
+    "--ldkj-slider-track-shadow": "inset 0 1px 2px rgba(15,23,42,0.16)",
+    "--ldkj-slider-thumb-shadow":
+      "0 0 0 5px var(--ldkj-slider-thumb-ring), 0 10px 24px -10px rgba(14,116,144,0.9)",
+    "--ldkj-slider-thumb-shadow-hover":
+      "0 0 0 7px var(--ldkj-slider-thumb-ring), 0 14px 28px -12px rgba(14,116,144,0.95)",
+  },
+} as const;
+
 /**
  * Slider 是原生 range 输入的封装，保留浏览器原生交互语义，
  * 同时提供更符合本库风格的视觉样式与数值回调。
@@ -58,6 +95,7 @@ export function Slider(props: SliderProps) {
     thumbSize,
     trackSize,
     value,
+    variant = "solid",
     onValueChange,
     ...rest
   } = props;
@@ -98,25 +136,28 @@ export function Slider(props: SliderProps) {
       max={max}
       onChange={handleChange}
       className={cn(
-        "h-[var(--ldkj-slider-track-size)] w-full cursor-pointer appearance-none rounded-full bg-transparent",
-        "accent-sky-600",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/30",
-        "disabled:cursor-not-allowed disabled:opacity-60",
-        "[&::-webkit-slider-thumb]:h-[var(--ldkj-slider-thumb-size)] [&::-webkit-slider-thumb]:w-[var(--ldkj-slider-thumb-size)] [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:bg-sky-600 [&::-webkit-slider-thumb]:shadow-[0_2px_8px_rgba(2,132,199,0.28)]",
-        "[&::-moz-range-thumb]:h-[var(--ldkj-slider-thumb-size)] [&::-moz-range-thumb]:w-[var(--ldkj-slider-thumb-size)] [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:bg-sky-600 [&::-moz-range-thumb]:shadow-[0_2px_8px_rgba(2,132,199,0.28)]",
+        "h-[var(--ldkj-slider-track-size)] w-full cursor-pointer appearance-none rounded-full border border-white/70 bg-transparent align-middle",
+        "accent-[var(--ldkj-slider-fill-end)] shadow-[var(--ldkj-slider-track-shadow),0_1px_0_rgba(255,255,255,0.88)]",
+        "transition-[filter,opacity,box-shadow] duration-200 ease-out hover:brightness-105",
+        "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--ldkj-slider-focus-ring)] focus-visible:ring-offset-2",
+        "disabled:cursor-not-allowed disabled:opacity-55 disabled:grayscale",
+        "[&::-webkit-slider-thumb]:h-[var(--ldkj-slider-thumb-size)] [&::-webkit-slider-thumb]:w-[var(--ldkj-slider-thumb-size)] [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-[3px] [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:[background:var(--ldkj-slider-thumb)] [&::-webkit-slider-thumb]:shadow-[var(--ldkj-slider-thumb-shadow),inset_0_1px_0_rgba(255,255,255,0.55)] [&::-webkit-slider-thumb]:transition-[transform,box-shadow,filter] [&::-webkit-slider-thumb]:duration-200 [&::-webkit-slider-thumb]:ease-out",
+        "hover:[&::-webkit-slider-thumb]:scale-110 hover:[&::-webkit-slider-thumb]:shadow-[var(--ldkj-slider-thumb-shadow-hover),inset_0_1px_0_rgba(255,255,255,0.65)] active:[&::-webkit-slider-thumb]:scale-95",
+        "[&::-moz-range-thumb]:h-[var(--ldkj-slider-thumb-size)] [&::-moz-range-thumb]:w-[var(--ldkj-slider-thumb-size)] [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-[3px] [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:[background:var(--ldkj-slider-thumb)] [&::-moz-range-thumb]:shadow-[var(--ldkj-slider-thumb-shadow),inset_0_1px_0_rgba(255,255,255,0.55)] [&::-moz-range-thumb]:transition-[transform,box-shadow,filter] [&::-moz-range-thumb]:duration-200 [&::-moz-range-thumb]:ease-out",
+        "hover:[&::-moz-range-thumb]:scale-110 hover:[&::-moz-range-thumb]:shadow-[var(--ldkj-slider-thumb-shadow-hover),inset_0_1px_0_rgba(255,255,255,0.65)] active:[&::-moz-range-thumb]:scale-95",
+        "[&::-moz-range-track]:h-[var(--ldkj-slider-track-size)] [&::-moz-range-track]:rounded-full [&::-moz-range-track]:bg-transparent",
         sxClassName,
         className,
         legacyClass,
       )}
       style={mergeSxStyle(
         {
-          "--ldkj-slider-fill": "rgb(2 132 199)",
-          "--ldkj-slider-thumb-size": toCssSize(thumbSize, "1rem"),
-          "--ldkj-slider-track": "rgb(226 232 240)",
-          "--ldkj-slider-track-size": toCssSize(trackSize, "0.5rem"),
+          ...(variantStyles[variant] as Record<string, string>),
+          "--ldkj-slider-thumb-size": toCssSize(thumbSize, "1.05rem"),
+          "--ldkj-slider-track-size": toCssSize(trackSize, "0.4rem"),
           "--ldkj-slider-percent": `${clampedPercent}%`,
           background:
-            "linear-gradient(90deg, var(--ldkj-slider-fill) 0%, var(--ldkj-slider-fill) var(--ldkj-slider-percent), var(--ldkj-slider-track) var(--ldkj-slider-percent), var(--ldkj-slider-track) 100%)",
+            "linear-gradient(90deg, var(--ldkj-slider-fill) 0%, var(--ldkj-slider-fill-end) var(--ldkj-slider-percent), transparent var(--ldkj-slider-percent), transparent 100%), linear-gradient(180deg, rgba(255,255,255,0.86), rgba(148,163,184,0.22)), var(--ldkj-slider-track)",
         } as React.CSSProperties,
         style,
         sxInlineStyle,

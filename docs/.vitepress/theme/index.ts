@@ -120,6 +120,9 @@ import RequiredDemo from "./components/form/Required/RequiredDemo";
 import FormBasicDemo from "./components/form/Form/FormBasicDemo";
 import FormLoginDemo from "./components/form/Form/FormLoginDemo";
 import FormInlineDemo from "./components/form/Form/FormInlineDemo";
+import FormUseFormDemo from "./components/form/Form/FormUseFormDemo";
+import FormValidationDemo from "./components/form/Form/FormValidationDemo";
+import FormWatchDemo from "./components/form/Form/FormWatchDemo";
 import UploaderDemo from "./components/form/Uploader/UploaderDemo";
 import SelectBasicDemo from "./components/form/Select/SelectBasicDemo";
 import SelectControlledDemo from "./components/form/Select/SelectControlledDemo";
@@ -723,6 +726,18 @@ const theme: Theme = {
     app.component(
       "FormInlineDemo",
       createReactDemoHost("FormInlineDemoHost", FormInlineDemo),
+    );
+    app.component(
+      "FormUseFormDemo",
+      createReactDemoHost("FormUseFormDemoHost", FormUseFormDemo),
+    );
+    app.component(
+      "FormWatchDemo",
+      createReactDemoHost("FormWatchDemoHost", FormWatchDemo),
+    );
+    app.component(
+      "FormValidationDemo",
+      createReactDemoHost("FormValidationDemoHost", FormValidationDemo),
     );
     app.component(
       "UploaderDemo",
