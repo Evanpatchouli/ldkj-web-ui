@@ -129,6 +129,7 @@ import SelectBasicDemo from "./components/form/Select/SelectBasicDemo";
 import SelectControlledDemo from "./components/form/Select/SelectControlledDemo";
 import SelectDisabledSxDemo from "./components/form/Select/SelectDisabledSxDemo";
 import SelectGroupedDemo from "./components/form/Select/SelectGroupedDemo";
+import SelectScrollBehaviorDemo from "./components/form/Select/SelectScrollBehaviorDemo";
 import SwitchBasicDemo from "./components/form/Switch/SwitchBasicDemo";
 import SwitchControlledDemo from "./components/form/Switch/SwitchControlledDemo";
 import SwitchLabelDescriptionDemo from "./components/form/Switch/SwitchLabelDescriptionDemo";
@@ -759,6 +760,10 @@ const theme: Theme = {
     app.component(
       "SelectGroupedDemo",
       createReactDemoHost("SelectGroupedDemoHost", SelectGroupedDemo),
+    );
+    app.component(
+      "SelectScrollBehaviorDemo",
+      createReactDemoHost("SelectScrollBehaviorDemoHost", SelectScrollBehaviorDemo),
     );
     app.component(
       "SwitchBasicDemo",

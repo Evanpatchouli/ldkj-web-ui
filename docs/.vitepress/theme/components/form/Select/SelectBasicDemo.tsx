@@ -8,9 +8,10 @@ import {
 import CodeView from "../../CodeView";
 
 const options = [
-  { label: "标准版", value: "standard" },
-  { label: "专业版", value: "pro" },
-  { label: "企业版", value: "enterprise", disabled: true },
+  { label: "全部状态", value: "all" },
+  { label: "待处理", value: "pending" },
+  { label: "处理中", value: "processing" },
+  { label: "已完成", value: "done" },
 ];
 
 const code = `import {
@@ -22,36 +23,39 @@ const code = `import {
 } from "@ldkj/web-ui";
 
 const options = [
-  { label: "标准版", value: "standard" },
-  { label: "专业版", value: "pro" },
-  { label: "企业版", value: "enterprise", disabled: true },
+  { label: "全部状态", value: "all" },
+  { label: "待处理", value: "pending" },
+  { label: "处理中", value: "processing" },
+  { label: "已完成", value: "done" },
 ];
 
-export function Example() {
-  return (
-    <Select defaultValue="pro">
-      <SelectTrigger className="w-64">
-        <SelectValue placeholder="请选择版本" />
+const Example = () => (
+  <div className="grid gap-2">
+    <label className="text-sm font-medium text-slate-700">订单状态</label>
+    <Select defaultValue="all">
+      <SelectTrigger className="w-64" aria-label="订单状态">
+        <SelectValue placeholder="请选择订单状态" />
       </SelectTrigger>
       <SelectContent>
         <SelectItems options={options} />
       </SelectContent>
     </Select>
-  );
-}`;
+  </div>
+);`;
 
-function Example() {
-  return (
-    <Select defaultValue="pro">
-      <SelectTrigger className="w-64">
-        <SelectValue placeholder="请选择版本" />
+const Example = () => (
+  <div className="grid gap-2">
+    <label className="text-sm font-medium text-slate-700">订单状态</label>
+    <Select defaultValue="all">
+      <SelectTrigger className="w-64" aria-label="订单状态">
+        <SelectValue placeholder="请选择订单状态" />
       </SelectTrigger>
       <SelectContent>
         <SelectItems options={options} />
       </SelectContent>
     </Select>
-  );
-}
+  </div>
+);
 
 export default function SelectBasicDemo() {
   return (

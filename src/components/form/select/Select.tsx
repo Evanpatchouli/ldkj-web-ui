@@ -34,6 +34,17 @@ export type SelectItemsProps = {
   separatorProps?: SelectSeparatorProps;
 };
 
+type SelectRootPrimitiveProps = React.ComponentPropsWithoutRef<typeof SelectPrimitive.Root>;
+
+export type SelectProps = SelectRootPrimitiveProps & {
+  /**
+   * 是否在弹层打开时锁定页面滚动。
+   *
+   * 默认允许页面继续滚动；如需恢复 Radix Select 的模态行为，可设置为 `true`。
+   */
+  lockScroll?: boolean;
+};
+
 export type SelectTriggerProps = StyledPrimitiveProps<
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
 >;
@@ -58,7 +69,90 @@ export type SelectSeparatorProps = StyledPrimitiveProps<
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>
 >;
 
-const Select = SelectPrimitive.Root;
+const SELECT_SCROLL_LOCK_ATTRIBUTE = "data-scroll-locked";
+const SelectContext = React.createContext({
+  lockScroll: false,
+});
+
+function useIsomorphicLayoutEffect(
+  effect: React.EffectCallback,
+  deps: React.DependencyList,
+) {
+  const useLayoutEffect =
+    typeof window === "undefined" ? React.useEffect : React.useLayoutEffect;
+
+  useLayoutEffect(effect, deps);
+}
+
+function hasOpenSelectContent() {
+  return (
+    document.querySelector(
+      '[role="listbox"][data-state="open"][data-ldkj-select-lock-scroll="false"]',
+    ) !== null
+  );
+}
+
+function useAllowPageScroll(enabled: boolean) {
+  useIsomorphicLayoutEffect(() => {
+    if (!enabled || typeof document === "undefined") {
+      return;
+    }
+
+    const body = document.body;
+    const removeSelectScrollLock = () => {
+      if (hasOpenSelectContent()) {
+        body.removeAttribute(SELECT_SCROLL_LOCK_ATTRIBUTE);
+      }
+    };
+    const stopRemoveScrollDocumentHandler = (event: Event) => {
+      if (hasOpenSelectContent()) {
+        event.stopImmediatePropagation();
+      }
+    };
+    const observer =
+      typeof MutationObserver === "undefined"
+        ? null
+        : new MutationObserver(removeSelectScrollLock);
+    const listenerOptions: AddEventListenerOptions = { passive: false };
+    const timeoutId = window.setTimeout(removeSelectScrollLock, 0);
+
+    observer?.observe(body, {
+      attributes: true,
+      attributeFilter: [SELECT_SCROLL_LOCK_ATTRIBUTE],
+    });
+    document.addEventListener("wheel", stopRemoveScrollDocumentHandler, listenerOptions);
+    document.addEventListener(
+      "touchmove",
+      stopRemoveScrollDocumentHandler,
+      listenerOptions,
+    );
+    removeSelectScrollLock();
+
+    return () => {
+      window.clearTimeout(timeoutId);
+      observer?.disconnect();
+      document.removeEventListener("wheel", stopRemoveScrollDocumentHandler);
+      document.removeEventListener("touchmove", stopRemoveScrollDocumentHandler);
+    };
+  }, [enabled]);
+}
+
+/**
+ * Select 根组件，默认不锁定页面滚动。
+ */
+function Select(props: SelectProps) {
+  const { lockScroll = false, ...restProps } = props;
+
+  useAllowPageScroll(!lockScroll);
+
+  return (
+    <SelectContext.Provider value={{ lockScroll }}>
+      <SelectPrimitive.Root {...restProps} />
+    </SelectContext.Provider>
+  );
+}
+
+Select.displayName = "Select";
 const SelectGroup = SelectPrimitive.Group;
 const SelectValue = SelectPrimitive.Value;
 
@@ -224,6 +318,7 @@ const SelectContent = React.forwardRef<
     ...restProps
   } = props;
   const { sxClassName, sxInlineStyle } = useResolvedSx(sx);
+  const { lockScroll } = React.useContext(SelectContext);
 
   return (
     <SelectPrimitive.Portal>
@@ -243,6 +338,7 @@ const SelectContent = React.forwardRef<
         )}
         style={mergeSxStyle(style, sxInlineStyle)}
         position={position}
+        data-ldkj-select-lock-scroll={lockScroll ? "true" : "false"}
         {...restProps}
       >
         <SelectScrollUpButton />

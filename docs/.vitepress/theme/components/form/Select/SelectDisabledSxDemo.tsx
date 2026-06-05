@@ -8,9 +8,9 @@ import {
 import CodeView from "../../CodeView";
 
 const options = [
-  { label: "短信", value: "sms" },
+  { label: "短信提醒", value: "sms" },
   {
-    label: "邮件",
+    label: "邮件日报",
     value: "email",
     sx: {
       color: "#2563eb",
@@ -29,9 +29,9 @@ const code = `import {
 } from "@ldkj/web-ui";
 
 const options = [
-  { label: "短信", value: "sms" },
+  { label: "短信提醒", value: "sms" },
   {
-    label: "邮件",
+    label: "邮件日报",
     value: "email",
     sx: {
       color: "#2563eb",
@@ -41,18 +41,20 @@ const options = [
   { label: "站内信", value: "message", disabled: true },
 ];
 
-export function Example() {
-  return (
-    <div className="grid gap-3">
+const Example = () => (
+  <div className="grid gap-4 sm:grid-cols-2">
+    <div className="grid gap-2">
+      <label className="text-sm font-medium text-slate-700">提醒方式</label>
       <Select defaultValue="email">
         <SelectTrigger
           className="w-64"
+          aria-label="提醒方式"
           sx={{
             borderColor: "#93c5fd",
             backgroundColor: "#eff6ff",
           }}
         >
-          <SelectValue placeholder="请选择通知方式" />
+          <SelectValue placeholder="请选择提醒方式" />
         </SelectTrigger>
         <SelectContent
           sx={{
@@ -63,31 +65,36 @@ export function Example() {
           <SelectItems options={options} />
         </SelectContent>
       </Select>
+    </div>
 
+    <div className="grid gap-2">
+      <label className="text-sm font-medium text-slate-500">审批人</label>
       <Select disabled>
-        <SelectTrigger className="w-64">
-          <SelectValue placeholder="已禁用" />
+        <SelectTrigger className="w-64" aria-label="审批人">
+          <SelectValue placeholder="当前无可选审批人" />
         </SelectTrigger>
         <SelectContent>
           <SelectItems options={options} />
         </SelectContent>
       </Select>
     </div>
-  );
-}`;
+  </div>
+);`;
 
-function Example() {
-  return (
-    <div className="grid gap-3">
+const Example = () => (
+  <div className="grid gap-4 sm:grid-cols-2">
+    <div className="grid gap-2">
+      <label className="text-sm font-medium text-slate-700">提醒方式</label>
       <Select defaultValue="email">
         <SelectTrigger
           className="w-64"
+          aria-label="提醒方式"
           sx={{
             borderColor: "#93c5fd",
             backgroundColor: "#eff6ff",
           }}
         >
-          <SelectValue placeholder="请选择通知方式" />
+          <SelectValue placeholder="请选择提醒方式" />
         </SelectTrigger>
         <SelectContent
           sx={{
@@ -98,18 +105,21 @@ function Example() {
           <SelectItems options={options} />
         </SelectContent>
       </Select>
+    </div>
 
+    <div className="grid gap-2">
+      <label className="text-sm font-medium text-slate-500">审批人</label>
       <Select disabled>
-        <SelectTrigger className="w-64">
-          <SelectValue placeholder="已禁用" />
+        <SelectTrigger className="w-64" aria-label="审批人">
+          <SelectValue placeholder="当前无可选审批人" />
         </SelectTrigger>
         <SelectContent>
           <SelectItems options={options} />
         </SelectContent>
       </Select>
     </div>
-  );
-}
+  </div>
+);
 
 export default function SelectDisabledSxDemo() {
   return (
