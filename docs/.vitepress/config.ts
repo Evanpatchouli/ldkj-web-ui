@@ -4,6 +4,7 @@ import svgr from "vite-plugin-svgr";
 import { fileURLToPath } from "node:url";
 
 const base = process.env.VITEPRESS_BASE ?? "/";
+const isProd = process.env.NODE_ENV === "production";
 
 const config: UserConfig = {
   base: base,
@@ -148,7 +149,8 @@ const config: UserConfig = {
         text: "版本日志",
         items: [
           { text: "日志索引", link: "/devlog/" },
-          { text: "Next", link: "/devlog/next" },
+          ...(!isProd ? [{ text: "Next", link: "/devlog/next" }] : []),
+          { text: "v0.16.2", link: "/devlog/v0.16.2" },
           { text: "v0.16.1", link: "/devlog/v0.16.1" },
           { text: "v0.16.0", link: "/devlog/v0.16.0" },
           { text: "v0.14.1", link: "/devlog/v0.14.1" },

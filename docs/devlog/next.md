@@ -17,13 +17,11 @@
 
 - 记录 bug 修复、行为纠正、边界情况补齐等。
 - 示例: 修复 `ComponentName` 在 `condition` 场景下的渲染异常。
-- 修复 `Popover` 在 `PopoverTrigger asChild` 组合本库 `Button` 时触发 ref 警告、弹层定位异常的问题，`asChild` 默认改为生成包装元素承接 Radix 的 ref 和事件。
 
 ## 文档
 
 - 记录文档页、示例、侧边栏、开发日志等说明性变更。
 - 示例: 补充 `ComponentName` API 表格与基础示例。
-- 补充 `Popover` 文档的 `Basic`、`常见场景`、`Usage`、`API`、`行为规则 / 优先级` 与 `Notes` 章节，并说明 `asChildWrapper`、定位优先级与样式覆盖规则。
 
 ## 验证
 

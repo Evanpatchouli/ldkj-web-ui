@@ -5,6 +5,7 @@ import { createRoot, type Root } from "react-dom/client";
 import { defineComponent, h, onBeforeUnmount, onMounted, ref } from "vue";
 import "@/style.css";
 import "@/reset.css";
+import DevlogIndexList from "./components/DevlogIndexList";
 // data-display
 import AvatarBasicDemo from "./components/data-display/Avatar/AvatarBasicDemo";
 import AvatarExportDemo from "./components/data-display/Avatar/AvatarExportDemo";
@@ -1193,6 +1194,7 @@ const theme: Theme = {
       "TabsSxDemo",
       createReactDemoHost("TabsSxDemoHost", TabsSxDemo),
     );
+    app.component("DevlogIndexList", DevlogIndexList);
   },
 };
 
