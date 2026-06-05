@@ -28,6 +28,7 @@ type PopoverWrapperProps<TProps> = Omit<TProps, "className" | "style"> & {
   class?: string;
   style?: React.CSSProperties;
   sx?: SxProps;
+  asChildWrapper?: React.ElementType;
 };
 
 export type PopoverTriggerProps =
@@ -61,26 +62,33 @@ const Popover = PopoverPrimitive.Root;
  */
 const PopoverTrigger = React.forwardRef<HTMLElement, PopoverTriggerProps>(
   (props, ref) => {
-  const {
-    asChild,
-    children,
-    className,
-    class: legacyClass,
+    const {
+      asChild,
+      asChildWrapper: AsChildWrapper = "span",
+      children,
+      className,
+      class: legacyClass,
       sx,
       style,
       ...restProps
     } = props;
-  const { sxClassName, sxInlineStyle } = useResolvedSx(sx);
-  const mergedClassName = cn(sxClassName, className, legacyClass);
-  const mergedStyle = mergeSxStyle(style, sxInlineStyle);
+    const { sxClassName, sxInlineStyle } = useResolvedSx(sx);
+    const mergedClassName = cn(sxClassName, className, legacyClass);
+    const mergedStyle = mergeSxStyle(style, sxInlineStyle);
 
-  if (asChild) {
-    return (
-      <PopoverPrimitive.Trigger asChild {...restProps}>
-        {children}
-      </PopoverPrimitive.Trigger>
-    );
-  }
+    if (asChild) {
+      return (
+        <PopoverPrimitive.Trigger asChild {...restProps}>
+          <AsChildWrapper
+            ref={ref}
+            className={cn("inline-flex w-fit", mergedClassName)}
+            style={mergedStyle}
+          >
+            {children}
+          </AsChildWrapper>
+        </PopoverPrimitive.Trigger>
+      );
+    }
 
     return (
       <PopoverPrimitive.Trigger
@@ -113,6 +121,7 @@ const PopoverClose = React.forwardRef<HTMLElement, PopoverCloseProps>(
   (props, ref) => {
     const {
       asChild,
+      asChildWrapper: AsChildWrapper = "span",
       children,
       className,
       class: legacyClass,
@@ -127,13 +136,13 @@ const PopoverClose = React.forwardRef<HTMLElement, PopoverCloseProps>(
     if (asChild) {
       return (
         <PopoverPrimitive.Close asChild {...restProps}>
-          <span
+          <AsChildWrapper
             ref={ref}
             className={cn("inline-flex w-fit", mergedClassName)}
             style={mergedStyle}
           >
             {children}
-          </span>
+          </AsChildWrapper>
         </PopoverPrimitive.Close>
       );
     }

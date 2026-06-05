@@ -6,23 +6,27 @@
 
 ## Basic
 
+最小可用场景：点击触发器后展示一段补充说明。
+
 <PopoverBasicDemo />
 
-## Controlled
+## 常见场景
 
-通过 `open` 与 `onOpenChange` 可以完全控制弹层状态。
+### 状态说明
+
+适合放置同步状态、审批状态、辅助解释等短信息。
 
 <PopoverControlledDemo />
 
-## Placement
+### 定位与锚点
 
-`PopoverContent` 继承 Radix Content 的定位能力，可使用 `side`、`align`、`sideOffset` 等属性调整位置。
+`PopoverContent` 继承 Radix 的定位能力，可通过 `side`、`align`、`sideOffset` 调整位置；当触发元素与锚点不是同一个元素时，可以显式使用 `PopoverAnchor`。
 
 <PopoverPlacementDemo />
 
-## SX / Custom Content
+### 自定义面板
 
-`width`、`rounded`、`shadow` 用于常见视觉定制；更细的样式可以通过 `sx`、`className` 或 `style` 传入。
+适合筛选器、快捷操作面板这类需要更细粒度视觉控制的场景，可配合 `width`、`rounded`、`shadow` 与 `sx` 定制内容容器。
 
 <PopoverCustomContentDemo />
 
@@ -50,15 +54,19 @@ export function Example() {
 }
 ```
 
+当触发元素本身不支持 `forwardRef` 时，`PopoverTrigger asChild` 也可以直接包裹业务组件；本库会自动生成一层包装元素承接 Radix 的 ref 和事件。
+
 ## API
 
-### Exports
+### 导出项
 
-- `Popover`
-- `PopoverTrigger`
-- `PopoverAnchor`
-- `PopoverContent`
-- `PopoverClose`
+| 名称 | 说明 |
+| --- | --- |
+| `Popover` | 根组件，支持 `open`、`defaultOpen`、`onOpenChange`、`modal`。 |
+| `PopoverTrigger` | 触发器，支持 `asChild` 与 `asChildWrapper`。 |
+| `PopoverAnchor` | 锚点组件，用于显式指定定位参考元素。 |
+| `PopoverContent` | 内容面板，支持本库样式能力与定位属性。 |
+| `PopoverClose` | 关闭控件，支持 `asChild` 与 `asChildWrapper`。 |
 
 ### Popover
 
@@ -83,6 +91,7 @@ export function Example() {
 | `class` | 兼容历史 class 写法 | `string` | - |
 | `style` | 原生行内样式 | `React.CSSProperties` | - |
 | `sx` | 本库 sx 样式入口 | `SxProps` | - |
+| `asChildWrapper` | `asChild` 模式下承接 Radix ref 与事件的包装元素 | `React.ElementType` | `"span"` |
 
 ### PopoverAnchor
 
@@ -100,6 +109,7 @@ export function Example() {
 | `class` | 兼容历史 class 写法 | `string` | - |
 | `style` | 原生行内样式 | `React.CSSProperties` | - |
 | `sx` | 本库 sx 样式入口 | `SxProps` | - |
+| `asChildWrapper` | `asChild` 模式下承接 Radix ref 与事件的包装元素 | `React.ElementType` | `"span"` |
 
 ### PopoverContent
 
@@ -118,9 +128,19 @@ export function Example() {
 | `align` | 对齐方式 | `'start' \| 'center' \| 'end'` | `'center'` |
 | `sideOffset` | 与触发器的距离 | `number` | `6` |
 
+## 行为规则 / 优先级
+
+1. `open` 与 `onOpenChange` 的优先级最高。只要传了 `open`，Popover 就是受控模式，所有打开和关闭都由外部状态决定。
+2. `PopoverTrigger` 默认切换打开状态，`PopoverClose` 会请求关闭；点击外部区域、按 `Esc` 也会走同一条状态变化链路。
+3. `PopoverTrigger asChild` 和 `PopoverClose asChild` 默认都会额外包一层 `span` 承接 Radix 的 ref 和事件，因此可直接包裹本库 `Button` 或普通业务组件。
+4. `PopoverContent` 默认通过 Portal 渲染到 `body`，避免被父级 `overflow` 裁剪，也意味着它不依赖触发器所在容器的层级上下文。
+5. `PopoverContent` 的内联样式合并顺序是 `style` -> `width/rounded/shadow` -> `sx`，因此最终由 `sx` 覆盖同名内联样式；类名层面则是 `sx` 生成类、`className`、`class` 共同参与合并。
+6. `modal` 默认是 `false`。只有在你需要更强的模态语义时，才显式开启。
+
 ## Notes
 
-- `PopoverContent` 默认使用 Portal 渲染到 `body`，避免被父级 `overflow` 裁剪。
-- `PopoverContent` 的样式合并顺序为 `style -> width/rounded/shadow -> sx`，因此 `sx` 中的同名基础样式优先级最高。
-- `PopoverTrigger`、`PopoverClose` 与 `PopoverAnchor` 都保留 Radix 组合能力，适合组合本库 `Button` 或业务自定义元素。
-- 如果弹层中包含表单或可聚焦内容，请确保触发器文本和内容标题能表达清楚当前操作语义。
+- `PopoverContent` 适合短内容，不建议塞入长篇正文；复杂交互内容更适合用 `Dialog`、`Drawer` 或专门的表单面板。
+- 触发器文案应足够明确，避免用户点开后还需要猜当前浮层的用途。
+- 如果内容区宽度不固定，优先传入响应式 `width`，例如 `width="min(360px, calc(100vw - 32px))"`，避免小屏幕下溢出。
+- 需要与指定元素对齐时，优先使用 `PopoverAnchor`，不要依赖容器布局去“碰运气”。
+- `asChildWrapper` 只在你需要替换默认包装元素语义时使用；常规业务场景保持默认 `span` 即可。
