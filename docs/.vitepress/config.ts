@@ -150,6 +150,7 @@ const config: UserConfig = {
         items: [
           { text: "日志索引", link: "/devlog/" },
           ...(!isProd ? [{ text: "Next", link: "/devlog/next" }] : []),
+          { text: "v0.17.0", link: "/devlog/v0.17.0" },
           { text: "v0.16.2", link: "/devlog/v0.16.2" },
           { text: "v0.16.1", link: "/devlog/v0.16.1" },
           { text: "v0.16.0", link: "/devlog/v0.16.0" },
