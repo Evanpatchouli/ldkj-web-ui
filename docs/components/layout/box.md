@@ -30,6 +30,20 @@
 
 <BoxLongPressDemo />
 
+## 常见场景
+
+### 基础布局
+
+用于组织页面结构、控制间距、对齐和响应式布局。
+
+### 组合嵌套
+
+复杂页面推荐拆成多个 Box 组合，避免在单个容器中堆叠过多职责。
+
+### 响应式适配
+
+可通过尺寸、间距、`className` 或 `sx` 处理不同屏幕下的布局变化。
+
 ## Usage
 
 ```tsx
@@ -74,3 +88,16 @@ export function Example() {
 | `...rest` | 原生属性透传（含 `aria-*`/`data-*`/事件） | `React.ComponentPropsWithoutRef<T>` | - |
 
 > 事件优先级：当你显式传入 `onMouseDown`、`onMouseUp`、`onMouseLeave`、`onTouchStart`、`onTouchEnd` 时，会覆盖 `onLongPress` 自动注入的对应处理器。
+
+## 行为规则 / 优先级
+
+- 布局组件只处理结构、尺寸和对齐，不承载业务状态。
+- `className` 与 `class` 用于追加类名；如同时传入原生 `style`，内联样式会按 React 规则覆盖同名 CSS。
+- 复杂内容优先通过组合能力传入，避免在组件内部硬编码业务文案。
+- Box 的默认值应服务于最常见场景，特殊场景通过显式 props 覆盖。
+
+## Notes
+
+- 布局层尽量保持语义清晰，避免把业务点击行为隐藏在纯布局组件里。
+- 文档 demo 展示的是推荐组合方式；生产代码中可按业务密度调整间距和尺寸。
+- 修改组件能力时需要同步更新本页 Demo、Usage、API 与行为规则。

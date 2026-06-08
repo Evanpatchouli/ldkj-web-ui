@@ -176,10 +176,20 @@ import NotificationBasicDemo from "./components/interact/Notification/Notificati
 import NotificationOffsetDemo from "./components/interact/Notification/NotificationOffsetDemo";
 import NotificationPlacementDemo from "./components/interact/Notification/NotificationPlacementDemo";
 import SpinDemo from "./components/interact/Spin/SpinDemo";
+import SpinInlineDemo from "./components/interact/Spin/SpinInlineDemo";
+import SpinToneDemo from "./components/interact/Spin/SpinToneDemo";
 import LoadingDemo from "./components/interact/Loading/LoadingDemo";
+import LoadingOverlayDemo from "./components/interact/Loading/LoadingOverlayDemo";
+import LoadingStateDemo from "./components/interact/Loading/LoadingStateDemo";
 import DrawerDemo from "./components/interact/Drawer/DrawerDemo";
+import DrawerBehaviorDemo from "./components/interact/Drawer/DrawerBehaviorDemo";
+import DrawerPlacementDemo from "./components/interact/Drawer/DrawerPlacementDemo";
 import AlertDemo from "./components/interact/Alert/AlertDemo";
+import AlertActionDemo from "./components/interact/Alert/AlertActionDemo";
+import AlertClosableDemo from "./components/interact/Alert/AlertClosableDemo";
 import ProgressDemo from "./components/interact/Progress/ProgressDemo";
+import ProgressCircleDemo from "./components/interact/Progress/ProgressCircleDemo";
+import ProgressStatusDemo from "./components/interact/Progress/ProgressStatusDemo";
 // layout
 import BoxBasicDemo from "./components/layout/Box/BoxBasicDemo";
 import BoxLongPressDemo from "./components/layout/Box/BoxLongPressDemo";
@@ -205,6 +215,7 @@ import GridSpacingDemo from "./components/layout/Grid/GridSpacingDemo";
 import RowColAlignDemo from "./components/layout/RowCol/RowColAlignDemo";
 import RowColBasicDemo from "./components/layout/RowCol/RowColBasicDemo";
 import RowColGutterDemo from "./components/layout/RowCol/RowColGutterDemo";
+import SafeAreaBasicDemo from "./components/layout/SafeArea/SafeAreaBasicDemo";
 import SpaceBasicDemo from "./components/layout/Space/SpaceBasicDemo";
 import SpaceItemDemo from "./components/layout/Space/SpaceItemDemo";
 import SpaceResponsiveDemo from "./components/layout/Space/SpaceResponsiveDemo";
@@ -956,20 +967,60 @@ const theme: Theme = {
       createReactDemoHost("SpinDemoHost", SpinDemo),
     );
     app.component(
+      "SpinToneDemo",
+      createReactDemoHost("SpinToneDemoHost", SpinToneDemo),
+    );
+    app.component(
+      "SpinInlineDemo",
+      createReactDemoHost("SpinInlineDemoHost", SpinInlineDemo),
+    );
+    app.component(
       "LoadingDemo",
       createReactDemoHost("LoadingDemoHost", LoadingDemo),
+    );
+    app.component(
+      "LoadingOverlayDemo",
+      createReactDemoHost("LoadingOverlayDemoHost", LoadingOverlayDemo),
+    );
+    app.component(
+      "LoadingStateDemo",
+      createReactDemoHost("LoadingStateDemoHost", LoadingStateDemo),
     );
     app.component(
       "DrawerDemo",
       createReactDemoHost("DrawerDemoHost", DrawerDemo),
     );
     app.component(
+      "DrawerPlacementDemo",
+      createReactDemoHost("DrawerPlacementDemoHost", DrawerPlacementDemo),
+    );
+    app.component(
+      "DrawerBehaviorDemo",
+      createReactDemoHost("DrawerBehaviorDemoHost", DrawerBehaviorDemo),
+    );
+    app.component(
       "AlertDemo",
       createReactDemoHost("AlertDemoHost", AlertDemo),
     );
     app.component(
+      "AlertActionDemo",
+      createReactDemoHost("AlertActionDemoHost", AlertActionDemo),
+    );
+    app.component(
+      "AlertClosableDemo",
+      createReactDemoHost("AlertClosableDemoHost", AlertClosableDemo),
+    );
+    app.component(
       "ProgressDemo",
       createReactDemoHost("ProgressDemoHost", ProgressDemo),
+    );
+    app.component(
+      "ProgressCircleDemo",
+      createReactDemoHost("ProgressCircleDemoHost", ProgressCircleDemo),
+    );
+    app.component(
+      "ProgressStatusDemo",
+      createReactDemoHost("ProgressStatusDemoHost", ProgressStatusDemo),
     );
     // layout
     app.component(
@@ -1067,6 +1118,10 @@ const theme: Theme = {
     app.component(
       "RowColGutterDemo",
       createReactDemoHost("RowColGutterDemoHost", RowColGutterDemo),
+    );
+    app.component(
+      "SafeAreaBasicDemo",
+      createReactDemoHost("SafeAreaBasicDemoHost", SafeAreaBasicDemo),
     );
     app.component(
       "SpaceBasicDemo",

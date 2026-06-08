@@ -32,6 +32,20 @@
 
 <TabsCustomContentDemo />
 
+## 常见场景
+
+### 基础导航
+
+用于页面跳转、层级定位或内容切换，帮助用户理解当前位置。
+
+### 受控状态
+
+当前项、展开项、页码或激活项需要和路由/查询参数同步时，使用受控模式。
+
+### 可访问操作
+
+导航项应保持可聚焦、可读，并在禁用或当前状态时给出明确语义。
+
 ## Usage
 
 组合模式：
@@ -122,6 +136,13 @@ export function ItemsExample() {
 | `disabled`     | 禁用触发器                                | `boolean`                                                     | `false` |
 | `triggerProps` | 透传给 `TabsTrigger`                      | `Omit<TabsTriggerProps, "value" \| "children" \| "disabled">` | -       |
 | `contentProps` | 透传给 `TabsContent`，可包含 `borderless` | `Omit<TabsContentProps, "value" \| "children">`               | -       |
+
+## 行为规则 / 优先级
+
+- 导航组件应让当前项、禁用项和跳转目标保持一致。
+- `className` 与 `class` 用于追加类名；如同时传入原生 `style`，内联样式会按 React 规则覆盖同名 CSS。
+- 复杂内容优先通过组合能力传入，避免在组件内部硬编码业务文案。
+- Tabs 的默认值应服务于最常见场景，特殊场景通过显式 props 覆盖。
 
 ## Notes
 

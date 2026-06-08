@@ -31,6 +31,20 @@
 
 <IconTitleDemo />
 
+## 常见场景
+
+### 基础展示
+
+用于页面主体、列表项或卡片中直接展示 Icon 的默认形态。
+
+### 状态与数据驱动
+
+当内容来自接口或业务状态时，优先把状态转换为组件 props，再交给 Icon 渲染。
+
+### 样式组合
+
+需要贴近业务页面时，通过 `className`、`class`、`style` 或 `sx` 做局部覆盖。
+
 ## Usage
 
 ```tsx
@@ -80,6 +94,13 @@ export function Example() {
 | `setIconLoaders` | 全量替换运行时加载器 | `(loaders: IconLoaderRegistry) => void` |
 | `resetIconLoaders` | 清空运行时加载器 | `() => void` |
 | `getRegisteredIconNames` | 获取当前可用图标名（运行时 + 内置） | `() => string[]` |
+
+## 行为规则 / 优先级
+
+- 数据展示组件只负责渲染当前输入，不在内部请求数据。
+- `className` 与 `class` 用于追加类名；如同时传入原生 `style`，内联样式会按 React 规则覆盖同名 CSS。
+- 复杂内容优先通过组合能力传入，避免在组件内部硬编码业务文案。
+- Icon 的默认值应服务于最常见场景，特殊场景通过显式 props 覆盖。
 
 ## Notes
 

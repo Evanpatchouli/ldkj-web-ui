@@ -18,6 +18,20 @@ Dialog 用于承载需要用户聚焦处理的短流程。当前实现基于本�
 
 <DialogCustomLayoutDemo />
 
+## 常见场景
+
+### 基础反馈
+
+用于按钮点击、异步流程或页面局部状态变化时给出明确反馈。
+
+### 受控交互
+
+打开、关闭、显示或隐藏等状态应由业务侧控制，组件负责渲染与回调。
+
+### 样式与内容扩展
+
+复杂内容通过 `children` 或插槽类 props 组合，视觉细节通过样式入口覆盖。
+
 ## Usage
 
 ```tsx
@@ -141,6 +155,13 @@ export function Example() {
 | `DialogFooter` | `class`、`sx`（其余继承原生 `div` 属性） |
 | `DialogTitle` | `className`、`class`、`style`、`sx`（其余继承原生 `h2` 属性） |
 | `DialogDescription` | `className`、`class`、`style`、`sx`（其余继承原生 `p` 属性） |
+
+## 行为规则 / 优先级
+
+- 交互组件触发回调后，最终状态以业务侧传回的受控值为准。
+- `className` 与 `class` 用于追加类名；如同时传入原生 `style`，内联样式会按 React 规则覆盖同名 CSS。
+- 复杂内容优先通过组合能力传入，避免在组件内部硬编码业务文案。
+- Dialog 的默认值应服务于最常见场景，特殊场景通过显式 props 覆盖。
 
 ## Notes
 

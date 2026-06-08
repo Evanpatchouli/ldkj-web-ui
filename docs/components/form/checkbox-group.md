@@ -32,6 +32,26 @@
 
 <CheckboxGroupSxDemo />
 
+## Basic
+
+最小用法展示 CheckboxGroup 的默认形态。优先从 Basic 示例开始，再按业务场景叠加状态、样式和交互。
+
+<CheckboxGroupMultipleDemo />
+
+## 常见场景
+
+### 基础表单
+
+在普通表单项中使用 CheckboxGroup，保持 label、错误提示和控件状态清晰可见。
+
+### 受控状态
+
+当字段值需要联动查询、校验或提交时，使用受控 props 管理状态。
+
+### 禁用与校验
+
+禁用、必填、错误等状态应由表单层统一管理，再传递给 CheckboxGroup。
+
 ## Usage
 
 ```tsx
@@ -137,6 +157,13 @@ export function ComposeExample() {
 | `description`   | 选项辅助描述       | `React.ReactNode` | -      |
 | `className`     | 选项 label 类名    | `string`          | -      |
 | `checkboxProps` | 透传给内部 Checkbox | `CheckboxProps`   | -      |
+
+## 行为规则 / 优先级
+
+- 表单组件优先由外部表单层管理值、校验和提交状态。
+- `className` 与 `class` 用于追加类名；如同时传入原生 `style`，内联样式会按 React 规则覆盖同名 CSS。
+- 复杂内容优先通过组合能力传入，避免在组件内部硬编码业务文案。
+- CheckboxGroup 的默认值应服务于最常见场景，特殊场景通过显式 props 覆盖。
 
 ## Notes
 

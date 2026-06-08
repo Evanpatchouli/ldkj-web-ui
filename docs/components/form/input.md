@@ -37,6 +37,20 @@ export function FormatExample() {
 }
 ```
 
+## 常见场景
+
+### 基础表单
+
+在普通表单项中使用 Input，保持 label、错误提示和控件状态清晰可见。
+
+### 受控状态
+
+当字段值需要联动查询、校验或提交时，使用受控 props 管理状态。
+
+### 禁用与校验
+
+禁用、必填、错误等状态应由表单层统一管理，再传递给 Input。
+
 ## Usage
 
 ```tsx
@@ -101,6 +115,13 @@ export function ControlledExample() {
 | `value` | 当前字符串值 | `string` |
 | `setValue` | 主动设置字符串值 | `(value: string) => void` |
 | `inputProps` | 可直接展开到 `Input` 上的 `value/onChange/onBlur` | `object` |
+
+## 行为规则 / 优先级
+
+- 表单组件优先由外部表单层管理值、校验和提交状态。
+- `className` 与 `class` 用于追加类名；如同时传入原生 `style`，内联样式会按 React 规则覆盖同名 CSS。
+- 复杂内容优先通过组合能力传入，避免在组件内部硬编码业务文案。
+- Input 的默认值应服务于最常见场景，特殊场景通过显式 props 覆盖。
 
 ## Notes
 

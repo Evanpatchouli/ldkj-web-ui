@@ -49,6 +49,20 @@
 开启 `crop` 且传入数值 `width/height` 时，若未传 `loader`，组件会自动拼接 OSS 裁剪参数。
 <ImageCropDemo />
 
+## 常见场景
+
+### 基础展示
+
+用于页面主体、列表项或卡片中直接展示 Image 的默认形态。
+
+### 状态与数据驱动
+
+当内容来自接口或业务状态时，优先把状态转换为组件 props，再交给 Image 渲染。
+
+### 样式组合
+
+需要贴近业务页面时，通过 `className`、`class`、`style` 或 `sx` 做局部覆盖。
+
 ## Usage
 
 ```tsx
@@ -130,8 +144,7 @@ export function Example() {
 | `onError` | 加载失败回调 | `React.ReactEventHandler<HTMLImageElement>` | - |
 | `...rest` | 其他原生 `img` 属性透传 | `React.ImgHTMLAttributes<HTMLImageElement>` | - |
 
-## 行为优先级
-
+## 行为规则 / 优先级
 1. 主图失败后先走 `retry`
 2. 重试结束后尝试 `fallbackSrc`
 3. `fallbackSrc` 失败后渲染 `fallback`
@@ -153,8 +166,7 @@ export function Example() {
 - 预览开启时锁定页面滚动
 - 关闭按钮和弹层均提供可访问名称
 
-## 推荐实践
-
+## Notes
 - 内容图必须提供有意义 `alt`
 - 装饰图使用 `alt=""`
 - 在卡片/列表中优先设置 `aspectRatio + fit="cover"`，避免 CLS

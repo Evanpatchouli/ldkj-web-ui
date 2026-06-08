@@ -44,6 +44,20 @@
 
 <TableSxDemo />
 
+## 常见场景
+
+### 基础展示
+
+用于页面主体、列表项或卡片中直接展示 Table 的默认形态。
+
+### 状态与数据驱动
+
+当内容来自接口或业务状态时，优先把状态转换为组件 props，再交给 Table 渲染。
+
+### 样式组合
+
+需要贴近业务页面时，通过 `className`、`class`、`style` 或 `sx` 做局部覆盖。
+
 ## Usage
 
 ```tsx
@@ -144,6 +158,13 @@ export function ColumnExample() {
 | `total`        | 总条数           | `number`                          | `dataSource.length` |
 | `onPageChange` | 页码变化回调     | `(page, pageSize) => void`        | -      |
 | `position`     | 分页位置         | `"left" \| "center" \| "right"`   | `"right"` |
+
+## 行为规则 / 优先级
+
+- 数据展示组件只负责渲染当前输入，不在内部请求数据。
+- `className` 与 `class` 用于追加类名；如同时传入原生 `style`，内联样式会按 React 规则覆盖同名 CSS。
+- 复杂内容优先通过组合能力传入，避免在组件内部硬编码业务文案。
+- Table 的默认值应服务于最常见场景，特殊场景通过显式 props 覆盖。
 
 ## Notes
 

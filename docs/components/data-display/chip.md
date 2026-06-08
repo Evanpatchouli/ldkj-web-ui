@@ -32,6 +32,26 @@
 
 <ChipShadowDemo />
 
+## Basic
+
+最小用法展示 Chip 的默认形态。优先从 Basic 示例开始，再按业务场景叠加状态、样式和交互。
+
+<ChipVariantsDemo />
+
+## 常见场景
+
+### 基础展示
+
+用于页面主体、列表项或卡片中直接展示 Chip 的默认形态。
+
+### 状态与数据驱动
+
+当内容来自接口或业务状态时，优先把状态转换为组件 props，再交给 Chip 渲染。
+
+### 样式组合
+
+需要贴近业务页面时，通过 `className`、`class`、`style` 或 `sx` 做局部覆盖。
+
 ## Usage
 
 ```tsx
@@ -85,3 +105,16 @@ export function Example() {
 | `class` | 兼容旧写法的类名字段 | `string` | - |
 | `sx` | CSS-in-JS 样式入口 | `SxProps` | - |
 | `children` | 内容 | `React.ReactNode` | - |
+
+## 行为规则 / 优先级
+
+- 数据展示组件只负责渲染当前输入，不在内部请求数据。
+- `className` 与 `class` 用于追加类名；如同时传入原生 `style`，内联样式会按 React 规则覆盖同名 CSS。
+- 复杂内容优先通过组合能力传入，避免在组件内部硬编码业务文案。
+- Chip 的默认值应服务于最常见场景，特殊场景通过显式 props 覆盖。
+
+## Notes
+
+- 注意空态、长文本、加载中和错误态，必要时配合 Skeleton、Empty 或 Alert。
+- 文档 demo 展示的是推荐组合方式；生产代码中可按业务密度调整间距和尺寸。
+- 修改组件能力时需要同步更新本页 Demo、Usage、API 与行为规则。

@@ -22,6 +22,20 @@
 通过 `sx` 覆盖局部样式，适合临时色彩、间距和状态样式调整。
 <TypographySxDemo />
 
+## 常见场景
+
+### 基础布局
+
+用于组织页面结构、控制间距、对齐和响应式布局。
+
+### 组合嵌套
+
+复杂页面推荐拆成多个 Typography 组合，避免在单个容器中堆叠过多职责。
+
+### 响应式适配
+
+可通过尺寸、间距、`className` 或 `sx` 处理不同屏幕下的布局变化。
+
 ## Usage
 
 ```tsx
@@ -63,8 +77,14 @@ export function Example() {
 2. `component` 决定最终渲染标签。  
 3. `variant` 与 `component` 不一致时，以 `component` 语义为准。
 
-## 推荐实践
+## 行为规则 / 优先级
 
+- 布局组件只处理结构、尺寸和对齐，不承载业务状态。
+- `className` 与 `class` 用于追加类名；如同时传入原生 `style`，内联样式会按 React 规则覆盖同名 CSS。
+- 复杂内容优先通过组合能力传入，避免在组件内部硬编码业务文案。
+- Typography 的默认值应服务于最常见场景，特殊场景通过显式 props 覆盖。
+
+## Notes
 - 语义敏感内容优先先定 `component`，再定 `variant`。  
 - 紧凑布局中可使用 `component="span"` 避免块级换行。  
 - `caption` 用于辅助信息，避免承载主业务文案。

@@ -26,6 +26,20 @@
 
 <SwitchSizesSxDemo />
 
+## 常见场景
+
+### 基础表单
+
+在普通表单项中使用 Switch，保持 label、错误提示和控件状态清晰可见。
+
+### 受控状态
+
+当字段值需要联动查询、校验或提交时，使用受控 props 管理状态。
+
+### 禁用与校验
+
+禁用、必填、错误等状态应由表单层统一管理，再传递给 Switch。
+
 ## Usage
 
 ```tsx
@@ -82,6 +96,13 @@ export function ControlledExample() {
 | `containerSx` | 外层容器 CSS-in-JS 样式入口 | `SxProps` | - |
 
 其余属性继承 Radix `Switch.Root`，例如 `id`、`aria-label`、`aria-labelledby`、`aria-describedby` 等可访问性属性。
+
+## 行为规则 / 优先级
+
+- 表单组件优先由外部表单层管理值、校验和提交状态。
+- `className` 与 `class` 用于追加类名；如同时传入原生 `style`，内联样式会按 React 规则覆盖同名 CSS。
+- 复杂内容优先通过组合能力传入，避免在组件内部硬编码业务文案。
+- Switch 的默认值应服务于最常见场景，特殊场景通过显式 props 覆盖。
 
 ## Notes
 

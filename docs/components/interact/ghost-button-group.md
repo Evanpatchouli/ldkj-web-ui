@@ -45,6 +45,30 @@ export function Example() {
 }
 ```
 
+## 常见场景
+
+### 基础反馈
+
+用于按钮点击、异步流程或页面局部状态变化时给出明确反馈。
+
+### 受控交互
+
+打开、关闭、显示或隐藏等状态应由业务侧控制，组件负责渲染与回调。
+
+### 样式与内容扩展
+
+复杂内容通过 `children` 或插槽类 props 组合，视觉细节通过样式入口覆盖。
+
+## Usage
+
+```tsx
+import { GhostButtonGroup } from "@ldkj/web-ui";
+
+export function Example() {
+  return <GhostButtonGroup />;
+}
+```
+
 ## API
 
 | 属性 | 说明 | 类型 | 默认值 |
@@ -83,3 +107,16 @@ export function Example() {
 | `bounce` | 子按钮点击弹起 | `boolean` | `false` |
 | `splash` | 子按钮点击闪烁 | `boolean` | `false` |
 | `children` | 子按钮内容 | `React.ReactNode` | - |
+
+## 行为规则 / 优先级
+
+- 交互组件触发回调后，最终状态以业务侧传回的受控值为准。
+- `className` 与 `class` 用于追加类名；如同时传入原生 `style`，内联样式会按 React 规则覆盖同名 CSS。
+- 复杂内容优先通过组合能力传入，避免在组件内部硬编码业务文案。
+- GhostButtonGroup 的默认值应服务于最常见场景，特殊场景通过显式 props 覆盖。
+
+## Notes
+
+- 交互反馈应避免和 Toast、Notification、Modal 等组件表达同一件事。
+- 文档 demo 展示的是推荐组合方式；生产代码中可按业务密度调整间距和尺寸。
+- 修改组件能力时需要同步更新本页 Demo、Usage、API 与行为规则。
