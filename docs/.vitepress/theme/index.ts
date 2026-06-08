@@ -171,7 +171,10 @@ import TooltipBasicDemo from "./components/interact/Tooltip/TooltipBasicDemo";
 import TooltipPlacementDemo from "./components/interact/Tooltip/TooltipPlacementDemo";
 import TooltipProviderDelayDemo from "./components/interact/Tooltip/TooltipProviderDelayDemo";
 import TooltipToneSxDemo from "./components/interact/Tooltip/TooltipToneSxDemo";
-import NotificationDemo from "./components/interact/Notification/NotificationDemo";
+import NotificationActionsDemo from "./components/interact/Notification/NotificationActionsDemo";
+import NotificationBasicDemo from "./components/interact/Notification/NotificationBasicDemo";
+import NotificationOffsetDemo from "./components/interact/Notification/NotificationOffsetDemo";
+import NotificationPlacementDemo from "./components/interact/Notification/NotificationPlacementDemo";
 import SpinDemo from "./components/interact/Spin/SpinDemo";
 import LoadingDemo from "./components/interact/Loading/LoadingDemo";
 import DrawerDemo from "./components/interact/Drawer/DrawerDemo";
@@ -930,8 +933,23 @@ const theme: Theme = {
       createReactDemoHost("TooltipToneSxDemoHost", TooltipToneSxDemo),
     );
     app.component(
-      "NotificationDemo",
-      createReactDemoHost("NotificationDemoHost", NotificationDemo),
+      "NotificationBasicDemo",
+      createReactDemoHost("NotificationBasicDemoHost", NotificationBasicDemo),
+    );
+    app.component(
+      "NotificationPlacementDemo",
+      createReactDemoHost(
+        "NotificationPlacementDemoHost",
+        NotificationPlacementDemo,
+      ),
+    );
+    app.component(
+      "NotificationActionsDemo",
+      createReactDemoHost("NotificationActionsDemoHost", NotificationActionsDemo),
+    );
+    app.component(
+      "NotificationOffsetDemo",
+      createReactDemoHost("NotificationOffsetDemoHost", NotificationOffsetDemo),
     );
     app.component(
       "SpinDemo",
