@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 
 export type ProgressType = "line" | "circle";
 export type ProgressStatus = "normal" | "success" | "warning" | "exception";
+export type ProgressSize = "xs" | "sm" | "md" | "lg" | "xl" | number;
 
 export type ProgressProps = React.HTMLAttributes<HTMLDivElement> & {
   value?: number;
@@ -10,7 +11,7 @@ export type ProgressProps = React.HTMLAttributes<HTMLDivElement> & {
   showInfo?: boolean;
   type?: ProgressType;
   status?: ProgressStatus;
-  size?: number;
+  size?: ProgressSize;
   strokeWidth?: number;
   strokeColor?: string;
   trailColor?: string;
@@ -25,9 +26,30 @@ const statusColorMap: Record<ProgressStatus, string> = {
   exception: "#e11d48",
 };
 
+const circleSizeMap: Record<Exclude<ProgressSize, number>, number> = {
+  xs: 48,
+  sm: 64,
+  md: 96,
+  lg: 120,
+  xl: 144,
+};
+
+const lineSizeMap: Record<Exclude<ProgressSize, number>, number> = {
+  xs: 4,
+  sm: 6,
+  md: 8,
+  lg: 10,
+  xl: 12,
+};
+
 function getPercent(value: number, max: number) {
   if (!Number.isFinite(value) || !Number.isFinite(max) || max <= 0) return 0;
   return Math.max(0, Math.min(100, (value / max) * 100));
+}
+
+function resolveProgressSize(size: ProgressSize, type: ProgressType) {
+  if (typeof size === "number") return size;
+  return type === "circle" ? circleSizeMap[size] : lineSizeMap[size];
 }
 
 export function Progress(props: ProgressProps) {
@@ -37,8 +59,8 @@ export function Progress(props: ProgressProps) {
     showInfo = false,
     type = "line",
     status,
-    size = 96,
-    strokeWidth = type === "circle" ? 8 : 8,
+    size = "md",
+    strokeWidth,
     strokeColor,
     trailColor = "#e2e8f0",
     format,
@@ -50,9 +72,11 @@ export function Progress(props: ProgressProps) {
   const activeStatus = status ?? (percent >= 100 ? "success" : "normal");
   const activeColor = strokeColor ?? statusColorMap[activeStatus];
   const info = format ? format(Math.round(percent), value, max) : `${Math.round(percent)}%`;
+  const resolvedSize = resolveProgressSize(size, type);
+  const resolvedStrokeWidth = strokeWidth ?? (type === "circle" ? 8 : resolvedSize);
 
   if (type === "circle") {
-    const normalizedStroke = Math.max(1, Math.min(48, strokeWidth));
+    const normalizedStroke = Math.max(1, Math.min(48, resolvedStrokeWidth));
     const radius = 50 - normalizedStroke / 2;
     const circumference = 2 * Math.PI * radius;
     const dashOffset = circumference * (1 - percent / 100);
@@ -64,7 +88,7 @@ export function Progress(props: ProgressProps) {
         aria-valuemax={max}
         aria-valuenow={Math.max(0, Math.min(max, value))}
         className={cn("relative inline-flex items-center justify-center", className, legacyClass)}
-        style={{ width: size, height: size }}
+        style={{ width: resolvedSize, height: resolvedSize }}
         {...rest}
       >
         <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
@@ -109,7 +133,7 @@ export function Progress(props: ProgressProps) {
     >
       <div
         className="w-full overflow-hidden rounded-full"
-        style={{ height: strokeWidth, backgroundColor: trailColor }}
+        style={{ height: resolvedStrokeWidth, backgroundColor: trailColor }}
       >
         <div
           className="h-full transition-[width,background-color] duration-300 ease-out"

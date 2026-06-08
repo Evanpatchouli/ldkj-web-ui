@@ -1,14 +1,15 @@
 import * as React from "react";
 import { Input, type InputProps } from "@/components/form/input";
 
-export type InputNumberValueChangeReason = "input" | "commit";
+export type InputNumberValueChangeReason = "input" | "commit" | "set";
 
 export type InputNumberValueChangeMeta = {
   reason: InputNumberValueChangeReason;
   valueAsString: string;
-  event:
+  event?:
     | React.ChangeEvent<HTMLInputElement>
-    | React.FocusEvent<HTMLInputElement>;
+    | React.FocusEvent<HTMLInputElement>
+    | React.KeyboardEvent<HTMLInputElement>;
 };
 
 export type InputNumberProps = Omit<InputProps, "type" | "inputMode"> & {
@@ -21,6 +22,48 @@ export type InputNumberProps = Omit<InputProps, "type" | "inputMode"> & {
   precision?: number;
   /** 返回解析后的数值；空值或非法临时值返回 `null`。 */
   onValueChange?: (value: number | null, meta: InputNumberValueChangeMeta) => void;
+  /** 输入值提交时触发，默认在失焦或按下 Enter 时提交。 */
+  onValueCommit?: (value: number | null, meta: InputNumberValueChangeMeta) => void;
+};
+
+export type NumberInputValue = string | number | null;
+
+export type UseNumberInputOptions = NormalizeOptions & {
+  value?: NumberInputValue;
+  defaultValue?: string | number | null;
+  onValueChange?: (value: number | null, meta: InputNumberValueChangeMeta) => void;
+  onValueCommit?: (value: number | null, meta: InputNumberValueChangeMeta) => void;
+};
+
+export type UseNumberInputGetInputProps = Omit<
+  InputProps,
+  | "defaultValue"
+  | "inputMode"
+  | "max"
+  | "min"
+  | "onBlur"
+  | "onChange"
+  | "onKeyDown"
+  | "step"
+  | "type"
+  | "value"
+> & {
+  disabled?: boolean;
+  readOnly?: boolean;
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
+};
+
+export type UseNumberInputResult = {
+  value: string;
+  numberValue: number | null;
+  setValue: (value: NumberInputValue) => void;
+  commitValue: (value?: NumberInputValue) => {
+    value: number | null;
+    valueAsString: string;
+  };
+  getInputProps: (props?: UseNumberInputGetInputProps) => InputProps;
 };
 
 export type UseInputNumberStateOptions = NormalizeOptions & {
@@ -130,9 +173,186 @@ function toInputNumberString(value: string | number | null | undefined) {
   return value === null || value === undefined ? "" : String(value);
 }
 
+function isInputNumberWritable(options: { disabled?: boolean; readOnly?: boolean }) {
+  return !options.disabled && !options.readOnly;
+}
+
 /**
- * 管理 InputNumber 的字符串输入态与解析后的数字值。
- * 它会自动同步 `clampOnBlur` 产生的提交值，避免业务侧手写 commit 分支。
+ * 提供数字输入的 headless 行为层，统一管理字符串展示值、解析值和提交归一化。
+ */
+export function useNumberInput(options: UseNumberInputOptions = {}): UseNumberInputResult {
+  const {
+    clampOnBlur = false,
+    defaultValue = "",
+    max,
+    min,
+    onValueChange,
+    onValueCommit,
+    precision,
+    step,
+    value: controlledValue,
+  } = options;
+  const isControlled = controlledValue !== undefined;
+  const [uncontrolledValue, setUncontrolledValue] = React.useState(() =>
+    toInputNumberString(defaultValue),
+  );
+  const value = isControlled ? toInputNumberString(controlledValue) : uncontrolledValue;
+  const numberValue = React.useMemo(() => parseNumber(value), [value]);
+
+  const updateValue = React.useCallback(
+    (nextValueAsString: string) => {
+      if (!isControlled) {
+        setUncontrolledValue(nextValueAsString);
+      }
+    },
+    [isControlled],
+  );
+
+  const setValue = React.useCallback(
+    (nextValue: NumberInputValue) => {
+      const nextValueAsString = toInputNumberString(nextValue);
+
+      updateValue(nextValueAsString);
+      onValueChange?.(parseNumber(nextValueAsString), {
+        reason: "set",
+        valueAsString: nextValueAsString,
+      });
+    },
+    [onValueChange, updateValue],
+  );
+
+  const commitValue = React.useCallback(
+    (nextValue: NumberInputValue = value) => {
+      const currentValueAsString = toInputNumberString(nextValue);
+      const normalized = normalizeNumber(currentValueAsString, {
+        clampOnBlur,
+        max,
+        min,
+        precision,
+        step,
+      });
+      const valueAsString = clampOnBlur ? normalized.valueAsString : currentValueAsString;
+      const parsedValue = clampOnBlur ? normalized.value : parseNumber(currentValueAsString);
+
+      updateValue(valueAsString);
+
+      return {
+        value: parsedValue,
+        valueAsString,
+      };
+    },
+    [clampOnBlur, max, min, precision, step, updateValue, value],
+  );
+
+  const getInputProps = React.useCallback(
+    (inputProps: UseNumberInputGetInputProps = {}) => {
+      const {
+        disabled,
+        onBlur,
+        onChange,
+        onKeyDown,
+        readOnly,
+        ...restInputProps
+      } = inputProps;
+
+      return {
+        ...restInputProps,
+        disabled,
+        inputMode: "decimal" as const,
+        max,
+        min,
+        readOnly,
+        step,
+        type: "number" as const,
+        value,
+        onBlur: (event: React.FocusEvent<HTMLInputElement>) => {
+          if (isInputNumberWritable({ disabled, readOnly })) {
+            const committed = commitValue(event.currentTarget.value);
+
+            if (clampOnBlur) {
+              event.currentTarget.value = committed.valueAsString;
+
+              onValueChange?.(committed.value, {
+                event,
+                reason: "commit",
+                valueAsString: committed.valueAsString,
+              });
+            }
+
+            onValueCommit?.(committed.value, {
+              event,
+              reason: "commit",
+              valueAsString: committed.valueAsString,
+            });
+          }
+
+          onBlur?.(event);
+        },
+        onChange: (event: React.ChangeEvent<HTMLInputElement>) => {
+          onChange?.(event);
+
+          updateValue(event.currentTarget.value);
+
+          onValueChange?.(parseNumber(event.currentTarget.value), {
+            event,
+            reason: "input",
+            valueAsString: event.currentTarget.value,
+          });
+        },
+        onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => {
+          onKeyDown?.(event);
+
+          if (
+            event.key === "Enter" &&
+            !event.defaultPrevented &&
+            isInputNumberWritable({ disabled, readOnly })
+          ) {
+            const committed = commitValue(event.currentTarget.value);
+
+            if (clampOnBlur) {
+              event.currentTarget.value = committed.valueAsString;
+
+              onValueChange?.(committed.value, {
+                event,
+                reason: "commit",
+                valueAsString: committed.valueAsString,
+              });
+            }
+
+            onValueCommit?.(committed.value, {
+              event,
+              reason: "commit",
+              valueAsString: committed.valueAsString,
+            });
+          }
+        },
+      };
+    },
+    [
+      clampOnBlur,
+      commitValue,
+      max,
+      min,
+      onValueChange,
+      onValueCommit,
+      precision,
+      step,
+      updateValue,
+      value,
+    ],
+  );
+
+  return {
+    commitValue,
+    getInputProps,
+    numberValue,
+    setValue,
+    value,
+  };
+}
+
+/**
+ * @deprecated 优先使用 `useNumberInput`，通过 `getInputProps()` 组合输入控件。
  */
 export function useInputNumberState(
   options: UseInputNumberStateOptions = {},
@@ -188,59 +408,44 @@ export const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>(
   (props, ref) => {
     const {
       clampOnBlur = false,
+      defaultValue,
+      disabled,
       max,
       min,
       onBlur,
       onChange,
+      onKeyDown,
       onValueChange,
+      onValueCommit,
       precision,
+      readOnly,
       step,
+      value,
       ...restProps
     } = props;
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      onChange?.(event);
-
-      onValueChange?.(parseNumber(event.currentTarget.value), {
-        event,
-        reason: "input",
-        valueAsString: event.currentTarget.value,
-      });
-    };
-
-    const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-      if (clampOnBlur && !props.disabled && !props.readOnly) {
-        const normalized = normalizeNumber(event.currentTarget.value, {
-          clampOnBlur,
-          max,
-          min,
-          precision,
-          step,
-        });
-
-        event.currentTarget.value = normalized.valueAsString;
-
-        onValueChange?.(normalized.value, {
-          event,
-          reason: "commit",
-          valueAsString: normalized.valueAsString,
-        });
-      }
-
-      onBlur?.(event);
-    };
+    const numberInput = useNumberInput({
+      clampOnBlur,
+      defaultValue: defaultValue as NumberInputValue,
+      max,
+      min,
+      onValueChange,
+      onValueCommit,
+      precision,
+      step,
+      value: value as NumberInputValue | undefined,
+    });
 
     return (
       <Input
         {...restProps}
+        {...numberInput.getInputProps({
+          disabled,
+          onBlur,
+          onChange,
+          onKeyDown,
+          readOnly,
+        })}
         ref={ref}
-        type="number"
-        inputMode="decimal"
-        min={min}
-        max={max}
-        step={step}
-        onBlur={handleBlur}
-        onChange={handleChange}
       />
     );
   },

@@ -16,6 +16,12 @@
 
 <ProgressCircleDemo />
 
+### 预设尺寸
+
+`size` 支持 `xs`、`sm`、`md`、`lg`、`xl` 五档预设，默认 `md`。线形进度用尺寸预设控制高度，圆形进度用尺寸预设控制整体宽高。
+
+<ProgressSizeDemo />
+
 ### 状态与格式化
 
 `status` 控制进度色；`format` 可把百分比改成业务文案。
@@ -49,7 +55,7 @@ export function Example() {
 | `type` | 展示形态 | `"line" \| "circle"` | `"line"` |
 | `showInfo` | 是否显示进度文案 | `boolean` | `false` |
 | `status` | 状态色 | `"normal" \| "success" \| "warning" \| "exception"` | 达到 100% 时为 `"success"`，否则 `"normal"` |
-| `size` | 圆形尺寸，单位 px | `number` | `96` |
+| `size` | 尺寸预设；线形控制高度，圆形控制整体宽高。也可传数字作为 px 值 | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| number` | `"md"` |
 | `strokeWidth` | 线宽；线形为高度，圆形为描边宽度 | `number` | `8` |
 | `strokeColor` | 自定义进度色 | `string` | - |
 | `trailColor` | 轨道色 | `string` | `"#e2e8f0"` |
@@ -63,6 +69,8 @@ export function Example() {
 
 - 百分比按 `value / max * 100` 计算，并限制在 `0` 到 `100` 之间。
 - `max <= 0`、`NaN` 或非有限数字会按 `0%` 处理。
+- `size` 默认 `md`；线形预设对应高度，圆形预设对应容器宽高。
+- 传入 `strokeWidth` 时会覆盖线形高度；圆形则覆盖描边宽度但不改变整体 `size`。
 - `strokeColor` 存在时优先于 `status` 的默认颜色。
 - `format` 接收四舍五入后的百分比、原始 `value` 与 `max`；未传时显示 `xx%`。
 - 圆形进度只在 `showInfo=true` 时显示居中文案。

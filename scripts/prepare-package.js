@@ -84,9 +84,13 @@ if (fs.existsSync(licensePath)) {
 
 console.log(`Created ${path.relative(rootDir, distPackageJsonPath)}`);
 
-// 再复制一份  .npmrc
-fs.copyFileSync(path.join(rootDir, ".npmrc"), path.join(distDir, ".npmrc"));
-// 再复制一份  .npmignore
+// 可选复制 .npmrc
+if (fs.existsSync(path.join(rootDir, ".npmrc"))) {
+  fs.copyFileSync(path.join(rootDir, ".npmrc"), path.join(distDir, ".npmrc"));
+} else {
+  console.warn("WARN: .npmrc not found, skipping");
+}
+// 可选复制 .npmignore
 fs.copyFileSync(path.join(rootDir, ".npmignore"), path.join(distDir, ".npmignore"));
 
 if (fs.existsSync(srcResetPath)) {

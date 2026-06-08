@@ -84,6 +84,7 @@ import InputStatesDemo from "./components/form/Input/InputStatesDemo";
 import InputSxDemo from "./components/form/Input/InputSxDemo";
 import InputNumberDemo from "./components/form/InputNumber/InputNumberDemo";
 import InputNumberBusinessDemo from "./components/form/InputNumber/InputNumberBusinessDemo";
+import InputNumberHeadlessDemo from "./components/form/InputNumber/InputNumberHeadlessDemo";
 import InputNumberRangeStepDemo from "./components/form/InputNumber/InputNumberRangeStepDemo";
 import InputNumberStatesDemo from "./components/form/InputNumber/InputNumberStatesDemo";
 import InputNumberSxDemo from "./components/form/InputNumber/InputNumberSxDemo";
@@ -189,6 +190,7 @@ import AlertActionDemo from "./components/interact/Alert/AlertActionDemo";
 import AlertClosableDemo from "./components/interact/Alert/AlertClosableDemo";
 import ProgressDemo from "./components/interact/Progress/ProgressDemo";
 import ProgressCircleDemo from "./components/interact/Progress/ProgressCircleDemo";
+import ProgressSizeDemo from "./components/interact/Progress/ProgressSizeDemo";
 import ProgressStatusDemo from "./components/interact/Progress/ProgressStatusDemo";
 // layout
 import BoxBasicDemo from "./components/layout/Box/BoxBasicDemo";
@@ -589,6 +591,10 @@ const theme: Theme = {
     app.component(
       "InputNumberBusinessDemo",
       createReactDemoHost("InputNumberBusinessDemoHost", InputNumberBusinessDemo),
+    );
+    app.component(
+      "InputNumberHeadlessDemo",
+      createReactDemoHost("InputNumberHeadlessDemoHost", InputNumberHeadlessDemo),
     );
     app.component(
       "InputNumberStatesDemo",
@@ -1017,6 +1023,10 @@ const theme: Theme = {
     app.component(
       "ProgressCircleDemo",
       createReactDemoHost("ProgressCircleDemoHost", ProgressCircleDemo),
+    );
+    app.component(
+      "ProgressSizeDemo",
+      createReactDemoHost("ProgressSizeDemoHost", ProgressSizeDemo),
     );
     app.component(
       "ProgressStatusDemo",
