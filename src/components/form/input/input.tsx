@@ -2,18 +2,104 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { mergeSxStyle, resolveSx, useSxTheme, type SxProps } from "@/styling";
 
-export type InputProps = React.ComponentPropsWithoutRef<"input"> & {
+type InputSlotType = "prefix" | "suffix" | "addonBefore" | "addonAfter";
+
+export type InputSlotProps = {
+  children?: React.ReactNode;
+};
+
+export type InputAddonProps = InputSlotProps & {
+  position?: "before" | "after";
+};
+
+export type InputProps = Omit<React.ComponentPropsWithoutRef<"input">, "prefix"> & {
+  addonAfter?: React.ReactNode;
+  addonBefore?: React.ReactNode;
   class?: string;
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
   sx?: SxProps;
 };
+
+function createInputSlot(displayName: string, slotType: InputSlotType) {
+  const Slot = (props: InputSlotProps) => <>{props.children}</>;
+
+  Slot.displayName = displayName;
+  Object.defineProperty(Slot, "__ldkjInputSlot", {
+    value: slotType,
+  });
+
+  return Slot;
+}
+
+const InputPrefix = createInputSlot("Input.Prefix", "prefix");
+const InputSuffix = createInputSlot("Input.Suffix", "suffix");
+const InputAddonBefore = createInputSlot("Input.AddonBefore", "addonBefore");
+const InputAddonAfter = createInputSlot("Input.AddonAfter", "addonAfter");
+
+const InputAddon = (props: InputAddonProps) => <>{props.children}</>;
+InputAddon.displayName = "Input.Addon";
+Object.defineProperty(InputAddon, "__ldkjInputSlot", {
+  value: "addon",
+});
+
+function getInputSlotType(child: React.ReactNode): InputSlotType | undefined {
+  if (!React.isValidElement(child)) {
+    return undefined;
+  }
+
+  const component = child.type as { __ldkjInputSlot?: InputSlotType | "addon" };
+  const slotType = component.__ldkjInputSlot;
+
+  if (slotType === "addon") {
+    const position = (child.props as InputAddonProps).position ?? "before";
+
+    return position === "after" ? "addonAfter" : "addonBefore";
+  }
+
+  return slotType;
+}
+
+function resolveInputSlots(
+  children: React.ReactNode,
+  props: Pick<InputProps, "addonAfter" | "addonBefore" | "prefix" | "suffix">,
+) {
+  const slots = {
+    addonAfter: props.addonAfter,
+    addonBefore: props.addonBefore,
+    prefix: props.prefix,
+    suffix: props.suffix,
+  };
+
+  React.Children.forEach(children, (child) => {
+    const slotType = getInputSlotType(child);
+
+    if (!slotType || !React.isValidElement(child)) {
+      return;
+    }
+
+    slots[slotType] = child.props.children;
+  });
+
+  return slots;
+}
+
+function hasInputSlot(slots: ReturnType<typeof resolveInputSlots>) {
+  return Object.values(slots).some((slot) => slot !== undefined && slot !== null);
+}
 
 /**
  * Input 是基础文本输入框组件，支持原生 input 属性、`class` 别名与本库 `sx` 样式系统。
  */
-const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+const InputBase = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const {
+    addonAfter,
+    addonBefore,
+    children,
     className,
     class: legacyClass,
+    prefix,
+    suffix,
     sx,
     style,
     type = "text",
@@ -21,27 +107,90 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   } = props;
   const theme = useSxTheme();
   const { sxClassName, sxInlineStyle } = resolveSx(sx, theme);
+  const slots = resolveInputSlots(children, {
+    addonAfter,
+    addonBefore,
+    prefix,
+    suffix,
+  });
+  const decorated = hasInputSlot(slots);
+  const inputClassName = cn(
+    decorated
+      ? "min-w-0 flex-1 border-0 bg-transparent px-0 py-0 text-sm text-slate-900 outline-none file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-slate-700 placeholder:text-slate-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:text-slate-500"
+      : "flex h-9 w-full rounded-md border border-solid border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-slate-700 placeholder:text-slate-400 focus-visible:border-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-500 disabled:opacity-70",
+    !decorated && sxClassName,
+    !decorated && className,
+    !decorated && legacyClass,
+  );
 
-  return (
+  const input = (
     <input
       ref={ref}
       type={type}
+      className={inputClassName}
+      style={decorated ? undefined : mergeSxStyle(style, sxInlineStyle)}
+      {...restProps}
+    />
+  );
+
+  if (!decorated) {
+    return input;
+  }
+
+  const disabled = Boolean(restProps.disabled);
+
+  return (
+    <span
       className={cn(
-        "flex h-9 w-full rounded-md border border-solid border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm transition-colors",
-        "file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-slate-700",
-        "placeholder:text-slate-400",
-        "focus-visible:border-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30",
-        "disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-500 disabled:opacity-70",
+        "inline-flex h-9 w-full items-stretch rounded-md text-sm shadow-sm transition-colors",
+        disabled && "opacity-70",
         sxClassName,
         className,
         legacyClass,
       )}
       style={mergeSxStyle(style, sxInlineStyle)}
-      {...restProps}
-    />
+    >
+      {slots.addonBefore ? (
+        <span className="inline-flex shrink-0 items-center rounded-l-md border border-r-0 border-solid border-slate-300 bg-slate-50 px-3 text-slate-600">
+          {slots.addonBefore}
+        </span>
+      ) : null}
+      <span
+        className={cn(
+          "inline-flex min-w-0 flex-1 items-center gap-2 border border-solid border-slate-300 bg-white px-3 text-slate-900 transition-colors",
+          slots.addonBefore ? "rounded-l-none" : "rounded-l-md",
+          slots.addonAfter ? "rounded-r-none" : "rounded-r-md",
+          "focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500/30",
+          disabled && "bg-slate-50 text-slate-500",
+        )}
+      >
+        {slots.prefix ? (
+          <span className="inline-flex shrink-0 items-center text-slate-500">
+            {slots.prefix}
+          </span>
+        ) : null}
+        {input}
+        {slots.suffix ? (
+          <span className="inline-flex shrink-0 items-center text-slate-500">
+            {slots.suffix}
+          </span>
+        ) : null}
+      </span>
+      {slots.addonAfter ? (
+        <span className="inline-flex shrink-0 items-center rounded-r-md border border-l-0 border-solid border-slate-300 bg-slate-50 px-3 text-slate-600">
+          {slots.addonAfter}
+        </span>
+      ) : null}
+    </span>
   );
 });
 
-Input.displayName = "Input";
+InputBase.displayName = "Input";
 
-export { Input };
+export const Input = Object.assign(InputBase, {
+  Addon: InputAddon,
+  AddonAfter: InputAddonAfter,
+  AddonBefore: InputAddonBefore,
+  Prefix: InputPrefix,
+  Suffix: InputSuffix,
+});

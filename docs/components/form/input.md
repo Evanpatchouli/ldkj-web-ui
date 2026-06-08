@@ -14,6 +14,12 @@ Input 支持只读、禁用、密码和文件输入等原生状态。
 
 <InputStatesDemo />
 
+## Prefix / Suffix / Addon
+
+`prefix` 与 `suffix` 渲染在输入框内部，适合图标、单位、短提示；`addonBefore` 与 `addonAfter` 渲染在输入框外侧，适合协议、区号、币种和固定标签。四者既支持 props，也支持组合式子组件。
+
+<InputAffixAddonDemo />
+
 ## SX Styling
 
 可以通过 `sx` 定制尺寸、圆角、颜色和聚焦状态。
@@ -76,16 +82,33 @@ export function ControlledExample() {
 | `disabled`  | 是否禁用           | `boolean`             | `false`  |
 | `readOnly`  | 是否只读           | `boolean`             | `false`  |
 | `placeholder` | 占位提示        | `string`              | -        |
+| `prefix` | 输入框内部前缀 | `React.ReactNode` | - |
+| `suffix` | 输入框内部后缀 | `React.ReactNode` | - |
+| `addonBefore` | 输入框外侧前置标签 | `React.ReactNode` | - |
+| `addonAfter` | 输入框外侧后置标签 | `React.ReactNode` | - |
 | `name`      | 表单字段名         | `string`              | -        |
 | `className` | 自定义类名         | `string`              | -        |
 | `class`     | 类名别名           | `string`              | -        |
 | `style`     | 原生样式           | `React.CSSProperties` | -        |
 | `sx`        | CSS-in-JS 样式入口 | `SxProps`             | -        |
 
+### 组合式组件
+
+| 组件 | 说明 |
+| --- | --- |
+| `Input.Prefix` | 等价于 `prefix`，渲染在输入框内部左侧 |
+| `Input.Suffix` | 等价于 `suffix`，渲染在输入框内部右侧 |
+| `Input.AddonBefore` | 等价于 `addonBefore`，渲染在输入框外侧左侧 |
+| `Input.AddonAfter` | 等价于 `addonAfter`，渲染在输入框外侧右侧 |
+| `Input.Addon` | 通用 Addon，`position="before"` 时等价于 `AddonBefore`，`position="after"` 时等价于 `AddonAfter` |
+
 ## 行为规则 / 优先级
 
 - 表单组件优先由外部表单层管理值、校验和提交状态。
 - `className` 与 `class` 用于追加类名；如同时传入原生 `style`，内联样式会按 React 规则覆盖同名 CSS。
+- 未传 `prefix`、`suffix`、`addonBefore`、`addonAfter` 且没有组合式子组件时，Input 仍直接渲染原生 `input`。
+- 组合式子组件会覆盖同名 prop，例如同时传 `prefix` 和 `Input.Prefix` 时，以 `Input.Prefix` 为准。
+- `prefix/suffix` 是输入框内部装饰，`addonBefore/addonAfter` 是输入框外侧分组标签；四者都不参与实际输入值。
 - 复杂内容优先通过组合能力传入，避免在组件内部硬编码业务文案。
 - Input 的默认值应服务于最常见场景，特殊场景通过显式 props 覆盖。
 

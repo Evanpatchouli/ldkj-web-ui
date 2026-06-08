@@ -79,6 +79,7 @@ import CheckboxGroupFormDemo from "./components/form/CheckboxGroup/CheckboxGroup
 import CheckboxGroupMultipleDemo from "./components/form/CheckboxGroup/CheckboxGroupMultipleDemo";
 import CheckboxGroupSingleDemo from "./components/form/CheckboxGroup/CheckboxGroupSingleDemo";
 import CheckboxGroupSxDemo from "./components/form/CheckboxGroup/CheckboxGroupSxDemo";
+import InputAffixAddonDemo from "./components/form/Input/InputAffixAddonDemo";
 import InputBasicDemo from "./components/form/Input/InputBasicDemo";
 import InputStatesDemo from "./components/form/Input/InputStatesDemo";
 import InputSxDemo from "./components/form/Input/InputSxDemo";
@@ -571,6 +572,10 @@ const theme: Theme = {
     app.component(
       "InputBasicDemo",
       createReactDemoHost("InputBasicDemoHost", InputBasicDemo),
+    );
+    app.component(
+      "InputAffixAddonDemo",
+      createReactDemoHost("InputAffixAddonDemoHost", InputAffixAddonDemo),
     );
     app.component(
       "InputStatesDemo",
