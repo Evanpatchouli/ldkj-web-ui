@@ -5,6 +5,7 @@ node_modules/
 /docs/.vitepress/dist
 .codex
 .claude
+.agents
 temp
 .temp
 .idea

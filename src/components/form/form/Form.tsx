@@ -145,8 +145,7 @@ const controlAdapters: Record<string, ControlAdapter> = {
   },
   Uploader: {
     emptyValue: null,
-    skipValueProp: true,
-    trigger: "onChange",
+    trigger: "onValueChange",
     valuePropName: "value",
   },
 };

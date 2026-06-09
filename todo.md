@@ -40,6 +40,7 @@
 - [x] Empty
 - [x] QRCode
 - [x] Image
+- [ ] Collapse
 
 ## 表单与输入
 
@@ -55,10 +56,11 @@
 - [x] Switch
 - [x] Rate
 - [x] Cascader
-- [x] SliderV2
+- [x] Slider
 - [x] Required
 - [x] Form
 - [x] Uploader
+- [x] Label
 
 ## 反馈与弹层
 
@@ -89,13 +91,11 @@
 
 - [ ] DataGrid
 - [ ] Title
-- [ ] Label
 - [ ] Gallery
 - [ ] Carousel（与 Gallery 职责区分：Carousel 负责切换容器，Gallery 负责图片浏览体验）
 - [ ] Tree
 - [ ] TreeSelect
 - [ ] WaterMark
-- [ ] Collapse
 - [ ] Descriptions
 - [ ] Statistic
 

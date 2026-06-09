@@ -390,8 +390,15 @@ export function createForm<TValues extends FormValues = FormValues>(
     }
   };
 
-  const getMeta = (name: FormNamePath) =>
-    metas.get(getNamePathKey(name)) ?? createDefaultMeta();
+  const getMeta = (name: FormNamePath) => {
+    const key = getNamePathKey(name);
+    const current = metas.get(key);
+    if (current) return current;
+
+    const meta = createDefaultMeta();
+    metas.set(key, meta);
+    return meta;
+  };
 
   const setMeta = (name: FormNamePath, nextMeta: Partial<FormFieldMeta>) => {
     const key = getNamePathKey(name);

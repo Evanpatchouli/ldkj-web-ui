@@ -126,7 +126,21 @@ import FormInlineDemo from "./components/form/Form/FormInlineDemo";
 import FormUseFormDemo from "./components/form/Form/FormUseFormDemo";
 import FormValidationDemo from "./components/form/Form/FormValidationDemo";
 import FormWatchDemo from "./components/form/Form/FormWatchDemo";
+import UploaderBusinessDemo from "./components/form/Uploader/UploaderBusinessDemo";
+import UploaderControlledDemo from "./components/form/Uploader/UploaderControlledDemo";
 import UploaderDemo from "./components/form/Uploader/UploaderDemo";
+import UploaderDragDemo from "./components/form/Uploader/UploaderDragDemo";
+import UploaderFormDemo from "./components/form/Uploader/UploaderFormDemo";
+import UploaderInteractionsDemo from "./components/form/Uploader/UploaderInteractionsDemo";
+import UploaderListTypesDemo from "./components/form/Uploader/UploaderListTypesDemo";
+import UploaderManualDemo from "./components/form/Uploader/UploaderManualDemo";
+import UploaderPictureDemo from "./components/form/Uploader/UploaderPictureDemo";
+import UploaderPreviewActionsDemo from "./components/form/Uploader/UploaderPreviewActionsDemo";
+import UploaderProviderDemo from "./components/form/Uploader/UploaderProviderDemo";
+import UploaderRenderDemo from "./components/form/Uploader/UploaderRenderDemo";
+import UploaderTransformDemo from "./components/form/Uploader/UploaderTransformDemo";
+import UploaderValidationDemo from "./components/form/Uploader/UploaderValidationDemo";
+import UploaderXhrDemo from "./components/form/Uploader/UploaderXhrDemo";
 import SelectBasicDemo from "./components/form/Select/SelectBasicDemo";
 import SelectControlledDemo from "./components/form/Select/SelectControlledDemo";
 import SelectDisabledSxDemo from "./components/form/Select/SelectDisabledSxDemo";
@@ -769,6 +783,62 @@ const theme: Theme = {
     app.component(
       "UploaderDemo",
       createReactDemoHost("UploaderDemoHost", UploaderDemo),
+    );
+    app.component(
+      "UploaderBusinessDemo",
+      createReactDemoHost("UploaderBusinessDemoHost", UploaderBusinessDemo),
+    );
+    app.component(
+      "UploaderControlledDemo",
+      createReactDemoHost("UploaderControlledDemoHost", UploaderControlledDemo),
+    );
+    app.component(
+      "UploaderDragDemo",
+      createReactDemoHost("UploaderDragDemoHost", UploaderDragDemo),
+    );
+    app.component(
+      "UploaderFormDemo",
+      createReactDemoHost("UploaderFormDemoHost", UploaderFormDemo),
+    );
+    app.component(
+      "UploaderInteractionsDemo",
+      createReactDemoHost("UploaderInteractionsDemoHost", UploaderInteractionsDemo),
+    );
+    app.component(
+      "UploaderListTypesDemo",
+      createReactDemoHost("UploaderListTypesDemoHost", UploaderListTypesDemo),
+    );
+    app.component(
+      "UploaderManualDemo",
+      createReactDemoHost("UploaderManualDemoHost", UploaderManualDemo),
+    );
+    app.component(
+      "UploaderPictureDemo",
+      createReactDemoHost("UploaderPictureDemoHost", UploaderPictureDemo),
+    );
+    app.component(
+      "UploaderPreviewActionsDemo",
+      createReactDemoHost("UploaderPreviewActionsDemoHost", UploaderPreviewActionsDemo),
+    );
+    app.component(
+      "UploaderProviderDemo",
+      createReactDemoHost("UploaderProviderDemoHost", UploaderProviderDemo),
+    );
+    app.component(
+      "UploaderRenderDemo",
+      createReactDemoHost("UploaderRenderDemoHost", UploaderRenderDemo),
+    );
+    app.component(
+      "UploaderTransformDemo",
+      createReactDemoHost("UploaderTransformDemoHost", UploaderTransformDemo),
+    );
+    app.component(
+      "UploaderValidationDemo",
+      createReactDemoHost("UploaderValidationDemoHost", UploaderValidationDemo),
+    );
+    app.component(
+      "UploaderXhrDemo",
+      createReactDemoHost("UploaderXhrDemoHost", UploaderXhrDemo),
     );
     app.component(
       "SelectBasicDemo",
