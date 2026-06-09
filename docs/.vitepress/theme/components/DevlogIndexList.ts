@@ -10,6 +10,7 @@ const versionLinks = [
   { text: "v0.16.2（2026-06-05）", link: "/devlog/v0.16.2" },
   { text: "v0.16.1（2026-06-02）", link: "/devlog/v0.16.1" },
   { text: "v0.16.0（2026-06-02）", link: "/devlog/v0.16.0" },
+  { text: "v0.15.0（2026-05-17）", link: "/devlog/v0.15.0" },
   { text: "v0.14.1（2026-05-16）", link: "/devlog/v0.14.1" },
   { text: "v0.14.0（2026-05-15）", link: "/devlog/v0.14.0" },
   { text: "v0.13.0（2026-05-09）", link: "/devlog/v0.13.0" },
