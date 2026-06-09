@@ -14,7 +14,7 @@ export function TableHead(props: BoxProps<"thead">) {
   return (
     <Box
       component="thead"
-      className={cn("bg-slate-50", className)}
+      className={cn("bg-[color:var(--ldkj-color-muted)]", className)}
       {...restProps}
     />
   );
@@ -29,7 +29,7 @@ export function TableRow(props: BoxProps<"tr">) {
   return (
     <Box
       component="tr"
-      className={cn("border-b border-slate-100 last:border-b-0", className)}
+      className={cn("border-b border-[color:var(--ldkj-color-border)] last:border-b-0", className)}
       {...restProps}
     />
   );
@@ -41,7 +41,7 @@ export function TableHeaderCell(props: BoxProps<"th">) {
     <Box
       component="th"
       scope="col"
-      className={cn("whitespace-nowrap font-medium text-slate-700", className)}
+      className={cn("whitespace-nowrap font-medium text-[color:var(--ldkj-color-foreground)]", className)}
       style={mergeSxStyle({ textAlign: "left" }, style)}
       {...restProps}
     />
@@ -53,7 +53,7 @@ export function TableCell(props: BoxProps<"td">) {
   return (
     <Box
       component="td"
-      className={cn("text-slate-700", className)}
+      className={cn("text-[color:var(--ldkj-color-foreground)]", className)}
       style={mergeSxStyle({ textAlign: "left" }, style)}
       {...restProps}
     />

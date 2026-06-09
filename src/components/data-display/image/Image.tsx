@@ -571,7 +571,7 @@ export const Image = React.forwardRef<HTMLImageElement, ImageProps>(
             <span className="absolute right-5 top-5 flex items-center gap-2">
               <button
                 type="button"
-                className="rounded-md bg-white/90 px-2.5 py-1.5 text-xs font-medium text-slate-800 hover:bg-white"
+                className="rounded-md bg-[color:var(--ldkj-color-popover)]/90 px-2.5 py-1.5 text-xs font-medium text-[color:var(--ldkj-color-popover-foreground)] hover:bg-[color:var(--ldkj-color-popover)]"
                 onClick={(event) => {
                   event.stopPropagation();
                   setPreviewScale((prev) => clamp(prev - 0.2, 1, 4));
@@ -581,7 +581,7 @@ export const Image = React.forwardRef<HTMLImageElement, ImageProps>(
               </button>
               <button
                 type="button"
-                className="rounded-md bg-white/90 px-2.5 py-1.5 text-xs font-medium text-slate-800 hover:bg-white"
+                className="rounded-md bg-[color:var(--ldkj-color-popover)]/90 px-2.5 py-1.5 text-xs font-medium text-[color:var(--ldkj-color-popover-foreground)] hover:bg-[color:var(--ldkj-color-popover)]"
                 onClick={(event) => {
                   event.stopPropagation();
                   setPreviewScale((prev) => clamp(prev + 0.2, 1, 4));
@@ -591,7 +591,7 @@ export const Image = React.forwardRef<HTMLImageElement, ImageProps>(
               </button>
               <button
                 type="button"
-                className="rounded-md bg-white/90 px-2.5 py-1.5 text-xs font-medium text-slate-800 hover:bg-white"
+                className="rounded-md bg-[color:var(--ldkj-color-popover)]/90 px-2.5 py-1.5 text-xs font-medium text-[color:var(--ldkj-color-popover-foreground)] hover:bg-[color:var(--ldkj-color-popover)]"
                 onClick={(event) => {
                   event.stopPropagation();
                   setPreviewScale(1);
@@ -603,7 +603,7 @@ export const Image = React.forwardRef<HTMLImageElement, ImageProps>(
               <button
                 ref={closeButtonRef}
                 type="button"
-                className="rounded-md bg-white/90 px-3 py-1.5 text-xs font-medium text-slate-800 hover:bg-white"
+                className="rounded-md bg-[color:var(--ldkj-color-popover)]/90 px-3 py-1.5 text-xs font-medium text-[color:var(--ldkj-color-popover-foreground)] hover:bg-[color:var(--ldkj-color-popover)]"
                 aria-label="Close preview"
                 onClick={(event) => {
                   event.stopPropagation();

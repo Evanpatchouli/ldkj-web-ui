@@ -463,12 +463,12 @@ function FormItem<TValues extends FormValues = FormValues>(
     <>
       {label !== undefined ? (
         <div
-          className={cn("text-sm font-medium leading-5 text-slate-700", labelClassName)}
+          className={cn("text-sm font-medium leading-5 text-[color:var(--ldkj-color-foreground)]", labelClassName)}
           style={labelStyle}
         >
           {label}
           {required || hasRequiredRule ? (
-            <span className="ml-1 text-red-500" aria-hidden="true">
+            <span className="ml-1 text-[color:var(--ldkj-color-danger)]" aria-hidden="true">
               *
             </span>
           ) : null}
@@ -481,7 +481,7 @@ function FormItem<TValues extends FormValues = FormValues>(
         <div
           className={cn(
             "text-xs leading-5",
-            mergedStatus === "error" ? "text-red-600" : "text-slate-500",
+            mergedStatus === "error" ? "text-[color:var(--ldkj-color-danger)]" : "text-[color:var(--ldkj-color-muted-foreground)]",
           )}
           aria-live={mergedStatus === "error" ? "polite" : undefined}
           role={mergedStatus === "error" ? "alert" : undefined}
@@ -490,7 +490,7 @@ function FormItem<TValues extends FormValues = FormValues>(
         </div>
       ) : null}
       {extra !== undefined ? (
-        <div className="text-xs leading-5 text-slate-500">{extra}</div>
+        <div className="text-xs leading-5 text-[color:var(--ldkj-color-muted-foreground)]">{extra}</div>
       ) : null}
     </>
   );
@@ -503,7 +503,7 @@ function FormItem<TValues extends FormValues = FormValues>(
     <div
       className={cn(
         "space-y-2",
-        mergedStatus === "error" && "[&_input]:border-red-500",
+        mergedStatus === "error" && "[&_input]:border-[color:var(--ldkj-color-danger)]",
         sxClassName,
         className,
         legacyClass,

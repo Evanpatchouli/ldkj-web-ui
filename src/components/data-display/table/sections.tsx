@@ -49,7 +49,7 @@ export function TableHeaderRows<
   } = props;
 
   return (
-    <TableRow className="border-b border-slate-200">
+    <TableRow className="border-b border-[color:var(--ldkj-color-border)]">
       {selectionEnabled ? (
         <TableHeaderCell
           className={cn(sizeCellClass[size], "w-12 text-center")}
@@ -66,7 +66,7 @@ export function TableHeaderRows<
 
       {indexColumn ? (
         <TableHeaderCell
-          className={cn(sizeCellClass[size], "text-slate-600")}
+          className={cn(sizeCellClass[size], "text-[color:var(--ldkj-color-muted-foreground)]")}
           style={{
             width: normalizeCssSize(
               typeof indexColumn === "object" ? indexColumn.width : 64,
@@ -150,9 +150,9 @@ export function TableBodyRows<
                 {...resolvedRowProps}
                 data-selected={selected ? "" : undefined}
                 className={cn(
-                  striped && index % 2 === 1 && "bg-slate-50/70",
-                  hoverable && "transition-colors hover:bg-blue-50/50",
-                  selected && "bg-blue-50",
+                  striped && index % 2 === 1 && "bg-[color:var(--ldkj-color-muted)]/70",
+                  hoverable && "transition-colors hover:bg-[color:var(--ldkj-color-accent)]",
+                  selected && "bg-[color:var(--ldkj-color-accent)]",
                   resolvedRowProps?.className,
                 )}
               >
@@ -174,7 +174,7 @@ export function TableBodyRows<
 
                 {indexColumn ? (
                   <TableCell
-                    className={cn(sizeCellClass[size], "text-slate-500")}
+                    className={cn(sizeCellClass[size], "text-[color:var(--ldkj-color-muted-foreground)]")}
                     style={{ textAlign: "center" }}
                   >
                     {absoluteIndex + 1}
@@ -206,7 +206,7 @@ export function TableBodyRows<
       ) : (
         <TableRow>
           <TableCell
-            className={cn(sizeCellClass[size], "text-center text-slate-500")}
+            className={cn(sizeCellClass[size], "text-center text-[color:var(--ldkj-color-muted-foreground)]")}
             colSpan={Math.max(tableColumnCount, 1)}
             style={{ textAlign: "center" }}
           >
@@ -234,7 +234,7 @@ export function TablePaginationFooter(props: TablePaginationFooterProps) {
   if (pageCount <= 1) return null;
 
   return (
-    <Box className={cn("flex border-t border-slate-100 p-3", justifyClassName)}>
+    <Box className={cn("flex border-t border-[color:var(--ldkj-color-border)] p-3", justifyClassName)}>
       <Pagination
         count={pageCount}
         page={currentPage}

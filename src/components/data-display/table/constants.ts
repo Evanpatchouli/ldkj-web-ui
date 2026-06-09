@@ -7,7 +7,7 @@ export const sizeCellClass: Record<TableSize, string> = {
 };
 
 export const variantRootClass: Record<TableVariant, string> = {
-  outlined: "border border-slate-200 bg-white",
-  filled: "border border-slate-100 bg-slate-50",
+  outlined: "border border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-card)] text-[color:var(--ldkj-color-card-foreground)]",
+  filled: "border border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-muted)] text-[color:var(--ldkj-color-foreground)]",
   ghost: "border border-transparent bg-transparent",
 };

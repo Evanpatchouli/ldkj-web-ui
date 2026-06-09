@@ -18,11 +18,16 @@ export type SpinProps = React.HTMLAttributes<HTMLSpanElement> & {
 };
 
 const toneMap: Record<SpinTone, string> = {
-  primary: "border-slate-200 border-t-blue-600",
-  muted: "border-slate-200 border-t-slate-500",
-  success: "border-emerald-100 border-t-emerald-600",
-  warning: "border-amber-100 border-t-amber-600",
-  danger: "border-rose-100 border-t-rose-600",
+  primary:
+    "border-[color:var(--ldkj-color-border)] border-t-[color:var(--ldkj-color-primary)]",
+  muted:
+    "border-[color:var(--ldkj-color-border)] border-t-[color:var(--ldkj-color-muted-foreground)]",
+  success:
+    "border-[color:var(--ldkj-color-border)] border-t-[color:var(--ldkj-color-success)]",
+  warning:
+    "border-[color:var(--ldkj-color-border)] border-t-[color:var(--ldkj-color-warning)]",
+  danger:
+    "border-[color:var(--ldkj-color-border)] border-t-[color:var(--ldkj-color-danger)]",
 };
 
 export function Spin(props: SpinProps) {

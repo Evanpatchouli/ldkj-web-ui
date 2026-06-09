@@ -24,22 +24,27 @@ const notificationTypeStyles: Record<
     live: "polite" | "assertive";
   }
 > = {
-  info: { icon: "info", iconColor: "#2563eb", role: "status", live: "polite" },
+  info: {
+    icon: "info",
+    iconColor: "var(--ldkj-color-info)",
+    role: "status",
+    live: "polite",
+  },
   success: {
     icon: "check_circle",
-    iconColor: "#16a34a",
+    iconColor: "var(--ldkj-color-success)",
     role: "status",
     live: "polite",
   },
   warn: {
     icon: "warning",
-    iconColor: "#d97706",
+    iconColor: "var(--ldkj-color-warning)",
     role: "alert",
     live: "assertive",
   },
   error: {
     icon: "error",
-    iconColor: "#dc2626",
+    iconColor: "var(--ldkj-color-danger)",
     role: "alert",
     live: "assertive",
   },

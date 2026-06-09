@@ -174,8 +174,8 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
             <Label
               key={option.value}
               className={cn(
-                "inline-flex items-start gap-2 text-sm leading-5 text-slate-700",
-                optionDisabled && "cursor-not-allowed text-slate-400",
+                "inline-flex items-start gap-2 text-sm leading-5 text-[color:var(--ldkj-color-foreground)]",
+                optionDisabled && "cursor-not-allowed text-[color:var(--ldkj-color-muted-foreground)]",
                 !optionDisabled && "cursor-pointer",
                 option.className,
               )}
@@ -193,7 +193,7 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
               <span className="grid gap-0.5">
                 <span>{option.label}</span>
                 {option.description ? (
-                  <span className="text-xs text-slate-500">
+                  <span className="text-xs text-[color:var(--ldkj-color-muted-foreground)]">
                     {option.description}
                   </span>
                 ) : null}

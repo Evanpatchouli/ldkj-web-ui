@@ -42,82 +42,98 @@ export const chipVariants = cva(
       {
         variant: "primary",
         outline: false,
-        className: "bg-blue-600 text-white",
+        className:
+          "bg-[color:var(--ldkj-color-primary)] text-[color:var(--ldkj-color-primary-foreground)]",
       },
       {
         variant: "primary",
         outline: true,
-        className: "border-blue-600 text-blue-600",
+        className:
+          "border-[color:var(--ldkj-color-primary)] text-[color:var(--ldkj-color-primary)]",
       },
       {
         variant: "success",
         outline: false,
-        className: "bg-green-600 text-white",
+        className:
+          "bg-[color:var(--ldkj-color-success)] text-[color:var(--ldkj-color-success-foreground)]",
       },
       {
         variant: "success",
         outline: true,
-        className: "border-green-600 text-green-600",
+        className:
+          "border-[color:var(--ldkj-color-success)] text-[color:var(--ldkj-color-success)]",
       },
       {
         variant: "warning",
         outline: false,
-        className: "bg-yellow-500 text-white",
+        className:
+          "bg-[color:var(--ldkj-color-warning)] text-[color:var(--ldkj-color-warning-foreground)]",
       },
       {
         variant: "warning",
         outline: true,
-        className: "border-yellow-500 text-yellow-600",
+        className:
+          "border-[color:var(--ldkj-color-warning)] text-[color:var(--ldkj-color-warning)]",
       },
       {
         variant: "danger",
         outline: false,
-        className: "bg-red-600 text-white",
+        className:
+          "bg-[color:var(--ldkj-color-danger)] text-[color:var(--ldkj-color-danger-foreground)]",
       },
       {
         variant: "danger",
         outline: true,
-        className: "border-red-600 text-red-600",
+        className:
+          "border-[color:var(--ldkj-color-danger)] text-[color:var(--ldkj-color-danger)]",
       },
       {
         variant: "minor",
         outline: false,
-        className: "bg-gray-200 text-gray-700",
+        className:
+          "bg-[color:var(--ldkj-color-muted)] text-[color:var(--ldkj-color-muted-foreground)]",
       },
       {
         variant: "minor",
         outline: true,
-        className: "border-gray-300 text-gray-600",
+        className:
+          "border-[color:var(--ldkj-color-border)] text-[color:var(--ldkj-color-muted-foreground)]",
       },
       {
         variant: "dark",
         outline: false,
-        className: "bg-black/90 text-white",
+        className:
+          "bg-[color:var(--ldkj-color-inverse)] text-[color:var(--ldkj-color-inverse-foreground)]",
       },
       {
         variant: "dark",
         outline: true,
-        className: "border-black/90 text-black/90",
+        className:
+          "border-[color:var(--ldkj-color-inverse)] text-[color:var(--ldkj-color-inverse)]",
       },
       {
         variant: "light",
         outline: false,
-        className: "bg-white text-gray-900",
+        className:
+          "bg-[color:var(--ldkj-color-surface)] text-[color:var(--ldkj-color-surface-foreground)]",
       },
       {
         variant: "light",
         outline: true,
-        className: "border-white text-white",
+        className:
+          "border-[color:var(--ldkj-color-surface)] text-[color:var(--ldkj-color-surface)]",
       },
       {
         variant: "text",
         outline: false,
-        className: "bg-gray-100 text-gray-600",
+        className:
+          "bg-[color:var(--ldkj-color-surface-muted)] text-[color:var(--ldkj-color-muted-foreground)]",
       },
       {
         variant: "text",
         outline: true,
-        className: "border-gray-300 text-gray-500",
+        className:
+          "border-[color:var(--ldkj-color-border)] text-[color:var(--ldkj-color-muted-foreground)]",
       },
     ],
     defaultVariants: {

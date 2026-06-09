@@ -24,17 +24,25 @@ export type AlertProps = React.HTMLAttributes<HTMLDivElement> & {
 };
 
 const toneMap: Record<AlertVariant, string> = {
-  info: "border-blue-200 bg-blue-50 text-blue-800",
-  success: "border-emerald-200 bg-emerald-50 text-emerald-800",
-  warning: "border-amber-200 bg-amber-50 text-amber-800",
-  error: "border-rose-200 bg-rose-50 text-rose-800",
+  info:
+    "border-[color:var(--ldkj-color-info)] bg-[color:var(--ldkj-color-accent)] text-[color:var(--ldkj-color-info)]",
+  success:
+    "border-[color:var(--ldkj-color-success)] bg-[color:var(--ldkj-color-accent)] text-[color:var(--ldkj-color-success)]",
+  warning:
+    "border-[color:var(--ldkj-color-warning)] bg-[color:var(--ldkj-color-accent)] text-[color:var(--ldkj-color-warning)]",
+  error:
+    "border-[color:var(--ldkj-color-danger)] bg-[color:var(--ldkj-color-accent)] text-[color:var(--ldkj-color-danger)]",
 };
 
 const iconToneMap: Record<AlertVariant, string> = {
-  info: "bg-blue-600 text-white",
-  success: "bg-emerald-600 text-white",
-  warning: "bg-amber-500 text-white",
-  error: "bg-rose-600 text-white",
+  info:
+    "bg-[color:var(--ldkj-color-info)] text-[color:var(--ldkj-color-info-foreground)]",
+  success:
+    "bg-[color:var(--ldkj-color-success)] text-[color:var(--ldkj-color-success-foreground)]",
+  warning:
+    "bg-[color:var(--ldkj-color-warning)] text-[color:var(--ldkj-color-warning-foreground)]",
+  error:
+    "bg-[color:var(--ldkj-color-danger)] text-[color:var(--ldkj-color-danger-foreground)]",
 };
 
 const iconTextMap: Record<AlertVariant, string> = {

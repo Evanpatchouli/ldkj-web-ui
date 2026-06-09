@@ -45,9 +45,12 @@ type CardCompound = {
 type CardComponent = React.FC<CardProps> & CardCompound;
 
 const variantClass: Record<CardVariant, string> = {
-  outlined: "border border-gray-200 bg-white",
-  elevated: "border border-transparent bg-white",
-  filled: "border border-gray-100 bg-gray-50",
+  outlined:
+    "border border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-surface)] text-[color:var(--ldkj-color-surface-foreground)]",
+  elevated:
+    "border border-transparent bg-[color:var(--ldkj-color-surface)] text-[color:var(--ldkj-color-surface-foreground)]",
+  filled:
+    "border border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-surface-muted)] text-[color:var(--ldkj-color-foreground)]",
   ghost: "border border-transparent bg-transparent shadow-none",
 };
 
@@ -184,7 +187,8 @@ function CardRoot(props: CardProps) {
           "card flex overflow-hidden",
           variantClass[variant],
           hoverable && !disabled && "transition hover:-translate-y-0.5 hover:shadow-lg",
-          selected && "border-blue-500 ring-2 ring-blue-100",
+          selected &&
+            "border-[color:var(--ldkj-color-primary)] ring-2 ring-[color:var(--ldkj-color-ring)]",
           disabled && "pointer-events-none opacity-50",
           className,
         )}
@@ -206,7 +210,8 @@ function CardRoot(props: CardProps) {
         "card flex overflow-hidden",
         variantClass[variant],
         hoverable && !disabled && "transition hover:-translate-y-0.5 hover:shadow-lg",
-        selected && "border-blue-500 ring-2 ring-blue-100",
+        selected &&
+          "border-[color:var(--ldkj-color-primary)] ring-2 ring-[color:var(--ldkj-color-ring)]",
         disabled && "pointer-events-none opacity-50",
         className,
       )}
@@ -220,7 +225,8 @@ function CardRoot(props: CardProps) {
           {...resolvedLeftProps}
           className={cn(
             "card-left shrink-0",
-            resolveDivided(divided, "x") && "border-r border-gray-100",
+            resolveDivided(divided, "x") &&
+              "border-r border-[color:var(--ldkj-color-border)]",
             resolvedLeftProps?.className,
           )}
         >
@@ -235,7 +241,8 @@ function CardRoot(props: CardProps) {
             className={cn(
               "card-header",
               resolveSlotPadding(padding),
-              resolveDivided(divided, "y") && "border-b border-gray-100",
+              resolveDivided(divided, "y") &&
+                "border-b border-[color:var(--ldkj-color-border)]",
               headerProps?.className,
             )}
           >
@@ -262,7 +269,8 @@ function CardRoot(props: CardProps) {
             className={cn(
               "card-footer",
               resolveSlotPadding(padding),
-              resolveDivided(divided, "y") && "border-t border-gray-100",
+              resolveDivided(divided, "y") &&
+                "border-t border-[color:var(--ldkj-color-border)]",
               footerProps?.className,
             )}
           >
@@ -276,7 +284,8 @@ function CardRoot(props: CardProps) {
           {...resolvedRightProps}
           className={cn(
             "card-right shrink-0",
-            resolveDivided(divided, "x") && "border-l border-gray-100",
+            resolveDivided(divided, "x") &&
+              "border-l border-[color:var(--ldkj-color-border)]",
             resolvedRightProps?.className,
           )}
         >

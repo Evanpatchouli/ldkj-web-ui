@@ -123,7 +123,7 @@ function RateStar(props: RateStarProps) {
       onMouseEnter={onMouseEnter}
       className={cn(
         "group relative inline-flex items-center justify-center rounded-full outline-none transition",
-        "focus-visible:ring-2 focus-visible:ring-blue-500/35 focus-visible:ring-offset-2",
+        "focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]/35 focus-visible:ring-offset-2",
         "disabled:cursor-not-allowed disabled:opacity-50",
         sizeClasses[size],
         preview ? "scale-[1.03]" : "scale-100",
@@ -133,10 +133,10 @@ function RateStar(props: RateStarProps) {
         aria-hidden="true"
         className={cn(
           "relative inline-flex items-center justify-center transition-colors",
-          preview ? "text-amber-300" : "text-amber-400",
+          preview ? "text-[color:var(--ldkj-color-warning)]/70" : "text-[color:var(--ldkj-color-warning)]",
         )}
       >
-        <span className="text-slate-300">{icon}</span>
+        <span className="text-[color:var(--ldkj-color-border)]">{icon}</span>
         <span
           className="absolute inset-0 overflow-hidden"
           style={{ width: `${fill}%` }}
@@ -283,8 +283,8 @@ export const Rate = React.forwardRef<HTMLDivElement, RateProps>((props, ref) => 
         "inline-flex w-fit items-center gap-1 rounded-full px-2 py-1 transition-colors",
         borderless
           ? "border-0 bg-transparent shadow-none"
-          : "border border-slate-200 bg-white shadow-sm",
-        !borderless && !disabled ? "hover:border-slate-300" : undefined,
+          : "border border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-background)] shadow-sm",
+        !borderless && !disabled ? "hover:border-[color:var(--ldkj-color-input)]" : undefined,
         sxClassName,
         className,
         legacyClass,

@@ -1,7 +1,7 @@
 import { css } from "@emotion/css";
 import type { CSSObject } from "@emotion/serialize";
 import type * as React from "react";
-import type { SxTheme } from "./SxProvider";
+import type { SxTheme } from "./theme";
 
 export type SxObject = CSSObject;
 
@@ -115,4 +115,3 @@ export function mergeSxStyle(
   );
   return Object.keys(merged).length ? merged : undefined;
 }
-

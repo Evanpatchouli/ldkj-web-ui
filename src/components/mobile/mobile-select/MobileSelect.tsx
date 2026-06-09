@@ -324,7 +324,7 @@ export const MobileSelect = React.forwardRef<MobileSelectRef, MobileSelectProps>
         >
           <div className="min-h-0 flex-1 overflow-y-auto px-4 py-2">
             {blocks.length === 0 ? (
-              <div className="flex min-h-32 items-center justify-center text-sm text-slate-400">
+              <div className="flex min-h-32 items-center justify-center text-sm text-[color:var(--ldkj-color-muted-foreground)]">
                 暂无可选项
               </div>
             ) : (
@@ -348,10 +348,10 @@ export const MobileSelect = React.forwardRef<MobileSelectRef, MobileSelectProps>
                           "flex min-h-10 w-full items-center rounded-md px-3 py-2 text-sm transition-colors",
                           getAlignClass(align),
                           checked
-                            ? "bg-blue-600 text-white"
-                            : "text-slate-800 hover:bg-blue-50 hover:text-blue-700",
+                            ? "bg-[color:var(--ldkj-color-primary)] text-[color:var(--ldkj-color-primary-foreground)]"
+                            : "text-[color:var(--ldkj-color-foreground)] hover:bg-[color:var(--ldkj-color-accent)] hover:text-[color:var(--ldkj-color-accent-foreground)]",
                           option.disabled &&
-                            "cursor-not-allowed bg-transparent text-slate-400 opacity-70 hover:bg-transparent hover:text-slate-400",
+                            "cursor-not-allowed bg-transparent text-[color:var(--ldkj-color-muted-foreground)] opacity-70 hover:bg-transparent hover:text-[color:var(--ldkj-color-muted-foreground)]",
                           resolvedOptionSx.sxClassName,
                           optionClassName,
                           legacyOptionClass,
@@ -379,10 +379,10 @@ export const MobileSelect = React.forwardRef<MobileSelectRef, MobileSelectProps>
                   return (
                     <div
                       key={`group-${index}`}
-                      className={cn(block.separator && index > 0 && "border-t border-slate-200 pt-2")}
+                      className={cn(block.separator && index > 0 && "border-t border-[color:var(--ldkj-color-border)] pt-2")}
                     >
                       {block.label ? (
-                        <div className="px-3 py-2 text-xs font-medium text-slate-500">
+                        <div className="px-3 py-2 text-xs font-medium text-[color:var(--ldkj-color-muted-foreground)]">
                           {block.label}
                         </div>
                       ) : null}
@@ -404,10 +404,10 @@ export const MobileSelect = React.forwardRef<MobileSelectRef, MobileSelectProps>
                                 "flex min-h-10 w-full items-center rounded-md px-3 py-2 text-sm transition-colors",
                                 getAlignClass(align),
                                 checked
-                                  ? "bg-blue-600 text-white"
-                                  : "text-slate-800 hover:bg-blue-50 hover:text-blue-700",
+                                  ? "bg-[color:var(--ldkj-color-primary)] text-[color:var(--ldkj-color-primary-foreground)]"
+                                  : "text-[color:var(--ldkj-color-foreground)] hover:bg-[color:var(--ldkj-color-accent)] hover:text-[color:var(--ldkj-color-accent-foreground)]",
                                 option.disabled &&
-                                  "cursor-not-allowed bg-transparent text-slate-400 opacity-70 hover:bg-transparent hover:text-slate-400",
+                                  "cursor-not-allowed bg-transparent text-[color:var(--ldkj-color-muted-foreground)] opacity-70 hover:bg-transparent hover:text-[color:var(--ldkj-color-muted-foreground)]",
                                 resolvedOptionSx.sxClassName,
                                 optionClassName,
                                 legacyOptionClass,

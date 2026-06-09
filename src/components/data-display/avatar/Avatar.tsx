@@ -72,7 +72,7 @@ const AvatarRoot = React.forwardRef<
     <AvatarPrimitive.Root
       ref={ref}
       className={cn(
-        "avatar relative inline-flex shrink-0 select-none items-center justify-center overflow-hidden bg-slate-100 text-slate-700",
+        "avatar relative inline-flex shrink-0 select-none items-center justify-center overflow-hidden bg-[color:var(--ldkj-color-muted)] text-[color:var(--ldkj-color-muted-foreground)]",
         typeof size === "string"
           ? avatarSizeClass[size as keyof typeof avatarSizeClass]
           : null,
@@ -129,7 +129,7 @@ const AvatarFallback = React.forwardRef<
     <AvatarPrimitive.Fallback
       ref={ref}
       className={cn(
-        "avatar-fallback flex h-full w-full items-center justify-center bg-slate-100 font-medium text-slate-600",
+        "avatar-fallback flex h-full w-full items-center justify-center bg-[color:var(--ldkj-color-muted)] font-medium text-[color:var(--ldkj-color-muted-foreground)]",
         sxClassName,
         className,
         legacyClass,

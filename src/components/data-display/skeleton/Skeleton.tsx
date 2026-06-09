@@ -140,7 +140,7 @@ export function Skeleton(props: SkeletonProps) {
       aria-live="polite"
       aria-label={props["aria-label"] ?? "Loading"}
       className={cn(
-        "skeleton bg-gray-200",
+        "skeleton bg-[color:var(--ldkj-color-muted)]",
         inline ? "inline-block align-middle" : "block",
         animated && "animate-pulse",
         variantClass[variant],
@@ -256,7 +256,7 @@ export function SkeletonCard(props: SkeletonCardProps) {
   return (
     <div
       className={cn(
-        "skeleton-card border border-gray-200 bg-white p-4",
+        "skeleton-card border border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-card)] p-4",
         roundedPreset && roundedPresetClasses[roundedPreset],
         sxClassName,
         className,

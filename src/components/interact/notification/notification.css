@@ -1,7 +1,7 @@
 .ldkj-notification-viewport {
   box-sizing: border-box;
   position: fixed;
-  z-index: 10002;
+  z-index: var(--ldkj-z-notification, 10002);
   display: flex;
   width: min(92vw, 420px);
   flex-direction: column;
@@ -32,32 +32,34 @@
   max-width: min(92vw, 420px);
   grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 12px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--ldkj-color-border, #e5e7eb);
   border-left-width: 3px;
-  border-radius: 8px;
-  background: rgb(255 255 255 / 98%);
-  box-shadow:
+  border-radius: var(--ldkj-radius-md, 8px);
+  background: color-mix(in srgb, var(--ldkj-color-surface, #fff) 98%, transparent);
+  box-shadow: var(
+    --ldkj-shadow-lg,
     0 14px 34px rgb(15 23 42 / 12%),
-    0 3px 10px rgb(15 23 42 / 8%);
-  color: #111827;
+    0 3px 10px rgb(15 23 42 / 8%)
+  );
+  color: var(--ldkj-color-surface-foreground, #111827);
   padding: 14px;
   backdrop-filter: blur(8px);
 }
 
 .ldkj-notification-card-info {
-  border-left-color: #2563eb;
+  border-left-color: var(--ldkj-color-info, #2563eb);
 }
 
 .ldkj-notification-card-success {
-  border-left-color: #16a34a;
+  border-left-color: var(--ldkj-color-success, #16a34a);
 }
 
 .ldkj-notification-card-warn {
-  border-left-color: #d97706;
+  border-left-color: var(--ldkj-color-warning, #d97706);
 }
 
 .ldkj-notification-card-error {
-  border-left-color: #dc2626;
+  border-left-color: var(--ldkj-color-danger, #dc2626);
 }
 
 .ldkj-notification-icon-wrap {
@@ -74,7 +76,7 @@
 }
 
 .ldkj-notification-title {
-  color: #111827;
+  color: var(--ldkj-color-surface-foreground, #111827);
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
@@ -83,7 +85,7 @@
 
 .ldkj-notification-description {
   margin-top: 4px;
-  color: #4b5563;
+  color: var(--ldkj-color-muted-foreground, #4b5563);
   font-size: 13px;
   line-height: 20px;
   word-break: break-word;
@@ -91,7 +93,7 @@
 
 .ldkj-notification-content {
   margin-top: 10px;
-  color: #374151;
+  color: var(--ldkj-color-foreground, #374151);
   font-size: 13px;
   line-height: 20px;
 }
@@ -112,17 +114,21 @@
   border: 0;
   border-radius: 9999px;
   background: transparent;
-  color: #6b7280;
+  color: var(--ldkj-color-muted-foreground, #6b7280);
   cursor: pointer;
 }
 
 .ldkj-notification-close:hover {
-  background: rgb(15 23 42 / 6%);
-  color: #111827;
+  background: color-mix(
+    in srgb,
+    var(--ldkj-color-foreground, #0f172a) 6%,
+    transparent
+  );
+  color: var(--ldkj-color-foreground, #111827);
 }
 
 .ldkj-notification-close:focus-visible {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid var(--ldkj-color-ring, #3b82f6);
   outline-offset: 2px;
 }
 

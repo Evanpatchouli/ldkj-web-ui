@@ -216,11 +216,11 @@ function MenuItem<T extends ElementType = "button">(props: MenuItemProps<T>) {
     <li role="none" style={{ listStyle: "none", margin: 0 }}>
       <Comp
         className={cn(
-          "flex min-h-10 w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm leading-5 text-[color:var(--menu-item-text,#334155)] transition-colors hover:bg-[color:var(--menu-item-hover-bg,#f1f5f9)] hover:text-[color:var(--menu-item-hover-text,#0f172a)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500",
+          "flex min-h-10 w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm leading-5 text-[color:var(--menu-item-text,var(--ldkj-color-foreground))] transition-colors hover:bg-[color:var(--menu-item-hover-bg,var(--ldkj-color-accent))] hover:text-[color:var(--menu-item-hover-text,var(--ldkj-color-accent-foreground))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]",
           selected &&
-            "bg-[color:var(--menu-item-selected-bg,#e0f2fe)] text-[color:var(--menu-item-selected-text,#075985)] hover:bg-[color:var(--menu-item-selected-bg,#e0f2fe)] hover:text-[color:var(--menu-item-selected-hover-text,#075985)]",
+            "bg-[color:var(--menu-item-selected-bg,var(--ldkj-color-primary))] text-[color:var(--menu-item-selected-text,var(--ldkj-color-primary-foreground))] hover:bg-[color:var(--menu-item-selected-bg,var(--ldkj-color-primary))] hover:text-[color:var(--menu-item-selected-hover-text,var(--ldkj-color-primary-foreground))]",
           disabled &&
-            "cursor-not-allowed text-[color:var(--menu-item-disabled-text,#94a3b8)] opacity-70 hover:bg-transparent",
+            "cursor-not-allowed text-[color:var(--menu-item-disabled-text,var(--ldkj-color-muted-foreground))] opacity-70 hover:bg-transparent",
           sxClassName,
           className,
           legacyClass,
@@ -312,10 +312,10 @@ function MenuSub(props: MenuSubProps) {
       <button
         type="button"
         className={cn(
-          "flex min-h-10 w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm leading-5 text-[color:var(--menu-item-text,#334155)] transition-colors hover:bg-[color:var(--menu-item-hover-bg,#f1f5f9)] hover:text-[color:var(--menu-item-hover-text,#0f172a)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500",
-          open && "bg-slate-100 text-slate-950",
+          "flex min-h-10 w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm leading-5 text-[color:var(--menu-item-text,var(--ldkj-color-foreground))] transition-colors hover:bg-[color:var(--menu-item-hover-bg,var(--ldkj-color-accent))] hover:text-[color:var(--menu-item-hover-text,var(--ldkj-color-accent-foreground))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]",
+          open && "bg-[color:var(--ldkj-color-muted)] text-[color:var(--ldkj-color-foreground)]",
           disabled &&
-            "cursor-not-allowed text-[color:var(--menu-item-disabled-text,#94a3b8)] opacity-70 hover:bg-transparent",
+            "cursor-not-allowed text-[color:var(--menu-item-disabled-text,var(--ldkj-color-muted-foreground))] opacity-70 hover:bg-transparent",
         )}
         style={{
           paddingLeft: `calc(0.75rem + ${level} * ${toCssLength(context.indent)})`,
@@ -401,7 +401,7 @@ function MenuGroup(props: MenuGroupProps) {
     >
       {label ? (
         <div
-          className="px-3 py-2 text-xs font-medium uppercase text-slate-500"
+          className="px-3 py-2 text-xs font-medium uppercase text-[color:var(--ldkj-color-muted-foreground)]"
           style={{ paddingLeft: `calc(0.75rem + ${level} * 12px)` }}
         >
           {label}
@@ -669,7 +669,7 @@ function MenuRoot<T extends ElementType = "nav">(props: MenuProps<T>) {
           <Box
             component={(component ?? "nav") as ElementType}
             className={cn(
-              "w-64 rounded-lg border border-slate-200 bg-white p-1",
+              "w-64 rounded-lg border border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-card)] p-1 text-[color:var(--ldkj-color-card-foreground)]",
               className,
               legacyClass,
             )}

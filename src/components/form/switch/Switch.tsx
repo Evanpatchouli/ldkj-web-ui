@@ -82,10 +82,10 @@ const Switch = React.forwardRef<
       disabled={disabled}
       aria-describedby={mergedAriaDescribedBy}
       className={cn(
-        "peer inline-flex shrink-0 cursor-pointer items-center rounded-full border border-transparent bg-slate-300 p-0.5 transition-colors",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+        "peer inline-flex shrink-0 cursor-pointer items-center rounded-full border border-transparent bg-[color:var(--ldkj-color-muted)] p-0.5 transition-colors",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)] focus-visible:ring-offset-2",
         "disabled:cursor-not-allowed disabled:opacity-50",
-        "data-[state=checked]:bg-blue-600 data-[state=unchecked]:bg-slate-300",
+        "data-[state=checked]:bg-[color:var(--ldkj-color-primary)] data-[state=unchecked]:bg-[color:var(--ldkj-color-muted)]",
         switchSizeClassNames[size],
         sxClassName,
         className,
@@ -96,7 +96,7 @@ const Switch = React.forwardRef<
     >
       <SwitchPrimitive.Thumb
         className={cn(
-          "pointer-events-none block rounded-full bg-white shadow-sm ring-0 transition-transform",
+          "pointer-events-none block rounded-full bg-[color:var(--ldkj-color-switch-thumb)] shadow-sm ring-0 transition-transform",
           "data-[state=unchecked]:translate-x-0",
           thumbSizeClassNames[size],
         )}
@@ -114,7 +114,7 @@ const Switch = React.forwardRef<
         <LabelPrimitive.Root
           htmlFor={switchId}
           className={cn(
-            "text-sm font-medium leading-5 text-slate-700",
+            "text-sm font-medium leading-5 text-[color:var(--ldkj-color-foreground)]",
             disabled ? "cursor-not-allowed opacity-60" : "cursor-pointer",
           )}
         >
@@ -122,7 +122,10 @@ const Switch = React.forwardRef<
         </LabelPrimitive.Root>
       ) : null}
       {description !== undefined ? (
-        <span id={descriptionId} className="text-xs leading-5 text-slate-500">
+        <span
+          id={descriptionId}
+          className="text-xs leading-5 text-[color:var(--ldkj-color-muted-foreground)]"
+        >
           {description}
         </span>
       ) : null}

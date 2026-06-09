@@ -15,19 +15,27 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        dark: "bg-black/90 text-primary-foreground hover:bg-black",
-        primary: "bg-blue-600 text-primary-foreground hover:bg-blue-600/90",
-        secondary: "bg-cyan-600 text-primary-foreground hover:bg-cyan-600/90",
-        minor: "bg-gray-200 text-secondary-foreground hover:bg-gray-300/90",
-        success: "bg-green-600 text-primary-foreground hover:bg-green-600/90",
-        warning: "bg-yellow-600 text-primary-foreground hover:bg-yellow-600/90",
+        dark:
+          "bg-[color:var(--ldkj-color-inverse)] text-[color:var(--ldkj-color-inverse-foreground)] hover:bg-[color:var(--ldkj-color-inverse)]",
+        primary:
+          "bg-[color:var(--ldkj-color-primary)] text-[color:var(--ldkj-color-primary-foreground)] hover:bg-[color:var(--ldkj-color-primary-hover)]",
+        secondary:
+          "bg-[color:var(--ldkj-color-secondary)] text-[color:var(--ldkj-color-secondary-foreground)] hover:bg-[color:var(--ldkj-color-secondary-hover)]",
+        minor:
+          "bg-[color:var(--ldkj-color-muted)] text-[color:var(--ldkj-color-muted-foreground)] hover:bg-[color:var(--ldkj-color-accent-hover)]",
+        success:
+          "bg-[color:var(--ldkj-color-success)] text-[color:var(--ldkj-color-success-foreground)] hover:brightness-95",
+        warning:
+          "bg-[color:var(--ldkj-color-warning)] text-[color:var(--ldkj-color-warning-foreground)] hover:brightness-95",
         danger:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          "bg-[color:var(--ldkj-color-danger)] text-[color:var(--ldkj-color-danger-foreground)] hover:brightness-95",
         outline:
-          "border border-solid border-blue-600 bg-background text-blue-600 hover:text-blue-600/80 hover:border-blue-600/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-blue-600 underline-offset-4 hover:underline hover:text-blue-600/90",
-        text: "text-foreground",
+          "border border-solid border-[color:var(--ldkj-color-primary)] bg-[color:var(--ldkj-color-background)] text-[color:var(--ldkj-color-primary)] hover:border-[color:var(--ldkj-color-primary-hover)] hover:text-[color:var(--ldkj-color-primary-hover)]",
+        ghost:
+          "text-[color:var(--ldkj-color-foreground)] hover:bg-[color:var(--ldkj-color-accent)] hover:text-[color:var(--ldkj-color-accent-foreground)]",
+        link:
+          "text-[color:var(--ldkj-color-primary)] underline-offset-4 hover:text-[color:var(--ldkj-color-primary-hover)] hover:underline",
+        text: "text-[color:var(--ldkj-color-foreground)]",
       },
       size: {
         xs: "h-6 text-[10px] px-2",

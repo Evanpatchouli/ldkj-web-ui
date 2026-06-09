@@ -51,27 +51,27 @@ function toCssSize(value: number | string | undefined, fallback: string) {
 /** 各 variant 对应的 CSS 变量值 */
 const variantStyles = {
   solid: {
-    "--ldkj-slider-fill": "rgb(37 99 235)",
-    "--ldkj-slider-fill-end": "rgb(37 99 235)",
-    "--ldkj-slider-focus-ring": "rgb(37 99 235 / 0.2)",
-    "--ldkj-slider-thumb": "rgb(37 99 235)",
-    "--ldkj-slider-thumb-ring": "rgb(37 99 235 / 0.18)",
-    "--ldkj-slider-track": "rgb(226 232 240)",
-    "--ldkj-slider-track-shadow": "inset 0 1px 2px rgba(15,23,42,0.1)",
+    "--ldkj-slider-fill": "var(--ldkj-color-primary)",
+    "--ldkj-slider-fill-end": "var(--ldkj-color-primary)",
+    "--ldkj-slider-focus-ring": "var(--ldkj-color-ring)",
+    "--ldkj-slider-thumb": "var(--ldkj-color-primary)",
+    "--ldkj-slider-thumb-ring": "color-mix(in srgb, var(--ldkj-color-primary) 18%, transparent)",
+    "--ldkj-slider-track": "var(--ldkj-color-muted)",
+    "--ldkj-slider-track-shadow": "inset 0 1px 2px rgb(15 23 42 / 10%)",
     "--ldkj-slider-thumb-shadow":
       "0 0 0 3px var(--ldkj-slider-thumb-ring), 0 4px 12px -2px rgba(0,0,0,0.12)",
     "--ldkj-slider-thumb-shadow-hover":
       "0 0 0 5px var(--ldkj-slider-thumb-ring), 0 6px 20px -4px rgba(0,0,0,0.16)",
   },
   gradient: {
-    "--ldkj-slider-fill": "rgb(6 182 212)",
-    "--ldkj-slider-fill-end": "rgb(37 99 235)",
-    "--ldkj-slider-focus-ring": "rgb(14 165 233 / 0.22)",
+    "--ldkj-slider-fill": "var(--ldkj-color-secondary)",
+    "--ldkj-slider-fill-end": "var(--ldkj-color-primary)",
+    "--ldkj-slider-focus-ring": "var(--ldkj-color-ring)",
     "--ldkj-slider-thumb":
-      "linear-gradient(145deg, rgb(34 211 238) 0%, rgb(37 99 235) 72%, rgb(30 64 175) 100%)",
-    "--ldkj-slider-thumb-ring": "rgb(14 165 233 / 0.16)",
-    "--ldkj-slider-track": "rgb(226 232 240)",
-    "--ldkj-slider-track-shadow": "inset 0 1px 2px rgba(15,23,42,0.16)",
+      "linear-gradient(145deg, var(--ldkj-color-secondary) 0%, var(--ldkj-color-primary) 72%, var(--ldkj-color-primary-hover) 100%)",
+    "--ldkj-slider-thumb-ring": "color-mix(in srgb, var(--ldkj-color-secondary) 16%, transparent)",
+    "--ldkj-slider-track": "var(--ldkj-color-muted)",
+    "--ldkj-slider-track-shadow": "inset 0 1px 2px rgb(15 23 42 / 16%)",
     "--ldkj-slider-thumb-shadow":
       "0 0 0 5px var(--ldkj-slider-thumb-ring), 0 10px 24px -10px rgba(14,116,144,0.9)",
     "--ldkj-slider-thumb-shadow-hover":

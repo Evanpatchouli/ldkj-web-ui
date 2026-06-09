@@ -56,15 +56,15 @@ export type TooltipArrowProps = React.ComponentPropsWithoutRef<
   };
 
 const toneClassNames: Record<TooltipTone, string> = {
-  dark: "border-gray-900 bg-gray-950 text-white",
-  light: "border-gray-200 bg-white text-gray-900",
-  primary: "border-blue-600 bg-blue-600 text-white",
+  dark: "border-[color:var(--ldkj-color-foreground)] bg-[color:var(--ldkj-color-foreground)] text-[color:var(--ldkj-color-background)]",
+  light: "border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-popover)] text-[color:var(--ldkj-color-popover-foreground)]",
+  primary: "border-[color:var(--ldkj-color-primary)] bg-[color:var(--ldkj-color-primary)] text-[color:var(--ldkj-color-primary-foreground)]",
 };
 
 const arrowClassNames: Record<TooltipTone, string> = {
-  dark: "fill-gray-950",
-  light: "fill-white",
-  primary: "fill-blue-600",
+  dark: "fill-[color:var(--ldkj-color-foreground)]",
+  light: "fill-[color:var(--ldkj-color-popover)]",
+  primary: "fill-[color:var(--ldkj-color-primary)]",
 };
 
 /**

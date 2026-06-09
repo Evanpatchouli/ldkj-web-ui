@@ -176,24 +176,24 @@ const sizeClass: Record<CollapseSize, { trigger: string; body: string; icon: str
 };
 
 const rootVariantClass: Record<CollapseVariant, string> = {
-  outlined: "bg-white",
-  filled: "bg-slate-50",
+  outlined: "bg-[color:var(--ldkj-color-card)] text-[color:var(--ldkj-color-card-foreground)]",
+  filled: "bg-[color:var(--ldkj-color-muted)] text-[color:var(--ldkj-color-foreground)]",
   plain: "bg-transparent",
   ghost: "bg-transparent",
 };
 
 const itemVariantClass: Record<CollapseVariant, string> = {
-  outlined: "bg-white",
-  filled: "bg-slate-50",
+  outlined: "bg-[color:var(--ldkj-color-card)]",
+  filled: "bg-[color:var(--ldkj-color-muted)]",
   plain: "bg-transparent",
   ghost: "bg-transparent",
 };
 
 const triggerVariantClass: Record<CollapseVariant, string> = {
-  outlined: "hover:bg-slate-50",
-  filled: "hover:bg-slate-100",
-  plain: "hover:bg-slate-50",
-  ghost: "hover:bg-slate-50",
+  outlined: "hover:bg-[color:var(--ldkj-color-accent)] hover:text-[color:var(--ldkj-color-accent-foreground)]",
+  filled: "hover:bg-[color:var(--ldkj-color-accent)] hover:text-[color:var(--ldkj-color-accent-foreground)]",
+  plain: "hover:bg-[color:var(--ldkj-color-accent)] hover:text-[color:var(--ldkj-color-accent-foreground)]",
+  ghost: "hover:bg-[color:var(--ldkj-color-accent)] hover:text-[color:var(--ldkj-color-accent-foreground)]",
 };
 
 function normalizeKey(value: CollapseKey) {
@@ -291,7 +291,7 @@ function DefaultExpandIcon(props: CollapseExpandIconRenderProps & { className?: 
   return (
     <ChevronIcon
       className={cn(
-        "shrink-0 text-slate-500 transition-transform duration-200",
+        "shrink-0 text-[color:var(--ldkj-color-muted-foreground)] transition-transform duration-200",
         active && "rotate-180",
         className,
       )}
@@ -524,7 +524,7 @@ const CollapseRoot = React.forwardRef<HTMLDivElement, CollapseProps>(
           ref={ref}
           className={cn(
             "w-full overflow-hidden",
-            bordered && variant !== "plain" && "rounded-md border border-slate-200",
+            bordered && variant !== "plain" && "rounded-md border border-[color:var(--ldkj-color-border)]",
             rootVariantClass[variant],
             variant === "ghost" && "space-y-2 overflow-visible",
             sxClassName,
@@ -595,8 +595,8 @@ const CollapseItem = React.forwardRef<HTMLDivElement, CollapseItemProps>(
           ref={ref}
           className={cn(
             "overflow-hidden",
-            root.variant === "ghost" && "rounded-md border border-slate-200",
-            root.bordered && root.variant !== "ghost" && "border-b border-slate-200 last:border-b-0",
+            root.variant === "ghost" && "rounded-md border border-[color:var(--ldkj-color-border)]",
+            root.bordered && root.variant !== "ghost" && "border-b border-[color:var(--ldkj-color-border)] last:border-b-0",
             itemVariantClass[root.variant],
             itemDisabled && "opacity-60",
             sxClassName,
@@ -636,7 +636,7 @@ const CollapseHeader = React.forwardRef<HTMLDivElement, CollapseHeaderProps>(
       <Heading
         ref={ref}
         className={cn(
-          "m-0 flex min-w-0 items-stretch text-slate-900",
+          "m-0 flex min-w-0 items-stretch text-[color:var(--ldkj-color-foreground)]",
           sxClassName,
           className,
           legacyClass,
@@ -701,9 +701,9 @@ const CollapseTrigger = React.forwardRef<HTMLButtonElement, CollapseTriggerProps
         id={item.triggerId}
         type={type}
         className={cn(
-          "flex min-w-0 flex-1 items-center gap-3 text-left font-medium leading-5 text-slate-900 transition-colors",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:ring-inset",
-          "disabled:cursor-not-allowed disabled:text-slate-500",
+          "flex min-w-0 flex-1 items-center gap-3 text-left font-medium leading-5 text-[color:var(--ldkj-color-foreground)] transition-colors",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]/40 focus-visible:ring-inset",
+          "disabled:cursor-not-allowed disabled:text-[color:var(--ldkj-color-muted-foreground)]",
           sizeClass[root.size].trigger,
           triggerVariantClass[root.variant],
           root.expandIconPosition === "start" && "flex-row-reverse justify-end",
@@ -791,7 +791,7 @@ const CollapseContent = React.forwardRef<HTMLDivElement, CollapseContentProps>(
         aria-labelledby={item.triggerId}
         aria-hidden={!active}
         className={cn(
-          "grid overflow-hidden text-slate-600 transition-[grid-template-rows,opacity] duration-200 ease-out",
+          "grid overflow-hidden text-[color:var(--ldkj-color-muted-foreground)] transition-[grid-template-rows,opacity] duration-200 ease-out",
           active ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
           sxClassName,
           className,
@@ -830,7 +830,7 @@ const CollapseActions = React.forwardRef<HTMLDivElement, CollapseActionsProps>(
       <div
         ref={ref}
         className={cn(
-          "flex shrink-0 items-center gap-2 text-sm text-slate-500",
+          "flex shrink-0 items-center gap-2 text-sm text-[color:var(--ldkj-color-muted-foreground)]",
           sizeClass[root.size].trigger,
           item.disabled && "pointer-events-none",
           sxClassName,

@@ -20,10 +20,10 @@ export type ProgressProps = React.HTMLAttributes<HTMLDivElement> & {
 };
 
 const statusColorMap: Record<ProgressStatus, string> = {
-  normal: "#2563eb",
-  success: "#059669",
-  warning: "#d97706",
-  exception: "#e11d48",
+  normal: "var(--ldkj-color-primary)",
+  success: "var(--ldkj-color-success)",
+  warning: "var(--ldkj-color-warning)",
+  exception: "var(--ldkj-color-danger)",
 };
 
 const circleSizeMap: Record<Exclude<ProgressSize, number>, number> = {
@@ -62,7 +62,7 @@ export function Progress(props: ProgressProps) {
     size = "md",
     strokeWidth,
     strokeColor,
-    trailColor = "#e2e8f0",
+    trailColor = "var(--ldkj-color-muted)",
     format,
     className,
     class: legacyClass,
@@ -114,7 +114,7 @@ export function Progress(props: ProgressProps) {
           />
         </svg>
         {showInfo ? (
-          <div className="absolute inset-0 flex items-center justify-center text-sm font-medium text-slate-700">
+          <div className="absolute inset-0 flex items-center justify-center text-sm font-medium text-[color:var(--ldkj-color-foreground)]">
             {info}
           </div>
         ) : null}
@@ -140,7 +140,11 @@ export function Progress(props: ProgressProps) {
           style={{ width: `${percent}%`, backgroundColor: activeColor }}
         />
       </div>
-      {showInfo ? <div className="mt-1 text-xs text-slate-500">{info}</div> : null}
+      {showInfo ? (
+        <div className="mt-1 text-xs text-[color:var(--ldkj-color-muted-foreground)]">
+          {info}
+        </div>
+      ) : null}
     </div>
   );
 }

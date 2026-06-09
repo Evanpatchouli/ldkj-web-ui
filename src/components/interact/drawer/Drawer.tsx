@@ -155,10 +155,10 @@ export function Drawer(props: DrawerProps) {
   if (!mounted) return null;
 
   return (
-    <div className="fixed inset-0 z-50" aria-hidden={!visible}>
+    <div className="fixed inset-0 z-[var(--ldkj-z-drawer)]" aria-hidden={!visible}>
       <div
         className={cn(
-          "absolute inset-0 bg-black/45",
+          "absolute inset-0 bg-[color:var(--ldkj-color-overlay)]",
           animated && "transition-opacity ease-out",
           visible ? "opacity-100" : "opacity-0",
           overlayClassName,
@@ -175,7 +175,7 @@ export function Drawer(props: DrawerProps) {
         aria-modal="true"
         aria-label={typeof title === "string" ? title : undefined}
         className={cn(
-          "absolute flex max-h-full max-w-full flex-col bg-white shadow-xl outline-none",
+          "absolute flex max-h-full max-w-full flex-col bg-[color:var(--ldkj-color-surface)] text-[color:var(--ldkj-color-surface-foreground)] shadow-[var(--ldkj-shadow-modal)] outline-none",
           panelPosition.position,
           animated && "transition-transform ease-out will-change-transform",
           visible ? panelPosition.open : panelPosition.closed,
@@ -190,12 +190,12 @@ export function Drawer(props: DrawerProps) {
         {...rest}
       >
         {title ? (
-          <div className="flex shrink-0 items-center justify-between border-b border-slate-200 px-4 py-3">
-            <div className="min-w-0 text-base font-medium text-slate-900">{title}</div>
+          <div className="flex shrink-0 items-center justify-between border-b border-[color:var(--ldkj-color-border)] px-4 py-3">
+            <div className="min-w-0 text-base font-medium text-[color:var(--ldkj-color-foreground)]">{title}</div>
             <button
               type="button"
               aria-label="Close drawer"
-              className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded text-slate-500 transition hover:bg-slate-100 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
+              className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded text-[color:var(--ldkj-color-muted-foreground)] transition hover:bg-[color:var(--ldkj-color-accent)] hover:text-[color:var(--ldkj-color-foreground)] focus:outline-none focus:ring-2 focus:ring-[color:var(--ldkj-color-ring)]"
               onClick={() => onOpenChange?.(false)}
             >
               x
@@ -203,7 +203,11 @@ export function Drawer(props: DrawerProps) {
           </div>
         ) : null}
         <div className={cn("min-h-0 flex-1 overflow-auto p-4", bodyClassName)}>{children}</div>
-        {footer ? <div className="shrink-0 border-t border-slate-200 px-4 py-3">{footer}</div> : null}
+        {footer ? (
+          <div className="shrink-0 border-t border-[color:var(--ldkj-color-border)] px-4 py-3">
+            {footer}
+          </div>
+        ) : null}
       </div>
     </div>
   );

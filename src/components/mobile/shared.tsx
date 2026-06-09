@@ -127,7 +127,7 @@ export function ClearIcon(props: React.SVGProps<SVGSVGElement>) {
 export function LoadingSpinner() {
   return (
     <span
-      className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-slate-300 border-t-blue-600"
+      className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-[color:var(--ldkj-color-border)] border-t-[color:var(--ldkj-color-primary)]"
       aria-hidden="true"
     />
   );
@@ -181,11 +181,11 @@ export function MobileDrawer(props: MobileDrawerProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-50">
+    <div className="fixed inset-0 z-[var(--ldkj-z-drawer)]">
       <button
         type="button"
         aria-label="关闭选择面板"
-        className="absolute inset-0 h-full w-full cursor-default border-0 bg-black/45 p-0"
+        className="absolute inset-0 h-full w-full cursor-default border-0 bg-[color:var(--ldkj-color-overlay)] p-0"
         onClick={closeByCancel}
       />
       <div
@@ -193,7 +193,7 @@ export function MobileDrawer(props: MobileDrawerProps) {
         aria-modal="true"
         aria-label={typeof title === "string" ? title : "移动端选择面板"}
         className={cn(
-          "absolute bottom-0 left-0 right-0 flex max-h-[76vh] flex-col overflow-hidden rounded-t-xl bg-white shadow-2xl",
+          "absolute bottom-0 left-0 right-0 flex max-h-[76vh] flex-col overflow-hidden rounded-t-xl bg-[color:var(--ldkj-color-surface)] text-[color:var(--ldkj-color-surface-foreground)] shadow-[var(--ldkj-shadow-modal)]",
           sxClassName,
           className,
           legacyClass,
@@ -204,9 +204,9 @@ export function MobileDrawer(props: MobileDrawerProps) {
           sxInlineStyle,
         )}
       >
-        <div className="flex min-h-12 shrink-0 items-center gap-3 border-b border-slate-200 px-4">
+        <div className="flex min-h-12 shrink-0 items-center gap-3 border-b border-[color:var(--ldkj-color-border)] px-4">
           {title ? (
-            <div className="min-w-0 flex-1 truncate text-left text-sm font-medium text-slate-900">
+            <div className="min-w-0 flex-1 truncate text-left text-sm font-medium text-[color:var(--ldkj-color-foreground)]">
               {title}
             </div>
           ) : (
@@ -216,14 +216,14 @@ export function MobileDrawer(props: MobileDrawerProps) {
           <div className="flex shrink-0 items-center justify-end gap-2">
             <button
               type="button"
-              className="rounded-md bg-blue-50 px-3 py-1.5 text-sm font-medium text-blue-600 transition-colors hover:bg-blue-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
+              className="rounded-md bg-[color:var(--ldkj-color-accent)] px-3 py-1.5 text-sm font-medium text-[color:var(--ldkj-color-primary)] transition-colors hover:bg-[color:var(--ldkj-color-accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]"
               onClick={closeByCancel}
             >
               {cancelText}
             </button>
             <button
               type="button"
-              className="rounded-md bg-blue-600 px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30 disabled:cursor-not-allowed disabled:bg-blue-200"
+              className="rounded-md bg-[color:var(--ldkj-color-primary)] px-3 py-1.5 text-sm font-medium text-[color:var(--ldkj-color-primary-foreground)] transition-colors hover:bg-[color:var(--ldkj-color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)] disabled:cursor-not-allowed disabled:opacity-50"
               disabled={confirmDisabled}
               onClick={onConfirm}
             >
@@ -262,9 +262,9 @@ export const MobileTrigger = React.forwardRef<HTMLButtonElement, MobileTriggerPr
           ref={ref}
           type="button"
           className={cn(
-            "flex h-10 w-full min-w-0 items-center gap-2 rounded-md border border-solid border-slate-300 bg-white px-3 text-left text-sm text-slate-900 shadow-sm transition-colors",
-            "focus-visible:border-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30",
-            "disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-500 disabled:opacity-70",
+            "flex h-10 w-full min-w-0 items-center gap-2 rounded-md border border-solid border-[color:var(--ldkj-color-input)] bg-[color:var(--ldkj-color-surface)] px-3 text-left text-sm text-[color:var(--ldkj-color-foreground)] shadow-sm transition-colors",
+            "focus-visible:border-[color:var(--ldkj-color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]",
+            "disabled:cursor-not-allowed disabled:bg-[color:var(--ldkj-color-surface-muted)] disabled:text-[color:var(--ldkj-color-muted-foreground)] disabled:opacity-70",
             readOnly && "cursor-default",
             clearable && hasValue && !disabled && !readOnly ? "pr-16" : "pr-9",
             sxClassName,
@@ -282,18 +282,18 @@ export const MobileTrigger = React.forwardRef<HTMLButtonElement, MobileTriggerPr
           <span
             className={cn(
               "min-w-0 flex-1 truncate",
-              !hasValue && "text-slate-400",
+              !hasValue && "text-[color:var(--ldkj-color-muted-foreground)]",
             )}
           >
             {hasValue ? display : placeholder}
           </span>
-          <ChevronDownIcon className="absolute right-3 h-4 w-4 text-slate-500" />
+          <ChevronDownIcon className="absolute right-3 h-4 w-4 text-[color:var(--ldkj-color-muted-foreground)]" />
         </button>
 
         {clearable && hasValue && !disabled && !readOnly ? (
           <button
             type="button"
-            className="absolute right-8 top-1/2 z-10 -translate-y-1/2 rounded p-1 text-slate-400 transition-colors hover:text-slate-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
+            className="absolute right-8 top-1/2 z-10 -translate-y-1/2 rounded p-1 text-[color:var(--ldkj-color-muted-foreground)] transition-colors hover:text-[color:var(--ldkj-color-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]"
             aria-label="清除选择"
             onMouseDown={(event) => event.preventDefault()}
             onClick={(event) => {

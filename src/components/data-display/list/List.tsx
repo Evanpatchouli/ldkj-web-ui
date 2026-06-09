@@ -24,7 +24,7 @@ export function List(props: ListProps) {
     <ul
       className={cn(
         "m-0 list-none p-0",
-        bordered && "divide-y rounded-md border border-slate-200",
+        bordered && "divide-y divide-[color:var(--ldkj-color-border)] rounded-md border border-[color:var(--ldkj-color-border)]",
         sxClassName,
         className,
         legacyClass,

@@ -271,7 +271,7 @@ const DialogOverlay = React.forwardRef<HTMLDivElement, DialogOverlayProps>((prop
       hidden={!open}
       data-state={open ? "open" : "closed"}
       className={cn(
-        "fixed inset-0 z-50 bg-black/50",
+        "fixed inset-0 z-[var(--ldkj-z-modal)] bg-[color:var(--ldkj-color-overlay)]",
         blur ? "backdrop-blur-[1px]" : null,
         "data-[state=open]:animate-in data-[state=closed]:animate-out",
         "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
@@ -359,7 +359,7 @@ const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>((prop
       scrollable={shouldAllowBackgroundScroll}
       blur={overlayBlur ? 1 : false}
       className={cn(
-        "z-50",
+        "z-[var(--ldkj-z-modal)]",
         "data-[state=open]:animate-in data-[state=closed]:animate-out",
         "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
         overlayClassName,
@@ -385,11 +385,11 @@ const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>((prop
       <div
         ref={contentRef}
         role="dialog"
-        aria-modal={Boolean(context.modal).toString() as Booleanish}
+          aria-modal={Boolean(context.modal).toString() as Booleanish}
         tabIndex={-1}
         data-state={context.open ? "open" : "closed"}
         className={cn(
-          "relative grid gap-4 rounded-lg border border-slate-200 bg-white p-6 text-slate-950 shadow-xl outline-none",
+          "relative grid gap-4 rounded-lg border border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-surface)] p-6 text-[color:var(--ldkj-color-surface-foreground)] shadow-[var(--ldkj-shadow-modal)] outline-none",
           "duration-200",
           "data-[state=open]:animate-in data-[state=closed]:animate-out",
           "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
@@ -431,8 +431,8 @@ const DialogHeader = React.forwardRef<HTMLDivElement, DialogHeaderProps>((props,
           type="button"
           className={cn(
             "inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md",
-            "text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+            "text-[color:var(--ldkj-color-muted-foreground)] transition-colors hover:bg-[color:var(--ldkj-color-accent)] hover:text-[color:var(--ldkj-color-foreground)]",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)] focus-visible:ring-offset-2",
             "disabled:pointer-events-none",
           )}
           aria-label="关闭弹窗"
@@ -470,7 +470,12 @@ const DialogTitle = React.forwardRef<HTMLHeadingElement, DialogTitleProps>((prop
   return (
     <h2
       ref={ref}
-      className={cn("m-0 text-lg font-semibold leading-6 text-slate-950", sxClassName, className, legacyClass)}
+      className={cn(
+        "m-0 text-lg font-semibold leading-6 text-[color:var(--ldkj-color-foreground)]",
+        sxClassName,
+        className,
+        legacyClass,
+      )}
       style={mergeSxStyle(
         {
           margin: 0,
@@ -498,7 +503,12 @@ const DialogDescription = React.forwardRef<HTMLParagraphElement, DialogDescripti
   return (
     <p
       ref={ref}
-      className={cn("m-0 text-sm leading-5 text-slate-600", sxClassName, className, legacyClass)}
+      className={cn(
+        "m-0 text-sm leading-5 text-[color:var(--ldkj-color-muted-foreground)]",
+        sxClassName,
+        className,
+        legacyClass,
+      )}
       style={mergeSxStyle(
         {
           margin: 0,

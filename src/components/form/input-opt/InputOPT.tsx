@@ -88,9 +88,12 @@ const slotSizeClasses: Record<InputOPTSize, string> = {
 };
 
 const slotVariantClasses: Record<InputOPTVariant, string> = {
-  outline: "rounded-md border border-slate-300 bg-white text-slate-900",
-  filled: "rounded-md border border-slate-100 bg-slate-100 text-slate-900",
-  underline: "border-0 border-b border-slate-300 bg-transparent text-slate-900",
+  outline:
+    "rounded-md border border-[color:var(--ldkj-color-input)] bg-[color:var(--ldkj-color-surface)] text-[color:var(--ldkj-color-foreground)]",
+  filled:
+    "rounded-md border border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-surface-muted)] text-[color:var(--ldkj-color-foreground)]",
+  underline:
+    "border-0 border-b border-[color:var(--ldkj-color-input)] bg-transparent text-[color:var(--ldkj-color-foreground)]",
 };
 
 function toSafeLength(length: number | undefined) {
@@ -391,12 +394,16 @@ export const InputOPT = React.forwardRef<HTMLInputElement, InputOPTProps>((props
                   "inline-flex shrink-0 select-none items-center justify-center font-semibold transition-colors",
                   slotSizeClasses[size],
                   slotVariantClasses[variant],
-                  !filled && "font-normal text-slate-400",
-                  active && "border-blue-500 ring-2 ring-blue-500/30",
-                  invalid && "border-red-500 text-red-600",
-                  active && invalid && "ring-red-500/25",
-                  disabled && "cursor-not-allowed bg-slate-50 text-slate-400 opacity-70",
-                  readOnly && !disabled && "bg-slate-50",
+                  !filled &&
+                    "font-normal text-[color:var(--ldkj-color-muted-foreground)]",
+                  active &&
+                    "border-[color:var(--ldkj-color-primary)] ring-2 ring-[color:var(--ldkj-color-ring)]",
+                  invalid &&
+                    "border-[color:var(--ldkj-color-danger)] text-[color:var(--ldkj-color-danger)]",
+                  active && invalid && "ring-[color:var(--ldkj-color-danger)]",
+                  disabled &&
+                    "cursor-not-allowed bg-[color:var(--ldkj-color-surface-muted)] text-[color:var(--ldkj-color-muted-foreground)] opacity-70",
+                  readOnly && !disabled && "bg-[color:var(--ldkj-color-surface-muted)]",
                   slotClassName,
                 )}
                 data-active={active ? "" : undefined}
@@ -405,7 +412,10 @@ export const InputOPT = React.forwardRef<HTMLInputElement, InputOPTProps>((props
                 {content}
               </span>
               {separatorNode ? (
-                <span aria-hidden="true" className="select-none text-sm text-slate-400">
+                <span
+                  aria-hidden="true"
+                  className="select-none text-sm text-[color:var(--ldkj-color-muted-foreground)]"
+                >
                   {separatorNode}
                 </span>
               ) : null}

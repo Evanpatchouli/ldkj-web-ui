@@ -32,10 +32,10 @@ const Radio = React.forwardRef<
     <RadioGroupPrimitive.Item
       ref={ref}
       className={cn(
-        "inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-solid border-slate-300 bg-white text-blue-600 transition-colors",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+        "inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-solid border-[color:var(--ldkj-color-input)] bg-[color:var(--ldkj-color-surface)] text-[color:var(--ldkj-color-primary)] transition-colors",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)] focus-visible:ring-offset-2",
         "disabled:cursor-not-allowed disabled:opacity-50",
-        "data-[state=checked]:border-blue-600",
+        "data-[state=checked]:border-[color:var(--ldkj-color-primary)]",
         sxClassName,
         className,
         legacyClass,

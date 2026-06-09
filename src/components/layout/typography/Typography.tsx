@@ -9,8 +9,8 @@ const variantClass: Record<TypographyVariant, string> = {
   h1: "text-3xl font-semibold leading-tight",
   h2: "text-2xl font-semibold leading-tight",
   h3: "text-xl font-semibold leading-snug",
-  body: "text-sm leading-6 text-slate-700",
-  caption: "text-xs leading-5 text-slate-500",
+  body: "text-sm leading-6 text-[color:var(--ldkj-color-foreground)]",
+  caption: "text-xs leading-5 text-[color:var(--ldkj-color-muted-foreground)]",
 };
 
 export type TypographyProps<T extends ElementType = "p"> = {

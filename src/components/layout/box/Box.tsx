@@ -42,7 +42,7 @@ export type BoxProps<T extends ElementType = "div"> = PolymorphicProps<T> &
 function DefaultLoadingIndicator() {
   return (
     <span
-      className="h-6 w-6 animate-spin rounded-full border-2 border-blue-200 border-t-blue-600"
+      className="h-6 w-6 animate-spin rounded-full border-2 border-[color:var(--ldkj-color-border)] border-t-[color:var(--ldkj-color-primary)]"
       aria-hidden="true"
     />
   );
@@ -105,7 +105,7 @@ export function Box<T extends ElementType = "div">(props: BoxProps<T>) {
 
       {loading ? (
         <div
-          className="box-loading-mask absolute inset-0 z-10 flex items-center justify-center bg-white/65"
+          className="box-loading-mask absolute inset-0 z-10 flex items-center justify-center bg-[color:var(--ldkj-color-background)]/65"
           aria-hidden="true"
         >
           {loadingContent ?? <DefaultLoadingIndicator />}
@@ -114,11 +114,11 @@ export function Box<T extends ElementType = "div">(props: BoxProps<T>) {
 
       {modal ? (
         <div
-          className="box-modal-mask absolute inset-0 z-20 flex items-center justify-center bg-black/45 p-4"
+          className="box-modal-mask absolute inset-0 z-20 flex items-center justify-center bg-[color:var(--ldkj-color-overlay)] p-4"
           onClick={onModalMaskClick}
         >
           <div
-            className="box-modal-content max-w-full rounded-lg bg-white p-4 shadow-lg"
+            className="box-modal-content max-w-full rounded-lg bg-[color:var(--ldkj-color-popover)] p-4 text-[color:var(--ldkj-color-popover-foreground)] shadow-lg"
             onClick={(event) => event.stopPropagation()}
           >
             {modalContent}

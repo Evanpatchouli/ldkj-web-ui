@@ -32,7 +32,7 @@ export function Divider(props: DividerProps) {
     variant = "full",
     align = "center",
     type = "solid",
-    color = "text-gray-200",
+    color = "text-[color:var(--ldkj-color-border)]",
     sx,
     children,
     className,
@@ -49,7 +49,7 @@ export function Divider(props: DividerProps) {
         role="separator"
         aria-orientation="vertical"
         className={cn(
-          "inline-flex min-h-6 self-stretch items-stretch text-gray-200",
+          "inline-flex min-h-6 self-stretch items-stretch text-[color:var(--ldkj-color-border)]",
           verticalVariantClass[variant],
           sxClassName,
           className,
@@ -78,7 +78,7 @@ export function Divider(props: DividerProps) {
         role="separator"
         aria-orientation="horizontal"
         className={cn(
-          "w-full text-gray-200",
+          "w-full text-[color:var(--ldkj-color-border)]",
           horizontalVariantClass[variant],
           sxClassName,
           className,
@@ -100,7 +100,7 @@ export function Divider(props: DividerProps) {
       role="separator"
       aria-orientation="horizontal"
       className={cn(
-        "flex w-full items-center text-gray-200",
+        "flex w-full items-center text-[color:var(--ldkj-color-border)]",
         horizontalVariantClass[variant],
         sxClassName,
         className,
@@ -113,7 +113,7 @@ export function Divider(props: DividerProps) {
         className={cn(beforeLineClass, "border-t border-current", color)}
         style={{ borderStyle: type }}
       />
-      <span className="shrink-0 px-3 text-gray-500">{children}</span>
+      <span className="shrink-0 px-3 text-[color:var(--ldkj-color-muted-foreground)]">{children}</span>
       <span
         aria-hidden
         className={cn(afterLineClass, "border-t border-current", color)}

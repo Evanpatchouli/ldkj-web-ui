@@ -11,6 +11,7 @@ const config: UserConfig = {
   base: base,
   title: "@ldkj/web-ui",
   description: "shadcn-ui style component library based on React + VitePress",
+  appearance: false,
   themeConfig: {
     nav: [
       { text: "指南", link: "/" },
@@ -26,7 +27,10 @@ const config: UserConfig = {
     sidebar: [
       {
         text: "通用",
-        items: [{ text: "SX 样式系统", link: "/general/sx" }],
+        items: [
+          { text: "主题定制", link: "/general/theme" },
+          { text: "SX 样式系统", link: "/general/sx" },
+        ],
       },
       {
         text: "组件",
@@ -166,11 +170,11 @@ const config: UserConfig = {
           { text: "日志索引", link: "/devlog/" },
           ...(!isProd ? [{ text: "Next", link: "/devlog/next" }] : []),
           // 只陈列最近的 5 个版本
+          { text: "v1.0.0", link: "/devlog/v1.0.0" },
           { text: "v0.22.0", link: "/devlog/v0.22.0" },
           { text: "v0.21.0", link: "/devlog/v0.21.0" },
           { text: "v0.20.0", link: "/devlog/v0.20.0" },
           { text: "v0.19.0", link: "/devlog/v0.19.0" },
-          { text: "v0.18.0", link: "/devlog/v0.18.0" },
         ],
       },
     ],

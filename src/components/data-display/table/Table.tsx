@@ -183,7 +183,7 @@ function TableRoot<RecordType extends object = Record<string, unknown>>(
           className={cn(
             "table w-full table-fixed border-collapse text-left",
             bordered &&
-              "[&_td]:border-r [&_td]:border-slate-100 [&_td:last-child]:border-r-0 [&_th]:border-r [&_th]:border-slate-100 [&_th:last-child]:border-r-0",
+              "[&_td]:border-r [&_td]:border-[color:var(--ldkj-color-border)] [&_td:last-child]:border-r-0 [&_th]:border-r [&_th]:border-[color:var(--ldkj-color-border)] [&_th:last-child]:border-r-0",
             tableProps?.className,
           )}
           style={mergeSxStyle(
@@ -210,7 +210,7 @@ function TableRoot<RecordType extends object = Record<string, unknown>>(
           ) : null}
 
           {caption ? (
-            <caption className="px-4 py-3 text-left text-sm text-slate-600">
+            <caption className="px-4 py-3 text-left text-sm text-[color:var(--ldkj-color-muted-foreground)]">
               {caption}
             </caption>
           ) : null}

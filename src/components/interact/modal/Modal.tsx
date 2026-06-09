@@ -96,10 +96,16 @@ export function Modal(props: ModalProps) {
   return (
     <div
       hidden={!open}
-      className={cn("fixed inset-0 z-[9999]", sxClassName, className, legacyClass)}
+      className={cn(
+        "fixed inset-0 z-[var(--ldkj-z-modal)]",
+        sxClassName,
+        className,
+        legacyClass,
+      )}
       style={mergeSxStyle(
         {
-          backgroundColor: `rgba(0, 0, 0, ${alpha})`,
+          backgroundColor:
+            alpha === 0.5 ? "var(--ldkj-color-overlay)" : `rgba(0, 0, 0, ${alpha})`,
           backdropFilter: parseBlur(blur),
           WebkitBackdropFilter: parseBlur(blur),
         },

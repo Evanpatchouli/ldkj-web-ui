@@ -116,8 +116,8 @@ const InputBase = React.forwardRef<HTMLInputElement, InputProps>((props, ref) =>
   const decorated = hasInputSlot(slots);
   const inputClassName = cn(
     decorated
-      ? "min-w-0 flex-1 border-0 bg-transparent px-0 py-0 text-sm text-slate-900 outline-none file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-slate-700 placeholder:text-slate-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:text-slate-500"
-      : "flex h-9 w-full rounded-md border border-solid border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-slate-700 placeholder:text-slate-400 focus-visible:border-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-500 disabled:opacity-70",
+      ? "min-w-0 flex-1 appearance-none border-0 bg-transparent px-0 py-0 text-sm text-[color:var(--ldkj-color-foreground)] outline-none file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-[color:var(--ldkj-color-foreground)] placeholder:text-[color:var(--ldkj-color-muted-foreground)] focus-visible:outline-none disabled:cursor-not-allowed disabled:text-[color:var(--ldkj-color-muted-foreground)]"
+      : "flex h-9 w-full appearance-none rounded-md border border-solid border-[color:var(--ldkj-color-input)] bg-[color:var(--ldkj-color-surface)] px-3 py-2 text-sm text-[color:var(--ldkj-color-foreground)] shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-[color:var(--ldkj-color-foreground)] placeholder:text-[color:var(--ldkj-color-muted-foreground)] focus-visible:border-[color:var(--ldkj-color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)] disabled:cursor-not-allowed disabled:bg-[color:var(--ldkj-color-surface-muted)] disabled:text-[color:var(--ldkj-color-muted-foreground)] disabled:opacity-70",
     !decorated && sxClassName,
     !decorated && className,
     !decorated && legacyClass,
@@ -151,33 +151,34 @@ const InputBase = React.forwardRef<HTMLInputElement, InputProps>((props, ref) =>
       style={mergeSxStyle(style, sxInlineStyle)}
     >
       {slots.addonBefore ? (
-        <span className="inline-flex shrink-0 items-center rounded-l-md border border-r-0 border-solid border-slate-300 bg-slate-50 px-3 text-slate-600">
+        <span className="inline-flex shrink-0 items-center rounded-l-md border border-r-0 border-solid border-[color:var(--ldkj-color-input)] bg-[color:var(--ldkj-color-surface-muted)] px-3 text-[color:var(--ldkj-color-muted-foreground)]">
           {slots.addonBefore}
         </span>
       ) : null}
       <span
         className={cn(
-          "inline-flex min-w-0 flex-1 items-center gap-2 border border-solid border-slate-300 bg-white px-3 text-slate-900 transition-colors",
+          "inline-flex min-w-0 flex-1 items-center gap-2 border border-solid border-[color:var(--ldkj-color-input)] bg-[color:var(--ldkj-color-surface)] px-3 text-[color:var(--ldkj-color-foreground)] transition-colors",
           slots.addonBefore ? "rounded-l-none" : "rounded-l-md",
           slots.addonAfter ? "rounded-r-none" : "rounded-r-md",
-          "focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500/30",
-          disabled && "bg-slate-50 text-slate-500",
+          "focus-within:border-[color:var(--ldkj-color-primary)] focus-within:ring-2 focus-within:ring-[color:var(--ldkj-color-ring)]",
+          disabled &&
+            "bg-[color:var(--ldkj-color-surface-muted)] text-[color:var(--ldkj-color-muted-foreground)]",
         )}
       >
         {slots.prefix ? (
-          <span className="inline-flex shrink-0 items-center text-slate-500">
+          <span className="inline-flex shrink-0 items-center text-[color:var(--ldkj-color-muted-foreground)]">
             {slots.prefix}
           </span>
         ) : null}
         {input}
         {slots.suffix ? (
-          <span className="inline-flex shrink-0 items-center text-slate-500">
+          <span className="inline-flex shrink-0 items-center text-[color:var(--ldkj-color-muted-foreground)]">
             {slots.suffix}
           </span>
         ) : null}
       </span>
       {slots.addonAfter ? (
-        <span className="inline-flex shrink-0 items-center rounded-r-md border border-l-0 border-solid border-slate-300 bg-slate-50 px-3 text-slate-600">
+        <span className="inline-flex shrink-0 items-center rounded-r-md border border-l-0 border-solid border-[color:var(--ldkj-color-input)] bg-[color:var(--ldkj-color-surface-muted)] px-3 text-[color:var(--ldkj-color-muted-foreground)]">
           {slots.addonAfter}
         </span>
       ) : null}

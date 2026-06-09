@@ -428,7 +428,7 @@ export const AutoComplete = React.forwardRef<HTMLInputElement, AutoCompleteProps
             id={listboxId}
             role="listbox"
             className={cn(
-              "absolute left-0 top-full z-50 mt-1 max-h-64 w-full overflow-y-auto rounded-md border border-solid border-slate-200 bg-white p-1 text-slate-900 shadow-lg",
+              "absolute left-0 top-full z-[var(--ldkj-z-dropdown)] mt-1 max-h-64 w-full overflow-y-auto rounded-md border border-solid border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-surface)] p-1 text-[color:var(--ldkj-color-surface-foreground)] shadow-[var(--ldkj-shadow-popover)]",
               "animate-in fade-in-0 zoom-in-95",
               dropdownResolvedSx.sxClassName,
               dropdownClassName,
@@ -450,11 +450,14 @@ export const AutoComplete = React.forwardRef<HTMLInputElement, AutoCompleteProps
                     aria-selected={selected}
                     className={cn(
                       "grid cursor-default select-none gap-0.5 rounded-sm px-2 py-1.5 text-sm leading-5 outline-none transition-colors",
-                      active && "bg-blue-50 text-blue-700",
-                      selected && !active && "bg-slate-50 text-slate-900",
+                      active &&
+                        "bg-[color:var(--ldkj-color-accent)] text-[color:var(--ldkj-color-primary)]",
+                      selected &&
+                        !active &&
+                        "bg-[color:var(--ldkj-color-surface-muted)] text-[color:var(--ldkj-color-foreground)]",
                       disabledOption
-                        ? "pointer-events-none text-slate-400 opacity-70"
-                        : "text-slate-700",
+                        ? "pointer-events-none text-[color:var(--ldkj-color-muted-foreground)] opacity-70"
+                        : "text-[color:var(--ldkj-color-foreground)]",
                       optionResolvedSx.sxClassName,
                       optionClassName,
                     )}
@@ -481,7 +484,7 @@ export const AutoComplete = React.forwardRef<HTMLInputElement, AutoCompleteProps
                       <>
                         <span className="truncate font-medium">{option.label}</span>
                         {option.description ? (
-                          <span className="truncate text-xs text-slate-500">
+                          <span className="truncate text-xs text-[color:var(--ldkj-color-muted-foreground)]">
                             {option.description}
                           </span>
                         ) : null}
@@ -491,7 +494,9 @@ export const AutoComplete = React.forwardRef<HTMLInputElement, AutoCompleteProps
                 );
               })
             ) : (
-              <div className="px-2 py-2 text-sm text-slate-500">{emptyText}</div>
+              <div className="px-2 py-2 text-sm text-[color:var(--ldkj-color-muted-foreground)]">
+                {emptyText}
+              </div>
             )}
           </div>
         ) : null}

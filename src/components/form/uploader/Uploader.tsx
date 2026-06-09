@@ -806,12 +806,12 @@ const UploaderBase = React.forwardRef<HTMLInputElement, UploaderProps>(
 
       if (drag) {
         return (
-          <div className="grid min-h-32 place-items-center rounded-md border border-dashed border-slate-300 bg-slate-50 px-6 py-8 text-center transition-colors hover:border-blue-400 hover:bg-blue-50/40">
+          <div className="grid min-h-32 place-items-center rounded-md border border-dashed border-[color:var(--ldkj-color-input)] bg-[color:var(--ldkj-color-muted)] px-6 py-8 text-center transition-colors hover:border-[color:var(--ldkj-color-primary)] hover:bg-[color:var(--ldkj-color-accent)]">
             <div className="space-y-1">
-              <div className="text-sm font-medium text-slate-700">
+              <div className="text-sm font-medium text-[color:var(--ldkj-color-foreground)]">
                 点击或拖拽文件到此处上传
               </div>
-              <div className="text-xs text-slate-500">
+              <div className="text-xs text-[color:var(--ldkj-color-muted-foreground)]">
                 {accept ? `支持 ${accept}` : "支持单个或多个文件"}
               </div>
             </div>
@@ -932,21 +932,21 @@ const UploaderBase = React.forwardRef<HTMLInputElement, UploaderProps>(
               : "待上传";
       const itemClassName =
         listType === "picture-card"
-          ? "flex min-w-0 flex-col items-stretch gap-3 rounded-md border border-slate-200 bg-white p-3"
-          : "flex min-w-0 items-center gap-3 rounded-md border border-slate-200 bg-white p-3";
+          ? "flex min-w-0 flex-col items-stretch gap-3 rounded-md border border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-card)] p-3"
+          : "flex min-w-0 items-center gap-3 rounded-md border border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-card)] p-3";
       const infoHeaderClassName =
         listType === "picture-card"
           ? "grid min-w-0 gap-2"
           : "flex min-w-0 items-center justify-between gap-3";
       const thumbClassName =
         listType === "picture-card"
-          ? "grid aspect-square w-full shrink-0 place-items-center overflow-hidden rounded-md border border-slate-200 bg-slate-50"
-          : "grid size-14 shrink-0 place-items-center overflow-hidden rounded-md border border-slate-200 bg-slate-50";
+          ? "grid aspect-square w-full shrink-0 place-items-center overflow-hidden rounded-md border border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-muted)]"
+          : "grid size-14 shrink-0 place-items-center overflow-hidden rounded-md border border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-muted)]";
       const originNode = (
         <div
           className={cn(
             itemClassName,
-            file.status === "error" && "border-red-200 bg-red-50/40",
+            file.status === "error" && "border-[color:var(--ldkj-color-danger)] bg-[color:var(--ldkj-color-danger)]/10",
           )}
         >
           {showThumb ? (
@@ -964,17 +964,17 @@ const UploaderBase = React.forwardRef<HTMLInputElement, UploaderProps>(
                   decoding="async"
                 />
               ) : (
-                <span className="px-2 text-xs text-slate-500">FILE</span>
+                <span className="px-2 text-xs text-[color:var(--ldkj-color-muted-foreground)]">FILE</span>
               )}
             </button>
           ) : null}
           <div className="min-w-0 flex-1 space-y-1">
             <div className={infoHeaderClassName}>
               <div className="min-w-0">
-                <div className="truncate text-sm font-medium text-slate-800">
+                <div className="truncate text-sm font-medium text-[color:var(--ldkj-color-card-foreground)]">
                   {file.name}
                 </div>
-                <div className="text-xs text-slate-500">
+                <div className="text-xs text-[color:var(--ldkj-color-muted-foreground)]">
                   {statusLabel}
                   {file.size !== undefined ? ` · ${formatFileSize(file.size)}` : ""}
                 </div>
@@ -985,7 +985,7 @@ const UploaderBase = React.forwardRef<HTMLInputElement, UploaderProps>(
               <Progress value={file.percent ?? 0} size="xs" />
             ) : null}
             {file.status === "error" ? (
-              <div className="text-xs text-red-600">
+              <div className="text-xs text-[color:var(--ldkj-color-danger)]">
                 {file.error?.message ?? "上传失败"}
               </div>
             ) : null}
@@ -1067,7 +1067,7 @@ const UploaderBase = React.forwardRef<HTMLInputElement, UploaderProps>(
           className={cn(
             "inline-block",
             drag && "rounded-md",
-            dragging && "ring-2 ring-blue-500 ring-offset-2",
+            dragging && "ring-2 ring-[color:var(--ldkj-color-ring)] ring-offset-2",
           )}
           role={drag || renderTrigger || children ? "button" : undefined}
           tabIndex={drag || renderTrigger || children ? 0 : undefined}
@@ -1117,7 +1117,7 @@ const UploaderBase = React.forwardRef<HTMLInputElement, UploaderProps>(
               />
             ) : (
               <div
-                className="rounded-md bg-white p-6 text-sm text-slate-700 shadow-xl"
+                className="rounded-md bg-[color:var(--ldkj-color-popover)] p-6 text-sm text-[color:var(--ldkj-color-popover-foreground)] shadow-xl"
                 onClick={(event) => event.stopPropagation()}
               >
                 {previewFile.name}

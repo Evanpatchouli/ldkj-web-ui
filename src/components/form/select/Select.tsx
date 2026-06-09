@@ -224,10 +224,10 @@ const SelectTrigger = React.forwardRef<
     <SelectPrimitive.Trigger
       ref={ref}
       className={cn(
-        "flex h-9 w-full items-center justify-between gap-2 rounded-md border border-solid border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm transition-colors",
-        "placeholder:text-slate-400 data-[placeholder]:text-slate-400",
-        "focus-visible:border-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30",
-        "disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-500 disabled:opacity-70",
+        "flex h-9 w-full items-center justify-between gap-2 rounded-md border border-solid border-[color:var(--ldkj-color-input)] bg-[color:var(--ldkj-color-surface)] px-3 py-2 text-sm text-[color:var(--ldkj-color-foreground)] shadow-sm transition-colors",
+        "placeholder:text-[color:var(--ldkj-color-muted-foreground)] data-[placeholder]:text-[color:var(--ldkj-color-muted-foreground)]",
+        "focus-visible:border-[color:var(--ldkj-color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]",
+        "disabled:cursor-not-allowed disabled:bg-[color:var(--ldkj-color-surface-muted)] disabled:text-[color:var(--ldkj-color-muted-foreground)] disabled:opacity-70",
         "[&>span]:min-w-0 [&>span]:truncate",
         sxClassName,
         className,
@@ -238,7 +238,7 @@ const SelectTrigger = React.forwardRef<
     >
       {children}
       <SelectPrimitive.Icon asChild>
-        <ChevronDownIcon className="h-4 w-4 shrink-0 text-slate-500" />
+        <ChevronDownIcon className="h-4 w-4 shrink-0 text-[color:var(--ldkj-color-muted-foreground)]" />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   );
@@ -259,7 +259,7 @@ const SelectScrollUpButton = React.forwardRef<
     <SelectPrimitive.ScrollUpButton
       ref={ref}
       className={cn(
-        "flex cursor-default items-center justify-center py-1 text-slate-500",
+        "flex cursor-default items-center justify-center py-1 text-[color:var(--ldkj-color-muted-foreground)]",
         sxClassName,
         className,
         legacyClass,
@@ -287,7 +287,7 @@ const SelectScrollDownButton = React.forwardRef<
     <SelectPrimitive.ScrollDownButton
       ref={ref}
       className={cn(
-        "flex cursor-default items-center justify-center py-1 text-slate-500",
+        "flex cursor-default items-center justify-center py-1 text-[color:var(--ldkj-color-muted-foreground)]",
         sxClassName,
         className,
         legacyClass,
@@ -325,7 +325,7 @@ const SelectContent = React.forwardRef<
       <SelectPrimitive.Content
         ref={ref}
         className={cn(
-          "relative z-50 max-h-[var(--radix-select-content-available-height)] min-w-32 overflow-hidden rounded-md border border-solid border-slate-200 bg-white text-slate-900 shadow-lg",
+          "relative z-[var(--ldkj-z-dropdown)] max-h-[var(--radix-select-content-available-height)] min-w-32 overflow-hidden rounded-md border border-solid border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-surface)] text-[color:var(--ldkj-color-surface-foreground)] shadow-[var(--ldkj-shadow-popover)]",
           "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
           "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
           "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
@@ -372,7 +372,7 @@ const SelectLabel = React.forwardRef<
     <SelectPrimitive.Label
       ref={ref}
       className={cn(
-        "px-2 py-1.5 text-xs font-medium text-slate-500",
+        "px-2 py-1.5 text-xs font-medium text-[color:var(--ldkj-color-muted-foreground)]",
         sxClassName,
         className,
         legacyClass,
@@ -405,9 +405,9 @@ const SelectItem = React.forwardRef<
     <SelectPrimitive.Item
       ref={ref}
       className={cn(
-        "relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm leading-5 text-slate-700 outline-none transition-colors",
-        "focus:bg-blue-50 focus:text-blue-700",
-        "data-[disabled]:pointer-events-none data-[disabled]:text-slate-400 data-[disabled]:opacity-70",
+        "relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm leading-5 text-[color:var(--ldkj-color-foreground)] outline-none transition-colors",
+        "focus:bg-[color:var(--ldkj-color-accent)] focus:text-[color:var(--ldkj-color-primary)]",
+        "data-[disabled]:pointer-events-none data-[disabled]:text-[color:var(--ldkj-color-muted-foreground)] data-[disabled]:opacity-70",
         sxClassName,
         className,
         legacyClass,
@@ -415,7 +415,7 @@ const SelectItem = React.forwardRef<
       style={mergeSxStyle(style, sxInlineStyle)}
       {...restProps}
     >
-      <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center text-blue-600">
+      <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center text-[color:var(--ldkj-color-primary)]">
         <SelectPrimitive.ItemIndicator>
           <CheckIcon className="h-4 w-4" />
         </SelectPrimitive.ItemIndicator>
@@ -439,7 +439,12 @@ const SelectSeparator = React.forwardRef<
   return (
     <SelectPrimitive.Separator
       ref={ref}
-      className={cn("-mx-1 my-1 h-px bg-slate-200", sxClassName, className, legacyClass)}
+      className={cn(
+        "-mx-1 my-1 h-px bg-[color:var(--ldkj-color-border)]",
+        sxClassName,
+        className,
+        legacyClass,
+      )}
       style={mergeSxStyle(style, sxInlineStyle)}
       {...restProps}
     />

@@ -97,7 +97,7 @@ export const TabsList = React.forwardRef<
     <TabsPrimitive.List
       ref={ref}
       className={cn(
-        "inline-flex min-h-10 items-center gap-1 rounded-lg bg-slate-100 p-1 text-slate-600",
+        "inline-flex min-h-10 items-center gap-1 rounded-lg bg-[color:var(--ldkj-color-muted)] p-1 text-[color:var(--ldkj-color-muted-foreground)]",
         sxClassName,
         className,
         legacyClass,
@@ -126,7 +126,7 @@ export const TabsTrigger = React.forwardRef<
     <TabsPrimitive.Trigger
       ref={ref}
       className={cn(
-        "inline-flex min-h-8 items-center justify-center whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium leading-5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-white data-[state=active]:text-blue-700 data-[state=active]:shadow-sm",
+        "inline-flex min-h-8 items-center justify-center whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium leading-5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)] disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-[color:var(--ldkj-color-background)] data-[state=active]:text-[color:var(--ldkj-color-primary)] data-[state=active]:shadow-sm",
         sxClassName,
         className,
         legacyClass,
@@ -161,8 +161,8 @@ export const TabsContent = React.forwardRef<
       <TabsPrimitive.Content
         ref={ref}
         className={cn(
-          "mt-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500",
-          !borderless && "rounded-lg border border-slate-200 bg-white p-4",
+          "mt-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]",
+          !borderless && "rounded-lg border border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-card)] p-4 text-[color:var(--ldkj-color-card-foreground)]",
           sxClassName,
           className,
           legacyClass,

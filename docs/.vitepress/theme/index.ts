@@ -1,11 +1,13 @@
 import DefaultTheme from "vitepress/theme";
 import type { Theme } from "vitepress";
-import { createElement, type ComponentType } from "react";
+import { createElement, useEffect, useState, type ComponentType } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { defineComponent, h, onBeforeUnmount, onMounted, ref } from "vue";
-import "@/style.css";
 import "@/reset.css";
+import "@/style.css";
+import { Switch } from "@ldkj/web-ui";
 import DevlogIndexList from "./components/DevlogIndexList";
+import ThemeBasicDemo from "./components/general/ThemeBasicDemo";
 // data-display
 import AvatarBasicDemo from "./components/data-display/Avatar/AvatarBasicDemo";
 import AvatarExportDemo from "./components/data-display/Avatar/AvatarExportDemo";
@@ -283,7 +285,9 @@ import TabsCustomContentDemo from "./components/navigation/Tabs/TabsCustomConten
 import TabsItemsDemo from "./components/navigation/Tabs/TabsItemsDemo";
 import TabsSxDemo from "./components/navigation/Tabs/TabsSxDemo";
 
-function createReactDemoHost(name: string, DemoComponent: ComponentType) {
+const APPEARANCE_KEY = "vitepress-theme-appearance";
+
+function createReactDemoHost(name: string, DemoComponent: ComponentType, rootStyle?: Record<string, string>) {
   return defineComponent({
     name,
     setup() {
@@ -300,14 +304,71 @@ function createReactDemoHost(name: string, DemoComponent: ComponentType) {
         root?.unmount();
       });
 
-      return () => h("div", { ref: mountEl });
+      return () => h("div", { ref: mountEl, style: rootStyle });
     },
   });
 }
 
+function getInitialDark() {
+  if (typeof window === "undefined") return false;
+
+  const saved = window.localStorage.getItem(APPEARANCE_KEY);
+  if (saved === "dark") return true;
+  if (saved === "light") return false;
+
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+
+function setDocumentTheme(isDark: boolean) {
+  const root = document.documentElement;
+
+  root.classList.toggle("dark", isDark);
+  root.style.colorScheme = isDark ? "dark" : "light";
+  window.localStorage.setItem(APPEARANCE_KEY, isDark ? "dark" : "light");
+}
+
+function DocsThemeSwitch() {
+  const [checked, setChecked] = useState(getInitialDark);
+
+  useEffect(() => {
+    setDocumentTheme(checked);
+  }, [checked]);
+
+  const label = checked ? "切换为浅色主题" : "切换为深色主题";
+
+  return createElement(Switch, {
+    checked,
+    size: "sm",
+    "aria-label": label,
+    title: label,
+    onCheckedChange: setChecked,
+  });
+}
+
+const DocsThemeSwitchHost = createReactDemoHost(
+  "DocsThemeSwitchHost",
+  DocsThemeSwitch,
+  { display: "inline-flex", marginInline: "12px" },
+);
+
+const DocsLayout = defineComponent({
+  name: "DocsLayout",
+  setup() {
+    return () =>
+      h(DefaultTheme.Layout, null, {
+        "nav-bar-content-after": () => h(DocsThemeSwitchHost),
+      });
+  },
+});
+
 const theme: Theme = {
   ...DefaultTheme,
+  Layout: DocsLayout,
   enhanceApp({ app }) {
+    app.component(
+      "ThemeBasicDemo",
+      createReactDemoHost("ThemeBasicDemoHost", ThemeBasicDemo),
+    );
     // data-display
     app.component(
       "AvatarBasicDemo",

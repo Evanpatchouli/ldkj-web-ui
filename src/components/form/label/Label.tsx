@@ -77,7 +77,7 @@ const Label = React.forwardRef<
     sxInlineStyle,
   );
   const labelClassName = cn(
-    "inline-flex gap-1 text-sm font-medium leading-5 text-slate-700",
+    "inline-flex gap-1 text-sm font-medium leading-5 text-[color:var(--ldkj-color-foreground)]",
     "peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
     sxClassName,
     className,
@@ -116,7 +116,7 @@ const Label = React.forwardRef<
         style={labelStyle}
         {...rootProps}
       >
-        {required ? <span className="text-red-500 font-serif">*</span> : null}
+        {required ? <span className="font-serif text-[color:var(--ldkj-color-danger)]">*</span> : null}
         <span>{label}</span>
         {colon === true ? ":" : (colon ?? null)}
       </LabelPrimitive.Root>

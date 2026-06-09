@@ -20,7 +20,7 @@ export function Empty(props: EmptyProps) {
     <Box
       {...rest}
       className={cn(
-        "flex flex-col items-center justify-center gap-2 py-10 text-slate-500",
+        "flex flex-col items-center justify-center gap-2 py-10 text-[color:var(--ldkj-color-muted-foreground)]",
         className,
         legacyClass,
       )}

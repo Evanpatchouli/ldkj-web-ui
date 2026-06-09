@@ -61,10 +61,12 @@ export function Loading(props: LoadingProps) {
       role="status"
       aria-live="polite"
       className={cn(
-        "inline-flex items-center justify-center gap-2 text-sm text-slate-600",
+        "inline-flex items-center justify-center gap-2 text-sm text-[color:var(--ldkj-color-muted-foreground)]",
         variant === "block" && "min-h-24 w-full",
-        variant === "overlay" && "absolute inset-0 z-10 bg-white/75 backdrop-blur-[1px]",
-        variant === "fullscreen" && "fixed inset-0 z-50 bg-white/80 backdrop-blur-[1px]",
+        variant === "overlay" &&
+          "absolute inset-0 z-10 bg-[color:color-mix(in_srgb,var(--ldkj-color-surface)_75%,transparent)] backdrop-blur-[1px]",
+        variant === "fullscreen" &&
+          "fixed inset-0 z-[var(--ldkj-z-modal)] bg-[color:color-mix(in_srgb,var(--ldkj-color-surface)_80%,transparent)] backdrop-blur-[1px]",
         className,
         legacyClass,
       )}

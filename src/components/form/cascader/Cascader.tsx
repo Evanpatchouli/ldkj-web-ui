@@ -275,7 +275,7 @@ function joinPath(
       {labels.map((label, index) => (
         <React.Fragment key={index}>
           {index > 0 ? (
-            <span className="mx-1 text-slate-400">{separator}</span>
+            <span className="mx-1 text-[color:var(--ldkj-color-muted-foreground)]">{separator}</span>
           ) : null}
           <span className="min-w-0 truncate">{label}</span>
         </React.Fragment>
@@ -334,7 +334,7 @@ function ClearIcon(props: React.SVGProps<SVGSVGElement>) {
 function LoadingSpinner() {
   return (
     <span
-      className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-slate-300 border-t-blue-600"
+      className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-[color:var(--ldkj-color-border)] border-t-[color:var(--ldkj-color-primary)]"
       aria-hidden="true"
     />
   );
@@ -657,9 +657,9 @@ export const Cascader = React.forwardRef<CascaderRef, CascaderProps>(
               id={id}
               type="button"
               className={cn(
-                "flex h-9 w-full min-w-0 items-center gap-2 rounded-md border border-solid border-slate-300 bg-white px-3 text-left text-sm text-slate-900 shadow-sm transition-colors",
-                "focus-visible:border-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30",
-                "disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-500 disabled:opacity-70",
+                "flex h-9 w-full min-w-0 items-center gap-2 rounded-md border border-solid border-[color:var(--ldkj-color-input)] bg-[color:var(--ldkj-color-background)] px-3 text-left text-sm text-[color:var(--ldkj-color-foreground)] shadow-sm transition-colors",
+                "focus-visible:border-[color:var(--ldkj-color-ring)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]/30",
+                "disabled:cursor-not-allowed disabled:bg-[color:var(--ldkj-color-muted)] disabled:text-[color:var(--ldkj-color-muted-foreground)] disabled:opacity-70",
                 readOnly && "cursor-default",
                 clearable && selectedPath.length > 0 && !disabled && !readOnly
                   ? "pr-16"
@@ -700,20 +700,20 @@ export const Cascader = React.forwardRef<CascaderRef, CascaderProps>(
               <span
                 className={cn(
                   "min-w-0 flex-1 truncate",
-                  selectedResolved.labels.length === 0 && "text-slate-400",
+                  selectedResolved.labels.length === 0 && "text-[color:var(--ldkj-color-muted-foreground)]",
                 )}
               >
                 {triggerDisplay}
               </span>
 
-              <ChevronDownIcon className="absolute right-3 h-4 w-4 text-slate-500" />
+              <ChevronDownIcon className="absolute right-3 h-4 w-4 text-[color:var(--ldkj-color-muted-foreground)]" />
             </button>
           </PopoverTrigger>
 
           {clearable && selectedPath.length > 0 && !disabled && !readOnly ? (
             <button
               type="button"
-              className="absolute right-8 top-1/2 z-10 -translate-y-1/2 rounded p-1 text-slate-400 transition-colors hover:text-slate-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
+              className="absolute right-8 top-1/2 z-10 -translate-y-1/2 rounded p-1 text-[color:var(--ldkj-color-muted-foreground)] transition-colors hover:text-[color:var(--ldkj-color-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]/30"
               aria-label="清除选择"
               onMouseDown={(event) => event.preventDefault()}
               onClick={(event) => {
@@ -742,7 +742,7 @@ export const Cascader = React.forwardRef<CascaderRef, CascaderProps>(
             aria-label="级联选择"
           >
             <div
-              className="flex min-w-[320px] overflow-hidden bg-white"
+              className="flex min-w-[320px] overflow-hidden bg-[color:var(--ldkj-color-popover)] text-[color:var(--ldkj-color-popover-foreground)]"
               style={{ maxHeight: typeof maxPanelHeight === "number" ? `${maxPanelHeight}px` : maxPanelHeight }}
             >
               {columns.map((column, level) => {
@@ -752,7 +752,7 @@ export const Cascader = React.forwardRef<CascaderRef, CascaderProps>(
                   return (
                     <div
                       key={`empty-${level}`}
-                      className="flex min-w-44 items-center justify-center border-r border-slate-200 px-4 py-6 text-sm text-slate-400 last:border-r-0"
+                      className="flex min-w-44 items-center justify-center border-r border-[color:var(--ldkj-color-border)] px-4 py-6 text-sm text-[color:var(--ldkj-color-muted-foreground)] last:border-r-0"
                     >
                       {renderLoadingState && level === columns.length - 1 ? (
                         <span className="inline-flex items-center gap-2">
@@ -770,8 +770,8 @@ export const Cascader = React.forwardRef<CascaderRef, CascaderProps>(
                   <div
                     key={`column-${level}`}
                     className={cn(
-                      "min-w-48 border-r border-slate-200 last:border-r-0",
-                      level > 0 && "bg-slate-50/40",
+                      "min-w-48 border-r border-[color:var(--ldkj-color-border)] last:border-r-0",
+                      level > 0 && "bg-[color:var(--ldkj-color-muted)]/40",
                     )}
                   >
                     <div className="max-h-full overflow-y-auto p-1">
@@ -798,12 +798,12 @@ export const Cascader = React.forwardRef<CascaderRef, CascaderProps>(
                             key={path.join("\u0001")}
                             type="button"
                             className={cn(
-                              "flex min-h-10 w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm text-slate-700 transition-colors",
-                              "hover:bg-blue-50 hover:text-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30",
-                              checked && "bg-blue-50 text-blue-700",
-                              active && !checked && "bg-slate-100 text-slate-900",
+                              "flex min-h-10 w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm text-[color:var(--ldkj-color-foreground)] transition-colors",
+                              "hover:bg-[color:var(--ldkj-color-accent)] hover:text-[color:var(--ldkj-color-accent-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]/30",
+                              checked && "bg-[color:var(--ldkj-color-primary)] text-[color:var(--ldkj-color-primary-foreground)]",
+                              active && !checked && "bg-[color:var(--ldkj-color-muted)] text-[color:var(--ldkj-color-foreground)]",
                               item.disabled &&
-                                "cursor-not-allowed text-slate-400 opacity-70 hover:bg-transparent hover:text-slate-400",
+                                "cursor-not-allowed text-[color:var(--ldkj-color-muted-foreground)] opacity-70 hover:bg-transparent hover:text-[color:var(--ldkj-color-muted-foreground)]",
                               optionSxClassName,
                               optionClassName,
                               legacyOptionClass,
@@ -830,7 +830,7 @@ export const Cascader = React.forwardRef<CascaderRef, CascaderProps>(
                             {loading ? (
                               <LoadingSpinner />
                             ) : hasChildren ? (
-                              <ChevronRightIcon className="h-4 w-4 shrink-0 text-slate-400" />
+                              <ChevronRightIcon className="h-4 w-4 shrink-0 text-[color:var(--ldkj-color-muted-foreground)]" />
                             ) : null}
                           </button>
                         );
@@ -841,7 +841,7 @@ export const Cascader = React.forwardRef<CascaderRef, CascaderProps>(
               })}
 
               {trailingPlaceholder ? (
-                <div className="flex min-w-44 items-center justify-center border-l border-slate-200 px-4 py-6 text-sm text-slate-400">
+                <div className="flex min-w-44 items-center justify-center border-l border-[color:var(--ldkj-color-border)] px-4 py-6 text-sm text-[color:var(--ldkj-color-muted-foreground)]">
                   {renderLoadingState ? (
                     <span className="inline-flex items-center gap-2">
                       <LoadingSpinner />

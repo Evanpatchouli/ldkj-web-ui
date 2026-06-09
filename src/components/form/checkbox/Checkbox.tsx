@@ -89,11 +89,11 @@ const Checkbox = React.forwardRef<
       }}
       value={value}
       className={cn(
-        "peer inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-[4px] border border-solid border-slate-300 bg-white text-white transition-colors",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+        "peer inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-[4px] border border-solid border-[color:var(--ldkj-color-input)] bg-[color:var(--ldkj-color-surface)] text-[color:var(--ldkj-color-primary-foreground)] transition-colors",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)] focus-visible:ring-offset-2",
         "disabled:cursor-not-allowed disabled:opacity-50",
-        "data-[state=checked]:border-blue-600 data-[state=checked]:bg-blue-600",
-        "data-[state=indeterminate]:border-blue-600 data-[state=indeterminate]:bg-blue-600",
+        "data-[state=checked]:border-[color:var(--ldkj-color-primary)] data-[state=checked]:bg-[color:var(--ldkj-color-primary)]",
+        "data-[state=indeterminate]:border-[color:var(--ldkj-color-primary)] data-[state=indeterminate]:bg-[color:var(--ldkj-color-primary)]",
         sxClassName,
         className,
         legacyClass,

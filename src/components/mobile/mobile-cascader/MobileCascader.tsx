@@ -220,7 +220,7 @@ function joinPath(labels: React.ReactNode[], separator: React.ReactNode) {
       {labels.map((label, index) => (
         <React.Fragment key={index}>
           {index > 0 ? (
-            <span className="mx-1 text-slate-400">{separator}</span>
+            <span className="mx-1 text-[color:var(--ldkj-color-muted-foreground)]">{separator}</span>
           ) : null}
           <span className="min-w-0 truncate">{label}</span>
         </React.Fragment>
@@ -547,7 +547,7 @@ export const MobileCascader = React.forwardRef<
         onOpenChange={setOpenState}
       >
         <div className="flex min-h-0 flex-1 flex-col">
-          <div className="flex shrink-0 border-b border-slate-200 px-4">
+          <div className="flex shrink-0 border-b border-[color:var(--ldkj-color-border)] px-4">
             {columns.map((_, level) => {
               const checked = safeActiveLevel === level;
               const fallbackLabel =
@@ -559,15 +559,15 @@ export const MobileCascader = React.forwardRef<
                   key={`level-${level}`}
                   type="button"
                   className={cn(
-                    "relative min-h-10 min-w-12 px-3 text-sm text-slate-700 transition-colors",
-                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30",
-                    checked && "font-medium text-blue-600",
+                    "relative min-h-10 min-w-12 px-3 text-sm text-[color:var(--ldkj-color-foreground)] transition-colors",
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]/30",
+                    checked && "font-medium text-[color:var(--ldkj-color-primary)]",
                   )}
                   onClick={() => setActiveLevel(level)}
                 >
                   {label}
                   {checked ? (
-                    <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-blue-600" />
+                    <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-[color:var(--ldkj-color-primary)]" />
                   ) : null}
                 </button>
               );
@@ -576,7 +576,7 @@ export const MobileCascader = React.forwardRef<
 
           <div className="min-h-0 flex-1 overflow-y-auto px-4 py-2">
             {activeColumn.length === 0 ? (
-              <div className="flex min-h-32 items-center justify-center text-sm text-slate-400">
+              <div className="flex min-h-32 items-center justify-center text-sm text-[color:var(--ldkj-color-muted-foreground)]">
                 {loadingPathKey ? (
                   <span className="inline-flex items-center gap-2">
                     <LoadingSpinner />
@@ -622,11 +622,11 @@ export const MobileCascader = React.forwardRef<
                         "flex min-h-10 w-full items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors",
                         getAlignClass(align),
                         checked
-                          ? "bg-blue-600 text-white"
-                          : "text-slate-800 hover:bg-blue-50 hover:text-blue-700",
-                        active && !checked && "bg-slate-100 text-slate-900",
+                          ? "bg-[color:var(--ldkj-color-primary)] text-[color:var(--ldkj-color-primary-foreground)]"
+                          : "text-[color:var(--ldkj-color-foreground)] hover:bg-[color:var(--ldkj-color-accent)] hover:text-[color:var(--ldkj-color-accent-foreground)]",
+                        active && !checked && "bg-[color:var(--ldkj-color-muted)] text-[color:var(--ldkj-color-foreground)]",
                         item.disabled &&
-                          "cursor-not-allowed bg-transparent text-slate-400 opacity-70 hover:bg-transparent hover:text-slate-400",
+                          "cursor-not-allowed bg-transparent text-[color:var(--ldkj-color-muted-foreground)] opacity-70 hover:bg-transparent hover:text-[color:var(--ldkj-color-muted-foreground)]",
                         resolvedOptionSx.sxClassName,
                         optionClassName,
                         legacyOptionClass,
@@ -653,7 +653,7 @@ export const MobileCascader = React.forwardRef<
                         <ChevronRightIcon
                           className={cn(
                             "h-4 w-4 shrink-0",
-                            checked ? "text-white" : "text-slate-400",
+                            checked ? "text-[color:var(--ldkj-color-primary-foreground)]" : "text-[color:var(--ldkj-color-muted-foreground)]",
                           )}
                         />
                       ) : null}

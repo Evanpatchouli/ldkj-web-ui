@@ -16,19 +16,29 @@ export type BadgeProps = React.HTMLAttributes<HTMLSpanElement> & {
 };
 
 const variantClass: Record<BadgeVariant, string> = {
-  neutral: "bg-slate-200 text-slate-700",
-  primary: "bg-blue-600 text-white",
-  success: "bg-emerald-600 text-white",
-  warning: "bg-amber-200 text-amber-700",
-  danger: "bg-red-600 text-white",
+  neutral:
+    "bg-[color:var(--ldkj-color-muted)] text-[color:var(--ldkj-color-muted-foreground)]",
+  primary:
+    "bg-[color:var(--ldkj-color-primary)] text-[color:var(--ldkj-color-primary-foreground)]",
+  success:
+    "bg-[color:var(--ldkj-color-success)] text-[color:var(--ldkj-color-success-foreground)]",
+  warning:
+    "bg-[color:var(--ldkj-color-warning)] text-[color:var(--ldkj-color-warning-foreground)]",
+  danger:
+    "bg-[color:var(--ldkj-color-danger)] text-[color:var(--ldkj-color-danger-foreground)]",
 };
 
 const lightVariantClass: Record<BadgeVariant, string> = {
-  neutral: "bg-slate-100 text-slate-700",
-  primary: "bg-blue-100 text-blue-700",
-  success: "bg-emerald-100 text-emerald-700",
-  warning: "bg-amber-100 text-amber-700",
-  danger: "bg-red-100 text-red-700",
+  neutral:
+    "bg-[color:var(--ldkj-color-surface-muted)] text-[color:var(--ldkj-color-muted-foreground)]",
+  primary:
+    "bg-[color:var(--ldkj-color-accent)] text-[color:var(--ldkj-color-primary)]",
+  success:
+    "bg-[color:var(--ldkj-color-accent)] text-[color:var(--ldkj-color-success)]",
+  warning:
+    "bg-[color:var(--ldkj-color-accent)] text-[color:var(--ldkj-color-warning)]",
+  danger:
+    "bg-[color:var(--ldkj-color-accent)] text-[color:var(--ldkj-color-danger)]",
 };
 
 export function Badge(props: BadgeProps) {
