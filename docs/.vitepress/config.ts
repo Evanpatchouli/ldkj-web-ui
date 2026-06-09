@@ -166,11 +166,11 @@ const config: UserConfig = {
           { text: "日志索引", link: "/devlog/" },
           ...(!isProd ? [{ text: "Next", link: "/devlog/next" }] : []),
           // 只陈列最近的 5 个版本
+          { text: "v0.22.0", link: "/devlog/v0.22.0" },
           { text: "v0.21.0", link: "/devlog/v0.21.0" },
           { text: "v0.20.0", link: "/devlog/v0.20.0" },
           { text: "v0.19.0", link: "/devlog/v0.19.0" },
           { text: "v0.18.0", link: "/devlog/v0.18.0" },
-          { text: "v0.17.0", link: "/devlog/v0.17.0" },
         ],
       },
     ],
