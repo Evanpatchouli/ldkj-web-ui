@@ -838,7 +838,12 @@ const UploaderBase = React.forwardRef<HTMLInputElement, UploaderProps>(
       if (renderActions) return renderActions(file, actions);
 
       return (
-        <div className="flex shrink-0 items-center gap-1">
+        <div
+          className={cn(
+            "flex shrink-0 items-center gap-1",
+            listType === "picture-card" && "w-full flex-wrap justify-end",
+          )}
+        >
           {preview && (file.url || file.thumbUrl) ? (
             <Button
               type="button"
@@ -927,8 +932,16 @@ const UploaderBase = React.forwardRef<HTMLInputElement, UploaderProps>(
               : "待上传";
       const itemClassName =
         listType === "picture-card"
-          ? "flex h-full min-w-0 flex-col items-stretch gap-3 rounded-md border border-slate-200 bg-white p-3"
+          ? "flex min-w-0 flex-col items-stretch gap-3 rounded-md border border-slate-200 bg-white p-3"
           : "flex min-w-0 items-center gap-3 rounded-md border border-slate-200 bg-white p-3";
+      const infoHeaderClassName =
+        listType === "picture-card"
+          ? "grid min-w-0 gap-2"
+          : "flex min-w-0 items-center justify-between gap-3";
+      const thumbClassName =
+        listType === "picture-card"
+          ? "grid aspect-square w-full shrink-0 place-items-center overflow-hidden rounded-md border border-slate-200 bg-slate-50"
+          : "grid size-14 shrink-0 place-items-center overflow-hidden rounded-md border border-slate-200 bg-slate-50";
       const originNode = (
         <div
           className={cn(
@@ -939,10 +952,7 @@ const UploaderBase = React.forwardRef<HTMLInputElement, UploaderProps>(
           {showThumb ? (
             <button
               type="button"
-              className={cn(
-                "grid size-14 shrink-0 place-items-center overflow-hidden rounded-md border border-slate-200 bg-slate-50",
-                listType === "picture-card" && "size-full min-h-32",
-              )}
+              className={thumbClassName}
               onClick={() => void handlePreview(file)}
             >
               {isImageFile(file) ? (
@@ -959,7 +969,7 @@ const UploaderBase = React.forwardRef<HTMLInputElement, UploaderProps>(
             </button>
           ) : null}
           <div className="min-w-0 flex-1 space-y-1">
-            <div className="flex min-w-0 items-center justify-between gap-3">
+            <div className={infoHeaderClassName}>
               <div className="min-w-0">
                 <div className="truncate text-sm font-medium text-slate-800">
                   {file.name}
