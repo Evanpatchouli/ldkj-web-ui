@@ -2,6 +2,7 @@ import type { UserConfig } from "vitepress";
 import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
 import { fileURLToPath } from "node:url";
+import packageJson from "../../package.json";
 
 const base = process.env.VITEPRESS_BASE ?? "/";
 const isProd = process.env.NODE_ENV === "production";
@@ -14,6 +15,13 @@ const config: UserConfig = {
     nav: [
       { text: "指南", link: "/" },
       { text: "组件", link: "/components/layout/box" },
+      {
+        text: `v${packageJson.version}`,
+        items: [
+          // { text: "v1", link: "/docs/v1" },
+          { text: "版本日志", link: "/devlog" },
+        ],
+      },
     ],
     sidebar: [
       {
@@ -53,7 +61,10 @@ const config: UserConfig = {
               { text: "Popover", link: "/components/interact/popover" },
               { text: "Tooltip", link: "/components/interact/tooltip" },
               { text: "Toast", link: "/components/interact/toast" },
-              { text: "Notification", link: "/components/interact/notification" },
+              {
+                text: "Notification",
+                link: "/components/interact/notification",
+              },
               { text: "Spin", link: "/components/interact/spin" },
               { text: "Loading", link: "/components/interact/loading" },
               { text: "Drawer", link: "/components/interact/drawer" },
@@ -88,7 +99,10 @@ const config: UserConfig = {
           {
             text: "移动端",
             items: [
-              { text: "MobileSelect", link: "/components/mobile/mobile-select" },
+              {
+                text: "MobileSelect",
+                link: "/components/mobile/mobile-select",
+              },
               {
                 text: "MobileCascader",
                 link: "/components/mobile/mobile-cascader",
@@ -159,7 +173,9 @@ const config: UserConfig = {
         ],
       },
     ],
-    socialLinks: [{ icon: "github", link: "https://github.com/Evanpatchouli/ldkj-web-ui" }],
+    socialLinks: [
+      { icon: "github", link: "https://github.com/Evanpatchouli/ldkj-web-ui" },
+    ],
   },
   vite: {
     plugins: [react() as any, svgr() as any],
@@ -175,5 +191,3 @@ const config: UserConfig = {
 };
 
 export default config;
-
-
