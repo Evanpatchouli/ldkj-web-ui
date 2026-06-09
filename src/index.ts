@@ -38,6 +38,7 @@ export * from "./components/data-display/image";
 export * from "./components/data-display/qrcodes";
 export * from "./components/data-display/table";
 export * from "./components/data-display/skeleton";
+export * from "./components/data-display/collapse";
 export * from "./components/layout/box";
 export * from "./components/layout/divider";
 export * from "./components/layout/flex";

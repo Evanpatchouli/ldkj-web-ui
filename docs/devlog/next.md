@@ -5,8 +5,8 @@
 
 ## 新增
 
-- 记录新增组件、能力、API、文档栏目等。
-- 示例: 新增 `ComponentName` 组件，支持 `propName` 配置。
+- 新增 `Collapse` 数据展示组件，支持 `items` 数据式 API 与 `Collapse.Item/Header/Trigger/Content/Actions` 组合式 API。
+- `Collapse` 支持 `activeKey/defaultActiveKey/onChange`、`accordion`、`multiple`、`collapsible`、禁用、额外操作、自定义展开图标、尺寸、变体、`sx`、懒挂载和隐藏销毁。
 
 ## 优化
 
@@ -20,8 +20,8 @@
 
 ## 文档
 
-- 记录文档页、示例、侧边栏、开发日志等说明性变更。
-- 示例: 补充 `ComponentName` API 表格与基础示例。
+- 新增 `docs/components/data-display/collapse.md`，覆盖 Basic、Accordion、Multiple、Controlled、Items API、Compound API、Extra Actions、Lazy / Destroy、Variants / Sizes、SX、Nested / FAQ 等示例。
+- 在组件侧边栏和 VitePress React Demo 注册中接入 `Collapse`。
 
 ## 验证
 

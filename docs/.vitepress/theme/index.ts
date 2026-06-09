@@ -34,6 +34,17 @@ import ListBasicDemo from "./components/data-display/List/ListBasicDemo";
 import ListBorderedDemo from "./components/data-display/List/ListBorderedDemo";
 import ListRichItemDemo from "./components/data-display/List/ListRichItemDemo";
 import ListSxDemo from "./components/data-display/List/ListSxDemo";
+import CollapseAccordionDemo from "./components/data-display/Collapse/CollapseAccordionDemo";
+import CollapseActionsDemo from "./components/data-display/Collapse/CollapseActionsDemo";
+import CollapseBasicDemo from "./components/data-display/Collapse/CollapseBasicDemo";
+import CollapseCompoundDemo from "./components/data-display/Collapse/CollapseCompoundDemo";
+import CollapseControlledDemo from "./components/data-display/Collapse/CollapseControlledDemo";
+import CollapseItemsDemo from "./components/data-display/Collapse/CollapseItemsDemo";
+import CollapseLazyDemo from "./components/data-display/Collapse/CollapseLazyDemo";
+import CollapseMultipleDemo from "./components/data-display/Collapse/CollapseMultipleDemo";
+import CollapseNestedDemo from "./components/data-display/Collapse/CollapseNestedDemo";
+import CollapseSxDemo from "./components/data-display/Collapse/CollapseSxDemo";
+import CollapseVariantsDemo from "./components/data-display/Collapse/CollapseVariantsDemo";
 import EmptyBasicDemo from "./components/data-display/Empty/EmptyBasicDemo";
 import EmptyActionDemo from "./components/data-display/Empty/EmptyActionDemo";
 import EmptyBoxDemo from "./components/data-display/Empty/EmptyBoxDemo";
@@ -405,6 +416,50 @@ const theme: Theme = {
     app.component(
       "ListSxDemo",
       createReactDemoHost("ListSxDemoHost", ListSxDemo),
+    );
+    app.component(
+      "CollapseAccordionDemo",
+      createReactDemoHost("CollapseAccordionDemoHost", CollapseAccordionDemo),
+    );
+    app.component(
+      "CollapseActionsDemo",
+      createReactDemoHost("CollapseActionsDemoHost", CollapseActionsDemo),
+    );
+    app.component(
+      "CollapseBasicDemo",
+      createReactDemoHost("CollapseBasicDemoHost", CollapseBasicDemo),
+    );
+    app.component(
+      "CollapseCompoundDemo",
+      createReactDemoHost("CollapseCompoundDemoHost", CollapseCompoundDemo),
+    );
+    app.component(
+      "CollapseControlledDemo",
+      createReactDemoHost("CollapseControlledDemoHost", CollapseControlledDemo),
+    );
+    app.component(
+      "CollapseItemsDemo",
+      createReactDemoHost("CollapseItemsDemoHost", CollapseItemsDemo),
+    );
+    app.component(
+      "CollapseLazyDemo",
+      createReactDemoHost("CollapseLazyDemoHost", CollapseLazyDemo),
+    );
+    app.component(
+      "CollapseMultipleDemo",
+      createReactDemoHost("CollapseMultipleDemoHost", CollapseMultipleDemo),
+    );
+    app.component(
+      "CollapseNestedDemo",
+      createReactDemoHost("CollapseNestedDemoHost", CollapseNestedDemo),
+    );
+    app.component(
+      "CollapseSxDemo",
+      createReactDemoHost("CollapseSxDemoHost", CollapseSxDemo),
+    );
+    app.component(
+      "CollapseVariantsDemo",
+      createReactDemoHost("CollapseVariantsDemoHost", CollapseVariantsDemo),
     );
     app.component(
       "EmptyBasicDemo",

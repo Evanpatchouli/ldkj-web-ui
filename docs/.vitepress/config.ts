@@ -118,6 +118,7 @@ const config: UserConfig = {
               { text: "Icon", link: "/components/data-display/icon" },
               { text: "Badge", link: "/components/data-display/badge" },
               { text: "List", link: "/components/data-display/list" },
+              { text: "Collapse", link: "/components/data-display/collapse" },
               { text: "Empty", link: "/components/data-display/empty" },
               { text: "Image", link: "/components/data-display/image" },
               { text: "QRCode", link: "/components/data-display/qrcode" },
