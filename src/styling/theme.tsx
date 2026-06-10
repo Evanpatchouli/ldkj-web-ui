@@ -99,7 +99,7 @@ export const defaultLightTheme: Theme = {
     mutedForeground: "hsl(215.4 16.3% 46.9%)",
     border: "hsl(214.3 31.8% 91.4%)",
     input: "hsl(214.3 31.8% 91.4%)",
-    ring: "hsl(222.2 84% 4.9%)",
+    ring: "hsl(221.2 83.2% 53.3% / 0.24)",
     primary: "hsl(221.2 83.2% 53.3%)",
     primaryForeground: "hsl(210 40% 98%)",
     primaryHover: "hsl(224.3 76.3% 48%)",

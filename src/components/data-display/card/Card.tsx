@@ -91,6 +91,41 @@ function isCardCompoundType(type: unknown) {
   );
 }
 
+function isCardSideCompoundType(type: unknown) {
+  return (
+    type === CardLeft ||
+    type === CardRight ||
+    type === CardStart ||
+    type === CardEnd
+  );
+}
+
+function splitCompoundChildren(children: React.ReactNode) {
+  const startSlots: React.ReactNode[] = [];
+  const mainSlots: React.ReactNode[] = [];
+  const endSlots: React.ReactNode[] = [];
+
+  React.Children.forEach(children, (child) => {
+    if (React.isValidElement(child) && isCardSideCompoundType(child.type)) {
+      if (child.type === CardRight || child.type === CardEnd) {
+        endSlots.push(child);
+      } else {
+        startSlots.push(child);
+      }
+      return;
+    }
+
+    mainSlots.push(child);
+  });
+
+  return {
+    startSlots,
+    mainSlots,
+    endSlots,
+    hasSideSlots: startSlots.length > 0 || endSlots.length > 0,
+  };
+}
+
 function resolveDivided(divided: CardDivided | undefined, axis: "x" | "y") {
   return divided === true || divided === axis;
 }
@@ -170,6 +205,8 @@ function CardRoot(props: CardProps) {
   const resolvedLeftProps = resolveSideProps(leftProps, startProps);
   const resolvedRightProps = resolveSideProps(rightProps, endProps);
   const useCompoundChildren = hasCompoundChildren(children);
+  const { startSlots, mainSlots, endSlots, hasSideSlots } =
+    splitCompoundChildren(children);
 
   const {
     className: contentClassName,
@@ -192,12 +229,24 @@ function CardRoot(props: CardProps) {
           disabled && "pointer-events-none opacity-50",
           className,
         )}
-        style={mergeSxStyle(style, { flexDirection: "row" })}
+        style={mergeSxStyle(style, {
+          flexDirection: hasSideSlots ? "row" : "column",
+        })}
         aria-disabled={disabled || undefined}
         onClick={disabled ? undefined : onClick}
         {...restProps}
       >
-        {children}
+        {hasSideSlots ? (
+          <>
+            {startSlots}
+            <Box className="card-main flex min-w-0 flex-1 flex-col">
+              {mainSlots}
+            </Box>
+            {endSlots}
+          </>
+        ) : (
+          children
+        )}
       </Box>
     );
   }

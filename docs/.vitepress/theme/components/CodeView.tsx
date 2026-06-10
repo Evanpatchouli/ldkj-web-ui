@@ -33,26 +33,26 @@ export default function CodeView(props: CodeViewProps) {
   }, [code]);
 
   return (
-    <div className="overflow-hidden rounded-lg border border-gray-200 bg-white">
+    <div className="overflow-hidden rounded-lg border border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-card)] text-[color:var(--ldkj-color-card-foreground)]">
       <div className="p-4">{children}</div>
 
       {expanded ? (
-        <pre className="overflow-x-auto border-t border-gray-200 bg-gray-50 p-4 text-xs leading-5 text-gray-700">
+        <pre className="overflow-x-auto border-t border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-muted)] p-4 text-xs leading-5 text-[color:var(--ldkj-color-foreground)]">
           <code>{code}</code>
         </pre>
       ) : null}
 
-      <div className="flex items-center justify-end gap-0 border-t border-gray-200 bg-white px-3 py-2">
+      <div className="flex items-center justify-end gap-0 border-t border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-card)] px-3 py-2">
         <button
           type="button"
-          className="rounded-md border border-gray-200 px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-50"
+          className="rounded-md border border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-background)] px-3 py-1.5 text-xs text-[color:var(--ldkj-color-foreground)] transition-colors hover:bg-[color:var(--ldkj-color-accent)] hover:text-[color:var(--ldkj-color-accent-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]"
           onClick={() => setExpanded((prev) => !prev)}
         >
           {expanded ? "隐藏" : "显示"}
         </button>
         <button
           type="button"
-          className="rounded-md border border-gray-200 px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-50"
+          className="rounded-md border border-[color:var(--ldkj-color-border)] bg-[color:var(--ldkj-color-background)] px-3 py-1.5 text-xs text-[color:var(--ldkj-color-foreground)] transition-colors hover:bg-[color:var(--ldkj-color-accent)] hover:text-[color:var(--ldkj-color-accent-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]"
           onClick={handleCopy}
         >
           {copied ? "已复制 ✅" : "复制"}

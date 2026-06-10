@@ -20,7 +20,7 @@
   --destructive-foreground: 210 40% 98%;
   --border: 214.3 31.8% 91.4%;
   --input: 214.3 31.8% 91.4%;
-  --ring: 222.2 84% 4.9%;
+  --ring: 221.2 83.2% 53.3%;
   --radius: 0.5rem;
   --secondary-background: 210 40% 96.1%;
 
@@ -33,7 +33,7 @@
   --ldkj-color-muted-foreground: hsl(var(--muted-foreground));
   --ldkj-color-border: hsl(var(--border));
   --ldkj-color-input: hsl(var(--input));
-  --ldkj-color-ring: hsl(var(--ring));
+  --ldkj-color-ring: hsl(var(--ring) / 24%);
   --ldkj-color-primary: hsl(221.2 83.2% 53.3%);
   --ldkj-color-primary-foreground: hsl(var(--primary-foreground));
   --ldkj-color-primary-hover: hsl(224.3 76.3% 48%);

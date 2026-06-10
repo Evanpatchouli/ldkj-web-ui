@@ -774,7 +774,7 @@ export const Cascader = React.forwardRef<CascaderRef, CascaderProps>(
                       level > 0 && "bg-[color:var(--ldkj-color-muted)]/40",
                     )}
                   >
-                    <div className="max-h-full overflow-y-auto p-1">
+                    <div className="flex max-h-full flex-col gap-1 overflow-y-auto p-1">
                       {column.map((item) => {
                       const path = [...parentPath, item.value];
                       const checked = selectedPath.length === path.length && isPrefix(selectedPath, path);
