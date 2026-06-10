@@ -42,6 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    environment: npm
 
     steps:
       - name: Download dist
