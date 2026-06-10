@@ -4,7 +4,7 @@ import { Icon } from "@/components/data-display/icon";
 import { Modal } from "@/components/interact/modal";
 import { cn } from "@/lib/utils";
 import { mergeSxStyle, resolveSx, useSxTheme, type SxProps } from "@/styling";
-import { Booleanish } from "../../../../.references/evp-design-ui/dist/utils/index";
+import { Booleanish } from "@/types";
 
 type StyledDomProps<T extends React.ElementType> = Omit<React.ComponentPropsWithoutRef<T>, "className" | "style"> & {
   className?: string;
