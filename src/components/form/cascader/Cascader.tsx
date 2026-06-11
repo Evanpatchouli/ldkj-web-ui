@@ -593,7 +593,9 @@ export const Cascader = React.forwardRef<CascaderRef, CascaderProps>(
         if (canExpand && !hasChildren && loadDataRef.current) {
           setLoadingPathKey(pathKey);
           try {
-            await loadDataRef.current([option.option], {
+            const resolved = findPath(options, path, fieldNames);
+
+            await loadDataRef.current(resolved.matched.map((item) => item.option), {
               option: option.option,
               path,
               options,
@@ -618,7 +620,7 @@ export const Cascader = React.forwardRef<CascaderRef, CascaderProps>(
         setPanelPath(path);
         setOpenState(true);
       },
-      [changeOnSelect, commitValue, disabled, options, readOnly, setOpenState],
+      [changeOnSelect, commitValue, disabled, fieldNames, options, readOnly, setOpenState],
     );
 
     const openPanelAtPath = React.useCallback(
@@ -657,13 +659,10 @@ export const Cascader = React.forwardRef<CascaderRef, CascaderProps>(
               id={id}
               type="button"
               className={cn(
-                "flex h-9 w-full min-w-0 items-center gap-2 rounded-md border border-solid border-[color:var(--ldkj-color-input)] bg-[color:var(--ldkj-color-background)] px-3 text-left text-sm text-[color:var(--ldkj-color-foreground)] shadow-sm transition-colors",
+                "relative flex h-9 w-full min-w-0 items-center gap-2 rounded-md border border-solid border-[color:var(--ldkj-color-input)] bg-[color:var(--ldkj-color-background)] px-3 text-left text-sm text-[color:var(--ldkj-color-foreground)] shadow-sm transition-colors",
                 "focus-visible:border-[color:var(--ldkj-color-ring)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]/30",
                 "disabled:cursor-not-allowed disabled:bg-[color:var(--ldkj-color-muted)] disabled:text-[color:var(--ldkj-color-muted-foreground)] disabled:opacity-70",
                 readOnly && "cursor-default",
-                clearable && selectedPath.length > 0 && !disabled && !readOnly
-                  ? "pr-16"
-                  : "pr-9",
                 sxClassName,
                 className,
                 legacyClass,
@@ -706,25 +705,27 @@ export const Cascader = React.forwardRef<CascaderRef, CascaderProps>(
                 {triggerDisplay}
               </span>
 
-              <ChevronDownIcon className="absolute right-3 h-4 w-4 text-[color:var(--ldkj-color-muted-foreground)]" />
+              <span className="flex shrink-0 items-center gap-1 text-[color:var(--ldkj-color-muted-foreground)]">
+                {clearable && selectedPath.length > 0 && !disabled && !readOnly ? (
+                  <span
+                    role="button"
+                    tabIndex={-1}
+                    className="rounded p-1 transition-colors hover:text-[color:var(--ldkj-color-foreground)]"
+                    aria-label="清除选择"
+                    onMouseDown={(event) => event.preventDefault()}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      event.stopPropagation();
+                      handleClear(event);
+                    }}
+                  >
+                    <ClearIcon className="h-3.5 w-3.5" />
+                  </span>
+                ) : null}
+                <ChevronDownIcon className="h-4 w-4 shrink-0" />
+              </span>
             </button>
           </PopoverTrigger>
-
-          {clearable && selectedPath.length > 0 && !disabled && !readOnly ? (
-            <button
-              type="button"
-              className="absolute right-8 top-1/2 z-10 -translate-y-1/2 rounded p-1 text-[color:var(--ldkj-color-muted-foreground)] transition-colors hover:text-[color:var(--ldkj-color-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]/30"
-              aria-label="清除选择"
-              onMouseDown={(event) => event.preventDefault()}
-              onClick={(event) => {
-                event.preventDefault();
-                event.stopPropagation();
-                handleClear(event);
-              }}
-            >
-              <ClearIcon className="h-3.5 w-3.5" />
-            </button>
-          ) : null}
 
           <PopoverContent
             side={side}
@@ -742,7 +743,7 @@ export const Cascader = React.forwardRef<CascaderRef, CascaderProps>(
             aria-label="级联选择"
           >
             <div
-              className="flex min-w-[320px] overflow-hidden bg-[color:var(--ldkj-color-popover)] text-[color:var(--ldkj-color-popover-foreground)]"
+              className="flex w-max overflow-hidden bg-[color:var(--ldkj-color-popover)] text-[color:var(--ldkj-color-popover-foreground)]"
               style={{ maxHeight: typeof maxPanelHeight === "number" ? `${maxPanelHeight}px` : maxPanelHeight }}
             >
               {columns.map((column, level) => {
@@ -776,10 +777,10 @@ export const Cascader = React.forwardRef<CascaderRef, CascaderProps>(
                   >
                     <div className="flex max-h-full flex-col gap-1 overflow-y-auto p-1">
                       {column.map((item) => {
-                      const path = [...parentPath, item.value];
-                      const checked = selectedPath.length === path.length && isPrefix(selectedPath, path);
-                      const active = isPrefix(activePath, path) || isPrefix(path, activePath);
-                      const loading = loadingPathKey === path.join("\u0001") || item.loading;
+                        const path = [...parentPath, item.value];
+                        const checked = selectedPath.length === path.length && isPrefix(selectedPath, path);
+                        const active = activePath.length >= path.length && isPrefix(activePath, path);
+                        const loading = loadingPathKey === path.join("\u0001") || item.loading;
                         const hasChildren = item.children.length > 0 || (!item.isLeaf && Boolean(loadDataRef.current) && !loading);
                         const state: CascaderRenderOptionState = {
                           active,
