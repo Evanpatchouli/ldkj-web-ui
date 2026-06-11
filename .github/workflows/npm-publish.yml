@@ -66,6 +66,23 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Verify npm token exists
+        run: test -n "$NODE_AUTH_TOKEN"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Verify npm identity
+        run: npm whoami --registry=https://registry.npmjs.org/
+        working-directory: dist
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Verify npm package access
+        run: npm access ls-packages ldkj --json --registry=https://registry.npmjs.org/
+        working-directory: dist
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Publish to npm
         run: npm publish --access public
         working-directory: dist
