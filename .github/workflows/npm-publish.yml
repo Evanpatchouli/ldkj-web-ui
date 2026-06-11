@@ -77,14 +77,14 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Verify npm package access
-        run: npm access ls-packages ldkj --json --registry=https://registry.npmjs.org/
+      - name: Verify npm package status
+        run: npm access get status @ldkj/web-ui --registry=https://registry.npmjs.org/
         working-directory: dist
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish to npm
-        run: npm publish --access public
+        run: npm publish
         working-directory: dist
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
