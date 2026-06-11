@@ -42,7 +42,7 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "icons:gen": "node ./scripts/generate-material-symbol-loaders.mjs",
-    "build": "npm run build:lib && npm run build:types && npm run prepare:package && npm run build:docs",
+    "build": "npm run build:lib && npm run build:types && npm run prepare:package",
     "build:lib": "vite build",
     "build:types": "tsc -p tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist",
     "build:docs": "vitepress build docs",
