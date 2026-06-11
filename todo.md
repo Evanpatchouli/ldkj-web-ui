@@ -7,7 +7,7 @@
 ## 样式与主题
 
 - [x] sx 样式扩展
-- [ ] 主题定制
+- [x] 主题定制
 
 ## 基础与布局
 
@@ -130,10 +130,17 @@
 - [ ] Dropdown
 - [ ] Affix
 
+## 数据展示
+
+- [ ] Clock
+- [ ] HeatMap
+- [ ] FlySpanner
+- [ ] Sheet
+
 ## 命名与边界治理
 
-- [ ] Loading / Spin 职责边界（容器态 vs 局部态）
-- [ ] Message / Toast / Notification 职责边界
+- [x] Loading / Spin 职责边界（容器态 vs 局部态）
+- [x] Message / Toast / Notification 职责边界
 
 ## V4 企业级能力
 
@@ -141,3 +148,4 @@
 - [ ] 国际化
 - [ ] 适配器
 - [ ] 设计工具插件
+- [ ] SSR 支持
