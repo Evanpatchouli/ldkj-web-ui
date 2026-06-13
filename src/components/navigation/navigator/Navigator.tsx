@@ -425,7 +425,7 @@ export const NavigatorLink = React.forwardRef<
       <NavigationMenuPrimitive.Link
         ref={ref}
         className={cn(
-          "navigator-link inline-flex min-h-10 items-center justify-center gap-2 whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium text-[color:var(--ldkj-color-foreground)] transition-colors hover:bg-[color:var(--ldkj-color-accent)] hover:text-[color:var(--ldkj-color-accent-foreground)] focus:bg-[color:var(--ldkj-color-accent)] focus:text-[color:var(--ldkj-color-accent-foreground)] focus:outline-none data-[active=true]:bg-[color:var(--ldkj-color-primary)] data-[active=true]:text-[color:var(--ldkj-color-primary-foreground)]",
+          "navigator-link inline-flex min-h-10 items-center justify-center gap-2 whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium !text-[color:var(--ldkj-color-foreground)] transition-colors hover:bg-[color:var(--ldkj-color-accent)] hover:!text-[color:var(--ldkj-color-accent-foreground)] focus:bg-[color:var(--ldkj-color-accent)] focus:!text-[color:var(--ldkj-color-accent-foreground)] focus:outline-none data-[active=true]:bg-[color:var(--ldkj-color-primary)] data-[active=true]:!text-[color:var(--ldkj-color-primary-foreground)]",
           disabled && "pointer-events-none opacity-50",
           styledProps.className,
         )}

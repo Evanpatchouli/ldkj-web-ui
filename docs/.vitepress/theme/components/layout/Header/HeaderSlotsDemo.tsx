@@ -14,9 +14,7 @@ const Example = () => (
     brand={<span className="font-semibold">订单中心</span>}
     nav={
       <div className="flex items-center gap-1 rounded-lg bg-white p-1 shadow-sm">
-        <a className="rounded-md bg-blue-600 px-3 py-1.5 text-sm text-white!" href="#" style={{
-          color: "#fff",
-        }}>
+        <a className="rounded-md bg-blue-600 px-3 py-1.5 text-sm !text-white" href="#">
           待处理
         </a>
         <a className="rounded-md px-3 py-1.5 text-sm text-slate-600 hover:bg-slate-100" href="#">
@@ -56,7 +54,7 @@ const Example = () => (
     brand={<span className="font-semibold">订单中心</span>}
     nav={
       <div className="flex items-center gap-1 rounded-lg bg-white p-1 shadow-sm">
-        <a className="rounded-md bg-blue-600 px-3 py-1.5 text-sm text-white!" href="#">
+        <a className="rounded-md bg-blue-600 px-3 py-1.5 text-sm !text-white" href="#">
           待处理
         </a>
         <a className="rounded-md px-3 py-1.5 text-sm text-slate-600 hover:bg-slate-100" href="#">
