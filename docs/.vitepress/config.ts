@@ -42,6 +42,7 @@ const config: UserConfig = {
               { text: "Divider", link: "/components/layout/divider" },
               { text: "Flex", link: "/components/layout/flex" },
               { text: "Grid", link: "/components/layout/grid" },
+              { text: "Header", link: "/components/layout/header" },
               { text: "Space", link: "/components/layout/space" },
               { text: "Row / Col", link: "/components/layout/row-col" },
               { text: "SafeArea", link: "/components/layout/safe-area" },

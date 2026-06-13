@@ -242,6 +242,11 @@ import GridGrowDemo from "./components/layout/Grid/GridGrowDemo";
 import GridNestedDemo from "./components/layout/Grid/GridNestedDemo";
 import GridOffsetDemo from "./components/layout/Grid/GridOffsetDemo";
 import GridSpacingDemo from "./components/layout/Grid/GridSpacingDemo";
+import HeaderBasicDemo from "./components/layout/Header/HeaderBasicDemo";
+import HeaderCompoundDemo from "./components/layout/Header/HeaderCompoundDemo";
+import HeaderResponsiveDemo from "./components/layout/Header/HeaderResponsiveDemo";
+import HeaderSlotsDemo from "./components/layout/Header/HeaderSlotsDemo";
+import HeaderStickyDemo from "./components/layout/Header/HeaderStickyDemo";
 import RowColAlignDemo from "./components/layout/RowCol/RowColAlignDemo";
 import RowColBasicDemo from "./components/layout/RowCol/RowColBasicDemo";
 import RowColGutterDemo from "./components/layout/RowCol/RowColGutterDemo";
@@ -1307,6 +1312,26 @@ const theme: Theme = {
     app.component(
       "GridSpacingDemo",
       createReactDemoHost("GridSpacingDemoHost", GridSpacingDemo),
+    );
+    app.component(
+      "HeaderBasicDemo",
+      createReactDemoHost("HeaderBasicDemoHost", HeaderBasicDemo),
+    );
+    app.component(
+      "HeaderSlotsDemo",
+      createReactDemoHost("HeaderSlotsDemoHost", HeaderSlotsDemo),
+    );
+    app.component(
+      "HeaderStickyDemo",
+      createReactDemoHost("HeaderStickyDemoHost", HeaderStickyDemo),
+    );
+    app.component(
+      "HeaderResponsiveDemo",
+      createReactDemoHost("HeaderResponsiveDemoHost", HeaderResponsiveDemo),
+    );
+    app.component(
+      "HeaderCompoundDemo",
+      createReactDemoHost("HeaderCompoundDemoHost", HeaderCompoundDemo),
     );
     app.component(
       "RowColAlignDemo",
