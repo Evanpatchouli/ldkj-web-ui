@@ -274,6 +274,11 @@ import MenuItemGapDemo from "./components/navigation/Menu/MenuItemGapDemo";
 import MenuItemsDemo from "./components/navigation/Menu/MenuItemsDemo";
 import MenuMultipleDemo from "./components/navigation/Menu/MenuMultipleDemo";
 import MenuSxDemo from "./components/navigation/Menu/MenuSxDemo";
+import NavigatorBasicDemo from "./components/navigation/Navigator/NavigatorBasicDemo";
+import NavigatorCompoundDemo from "./components/navigation/Navigator/NavigatorCompoundDemo";
+import NavigatorControlledDemo from "./components/navigation/Navigator/NavigatorControlledDemo";
+import NavigatorHeaderDemo from "./components/navigation/Navigator/NavigatorHeaderDemo";
+import NavigatorMegaDemo from "./components/navigation/Navigator/NavigatorMegaDemo";
 import PaginationBasicDemo from "./components/navigation/Pagination/PaginationBasicDemo";
 import PaginationBoundaryDemo from "./components/navigation/Pagination/PaginationBoundaryDemo";
 import PaginationControlledDemo from "./components/navigation/Pagination/PaginationControlledDemo";
@@ -1437,6 +1442,26 @@ const theme: Theme = {
     app.component(
       "MenuSxDemo",
       createReactDemoHost("MenuSxDemoHost", MenuSxDemo),
+    );
+    app.component(
+      "NavigatorBasicDemo",
+      createReactDemoHost("NavigatorBasicDemoHost", NavigatorBasicDemo),
+    );
+    app.component(
+      "NavigatorHeaderDemo",
+      createReactDemoHost("NavigatorHeaderDemoHost", NavigatorHeaderDemo),
+    );
+    app.component(
+      "NavigatorMegaDemo",
+      createReactDemoHost("NavigatorMegaDemoHost", NavigatorMegaDemo),
+    );
+    app.component(
+      "NavigatorControlledDemo",
+      createReactDemoHost("NavigatorControlledDemoHost", NavigatorControlledDemo),
+    );
+    app.component(
+      "NavigatorCompoundDemo",
+      createReactDemoHost("NavigatorCompoundDemoHost", NavigatorCompoundDemo),
     );
     app.component(
       "PaginationBasicDemo",

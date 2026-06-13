@@ -52,6 +52,7 @@ export * from "./components/layout/col";
 export * from "./components/navigation/breadcrumb";
 export * from "./components/navigation/anchor";
 export * from "./components/navigation/menu";
+export * from "./components/navigation/navigator";
 export * from "./components/navigation/tabs";
 export * from "./components/navigation/pagination";
 export * from "./styling";

@@ -147,6 +147,10 @@ const config: UserConfig = {
                 link: "/components/navigation/menu",
               },
               {
+                text: "Navigator",
+                link: "/components/navigation/navigator",
+              },
+              {
                 text: "Pagination",
                 link: "/components/navigation/pagination",
               },

@@ -86,7 +86,7 @@
 ## 基础与布局
 
 - [x] Header
-- [ ] Navigator
+- [x] Navigator
 - [ ] Stepper
 - [ ] MobileStepper（与 Stepper 职责区分：MobileStepper 负责移动端特定交互，Stepper 负责PC通用）
 - [ ] Timeline
