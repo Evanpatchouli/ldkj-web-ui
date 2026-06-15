@@ -112,6 +112,10 @@ const config: UserConfig = {
                 text: "MobileCascader",
                 link: "/components/mobile/mobile-cascader",
               },
+              {
+                text: "MobileStepper",
+                link: "/components/mobile/mobile-stepper",
+              },
             ],
           },
           {
@@ -153,6 +157,10 @@ const config: UserConfig = {
               {
                 text: "Pagination",
                 link: "/components/navigation/pagination",
+              },
+              {
+                text: "Stepper",
+                link: "/components/navigation/stepper",
               },
               {
                 text: "Tabs",

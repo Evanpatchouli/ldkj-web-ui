@@ -168,6 +168,10 @@ import MobileSelectBasicDemo from "./components/mobile/MobileSelect/MobileSelect
 import MobileSelectAlignDemo from "./components/mobile/MobileSelect/MobileSelectAlignDemo";
 import MobileCascaderBasicDemo from "./components/mobile/MobileCascader/MobileCascaderBasicDemo";
 import MobileCascaderControlledDemo from "./components/mobile/MobileCascader/MobileCascaderControlledDemo";
+import MobileStepperActionsDemo from "./components/mobile/MobileStepper/MobileStepperActionsDemo";
+import MobileStepperBasicDemo from "./components/mobile/MobileStepper/MobileStepperBasicDemo";
+import MobileStepperControlledDemo from "./components/mobile/MobileStepper/MobileStepperControlledDemo";
+import MobileStepperIndicatorDemo from "./components/mobile/MobileStepper/MobileStepperIndicatorDemo";
 // interact
 import ButtonBounceDemo from "./components/interact/Button/ButtonBounce";
 import ButtonRoundedDemo from "./components/interact/Button/ButtonRoundedDemo";
@@ -289,6 +293,11 @@ import PaginationPreviousNextDemo from "./components/navigation/Pagination/Pagin
 import PaginationRenderItemDemo from "./components/navigation/Pagination/PaginationRenderItemDemo";
 import PaginationSxDemo from "./components/navigation/Pagination/PaginationSxDemo";
 import PaginationVariantDemo from "./components/navigation/Pagination/PaginationVariantDemo";
+import StepperBasicDemo from "./components/navigation/Stepper/StepperBasicDemo";
+import StepperCompoundDemo from "./components/navigation/Stepper/StepperCompoundDemo";
+import StepperControlledDemo from "./components/navigation/Stepper/StepperControlledDemo";
+import StepperStatusDemo from "./components/navigation/Stepper/StepperStatusDemo";
+import StepperVerticalDemo from "./components/navigation/Stepper/StepperVerticalDemo";
 import TabsBasicDemo from "./components/navigation/Tabs/TabsBasicDemo";
 import TabsBorderlessDemo from "./components/navigation/Tabs/TabsBorderlessDemo";
 import TabsCustomContentDemo from "./components/navigation/Tabs/TabsCustomContentDemo";
@@ -1025,6 +1034,28 @@ const theme: Theme = {
         MobileCascaderControlledDemo,
       ),
     );
+    app.component(
+      "MobileStepperBasicDemo",
+      createReactDemoHost("MobileStepperBasicDemoHost", MobileStepperBasicDemo),
+    );
+    app.component(
+      "MobileStepperControlledDemo",
+      createReactDemoHost(
+        "MobileStepperControlledDemoHost",
+        MobileStepperControlledDemo,
+      ),
+    );
+    app.component(
+      "MobileStepperIndicatorDemo",
+      createReactDemoHost(
+        "MobileStepperIndicatorDemoHost",
+        MobileStepperIndicatorDemo,
+      ),
+    );
+    app.component(
+      "MobileStepperActionsDemo",
+      createReactDemoHost("MobileStepperActionsDemoHost", MobileStepperActionsDemo),
+    );
     // interact
     app.component(
       "ButtonBounceDemo",
@@ -1462,6 +1493,26 @@ const theme: Theme = {
     app.component(
       "NavigatorCompoundDemo",
       createReactDemoHost("NavigatorCompoundDemoHost", NavigatorCompoundDemo),
+    );
+    app.component(
+      "StepperBasicDemo",
+      createReactDemoHost("StepperBasicDemoHost", StepperBasicDemo),
+    );
+    app.component(
+      "StepperVerticalDemo",
+      createReactDemoHost("StepperVerticalDemoHost", StepperVerticalDemo),
+    );
+    app.component(
+      "StepperControlledDemo",
+      createReactDemoHost("StepperControlledDemoHost", StepperControlledDemo),
+    );
+    app.component(
+      "StepperStatusDemo",
+      createReactDemoHost("StepperStatusDemoHost", StepperStatusDemo),
+    );
+    app.component(
+      "StepperCompoundDemo",
+      createReactDemoHost("StepperCompoundDemoHost", StepperCompoundDemo),
     );
     app.component(
       "PaginationBasicDemo",
