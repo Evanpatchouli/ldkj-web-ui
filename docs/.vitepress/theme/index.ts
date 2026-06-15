@@ -170,6 +170,7 @@ import MobileCascaderBasicDemo from "./components/mobile/MobileCascader/MobileCa
 import MobileCascaderControlledDemo from "./components/mobile/MobileCascader/MobileCascaderControlledDemo";
 // interact
 import ButtonBounceDemo from "./components/interact/Button/ButtonBounce";
+import ButtonDebounceDemo from "./components/interact/Button/ButtonDebounceDemo";
 import ButtonRoundedDemo from "./components/interact/Button/ButtonRoundedDemo";
 import ButtonShadowDemo from "./components/interact/Button/ButtonShadowDemo";
 import ButtonSizesDemo from "./components/interact/Button/ButtonSizesDemo";
@@ -1029,6 +1030,10 @@ const theme: Theme = {
     app.component(
       "ButtonBounceDemo",
       createReactDemoHost("ButtonBounceDemoHost", ButtonBounceDemo),
+    );
+    app.component(
+      "ButtonDebounceDemo",
+      createReactDemoHost("ButtonDebounceDemoHost", ButtonDebounceDemo),
     );
     app.component(
       "ButtonRoundedDemo",
