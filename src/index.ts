@@ -56,5 +56,6 @@ export * from "./components/navigation/navigator";
 export * from "./components/navigation/tabs";
 export * from "./components/navigation/pagination";
 export * from "./components/navigation/stepper";
+export * from "./components/navigation/timeline";
 export * from "./styling";
 import "./style.css";

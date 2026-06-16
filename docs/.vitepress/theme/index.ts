@@ -299,6 +299,11 @@ import StepperCompoundDemo from "./components/navigation/Stepper/StepperCompound
 import StepperControlledDemo from "./components/navigation/Stepper/StepperControlledDemo";
 import StepperStatusDemo from "./components/navigation/Stepper/StepperStatusDemo";
 import StepperVerticalDemo from "./components/navigation/Stepper/StepperVerticalDemo";
+import TimelineBasicDemo from "./components/navigation/Timeline/TimelineBasicDemo";
+import TimelineCustomDemo from "./components/navigation/Timeline/TimelineCustomDemo";
+import TimelinePendingDemo from "./components/navigation/Timeline/TimelinePendingDemo";
+import TimelinePositionDemo from "./components/navigation/Timeline/TimelinePositionDemo";
+import TimelineSxDemo from "./components/navigation/Timeline/TimelineSxDemo";
 import TabsBasicDemo from "./components/navigation/Tabs/TabsBasicDemo";
 import TabsBorderlessDemo from "./components/navigation/Tabs/TabsBorderlessDemo";
 import TabsCustomContentDemo from "./components/navigation/Tabs/TabsCustomContentDemo";
@@ -1518,6 +1523,26 @@ const theme: Theme = {
     app.component(
       "StepperCompoundDemo",
       createReactDemoHost("StepperCompoundDemoHost", StepperCompoundDemo),
+    );
+    app.component(
+      "TimelineBasicDemo",
+      createReactDemoHost("TimelineBasicDemoHost", TimelineBasicDemo),
+    );
+    app.component(
+      "TimelinePositionDemo",
+      createReactDemoHost("TimelinePositionDemoHost", TimelinePositionDemo),
+    );
+    app.component(
+      "TimelineCustomDemo",
+      createReactDemoHost("TimelineCustomDemoHost", TimelineCustomDemo),
+    );
+    app.component(
+      "TimelinePendingDemo",
+      createReactDemoHost("TimelinePendingDemoHost", TimelinePendingDemo),
+    );
+    app.component(
+      "TimelineSxDemo",
+      createReactDemoHost("TimelineSxDemoHost", TimelineSxDemo),
     );
     app.component(
       "PaginationBasicDemo",

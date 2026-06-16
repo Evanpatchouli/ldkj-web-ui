@@ -89,7 +89,7 @@
 - [x] Navigator
 - [x] Stepper
 - [x] MobileStepper（与 Stepper 职责区分：MobileStepper 负责移动端特定交互，Stepper 负责PC通用）
-- [ ] Timeline
+- [x] Timeline
 - [ ] Splitter
 - [ ] Waterfalls（内部实现走 @masonry-grid/react）
 

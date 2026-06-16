@@ -163,6 +163,10 @@ const config: UserConfig = {
                 link: "/components/navigation/stepper",
               },
               {
+                text: "Timeline",
+                link: "/components/navigation/timeline",
+              },
+              {
                 text: "Tabs",
                 link: "/components/navigation/tabs",
               },
