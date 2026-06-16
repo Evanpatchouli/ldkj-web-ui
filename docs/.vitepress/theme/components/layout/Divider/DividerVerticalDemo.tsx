@@ -9,7 +9,7 @@ export function Example() {
       <span>A</span>
       <Divider vertical />
       <span>B</span>
-      <Divider vertical variant="middle" type="dashed" color="text-blue-300" />
+      <Divider vertical type="dashed" color="text-blue-300" />
       <span>C</span>
     </div>
   );
@@ -22,7 +22,7 @@ export default function DividerVerticalDemo() {
         <div className="text-sm self-center text-gray-500">A</div>
         <Divider vertical />
         <div className="text-sm self-center text-gray-500">B</div>
-        <Divider vertical variant="middle" type="dashed" color="text-blue-300" />
+        <Divider vertical type="dashed" color="text-blue-300" />
         <div className="text-sm self-center text-gray-500">C</div>
       </div>
     </CodeView>

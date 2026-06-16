@@ -16,7 +16,7 @@ pnpm add @ldkj/web-ui
 ```
 
 ```tsx
-// 可选：如需启用设计系统基础重置（全局样式），先引入 reset
+// 可选：如需启用页面级 normalize，先引入 reset
 // import "@ldkj/web-ui/reset.css";
 import "@ldkj/web-ui/style.css";
 import {
@@ -71,6 +71,8 @@ export default function App() {
   );
 }
 ```
+
+`style.css` 是组件样式必需入口。`reset.css` 仅提供页面级基础重置，Button 等组件自身外观不依赖它。
 
 ## Theme
 
