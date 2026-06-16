@@ -174,10 +174,16 @@ const itemMinHeightClass: Record<TimelineSize, string> = {
   lg: "min-h-20",
 };
 
-const dotMarginClass: Record<TimelineSize, string> = {
-  sm: "my-2",
-  md: "my-2.5",
-  lg: "my-3",
+const dotOffsetClass: Record<TimelineSize, string> = {
+  sm: "my-[11px]",
+  md: "my-3",
+  lg: "my-[15px]",
+};
+
+const iconDotOffsetClass: Record<TimelineSize, string> = {
+  sm: "my-1",
+  md: "my-1",
+  lg: "my-1.5",
 };
 
 const colorValue: Record<string, string> = {
@@ -516,7 +522,7 @@ function TimelineDot(props: TimelineDotProps) {
     <span
       className={cn(
         "timeline-dot z-10 inline-flex shrink-0 items-center justify-center rounded-full border transition-colors",
-        dotMarginClass[root.size],
+        hasChildren || loading ? iconDotOffsetClass[root.size] : dotOffsetClass[root.size],
         hasChildren || loading ? iconDotSizeClass[root.size] : dotSizeClass[root.size],
         resolvedVariant === "filled" &&
           "border-[color:var(--timeline-dot-color)] bg-[color:var(--timeline-dot-color)] text-[color:var(--ldkj-color-primary-foreground)]",
