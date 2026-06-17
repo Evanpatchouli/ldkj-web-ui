@@ -1,6 +1,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .ldkj-switch[data-state="checked"] .ldkj-switch-thumb {
+    transform: translateX(var(--ldkj-switch-thumb-translate));
+  }
+
+  .ldkj-switch[data-state="unchecked"] .ldkj-switch-thumb {
+    transform: translateX(0);
+  }
+}
+
 :root {
   --background: 0 0% 100%;
   --foreground: 222.2 84% 4.9%;

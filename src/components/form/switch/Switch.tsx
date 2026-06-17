@@ -32,9 +32,15 @@ const switchSizeClassNames: Record<SwitchSize, string> = {
 };
 
 const thumbSizeClassNames: Record<SwitchSize, string> = {
-  sm: "h-4 w-4 data-[state=checked]:translate-x-4",
-  md: "h-5 w-5 data-[state=checked]:translate-x-5",
-  lg: "h-6 w-6 data-[state=checked]:translate-x-6",
+  sm: "h-4 w-4",
+  md: "h-5 w-5",
+  lg: "h-6 w-6",
+};
+
+const thumbTranslateBySize: Record<SwitchSize, string> = {
+  sm: "1rem",
+  md: "1.25rem",
+  lg: "1.5rem",
 };
 
 /**
@@ -82,7 +88,7 @@ const Switch = React.forwardRef<
       disabled={disabled}
       aria-describedby={mergedAriaDescribedBy}
       className={cn(
-        "peer inline-flex shrink-0 cursor-pointer items-center rounded-full border border-transparent bg-[color:var(--ldkj-color-muted)] p-0.5 transition-colors",
+        "ldkj-switch peer inline-flex shrink-0 cursor-pointer items-center rounded-full border border-transparent bg-[color:var(--ldkj-color-muted)] p-0.5 transition-colors",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)] focus-visible:ring-offset-2",
         "disabled:cursor-not-allowed disabled:opacity-50",
         "data-[state=checked]:bg-[color:var(--ldkj-color-primary)] data-[state=unchecked]:bg-[color:var(--ldkj-color-muted)]",
@@ -91,13 +97,18 @@ const Switch = React.forwardRef<
         className,
         legacyClass,
       )}
-      style={mergeSxStyle(style, sxInlineStyle)}
+      style={mergeSxStyle(
+        {
+          "--ldkj-switch-thumb-translate": thumbTranslateBySize[size],
+        } as React.CSSProperties,
+        style,
+        sxInlineStyle,
+      )}
       {...rootProps}
     >
       <SwitchPrimitive.Thumb
         className={cn(
-          "pointer-events-none block rounded-full bg-[color:var(--ldkj-color-switch-thumb)] shadow-sm ring-0 transition-transform",
-          "data-[state=unchecked]:translate-x-0",
+          "ldkj-switch-thumb pointer-events-none block rounded-full bg-[color:var(--ldkj-color-switch-thumb)] shadow-sm ring-0 transition-transform",
           thumbSizeClassNames[size],
         )}
       />

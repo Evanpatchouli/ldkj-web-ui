@@ -116,6 +116,10 @@ const config: UserConfig = {
                 text: "MobileStepper",
                 link: "/components/mobile/mobile-stepper",
               },
+              {
+                text: "MobilePage",
+                link: "/components/mobile/mobile-page",
+              },
             ],
           },
           {
@@ -208,6 +212,9 @@ const config: UserConfig = {
           new URL("../../src/index.ts", import.meta.url),
         ),
       },
+    },
+    server: {
+      host: "0.0.0.0",
     },
   },
 };

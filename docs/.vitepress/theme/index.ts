@@ -172,6 +172,10 @@ import MobileStepperActionsDemo from "./components/mobile/MobileStepper/MobileSt
 import MobileStepperBasicDemo from "./components/mobile/MobileStepper/MobileStepperBasicDemo";
 import MobileStepperControlledDemo from "./components/mobile/MobileStepper/MobileStepperControlledDemo";
 import MobileStepperIndicatorDemo from "./components/mobile/MobileStepper/MobileStepperIndicatorDemo";
+import MobilePageBasicDemo from "./components/mobile/MobilePage/MobilePageBasicDemo";
+import MobilePageRefreshDemo from "./components/mobile/MobilePage/MobilePageRefreshDemo";
+import MobilePageSubDemo from "./components/mobile/MobilePage/MobilePageSubDemo";
+import MobilePageTabsDemo from "./components/mobile/MobilePage/MobilePageTabsDemo";
 // interact
 import ButtonBounceDemo from "./components/interact/Button/ButtonBounce";
 import ButtonDebounceDemo from "./components/interact/Button/ButtonDebounceDemo";
@@ -1061,6 +1065,22 @@ const theme: Theme = {
     app.component(
       "MobileStepperActionsDemo",
       createReactDemoHost("MobileStepperActionsDemoHost", MobileStepperActionsDemo),
+    );
+    app.component(
+      "MobilePageBasicDemo",
+      createReactDemoHost("MobilePageBasicDemoHost", MobilePageBasicDemo),
+    );
+    app.component(
+      "MobilePageSubDemo",
+      createReactDemoHost("MobilePageSubDemoHost", MobilePageSubDemo),
+    );
+    app.component(
+      "MobilePageRefreshDemo",
+      createReactDemoHost("MobilePageRefreshDemoHost", MobilePageRefreshDemo),
+    );
+    app.component(
+      "MobilePageTabsDemo",
+      createReactDemoHost("MobilePageTabsDemoHost", MobilePageTabsDemo),
     );
     // interact
     app.component(
