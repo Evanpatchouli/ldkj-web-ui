@@ -123,6 +123,15 @@ const config: UserConfig = {
             ],
           },
           {
+            text: "场景组件",
+            items: [
+              {
+                text: "RacingChips",
+                link: "/components/scenario/racing-chips",
+              },
+            ],
+          },
+          {
             text: "数据展示",
             items: [
               { text: "Avatar", link: "/components/data-display/avatar" },

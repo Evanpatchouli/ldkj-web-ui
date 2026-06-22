@@ -27,6 +27,7 @@ export * from "./components/form/uploader";
 export * from "./components/form/select";
 export * from "./components/form/switch";
 export * from "./components/mobile";
+export * from "./components/scenario";
 export * from "./components/data-display/card";
 export * from "./components/data-display/avatar";
 export * from "./components/data-display/icon";

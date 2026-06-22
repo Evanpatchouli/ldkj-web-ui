@@ -176,6 +176,10 @@ import MobilePageBasicDemo from "./components/mobile/MobilePage/MobilePageBasicD
 import MobilePageRefreshDemo from "./components/mobile/MobilePage/MobilePageRefreshDemo";
 import MobilePageSubDemo from "./components/mobile/MobilePage/MobilePageSubDemo";
 import MobilePageTabsDemo from "./components/mobile/MobilePage/MobilePageTabsDemo";
+// scenario
+import RacingChipsBasicDemo from "./components/scenario/RacingChips/RacingChipsBasicDemo";
+import RacingChipsPhoneDemo from "./components/scenario/RacingChips/RacingChipsPhoneDemo";
+import RacingChipsCustomDemo from "./components/scenario/RacingChips/RacingChipsCustomDemo";
 // interact
 import ButtonBounceDemo from "./components/interact/Button/ButtonBounce";
 import ButtonDebounceDemo from "./components/interact/Button/ButtonDebounceDemo";
@@ -1081,6 +1085,19 @@ const theme: Theme = {
     app.component(
       "MobilePageTabsDemo",
       createReactDemoHost("MobilePageTabsDemoHost", MobilePageTabsDemo),
+    );
+    // scenario
+    app.component(
+      "RacingChipsBasicDemo",
+      createReactDemoHost("RacingChipsBasicDemoHost", RacingChipsBasicDemo),
+    );
+    app.component(
+      "RacingChipsPhoneDemo",
+      createReactDemoHost("RacingChipsPhoneDemoHost", RacingChipsPhoneDemo),
+    );
+    app.component(
+      "RacingChipsCustomDemo",
+      createReactDemoHost("RacingChipsCustomDemoHost", RacingChipsCustomDemo),
     );
     // interact
     app.component(

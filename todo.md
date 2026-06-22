@@ -123,6 +123,7 @@
 - [ ] Counter
 - [ ] FrostedGlass
 - [ ] Snake
+- [x] RacingChips
 
 ## V3（按场景扩展）
 
