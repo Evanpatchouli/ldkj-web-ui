@@ -47,6 +47,7 @@ export * from "./components/layout/grid";
 export * from "./components/layout/header";
 export * from "./components/layout/safe-area";
 export * from "./components/layout/space";
+export * from "./components/layout/splitter";
 export * from "./components/layout/typography";
 export * from "./components/layout/row";
 export * from "./components/layout/col";

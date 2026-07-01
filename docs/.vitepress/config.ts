@@ -47,6 +47,7 @@ const config: UserConfig = {
               { text: "Space", link: "/components/layout/space" },
               { text: "Row / Col", link: "/components/layout/row-col" },
               { text: "SafeArea", link: "/components/layout/safe-area" },
+              { text: "Splitter", link: "/components/layout/splitter" },
               { text: "Typography", link: "/components/layout/typography" },
             ],
           },

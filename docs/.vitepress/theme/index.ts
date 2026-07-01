@@ -268,6 +268,10 @@ import SpaceBasicDemo from "./components/layout/Space/SpaceBasicDemo";
 import SpaceItemDemo from "./components/layout/Space/SpaceItemDemo";
 import SpaceResponsiveDemo from "./components/layout/Space/SpaceResponsiveDemo";
 import SpaceSplitDemo from "./components/layout/Space/SpaceSplitDemo";
+import SplitterBasicDemo from "./components/layout/Splitter/SplitterBasicDemo";
+import SplitterComplexDemo from "./components/layout/Splitter/SplitterComplexDemo";
+import SplitterControlledDemo from "./components/layout/Splitter/SplitterControlledDemo";
+import SplitterVerticalDemo from "./components/layout/Splitter/SplitterVerticalDemo";
 import TypographyBasicDemo from "./components/layout/Typography/TypographyBasicDemo";
 import TypographySemanticDemo from "./components/layout/Typography/TypographySemanticDemo";
 import TypographySxDemo from "./components/layout/Typography/TypographySxDemo";
@@ -1447,6 +1451,22 @@ const theme: Theme = {
     app.component(
       "SpaceSplitDemo",
       createReactDemoHost("SpaceSplitDemoHost", SpaceSplitDemo),
+    );
+    app.component(
+      "SplitterBasicDemo",
+      createReactDemoHost("SplitterBasicDemoHost", SplitterBasicDemo),
+    );
+    app.component(
+      "SplitterVerticalDemo",
+      createReactDemoHost("SplitterVerticalDemoHost", SplitterVerticalDemo),
+    );
+    app.component(
+      "SplitterControlledDemo",
+      createReactDemoHost("SplitterControlledDemoHost", SplitterControlledDemo),
+    );
+    app.component(
+      "SplitterComplexDemo",
+      createReactDemoHost("SplitterComplexDemoHost", SplitterComplexDemo),
     );
     app.component(
       "TypographyBasicDemo",
