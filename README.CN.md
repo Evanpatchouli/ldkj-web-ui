@@ -9,6 +9,8 @@ pnpm install
 pnpm dev
 ```
 
+文档站内置基于 `@orama/plugin-vitepress` 的本地搜索，开发和构建时会自动为 Markdown 页面生成搜索索引。
+
 ## 在其他项目中使用
 
 ```bash
@@ -135,7 +137,7 @@ export default function App() {
 - `pnpm dev`: 启动 VitePress 开发服务器查看文档和 Demo.
 - `pnpm icons:gen`: 扫描 `@material-symbols/svg-400` 并生成全量 Icon loaders.
 - `pnpm build:lib`: 构建生产包到 `dist/`.
-- `pnpm build:docs`: 构建 VitePress 静态文档到 `docs/.vitepress/dist/`.
+- `pnpm build:docs`: 构建 VitePress 静态文档到 `docs/.vitepress/dist/`，并生成 Orama 搜索索引.
 - `pnpm build`: 构建生产包和文档.
 - `pnpm typecheck`: 运行 TypeScript 类型检查.
 

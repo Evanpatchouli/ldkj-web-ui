@@ -46,6 +46,7 @@
     "build:lib": "vite build",
     "build:types": "tsc -p tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist",
     "build:docs": "vitepress build docs",
+    "assert:docs-search": "node ./scripts/assert-docs-search.mjs",
     "prepare:package": "node ./scripts/prepare-package.js",
     "preview": "vitepress preview docs",
     "typecheck": "tsc --noEmit",
@@ -80,6 +81,7 @@
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
+    "@orama/plugin-vitepress": "^2.1.1",
     "@types/node": "^24.2.0",
     "@types/qrcode": "^1.5.6",
     "@types/react": "^18.3.12",

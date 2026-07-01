@@ -1,6 +1,7 @@
 import type { UserConfig } from "vitepress";
 import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
+import { OramaPlugin } from "@orama/plugin-vitepress";
 import { fileURLToPath } from "node:url";
 import packageJson from "../../package.json";
 
@@ -213,7 +214,24 @@ const config: UserConfig = {
     ],
   },
   vite: {
-    plugins: [react() as any, svgr() as any],
+    plugins: [
+      react() as any,
+      svgr() as any,
+      OramaPlugin({
+        analytics: {
+          enabled: false,
+          apiKey: "",
+          indexId: "",
+        },
+      }) as any,
+    ],
+    vue: {
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag: string) => tag === "orama-searchbox",
+        },
+      },
+    },
     resolve: {
       alias: {
         "@": fileURLToPath(new URL("../../src", import.meta.url)),
@@ -225,7 +243,7 @@ const config: UserConfig = {
     server: {
       host: "0.0.0.0",
     },
-  },
+  } as any,
 };
 
 export default config;
