@@ -247,6 +247,9 @@ import FlexDirectionDemo from "./components/layout/Flex/FlexDirectionDemo";
 import FlexGapWrapDemo from "./components/layout/Flex/FlexGapWrapDemo";
 import FlexSizeDemo from "./components/layout/Flex/FlexSizeDemo";
 import GridBasicDemo from "./components/layout/Grid/GridBasicDemo";
+import ColumnsBasicDemo from "./components/layout/Columns/ColumnsBasicDemo";
+import ColumnsCardsDemo from "./components/layout/Columns/ColumnsCardsDemo";
+import ColumnsResponsiveDemo from "./components/layout/Columns/ColumnsResponsiveDemo";
 import GridColumnsDemo from "./components/layout/Grid/GridColumnsDemo";
 import GridDashboardDemo from "./components/layout/Grid/GridDashboardDemo";
 import GridDirectionWrapDemo from "./components/layout/Grid/GridDirectionWrapDemo";
@@ -1367,6 +1370,18 @@ const theme: Theme = {
     app.component(
       "GridBasicDemo",
       createReactDemoHost("GridBasicDemoHost", GridBasicDemo),
+    );
+    app.component(
+      "ColumnsBasicDemo",
+      createReactDemoHost("ColumnsBasicDemoHost", ColumnsBasicDemo),
+    );
+    app.component(
+      "ColumnsCardsDemo",
+      createReactDemoHost("ColumnsCardsDemoHost", ColumnsCardsDemo),
+    );
+    app.component(
+      "ColumnsResponsiveDemo",
+      createReactDemoHost("ColumnsResponsiveDemoHost", ColumnsResponsiveDemo),
     );
     app.component(
       "GridColumnsDemo",
