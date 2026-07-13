@@ -138,6 +138,7 @@ export default function App() {
 - `pnpm icons:gen`: 扫描 `@material-symbols/svg-400` 并生成全量 Icon loaders.
 - `pnpm build:lib`: 构建生产包到 `dist/`.
 - `pnpm build:docs`: 构建 VitePress 静态文档到 `docs/.vitepress/dist/`，并生成 Orama 搜索索引.
+- `pnpm assert:masonry`: 验证 Masonry 无项目重叠、容器高度、响应式重排和禁用切换.
 - `pnpm build`: 构建生产包和文档.
 - `pnpm typecheck`: 运行 TypeScript 类型检查.
 

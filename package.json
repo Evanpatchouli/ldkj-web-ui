@@ -47,6 +47,7 @@
     "build:types": "tsc -p tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist",
     "build:docs": "vitepress build docs",
     "assert:docs-search": "node ./scripts/assert-docs-search.mjs",
+    "assert:masonry": "node ./scripts/assert-masonry.mjs",
     "prepare:package": "node ./scripts/prepare-package.js",
     "preview": "vitepress preview docs",
     "typecheck": "tsc --noEmit",

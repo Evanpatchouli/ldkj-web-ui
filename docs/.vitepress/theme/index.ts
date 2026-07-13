@@ -250,6 +250,9 @@ import GridBasicDemo from "./components/layout/Grid/GridBasicDemo";
 import ColumnsBasicDemo from "./components/layout/Columns/ColumnsBasicDemo";
 import ColumnsCardsDemo from "./components/layout/Columns/ColumnsCardsDemo";
 import ColumnsResponsiveDemo from "./components/layout/Columns/ColumnsResponsiveDemo";
+import MasonryBasicDemo from "./components/layout/Masonry/MasonryBasicDemo";
+import MasonryDisabledDemo from "./components/layout/Masonry/MasonryDisabledDemo";
+import MasonryVariantsDemo from "./components/layout/Masonry/MasonryVariantsDemo";
 import GridColumnsDemo from "./components/layout/Grid/GridColumnsDemo";
 import GridDashboardDemo from "./components/layout/Grid/GridDashboardDemo";
 import GridDirectionWrapDemo from "./components/layout/Grid/GridDirectionWrapDemo";
@@ -1382,6 +1385,18 @@ const theme: Theme = {
     app.component(
       "ColumnsResponsiveDemo",
       createReactDemoHost("ColumnsResponsiveDemoHost", ColumnsResponsiveDemo),
+    );
+    app.component(
+      "MasonryBasicDemo",
+      createReactDemoHost("MasonryBasicDemoHost", MasonryBasicDemo),
+    );
+    app.component(
+      "MasonryDisabledDemo",
+      createReactDemoHost("MasonryDisabledDemoHost", MasonryDisabledDemo),
+    );
+    app.component(
+      "MasonryVariantsDemo",
+      createReactDemoHost("MasonryVariantsDemoHost", MasonryVariantsDemo),
     );
     app.component(
       "GridColumnsDemo",

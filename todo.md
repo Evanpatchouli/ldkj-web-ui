@@ -91,7 +91,8 @@
 - [x] MobileStepper（与 Stepper 职责区分：MobileStepper 负责移动端特定交互，Stepper 负责PC通用）
 - [x] Timeline
 - [x] Splitter
-- [ ] Waterfalls（内部实现走 @masonry-grid/react）
+- [x] Columns
+- [x] Masonry（自研已知宽高比瀑布流，与固定分栏 Columns 区分）
 
 ## 数据展示
 

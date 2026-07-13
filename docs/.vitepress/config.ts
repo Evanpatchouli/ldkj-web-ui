@@ -44,6 +44,7 @@ const config: UserConfig = {
               { text: "Flex", link: "/components/layout/flex" },
               { text: "Grid", link: "/components/layout/grid" },
               { text: "Columns", link: "/components/layout/columns" },
+              { text: "Masonry", link: "/components/layout/masonry" },
               { text: "Header", link: "/components/layout/header" },
               { text: "Space", link: "/components/layout/space" },
               { text: "Row / Col", link: "/components/layout/row-col" },
