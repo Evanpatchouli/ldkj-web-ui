@@ -2978,5 +2978,3 @@ export const materialSymbolLoaders: Record<
     sharp: () => import("@material-symbols/svg-400/sharp/zoom_out.svg?react"),
   },
 };
-
-console.log(Object.keys(materialSymbolLoaders));

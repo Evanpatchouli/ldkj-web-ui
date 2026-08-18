@@ -10,6 +10,28 @@ const licensePath = path.join(rootDir, "LICENSE");
 const srcResetPath = path.join(rootDir, "src", "reset.css");
 const distResetPath = path.join(distDir, "reset.css");
 
+function toPublishedPath(target) {
+  return typeof target === "string"
+    ? target.replace(/^\.\/dist\//, "./")
+    : target;
+}
+
+function normalizeExports(exportsMap) {
+  return Object.fromEntries(
+    Object.entries(exportsMap).map(([subpath, conditions]) => [
+      subpath,
+      typeof conditions === "string"
+        ? toPublishedPath(conditions)
+        : Object.fromEntries(
+            Object.entries(conditions).map(([condition, target]) => [
+              condition,
+              toPublishedPath(target),
+            ]),
+          ),
+    ]),
+  );
+}
+
 if (!fs.existsSync(rootPackageJsonPath)) {
   throw new Error("Cannot find root package.json");
 }
@@ -33,15 +55,7 @@ const distPackageJson = {
   main: "./index.cjs",
   module: "./index.js",
   types: "./index.d.ts",
-  exports: {
-    ".": {
-      types: "./index.d.ts",
-      import: "./index.js",
-      require: "./index.cjs",
-    },
-    "./style.css": "./style.css",
-    "./reset.css": "./reset.css",
-  },
+  exports: normalizeExports(rootPackageJson.exports),
   peerDependencies: rootPackageJson.peerDependencies,
 };
 

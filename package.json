@@ -30,6 +30,31 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
+    "./button": {
+      "types": "./dist/button.d.ts",
+      "import": "./dist/button.js",
+      "require": "./dist/button.cjs"
+    },
+    "./ghost-button": {
+      "types": "./dist/ghost-button.d.ts",
+      "import": "./dist/ghost-button.js",
+      "require": "./dist/ghost-button.cjs"
+    },
+    "./select": {
+      "types": "./dist/select.d.ts",
+      "import": "./dist/select.js",
+      "require": "./dist/select.cjs"
+    },
+    "./theme": {
+      "types": "./dist/theme.d.ts",
+      "import": "./dist/theme.js",
+      "require": "./dist/theme.cjs"
+    },
+    "./icon": {
+      "types": "./dist/icon.d.ts",
+      "import": "./dist/icon.js",
+      "require": "./dist/icon.cjs"
+    },
     "./style.css": "./dist/style.css",
     "./reset.css": "./dist/reset.css"
   },
@@ -45,6 +70,7 @@
     "build": "npm run build:lib && npm run build:types && npm run prepare:package",
     "build:lib": "vite build",
     "build:types": "tsc -p tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist",
+    "assert:package-exports": "node ./scripts/assert-package-exports.mjs",
     "build:docs": "vitepress build docs",
     "assert:button-loading": "node ./scripts/assert-button-loading.mjs",
     "assert:ghost-button-group": "node ./scripts/assert-ghost-button-group.mjs",
