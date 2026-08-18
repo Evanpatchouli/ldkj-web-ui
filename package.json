@@ -46,6 +46,7 @@
     "build:lib": "vite build",
     "build:types": "tsc -p tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist",
     "build:docs": "vitepress build docs",
+    "assert:ghost-button-group": "node ./scripts/assert-ghost-button-group.mjs",
     "assert:docs-search": "node ./scripts/assert-docs-search.mjs",
     "assert:masonry": "node ./scripts/assert-masonry.mjs",
     "prepare:package": "node ./scripts/prepare-package.js",
