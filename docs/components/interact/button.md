@@ -44,6 +44,12 @@
 
 <ButtonDebounceDemo />
 
+## Loading
+
+`loading` 用于表达异步操作进行中。组件会自动禁用按钮并设置 `aria-busy="true"`；`loadingText` 替换按钮内容，`loadingIcon` 替换默认 Spinner。loading 相关属性由组件消费，不会透传到原生 DOM。
+
+<ButtonLoadingDemo />
+
 ## Basic
 
 最小用法展示 Button 的默认形态。优先从 Basic 示例开始，再按业务场景叠加状态、样式和交互。
@@ -101,6 +107,9 @@ export function Example() {
 | `bounce` | 点击时是否弹起 | `boolean` | `false` |
 | `splash` | 点击时是否闪烁 | `boolean` | `false` |
 | `debounce` | 是否防抖 `onClick`，`true` 使用 300ms，数字表示等待毫秒数 | `boolean \| number` | `false` |
+| `loading` | 是否显示加载态并禁用按钮 | `boolean` | `false` |
+| `loadingText` | 加载时替换按钮内容；传 `null` 可隐藏文案 | `React.ReactNode` | - |
+| `loadingIcon` | 加载时替换默认 Spinner；传 `null` 可隐藏图标 | `React.ReactNode` | 默认 Spinner |
 | `sx` | CSS-in-JS 样式入口 | `SxProps` | - |
 | `onClick` | 点击按钮时的回调函数 | `() => void` | - |
 
@@ -110,6 +119,8 @@ export function Example() {
 - `className` 与 `class` 用于追加类名；如同时传入原生 `style`，内联样式会按 React 规则覆盖同名 CSS。
 - `debounce` 只处理 `onClick`：`true` 等价于 `300`，数字值会作为毫秒等待时间，未设置或 `false` 不启用防抖。
 - 启用 `debounce` 时使用尾触发策略，连续点击只会在最后一次点击停止后触发一次；组件卸载或防抖配置变化时会取消待执行回调。
+- `loading` 优先于 `disabled`：任一为真都会禁用按钮；loading 时设置 `aria-busy="true"`，并在自定义 `component` 上阻止点击默认行为。
+- `loadingText` 与 `loadingIcon` 只在 `loading` 为真时生效；未传 `loadingText` 时保留原按钮内容，未传 `loadingIcon` 时使用默认 Spinner。
 - 复杂内容优先通过组合能力传入，避免在组件内部硬编码业务文案。
 - Button 的默认值应服务于最常见场景，特殊场景通过显式 props 覆盖。
 
@@ -117,5 +128,7 @@ export function Example() {
 
 - 交互反馈应避免和 Toast、Notification、Modal 等组件表达同一件事。
 - `debounce` 适合防重复提交，不适合需要即时视觉响应或按下即执行的操作。
+- `loading` 适合由异步流程控制；请求完成后应由业务侧恢复为 `false`。
+- `loadingText` 过长时可能使按钮宽度增加；需要稳定布局时请预留足够宽度或使用固定宽度样式。
 - 文档 demo 展示的是推荐组合方式；生产代码中可按业务密度调整间距和尺寸。
 - 修改组件能力时需要同步更新本页 Demo、Usage、API 与行为规则。
