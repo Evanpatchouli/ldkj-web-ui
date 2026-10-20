@@ -3,3 +3,7 @@ packages:
 
 allowBuilds:
   esbuild: true
+
+patchedDependencies:
+  # 此版本发布的 bundle 残留了未随包提供的 source map 引用；仅移除这些注释。
+  '@orama/searchbox@1.0.0-beta.13': patches/@orama__searchbox@1.0.0-beta.13.patch

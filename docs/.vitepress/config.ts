@@ -91,6 +91,7 @@ const config: UserConfig = {
               },
               { text: "Input", link: "/components/form/input" },
               { text: "InputNumber", link: "/components/form/input-number" },
+              { text: "DateTimePicker", link: "/components/form/date-time-picker" },
               { text: "InputOPT", link: "/components/form/input-opt" },
               { text: "AutoComplete", link: "/components/form/auto-complete" },
               { text: "Label", link: "/components/form/label" },

@@ -83,6 +83,9 @@ import TableSelectionDemo from "./components/data-display/Table/TableSelectionDe
 import TableStateDemo from "./components/data-display/Table/TableStateDemo";
 import TableSxDemo from "./components/data-display/Table/TableSxDemo";
 // form
+import DateTimePickerBasicDemo from "./components/form/DateTimePicker/DateTimePickerBasicDemo";
+import DateTimePickerStatesDemo from "./components/form/DateTimePicker/DateTimePickerStatesDemo";
+import DateTimePickerFormDemo from "./components/form/DateTimePicker/DateTimePickerFormDemo";
 import CheckboxBasicDemo from "./components/form/Checkbox/CheckboxBasicDemo";
 import CheckboxControlledDemo from "./components/form/Checkbox/CheckboxControlledDemo";
 import CheckboxStatesDemo from "./components/form/Checkbox/CheckboxStatesDemo";
@@ -707,6 +710,9 @@ const theme: Theme = {
       createReactDemoHost("TableSxDemoHost", TableSxDemo),
     );
     // form
+    app.component("DateTimePickerBasicDemo", createReactDemoHost("DateTimePickerBasicDemoHost", DateTimePickerBasicDemo));
+    app.component("DateTimePickerStatesDemo", createReactDemoHost("DateTimePickerStatesDemoHost", DateTimePickerStatesDemo));
+    app.component("DateTimePickerFormDemo", createReactDemoHost("DateTimePickerFormDemoHost", DateTimePickerFormDemo));
     app.component(
       "CheckboxBasicDemo",
       createReactDemoHost("CheckboxBasicDemoHost", CheckboxBasicDemo),

@@ -76,6 +76,7 @@
     "assert:ghost-button-group": "node ./scripts/assert-ghost-button-group.mjs",
     "assert:docs-search": "node ./scripts/assert-docs-search.mjs",
     "assert:masonry": "node ./scripts/assert-masonry.mjs",
+    "assert:date-time-picker": "node ./scripts/assert-date-time-picker.mjs",
     "prepare:package": "node ./scripts/prepare-package.js",
     "preview": "vitepress preview docs",
     "typecheck": "tsc --noEmit",
@@ -105,8 +106,10 @@
     "@radix-ui/react-tooltip": "^1.2.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "date-fns": "^4.4.0",
     "es-toolkit": "^1.47.1",
     "qrcode": "^1.5.4",
+    "react-day-picker": "^9.14.0",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {

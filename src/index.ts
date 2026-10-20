@@ -14,6 +14,7 @@ export * from "./components/interact/progress";
 export * from "./components/form/checkbox";
 export * from "./components/form/input";
 export * from "./components/form/input-number";
+export * from "./components/form/date-time-picker";
 export * from "./components/form/input-opt";
 export * from "./components/form/auto-complete";
 export * from "./components/form/label";
