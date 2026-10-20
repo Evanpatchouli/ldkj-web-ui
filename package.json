@@ -2,6 +2,7 @@
   "name": "@ldkj/web-ui",
   "version": "1.10.0",
   "private": false,
+  "packageManager": "pnpm@12.14.0",
   "author": "xfwang <wangxiaofeng@xjldkj.com>",
   "description": "React component library built with shadcn-ui patterns and VitePress docs.",
   "keywords": [
