@@ -30,9 +30,17 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/index.ts"),
+      entry: {
+        index: path.resolve(__dirname, "src/index.ts"),
+        button: path.resolve(__dirname, "src/button.ts"),
+        "ghost-button": path.resolve(__dirname, "src/ghost-button.ts"),
+        select: path.resolve(__dirname, "src/select.ts"),
+        theme: path.resolve(__dirname, "src/theme.ts"),
+        icon: path.resolve(__dirname, "src/icon.ts"),
+      },
       name: "ldkjWebUi",
-      fileName: (format) => (format === "es" ? "index.js" : "index.cjs"),
+      fileName: (format, entryName) =>
+        `${entryName}.${format === "es" ? "js" : "cjs"}`,
       cssFileName: "style",
     },
     rollupOptions: {

@@ -90,43 +90,47 @@ function resolveMenuStyle(direction: GhostButtonGroupDirection, gap: string): CS
     case "down":
       return {
         position: "absolute",
-        top: `calc(100% + ${gap})`,
+        top: "100%",
         right: 0,
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-end",
         gap,
+        paddingTop: gap,
       };
     case "left":
       return {
         position: "absolute",
-        right: `calc(100% + ${gap})`,
+        right: "100%",
         top: 0,
         display: "flex",
         flexDirection: "row-reverse",
         alignItems: "center",
         gap,
+        paddingRight: gap,
       };
     case "right":
       return {
         position: "absolute",
-        left: `calc(100% + ${gap})`,
+        left: "100%",
         top: 0,
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
         gap,
+        paddingLeft: gap,
       };
     case "up":
     default:
       return {
         position: "absolute",
-        bottom: `calc(100% + ${gap})`,
+        bottom: "100%",
         right: 0,
         display: "flex",
         flexDirection: "column-reverse",
         alignItems: "flex-end",
         gap,
+        paddingBottom: gap,
       };
   }
 }
@@ -211,15 +215,17 @@ function GhostButtonGroupRoot<T extends ElementType = "button">(props: GhostButt
       return;
     }
 
-    if (menuPhase === "closed" || menuPhase === "exiting") return;
+    if (menuPhase === "closed") return;
+
+    if (menuPhase === "exiting") {
+      const timeout = window.setTimeout(() => {
+        setMenuPhase("closed");
+      }, exitDuration);
+
+      return () => window.clearTimeout(timeout);
+    }
 
     setMenuPhase("exiting");
-
-    const timeout = window.setTimeout(() => {
-      setMenuPhase("closed");
-    }, exitDuration);
-
-    return () => window.clearTimeout(timeout);
   }, [exitDuration, menuPhase, open]);
 
   React.useLayoutEffect(() => {

@@ -85,12 +85,14 @@
 
 ## 基础与布局
 
-- [ ] Header
-- [ ] Navigator
-- [ ] Steps
-- [ ] Timeline
-- [ ] Splitter
-- [ ] Waterfalls（内部实现走 @masonry-grid/react）
+- [x] Header
+- [x] Navigator
+- [x] Stepper
+- [x] MobileStepper（与 Stepper 职责区分：MobileStepper 负责移动端特定交互，Stepper 负责PC通用）
+- [x] Timeline
+- [x] Splitter
+- [x] Columns
+- [x] Masonry（自研已知宽高比瀑布流，与固定分栏 Columns 区分）
 
 ## 数据展示
 
@@ -122,6 +124,7 @@
 - [ ] Counter
 - [ ] FrostedGlass
 - [ ] Snake
+- [x] RacingChips
 
 ## V3（按场景扩展）
 

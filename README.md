@@ -9,6 +9,8 @@ pnpm install
 pnpm dev
 ```
 
+文档站内置基于 `@orama/plugin-vitepress` 的本地搜索，开发和构建时会自动为 Markdown 页面生成搜索索引。
+
 ## 在其他项目中使用
 
 ```bash
@@ -16,7 +18,7 @@ pnpm add @ldkj/web-ui
 ```
 
 ```tsx
-// 可选：如需启用设计系统基础重置（全局样式），先引入 reset
+// 可选：如需启用页面级 normalize，先引入 reset
 // import "@ldkj/web-ui/reset.css";
 import "@ldkj/web-ui/style.css";
 import {
@@ -71,6 +73,25 @@ export default function App() {
   );
 }
 ```
+
+`style.css` 是组件样式必需入口。`reset.css` 仅提供页面级基础重置，Button 等组件自身外观不依赖它。
+
+## 按需导入与 tree-shaking
+
+根入口的命名导入支持 tree-shaking。对包体积敏感的应用也可以使用稳定的组件级入口，避免让入口选择和完整组件目录绑定：
+
+```tsx
+import { Button } from "@ldkj/web-ui/button";
+import {
+  Select,
+  SelectTrigger,
+  SelectContent,
+  SelectItems,
+} from "@ldkj/web-ui/select";
+import { ThemeProvider, createTheme } from "@ldkj/web-ui/theme";
+```
+
+可用的组件级入口包括 `button`、`ghost-button`、`select`、`theme` 和 `icon`。图标仍按名称异步加载，未使用图标的 Button consumer 不会携带图标模块。
 
 ## Theme
 
@@ -133,7 +154,8 @@ export default function App() {
 - `pnpm dev`: 启动 VitePress 开发服务器查看文档和 Demo.
 - `pnpm icons:gen`: 扫描 `@material-symbols/svg-400` 并生成全量 Icon loaders.
 - `pnpm build:lib`: 构建生产包到 `dist/`.
-- `pnpm build:docs`: 构建 VitePress 静态文档到 `docs/.vitepress/dist/`.
+- `pnpm build:docs`: 构建 VitePress 静态文档到 `docs/.vitepress/dist/`，并生成 Orama 搜索索引.
+- `pnpm assert:masonry`: 验证 Masonry 无项目重叠、容器高度、响应式重排和禁用切换.
 - `pnpm build`: 构建生产包和文档.
 - `pnpm typecheck`: 运行 TypeScript 类型检查.
 

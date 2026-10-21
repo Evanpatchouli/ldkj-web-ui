@@ -1,0 +1,52 @@
+.ldkj-date-time-picker-panel {
+  max-width: calc(100vw - 16px);
+  max-height: var(--radix-popover-content-available-height);
+}
+
+/* 独立于 Tailwind 的 transform 变量初始化，并供滚轮动画恢复居中位置。 */
+.ldkj-date-time-picker-panel [data-slot="date-time-picker-selection-band"],
+.ldkj-date-time-picker-panel [data-slot="date-time-picker-time-window"],
+.ldkj-date-time-picker-panel [data-slot="date-time-picker-selected-viewport"],
+.ldkj-date-time-picker-panel [data-slot="date-time-picker-selected-window"],
+.ldkj-date-time-picker-clear {
+  transform: translateY(-50%);
+}
+
+[data-slot="date-time-picker"] button:focus-visible,
+.ldkj-date-time-picker-panel button:focus-visible,
+.ldkj-date-time-picker-panel [role="listbox"]:focus-visible {
+  outline: 2px solid var(--ldkj-color-primary);
+  outline-offset: -2px;
+}
+
+.ldkj-date-time-picker-calendar {
+  box-sizing: border-box;
+  flex: none;
+  width: 248px;
+  padding: 12px;
+}
+
+.ldkj-date-time-picker-calendar .ldkj-date-time-picker-today button {
+  background: var(--ldkj-color-accent);
+  color: var(--ldkj-color-accent-foreground);
+}
+
+.ldkj-date-time-picker-calendar .ldkj-date-time-picker-day-selected button {
+  background: var(--ldkj-color-primary);
+  color: var(--ldkj-color-primary-foreground);
+}
+
+@media (max-width: 440px) {
+  .ldkj-date-time-picker-main {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .ldkj-date-time-picker-main > [data-slot="date-time-picker-main-separator"] {
+    display: none;
+  }
+
+  .ldkj-date-time-picker-main > div:last-child {
+    height: 200px;
+  }
+}

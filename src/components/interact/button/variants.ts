@@ -11,7 +11,7 @@ import {
 } from "../../shared/shadow";
 
 export const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "box-border inline-flex appearance-none cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-md border border-solid border-transparent p-0 font-sans text-sm font-medium ring-offset-background transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
@@ -32,10 +32,10 @@ export const buttonVariants = cva(
         outline:
           "border border-solid border-[color:var(--ldkj-color-primary)] bg-[color:var(--ldkj-color-background)] text-[color:var(--ldkj-color-primary)] hover:border-[color:var(--ldkj-color-primary-hover)] hover:text-[color:var(--ldkj-color-primary-hover)]",
         ghost:
-          "text-[color:var(--ldkj-color-foreground)] hover:bg-[color:var(--ldkj-color-accent)] hover:text-[color:var(--ldkj-color-accent-foreground)]",
+          "bg-transparent text-[color:var(--ldkj-color-foreground)] hover:bg-[color:var(--ldkj-color-accent)] hover:text-[color:var(--ldkj-color-accent-foreground)]",
         link:
-          "text-[color:var(--ldkj-color-primary)] underline-offset-4 hover:text-[color:var(--ldkj-color-primary-hover)] hover:underline",
-        text: "text-[color:var(--ldkj-color-foreground)]",
+          "bg-transparent text-[color:var(--ldkj-color-primary)] underline-offset-4 hover:text-[color:var(--ldkj-color-primary-hover)] hover:underline",
+        text: "bg-transparent text-[color:var(--ldkj-color-foreground)]",
       },
       size: {
         xs: "h-6 text-[10px] px-2",

@@ -1,6 +1,7 @@
 import type { UserConfig } from "vitepress";
 import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
+import { OramaPlugin } from "@orama/plugin-vitepress";
 import { fileURLToPath } from "node:url";
 import packageJson from "../../package.json";
 
@@ -42,9 +43,13 @@ const config: UserConfig = {
               { text: "Divider", link: "/components/layout/divider" },
               { text: "Flex", link: "/components/layout/flex" },
               { text: "Grid", link: "/components/layout/grid" },
+              { text: "Columns", link: "/components/layout/columns" },
+              { text: "Masonry", link: "/components/layout/masonry" },
+              { text: "Header", link: "/components/layout/header" },
               { text: "Space", link: "/components/layout/space" },
               { text: "Row / Col", link: "/components/layout/row-col" },
               { text: "SafeArea", link: "/components/layout/safe-area" },
+              { text: "Splitter", link: "/components/layout/splitter" },
               { text: "Typography", link: "/components/layout/typography" },
             ],
           },
@@ -86,6 +91,7 @@ const config: UserConfig = {
               },
               { text: "Input", link: "/components/form/input" },
               { text: "InputNumber", link: "/components/form/input-number" },
+              { text: "DateTimePicker", link: "/components/form/date-time-picker" },
               { text: "InputOPT", link: "/components/form/input-opt" },
               { text: "AutoComplete", link: "/components/form/auto-complete" },
               { text: "Label", link: "/components/form/label" },
@@ -110,6 +116,23 @@ const config: UserConfig = {
               {
                 text: "MobileCascader",
                 link: "/components/mobile/mobile-cascader",
+              },
+              {
+                text: "MobileStepper",
+                link: "/components/mobile/mobile-stepper",
+              },
+              {
+                text: "MobilePage",
+                link: "/components/mobile/mobile-page",
+              },
+            ],
+          },
+          {
+            text: "场景组件",
+            items: [
+              {
+                text: "RacingChips",
+                link: "/components/scenario/racing-chips",
               },
             ],
           },
@@ -146,8 +169,20 @@ const config: UserConfig = {
                 link: "/components/navigation/menu",
               },
               {
+                text: "Navigator",
+                link: "/components/navigation/navigator",
+              },
+              {
                 text: "Pagination",
                 link: "/components/navigation/pagination",
+              },
+              {
+                text: "Stepper",
+                link: "/components/navigation/stepper",
+              },
+              {
+                text: "Timeline",
+                link: "/components/navigation/timeline",
               },
               {
                 text: "Tabs",
@@ -170,11 +205,11 @@ const config: UserConfig = {
           { text: "日志索引", link: "/devlog/" },
           ...(!isProd ? [{ text: "Next", link: "/devlog/next" }] : []),
           // 只陈列最近的 5 个版本
-          { text: "v1.0.1", link: "/devlog/v1.0.1" },
-          { text: "v1.0.0", link: "/devlog/v1.0.0" },
-          { text: "v0.22.0", link: "/devlog/v0.22.0" },
-          { text: "v0.21.0", link: "/devlog/v0.21.0" },
-          { text: "v0.20.0", link: "/devlog/v0.20.0" },
+          { text: "v1.10.0", link: "/devlog/v1.10.0" },
+          { text: "v1.9.1", link: "/devlog/v1.9.1" },
+          { text: "v1.9.0", link: "/devlog/v1.9.0" },
+          { text: "v1.8.0", link: "/devlog/v1.8.0" },
+          { text: "v1.7.0", link: "/devlog/v1.7.0" },
         ],
       },
     ],
@@ -183,7 +218,24 @@ const config: UserConfig = {
     ],
   },
   vite: {
-    plugins: [react() as any, svgr() as any],
+    plugins: [
+      react() as any,
+      svgr() as any,
+      OramaPlugin({
+        analytics: {
+          enabled: false,
+          apiKey: "",
+          indexId: "",
+        },
+      }) as any,
+    ],
+    vue: {
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag: string) => tag === "orama-searchbox",
+        },
+      },
+    },
     resolve: {
       alias: {
         "@": fileURLToPath(new URL("../../src", import.meta.url)),
@@ -192,7 +244,10 @@ const config: UserConfig = {
         ),
       },
     },
-  },
+    server: {
+      host: "0.0.0.0",
+    },
+  } as any,
 };
 
 export default config;

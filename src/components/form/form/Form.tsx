@@ -118,6 +118,10 @@ const controlAdapters: Record<string, ControlAdapter> = {
     valuePropName: "value",
   },
   Input: defaultAdapter,
+  DateTimePicker: {
+    trigger: "onChange",
+    valuePropName: "value",
+  },
   InputNumber: defaultAdapter,
   InputOPT: defaultAdapter,
   RadioGroup: {

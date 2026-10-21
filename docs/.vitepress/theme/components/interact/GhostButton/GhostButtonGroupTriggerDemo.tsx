@@ -8,6 +8,7 @@ export function Example() {
     <>
       <GhostButtonGroup
         trigger="hover"
+        data-ghost-button-group-trigger="hover"
         direction="right"
         position="static"
         variant="secondary"
@@ -45,6 +46,7 @@ export default function GhostButtonGroupTriggerDemo() {
           <div className="text-xs text-slate-500">Hover + right</div>
           <GhostButtonGroup
             trigger="hover"
+            data-ghost-button-group-trigger="hover"
             direction="right"
             position="static"
             variant="secondary"
