@@ -120,11 +120,11 @@ type MobileStepperComponent = React.FC<MobileStepperProps> &
   MobileStepperCompound;
 
 const pillSizeClass: Record<MobileStepperSize, string> = {
-  xs: "min-h-7 gap-1 rounded-full px-2 py-1 text-xs",
-  sm: "min-h-8 gap-1.5 rounded-full px-2.5 py-1.5 text-xs",
-  md: "min-h-9 gap-1.5 rounded-full px-3 py-2 text-sm",
-  lg: "min-h-10 gap-2 rounded-full px-3.5 py-2 text-sm",
-  xl: "min-h-11 gap-2 rounded-full px-4 py-2.5 text-base",
+  xs: "h-7 gap-1 rounded-full px-2 py-0 text-xs",
+  sm: "h-8 gap-1.5 rounded-full px-2.5 py-0 text-xs",
+  md: "h-9 gap-1.5 rounded-full px-3 py-0 text-sm",
+  lg: "h-10 gap-2 rounded-full px-3.5 py-0 text-sm",
+  xl: "h-11 gap-2 rounded-full px-4 py-0 text-base",
 };
 
 const compactPillSizeClass: Record<MobileStepperSize, string> = {
@@ -451,7 +451,7 @@ function MobileStepperRoot(props: MobileStepperProps) {
         </>
       );
     const pillClassName = cn(
-      "mobile-stepper-pill inline-flex shrink-0 items-center justify-center rounded-full border transition",
+      "mobile-stepper-pill inline-flex shrink-0 items-center justify-center rounded-full border border-solid transition",
       compact ? compactPillSizeClass[size] : pillSizeClass[size],
       getPillToneClass(state),
       state.clickable &&
@@ -593,7 +593,11 @@ function MobileStepperRoot(props: MobileStepperProps) {
               const state = getState(item, index);
 
               return (
-                <li key={getStepperItemKey(item, index)} className="shrink-0">
+                <li
+                  key={getStepperItemKey(item, index)}
+                  className="flex shrink-0 items-center"
+                  style={{ margin: 0, padding: 0, listStyle: "none" }}
+                >
                   {renderStepPill(item, state)}
                 </li>
               );
