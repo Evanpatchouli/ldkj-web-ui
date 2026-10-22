@@ -1,6 +1,6 @@
 # Drawer
 
-`Drawer` 是受控抽屉容器，用于侧边筛选、详情编辑、轻量表单和不离开当前页面的上下文任务。组件默认带遮罩、ESC 关闭、页面滚动锁和丝滑滑入动画。
+`Drawer` 是受控抽屉容器，用于侧边筛选、详情编辑、轻量表单和不离开当前页面的上下文任务。组件默认带遮罩、ESC 关闭、页面滚动锁和面板滑动动画。
 
 ## Basic
 
@@ -18,7 +18,7 @@
 
 ### 动画与滚动策略
 
-`animated` 控制是否启用滑入/退出动画，`animationDuration` 控制时长；`lockScroll` 控制打开期间是否锁定页面滚动。
+`animated` 控制是否启用动画：打开时面板从 `placement` 对应的边缘滑出，关闭时沿原方向收回；面板保持不透明，仅遮罩淡入淡出。`animationDuration` 同时控制面板与遮罩的时长，默认 `220ms`；`lockScroll` 控制打开期间是否锁定页面滚动。
 
 <DrawerBehaviorDemo />
 
@@ -61,7 +61,7 @@ export function Example() {
 | `placement` | 打开方向 | `"left" \| "right" \| "top" \| "bottom"` | `"right"` |
 | `width` | 左右抽屉宽度 | `number \| string` | `360` |
 | `height` | 上下抽屉高度 | `number \| string` | `320` |
-| `animated` | 是否启用滑入/退出动画 | `boolean` | `true` |
+| `animated` | 是否启用面板滑出/收回及遮罩淡入淡出 | `boolean` | `true` |
 | `animationDuration` | 动画时长，单位 ms | `number` | `220` |
 | `lockScroll` | 打开期间是否锁定页面滚动 | `boolean` | `true` |
 | `maskClosable` | 点击遮罩是否关闭 | `boolean` | `true` |
@@ -77,8 +77,9 @@ export function Example() {
 ## 行为规则 / 优先级
 
 - `Drawer` 是受控组件，遮罩、关闭按钮和 ESC 只调用 `onOpenChange(false)`。
-- `animated=true` 时关闭后会保留节点到动画结束，再根据 `destroyOnClose` 决定是否卸载。
-- `animated=false` 时打开和关闭立即生效，适合自动化测试或宿主环境不希望保留过渡的场景。
+- `animated=true` 且 `animationDuration>0` 时，首次打开和再次打开均从屏幕边缘滑出；关闭后会保留节点到收回动画结束，再根据 `destroyOnClose` 决定是否卸载。关闭过程中重新打开会取消卸载，并从当前位移继续滑出。
+- `destroyOnClose=false` 时，收回动画结束后隐藏整个抽屉，保留内部状态，同时避免透明遮罩阻挡页面操作。
+- `animated=false` 或 `animationDuration<=0` 时打开和关闭立即生效，适合自动化测试或宿主环境不希望保留过渡的场景。
 - `lockScroll=true` 会在打开期间设置 `document.body.style.overflow="hidden"`，多个 Drawer 同时打开时按计数恢复。
 - 有 `title` 时会自动渲染关闭按钮；无 `title` 时需要在内容中提供关闭入口。
 

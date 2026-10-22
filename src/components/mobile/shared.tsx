@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Drawer } from "@/components/interact/drawer/Drawer";
 import { cn } from "@/lib/utils";
 import { mergeSxStyle, resolveSx, useSxTheme, type SxProps } from "@/styling";
 
@@ -152,88 +153,58 @@ export function MobileDrawer(props: MobileDrawerProps) {
   } = props;
   const { sxClassName, sxInlineStyle } = useResolvedSx(sx);
 
-  React.useEffect(() => {
-    if (!open || typeof document === "undefined") return undefined;
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        onCancel?.();
-        onOpenChange?.(false);
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [onCancel, onOpenChange, open]);
-
-  if (!open) return null;
-
   const closeByCancel = () => {
     onCancel?.();
     onOpenChange?.(false);
   };
 
   return (
-    <div className="fixed inset-0 z-[var(--ldkj-z-drawer)]">
-      <button
-        type="button"
-        aria-label="关闭选择面板"
-        className="absolute inset-0 h-full w-full cursor-default border-0 bg-[color:var(--ldkj-color-overlay)] p-0"
-        onClick={closeByCancel}
-      />
-      <div
-        role="dialog"
-        aria-modal="true"
-        aria-label={typeof title === "string" ? title : "移动端选择面板"}
-        className={cn(
-          "absolute bottom-0 left-0 right-0 flex max-h-[76vh] flex-col overflow-hidden rounded-t-xl bg-[color:var(--ldkj-color-surface)] text-[color:var(--ldkj-color-surface-foreground)] shadow-[var(--ldkj-shadow-modal)]",
-          sxClassName,
-          className,
-          legacyClass,
-        )}
-        style={mergeSxStyle(
-          { maxHeight: resolveLength(maxHeight) },
-          style,
-          sxInlineStyle,
-        )}
-      >
-        <div className="flex min-h-12 shrink-0 items-center gap-3 border-b border-[color:var(--ldkj-color-border)] px-4">
-          {title ? (
-            <div className="min-w-0 flex-1 truncate text-left text-sm font-medium text-[color:var(--ldkj-color-foreground)]">
-              {title}
-            </div>
-          ) : (
-            <div className="min-w-0 flex-1" />
-          )}
-
-          <div className="flex shrink-0 items-center justify-end gap-2">
-            <button
-              type="button"
-              className="rounded-md bg-[color:var(--ldkj-color-accent)] px-3 py-1.5 text-sm font-medium text-[color:var(--ldkj-color-primary)] transition-colors hover:bg-[color:var(--ldkj-color-accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]"
-              onClick={closeByCancel}
-            >
-              {cancelText}
-            </button>
-            <button
-              type="button"
-              className="rounded-md bg-[color:var(--ldkj-color-primary)] px-3 py-1.5 text-sm font-medium text-[color:var(--ldkj-color-primary-foreground)] transition-colors hover:bg-[color:var(--ldkj-color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)] disabled:cursor-not-allowed disabled:opacity-50"
-              disabled={confirmDisabled}
-              onClick={onConfirm}
-            >
-              {confirmText}
-            </button>
+    <Drawer
+      open={open}
+      placement="bottom"
+      height="auto"
+      aria-label={typeof title === "string" ? title : "移动端选择面板"}
+      bodyClassName="flex flex-col overflow-hidden p-0"
+      className={cn("overflow-hidden rounded-t-xl", sxClassName, className, legacyClass)}
+      style={mergeSxStyle(
+        { maxHeight: resolveLength(maxHeight) },
+        style,
+        sxInlineStyle,
+      )}
+      onOpenChange={(nextOpen) => {
+        if (!nextOpen) onCancel?.();
+        onOpenChange?.(nextOpen);
+      }}
+    >
+      <div className="flex min-h-12 shrink-0 items-center gap-3 border-b border-[color:var(--ldkj-color-border)] px-4">
+        {title ? (
+          <div className="min-w-0 flex-1 truncate text-left text-sm font-medium text-[color:var(--ldkj-color-foreground)]">
+            {title}
           </div>
+        ) : (
+          <div className="min-w-0 flex-1" />
+        )}
+
+        <div className="flex shrink-0 items-center justify-end gap-2">
+          <button
+            type="button"
+            className="rounded-md bg-[color:var(--ldkj-color-accent)] px-3 py-1.5 text-sm font-medium text-[color:var(--ldkj-color-primary)] transition-colors hover:bg-[color:var(--ldkj-color-accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]"
+            onClick={closeByCancel}
+          >
+            {cancelText}
+          </button>
+          <button
+            type="button"
+            className="rounded-md bg-[color:var(--ldkj-color-primary)] px-3 py-1.5 text-sm font-medium text-[color:var(--ldkj-color-primary-foreground)] transition-colors hover:bg-[color:var(--ldkj-color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)] disabled:cursor-not-allowed disabled:opacity-50"
+            disabled={confirmDisabled}
+            onClick={onConfirm}
+          >
+            {confirmText}
+          </button>
         </div>
-        {children}
       </div>
-    </div>
+      {children}
+    </Drawer>
   );
 }
 

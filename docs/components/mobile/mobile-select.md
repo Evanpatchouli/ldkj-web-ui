@@ -1,6 +1,6 @@
 # MobileSelect
 
-`MobileSelect` 是移动端单选抽屉。它复用 `SelectOption` / `SelectOptionGroup` 数据结构，点击触发器后从底部打开抽屉，用户选择候选项后点击“确定”提交。
+`MobileSelect` 是移动端单选抽屉。它复用 `SelectOption` / `SelectOptionGroup` 数据结构，弹层基于 `Drawer` 的底部模式，打开时从底部滑出，关闭时向底部收回。用户选择候选项后点击“确定”提交。
 
 ## Basic
 
@@ -93,7 +93,8 @@ export function Example() {
 ## 行为规则 / 优先级
 
 - 用户点击选项时只更新抽屉内的临时值，点击“确定”后才触发 `onValueChange`。
-- 点击“取消”或遮罩会关闭抽屉，并丢弃本次未确认的临时选择。
+- 点击“取消”、遮罩或按 ESC 会关闭抽屉，并丢弃本次未确认的临时选择。
+- 弹层复用 `Drawer` 的动画、滚动锁和关闭生命周期；面板始终保持不透明，仅遮罩淡入淡出。默认动画时长为 `220ms`，收回动画结束后卸载内容。
 - `displayRender` 优先于默认的 `option.label` 触发器显示。
 - `disabled` 会禁用触发器；`readOnly` 允许查看当前值，但不会提交或清空新值。
 
@@ -102,3 +103,5 @@ export function Example() {
 - `MobileSelect` 适合移动端页面、H5 内嵌页和窄屏表单；桌面优先场景仍建议使用 `Select`。
 - `align` 只影响抽屉内选项内容，不影响触发器文案和抽屉本身的位置。
 - 表单提交时，`name` 对应的隐藏字段值是当前选中字符串。
+- 抽屉默认按内容撑开，最大高度为 `76vh`；可通过 `maxDrawerHeight` 调整，长列表在内容区滚动，标题及取消/确认栏保持固定。
+- 弹层使用 `role="dialog"` 和 `aria-modal="true"`，打开时焦点进入面板；建议提供文本 `title` 作为可访问名称，键盘用户可按 ESC 取消。

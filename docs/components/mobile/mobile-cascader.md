@@ -1,6 +1,6 @@
 # MobileCascader
 
-`MobileCascader` 是移动端级联抽屉，适合省市区、业务分类、组织层级等路径选择。它沿用 `Cascader` 的路径数组值模型，并在移动端抽屉内提供分级 tab 与确认提交。
+`MobileCascader` 是移动端级联抽屉，适合省市区、业务分类、组织层级等路径选择。它沿用 `Cascader` 的路径数组值模型，弹层基于 `Drawer` 的底部模式，打开时从底部滑出，关闭时向底部收回，并提供分级 tab 与确认提交。
 
 ## Basic
 
@@ -113,6 +113,8 @@ export function Example() {
 ## 行为规则 / 优先级
 
 - 选项点击只更新抽屉内临时路径，点击“确定”后才提交 `onValueChange`。
+- 点击“取消”、遮罩或按 ESC 会关闭抽屉并丢弃未确认的临时路径，再次打开时从已提交的路径恢复。
+- 弹层复用 `Drawer` 的动画、滚动锁和关闭生命周期；面板始终保持不透明，仅遮罩淡入淡出。默认动画时长为 `220ms`，收回动画结束后卸载内容。
 - `changeOnSelect=false` 时，有子级的中间层不能直接确认；需要选到叶子节点。设置为 `true` 后可确认任意已选层级。
 - `displayRender` 优先于默认的 `separator` 拼接规则。
 - `fieldNames` 会统一作用于 `label`、`value`、`children`、`disabled`、`isLeaf`、`loading` 的读取。
@@ -123,3 +125,5 @@ export function Example() {
 - 表单提交时，`name` 对应隐藏字段写入路径数组 JSON 字符串，例如 `["xinjiang","urumqi"]`。
 - 懒加载节点建议显式设置 `isLeaf: false`，并由外部 `options` 状态补齐 `children`。
 - 长文本地址建议使用默认左对齐，短枚举或数字项可以使用 `center` 或 `right`。
+- 抽屉默认按内容撑开，最大高度为 `76vh`；可通过 `maxDrawerHeight` 调整，长列表在内容区滚动，标题、取消/确认栏和层级 tab 保持固定。
+- 弹层使用 `role="dialog"` 和 `aria-modal="true"`，打开时焦点进入面板；建议提供文本 `title` 作为可访问名称，键盘用户可按 ESC 取消。

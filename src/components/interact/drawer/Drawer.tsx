@@ -16,7 +16,7 @@ export type DrawerProps = React.HTMLAttributes<HTMLDivElement> & {
   footer?: React.ReactNode;
   children?: React.ReactNode;
   onOpenChange?: (open: boolean) => void;
-  /** Enables slide/fade transitions. Set false when a test or host app needs instant state changes. */
+  /** Enables panel sliding and overlay fading. Set false for instant state changes. */
   animated?: boolean;
   /** Transition duration in ms. */
   animationDuration?: number;
@@ -56,27 +56,23 @@ function getPanelPosition(placement: DrawerPlacement) {
     case "left":
       return {
         position: "left-0 top-0 h-full",
-        open: "translate-x-0",
-        closed: "-translate-x-full",
+        closedTransform: "translate3d(-100%, 0, 0)",
       };
     case "top":
       return {
         position: "left-0 top-0 w-full",
-        open: "translate-y-0",
-        closed: "-translate-y-full",
+        closedTransform: "translate3d(0, -100%, 0)",
       };
     case "bottom":
       return {
         position: "bottom-0 left-0 w-full",
-        open: "translate-y-0",
-        closed: "translate-y-full",
+        closedTransform: "translate3d(0, 100%, 0)",
       };
     case "right":
     default:
       return {
         position: "right-0 top-0 h-full",
-        open: "translate-x-0",
-        closed: "translate-x-full",
+        closedTransform: "translate3d(100%, 0, 0)",
       };
   }
 }
@@ -102,10 +98,12 @@ export function Drawer(props: DrawerProps) {
     closeOnEsc = true,
     destroyOnClose = true,
     role = "dialog",
+    style,
     ...rest
   } = props;
+  const shouldAnimate = animated && animationDuration > 0;
   const [mounted, setMounted] = React.useState(open);
-  const [visible, setVisible] = React.useState(open);
+  const [visible, setVisible] = React.useState(open && !shouldAnimate);
   const panelRef = React.useRef<HTMLDivElement>(null);
   const panelPosition = getPanelPosition(placement);
   const isHorizontal = placement === "left" || placement === "right";
@@ -113,23 +111,35 @@ export function Drawer(props: DrawerProps) {
   React.useEffect(() => {
     if (open) {
       setMounted(true);
-      const frame = window.requestAnimationFrame(() => setVisible(true));
-      return () => window.cancelAnimationFrame(frame);
+      if (!shouldAnimate) {
+        setVisible(true);
+        return;
+      }
+
+      // Paint the off-screen position before starting the entry transition.
+      let enterFrame: number | undefined;
+      const frame = window.requestAnimationFrame(() => {
+        enterFrame = window.requestAnimationFrame(() => setVisible(true));
+      });
+      return () => {
+        window.cancelAnimationFrame(frame);
+        if (enterFrame !== undefined) window.cancelAnimationFrame(enterFrame);
+      };
     }
 
     setVisible(false);
 
-    if (!animated) {
-      if (destroyOnClose) setMounted(false);
+    if (!shouldAnimate) {
+      setMounted(false);
       return;
     }
 
     const timer = window.setTimeout(() => {
-      if (destroyOnClose) setMounted(false);
+      setMounted(false);
     }, animationDuration);
 
     return () => window.clearTimeout(timer);
-  }, [animated, animationDuration, destroyOnClose, open]);
+  }, [animationDuration, open, shouldAnimate]);
 
   React.useEffect(() => {
     if (!open || !lockScroll) return;
@@ -149,21 +159,25 @@ export function Drawer(props: DrawerProps) {
 
   React.useEffect(() => {
     if (!open) return;
-    panelRef.current?.focus();
-  }, [open]);
+    panelRef.current?.focus({ preventScroll: true });
+  }, [mounted, open]);
 
-  if (!mounted) return null;
+  if (!mounted && destroyOnClose) return null;
 
   return (
-    <div className="fixed inset-0 z-[var(--ldkj-z-drawer)]" aria-hidden={!visible}>
+    <div
+      className="fixed inset-0 z-[var(--ldkj-z-drawer)] overflow-hidden"
+      hidden={!mounted}
+      aria-hidden={!open}
+    >
       <div
         className={cn(
           "absolute inset-0 bg-[color:var(--ldkj-color-overlay)]",
-          animated && "transition-opacity ease-out",
+          shouldAnimate && "transition-opacity ease-out",
           visible ? "opacity-100" : "opacity-0",
           overlayClassName,
         )}
-        style={{ transitionDuration: animated ? `${animationDuration}ms` : "0ms" }}
+        style={{ transitionDuration: shouldAnimate ? `${animationDuration}ms` : "0ms" }}
         onClick={() => {
           if (maskClosable) onOpenChange?.(false);
         }}
@@ -177,15 +191,17 @@ export function Drawer(props: DrawerProps) {
         className={cn(
           "absolute flex max-h-full max-w-full flex-col bg-[color:var(--ldkj-color-surface)] text-[color:var(--ldkj-color-surface-foreground)] shadow-[var(--ldkj-shadow-modal)] outline-none",
           panelPosition.position,
-          animated && "transition-transform ease-out will-change-transform",
-          visible ? panelPosition.open : panelPosition.closed,
+          shouldAnimate && "transition-transform ease-out will-change-transform",
           className,
           legacyClass,
         )}
         style={{
           width: isHorizontal ? width : undefined,
           height: isHorizontal ? undefined : height,
-          transitionDuration: animated ? `${animationDuration}ms` : "0ms",
+          // Use a complete transform: Tailwind's transform variables need not be initialized by a host reset.
+          transform: visible ? "translate3d(0, 0, 0)" : panelPosition.closedTransform,
+          transitionDuration: shouldAnimate ? `${animationDuration}ms` : "0ms",
+          ...style,
         }}
         {...rest}
       >
