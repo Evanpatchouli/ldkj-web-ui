@@ -257,7 +257,7 @@ export const MobileTrigger = React.forwardRef<HTMLButtonElement, MobileTriggerPr
     const { sxClassName, sxInlineStyle } = useResolvedSx(sx);
 
     return (
-      <span className="relative inline-flex w-full items-stretch">
+      <span className="relative inline-flex w-full min-w-0 items-stretch">
         <button
           ref={ref}
           type="button"
@@ -287,13 +287,13 @@ export const MobileTrigger = React.forwardRef<HTMLButtonElement, MobileTriggerPr
           >
             {hasValue ? display : placeholder}
           </span>
-          <ChevronDownIcon className="absolute right-3 h-4 w-4 text-[color:var(--ldkj-color-muted-foreground)]" />
+          <ChevronDownIcon className="absolute inset-y-0 right-3 my-auto h-4 w-4 text-[color:var(--ldkj-color-muted-foreground)]" />
         </button>
 
         {clearable && hasValue && !disabled && !readOnly ? (
           <button
             type="button"
-            className="absolute right-8 top-1/2 z-10 -translate-y-1/2 rounded p-1 text-[color:var(--ldkj-color-muted-foreground)] transition-colors hover:text-[color:var(--ldkj-color-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]"
+            className="absolute inset-y-0 right-8 z-10 my-auto inline-flex h-fit items-center justify-center rounded p-1 text-[color:var(--ldkj-color-muted-foreground)] transition-colors hover:text-[color:var(--ldkj-color-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)]"
             aria-label="清除选择"
             onMouseDown={(event) => event.preventDefault()}
             onClick={(event) => {

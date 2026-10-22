@@ -78,6 +78,7 @@
     "assert:docs-search": "node ./scripts/assert-docs-search.mjs",
     "assert:masonry": "node ./scripts/assert-masonry.mjs",
     "assert:date-time-picker": "node ./scripts/assert-date-time-picker.mjs",
+    "assert:mobile-trigger": "node ./scripts/assert-mobile-trigger.mjs",
     "prepare:package": "node ./scripts/prepare-package.js",
     "preview": "vitepress preview docs",
     "typecheck": "tsc --noEmit",
