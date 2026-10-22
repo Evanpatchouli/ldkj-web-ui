@@ -18,6 +18,8 @@ import {
 } from "@/components/shared/stepper";
 import { cn } from "@/lib/utils";
 import { mergeSxStyle, resolveSx, useSxTheme, type SxProps } from "@/styling";
+import { useTitleMotion } from "./useTitleMotion";
+import "./mobile-stepper.css";
 
 type StyledProps = {
   className?: string;
@@ -192,10 +194,11 @@ function renderDefaultLabel(
   state: MobileStepperRenderState,
   showInactiveLabels: boolean,
 ) {
-  if (!state.active && !showInactiveLabels) return null;
-
   return (
-    <span className="min-w-0 truncate font-medium leading-5">
+    <span
+      className="mobile-stepper-pill-label min-w-0 whitespace-nowrap font-medium leading-5"
+      aria-hidden={!state.active && !showInactiveLabels ? true : undefined}
+    >
       {item.label}
     </span>
   );
@@ -273,6 +276,7 @@ function MobileStepperRoot(props: MobileStepperProps) {
   const fallbackPercent =
     items.length <= 0 ? 0 : Math.round(((current + 1) / items.length) * 100);
   const touchStartRef = React.useRef<{ x: number; y: number } | null>(null);
+  const titleListRef = useTitleMotion();
 
   const {
     className: headerClassName,
@@ -451,11 +455,13 @@ function MobileStepperRoot(props: MobileStepperProps) {
         </>
       );
     const pillClassName = cn(
-      "mobile-stepper-pill inline-flex shrink-0 items-center justify-center rounded-full border border-solid transition",
+      "mobile-stepper-pill inline-flex shrink-0 items-center overflow-hidden rounded-full border border-solid transition-colors delay-100 duration-200 motion-reduce:transition-none motion-reduce:delay-0",
       compact ? compactPillSizeClass[size] : pillSizeClass[size],
+      compact && "gap-0",
+      !renderLabel && !renderIndicatorItem ? "justify-start" : "justify-center",
       getPillToneClass(state),
       state.clickable &&
-        "cursor-pointer hover:brightness-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)] focus-visible:ring-offset-2",
+        "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ldkj-color-ring)] focus-visible:ring-offset-2",
       state.disabled && "cursor-not-allowed",
     );
 
@@ -464,10 +470,12 @@ function MobileStepperRoot(props: MobileStepperProps) {
         <button
           type="button"
           className={pillClassName}
+          style={compact ? { paddingInline: "calc(0.375rem - 1px)" } : undefined}
+          data-active-highlight={state.active && !state.disabled ? "" : undefined}
           aria-current={state.active ? "step" : undefined}
           onClick={() => activateStep(item, state)}
         >
-          {content}
+          <span className="mobile-stepper-pill-content">{content}</span>
         </button>
       );
     }
@@ -475,10 +483,12 @@ function MobileStepperRoot(props: MobileStepperProps) {
     return (
       <span
         className={pillClassName}
+        style={compact ? { paddingInline: "calc(0.375rem - 1px)" } : undefined}
+        data-active-highlight={state.active && !state.disabled ? "" : undefined}
         aria-current={state.active ? "step" : undefined}
         aria-disabled={state.disabled || undefined}
       >
-        {content}
+        <span className="mobile-stepper-pill-content">{content}</span>
       </span>
     );
   };
@@ -586,9 +596,19 @@ function MobileStepperRoot(props: MobileStepperProps) {
       >
         {indicator === "titles" ? (
           <ol
-            className="m-0 flex list-none items-center gap-2 p-0"
+            ref={titleListRef}
+            className="mobile-stepper-titles m-0 flex list-none items-center gap-2 p-0"
             style={{ listStyle: "none", margin: 0, padding: 0 }}
           >
+            <li
+              aria-hidden="true"
+              role="presentation"
+              style={{ listStyle: "none", margin: 0, padding: 0 }}
+              className={cn(
+                "mobile-stepper-active-indicator rounded-full border border-solid",
+                activeItem && getPillToneClass(getState(activeItem, current)),
+              )}
+            />
             {items.map((item, index) => {
               const state = getState(item, index);
 

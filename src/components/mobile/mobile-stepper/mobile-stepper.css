@@ -1,0 +1,44 @@
+.mobile-stepper-titles {
+  position: relative;
+  isolation: isolate;
+}
+
+.mobile-stepper-active-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.mobile-stepper-titles[data-motion-ready] .mobile-stepper-pill[data-active-highlight] {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.mobile-stepper-pill-content {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: inherit;
+}
+
+.mobile-stepper-pill-label {
+  flex-shrink: 0;
+  transition: opacity 180ms ease, visibility 180ms, transform 300ms cubic-bezier(0.45, 0, 0.2, 1);
+}
+
+.mobile-stepper-pill-label[aria-hidden="true"] {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-stepper-pill-label {
+    transition: none;
+  }
+}
