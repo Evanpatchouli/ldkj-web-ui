@@ -1,6 +1,7 @@
 import { defineComponent, h } from "vue";
 
 const versionLinks = [
+  { text: "v1.10.1（2026-10-22）", link: "/devlog/v1.10.1" },
   { text: "v1.10.0（2026-10-20）", link: "/devlog/v1.10.0" },
   { text: "v1.9.1（2026-08-18）", link: "/devlog/v1.9.1" },
   { text: "v1.9.0（2026-07-13）", link: "/devlog/v1.9.0" },
