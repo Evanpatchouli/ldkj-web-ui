@@ -2,12 +2,15 @@
 
 说明：采用本库 `PascalCase` 命名，`[x]` 表示已实现，`[ ]` 表示待实现。
 
+核对基线：`@ldkj/web-ui@1.10.1`（2026-10-23），按公开导出与使用文档核对完成状态。
+以下保留原有版本规划分组；部分 V2 能力已在 1.x 交付，勾选不代表 V2 已发布。
+
 ## V1（核心可用）
 
 ## 样式与主题
 
 - [x] sx 样式扩展
-- [ ] 主题定制
+- [x] 主题定制（ThemeProvider、useTheme 与 CSS Variables，支持局部 / 根节点作用域和明暗模式）
 
 ## 基础与布局
 
@@ -25,6 +28,9 @@
 
 ## 通用与导航
 
+- [x] Button
+- [x] GhostButton
+- [x] GhostButtonGroup
 - [x] Anchor
 - [x] Menu
 - [x] MenuItem（作为 Menu 子组件导出，组合式 API）
@@ -67,6 +73,11 @@
 - [x] Uploader
 - [x] Label
 
+## 移动端
+
+- [x] MobileSelect
+- [x] MobileCascader
+
 ## 反馈与弹层
 
 - [x] Toast
@@ -94,6 +105,12 @@
 - [x] Columns
 - [x] Masonry（自研已知宽高比瀑布流，与固定分栏 Columns 区分）
 
+## 移动端页面
+
+- [x] RootPage（顶部标题栏、内容区、安全区与下拉刷新）
+- [x] SubPage（基于 RootPage 的子页面与返回交互）
+- [x] TabRootPage（底部 Tab 导航页面）
+
 ## 数据展示
 
 - [ ] DataGrid
@@ -108,8 +125,8 @@
 
 ## 表单与输入
 
-- [ ] Calendar
-- [ ] DateTimePicker
+- [ ] Calendar（已有 DateTimePicker 内部单选日历，独立公开组件与文档待补齐）
+- [x] DateTimePicker
 - [ ] ColorPicker
 - [ ] Transfer
 
